@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'donate.dart';
 
 void main() {
   runApp(const MyApp());
@@ -48,7 +49,6 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-
   @override
   Widget build(BuildContext context) {
     // This method is rerun every time setState is called, for instance as done
@@ -83,11 +83,7 @@ class _MyHomePageState extends State<MyHomePage> {
           // axis because Columns are vertical (the cross axis would be
           // horizontal).
           mainAxisAlignment: MainAxisAlignment.center,
-          children: const <Widget>[
-            Text(
-              'This is a sample home page for the Call BlackLine application',
-            ),
-          ],
+          children: <Widget>[Donate()],
         ),
       ), // This trailing comma makes auto-formatting nicer for build methods.
     );
