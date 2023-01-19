@@ -15,6 +15,7 @@ class AuthenticationService {
   //Listens in on changes to the user's sign in state
   Stream<User?> get authStateChanges => _firebaseAuth.authStateChanges();
 
+  /// Signs in with email and password
   Future<String> signIn(
       {required String email, required String password}) async {
     try {
@@ -28,6 +29,7 @@ class AuthenticationService {
     }
   }
 
+  /// Signs up with email and password
   Future<String> signUp(
       {required String email, required String password}) async {
     try {
@@ -41,6 +43,7 @@ class AuthenticationService {
     }
   }
 
+  /// Sends a password reset email
   Future<String> resetPassword(String email) async {
     try {
       await _firebaseAuth.sendPasswordResetEmail(email: email);
@@ -50,6 +53,7 @@ class AuthenticationService {
     }
   }
 
+  /// Signs out
   Future<String> signOut() async {
     try {
       await _firebaseAuth.signOut();
