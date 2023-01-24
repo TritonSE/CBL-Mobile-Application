@@ -3,6 +3,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 /**
  * Help used:
  * https://www.youtube.com/watch?v=4vKiJZNPhss
+ * https://youtu.be/4vKiJZNPhss
  */
 
 class AuthenticationService {
