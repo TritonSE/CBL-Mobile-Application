@@ -44,7 +44,7 @@ class AuthenticationService {
   }
 
   /// Sends a password reset email
-  Future<String> resetPassword(String email) async {
+  Future<String> resetPassword({required String email}) async {
     try {
       await _firebaseAuth.sendPasswordResetEmail(email: email);
       return "Password reset email sent";
