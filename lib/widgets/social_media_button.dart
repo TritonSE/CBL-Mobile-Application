@@ -5,6 +5,7 @@ class SocialMedia extends StatelessWidget {
   final int googleGreen;
 
   const SocialMedia({
+    super.key,
     required this.fbBlue,
     required this.googleGreen,
   });
@@ -24,7 +25,7 @@ class SocialMedia extends StatelessWidget {
                   color: Color(fbBlue),
                   width: 2,
                 ),
-                borderRadius: BorderRadius.all(
+                borderRadius: const BorderRadius.all(
                   Radius.circular(16),
                 ),
               ),
@@ -66,7 +67,7 @@ class SocialMedia extends StatelessWidget {
                   color: Color(googleGreen),
                   width: 2,
                 ),
-                borderRadius: BorderRadius.all(
+                borderRadius: const BorderRadius.all(
                   Radius.circular(16),
                 ),
               ),

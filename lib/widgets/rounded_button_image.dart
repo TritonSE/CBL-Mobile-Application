@@ -24,6 +24,7 @@ class RoundedButtonImage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
+      onTap: onTap,
       child: Container(
         height: height,
         width: width,
@@ -57,7 +58,6 @@ class RoundedButtonImage extends StatelessWidget {
           ),
         ),
       ),
-      onTap: onTap,
     );
   }
 }

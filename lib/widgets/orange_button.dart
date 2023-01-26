@@ -13,6 +13,7 @@ class OrangeButton extends StatelessWidget {
       height: 48,
       width: 121,
       child: GestureDetector(
+        onTap: onTap,
         child: Container(
           decoration: const BoxDecoration(
             borderRadius: BorderRadius.all(
@@ -23,7 +24,7 @@ class OrangeButton extends StatelessWidget {
           child: Center(
             child: Text(
               buttonText,
-              style: TextStyle(
+              style: const TextStyle(
                   fontSize: 20,
                   fontFamily: 'Inter',
                   fontWeight: FontWeight.w500,
@@ -31,7 +32,6 @@ class OrangeButton extends StatelessWidget {
             ),
           ),
         ),
-        onTap: onTap,
       ),
     );
   }

@@ -5,8 +5,11 @@ class CustomTitle extends StatelessWidget {
   final double topPadding;
   final double bottomPadding;
 
-  CustomTitle(
-      {required this.text, this.topPadding = 24, this.bottomPadding = 24});
+  const CustomTitle(
+      {super.key,
+      required this.text,
+      this.topPadding = 24,
+      this.bottomPadding = 24});
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +18,7 @@ class CustomTitle extends StatelessWidget {
         padding: EdgeInsets.only(top: topPadding, bottom: bottomPadding),
         child: Text(
           text,
-          style: TextStyle(
+          style: const TextStyle(
               fontWeight: FontWeight.w700,
               fontSize: 34,
               letterSpacing: 0.4,

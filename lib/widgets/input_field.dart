@@ -5,8 +5,9 @@ class InputField extends StatelessWidget {
   final int textColor;
   final String text;
   final IconData icon;
-  InputField(
-      {required this.borderColor,
+  const InputField(
+      {super.key,
+      required this.borderColor,
       required this.textColor,
       required this.text,
       required this.icon});
@@ -47,7 +48,7 @@ class InputField extends StatelessWidget {
             color: Color(textColor),
           ),
         ),
-        style: TextStyle(
+        style: const TextStyle(
           fontSize: 17,
           color: Colors.black,
           fontWeight: FontWeight.w500,

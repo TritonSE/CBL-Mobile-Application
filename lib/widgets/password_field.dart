@@ -6,7 +6,10 @@ class PasswordField extends StatefulWidget {
   int textColor;
   bool hideText = true;
   PasswordField(
-      {required this.text, required this.borderColor, required this.textColor});
+      {super.key,
+      required this.text,
+      required this.borderColor,
+      required this.textColor});
 
   @override
   State<PasswordField> createState() => _PasswordFieldState();
@@ -68,7 +71,7 @@ class _PasswordFieldState extends State<PasswordField> {
               ),
               labelText: widget.text,
               labelStyle: TextStyle(color: Color(widget.textColor))),
-          style: TextStyle(
+          style: const TextStyle(
             fontSize: 17,
             color: Colors.black,
             fontWeight: FontWeight.w500,

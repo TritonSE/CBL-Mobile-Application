@@ -6,7 +6,7 @@ class Header extends StatelessWidget implements PreferredSizeWidget {
   const Header({Key? key, this.isHome = false}) : super(key: key);
 
   @override
-  Size get preferredSize => Size.fromHeight(kToolbarHeight);
+  Size get preferredSize => const Size.fromHeight(kToolbarHeight);
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +15,7 @@ class Header extends StatelessWidget implements PreferredSizeWidget {
           ? Padding(
               padding: const EdgeInsets.only(left: 24.0),
               child: IconButton(
-                icon: Icon(
+                icon: const Icon(
                   Icons.arrow_back_ios,
                   color: Color(0xffDF742C),
                   size: 30,

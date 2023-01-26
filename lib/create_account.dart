@@ -46,7 +46,7 @@ class _CreateAccountState extends State<CreateAccount> {
           ),
           child: Column(
             children: [
-              CustomTitle(
+              const CustomTitle(
                 text: 'Create An Account',
                 topPadding: 24,
                 bottomPadding: 16,
@@ -81,7 +81,7 @@ class _CreateAccountState extends State<CreateAccount> {
                   text: 'Password Confirm',
                   borderColor: primaryOrange,
                   textColor: lightGray),
-              SizedBox(
+              const SizedBox(
                 height: 8,
               ),
               Row(
