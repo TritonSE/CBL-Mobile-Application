@@ -24,12 +24,12 @@ flutter:
   uses-material-design: true
 
   assets:
-    - assets/call-blackline-black.png
-    - assets/call.jpg
-    - assets/form.jpg
-    - assets/facebook.png
-    - assets/google.png
-    - assets/text.jpg
+    - assets/images/call-blackline-black.png
+    - assets/images/call.jpg
+    - assets/images/form.jpg
+    - assets/images/facebook.png
+    - assets/images/google.png
+    - assets/images/text.jpg
 
   fonts:
     - family: Inter
