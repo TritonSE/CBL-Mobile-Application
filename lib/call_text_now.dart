@@ -10,7 +10,7 @@ class CallTextNow extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      appBar: Header(),
+      appBar: const Header(),
       body: Padding(
         padding: const EdgeInsets.symmetric(
           horizontal: 16,
@@ -47,23 +47,23 @@ class CallTextNow extends StatelessWidget {
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
-              children: [
+              children: const [
                 RoundedButtonImage(
                   height: 171,
                   width: 171,
-                  imageURL: 'assets/call.jpg',
+                  imageURL: 'assets/images/call.jpg',
                   text: 'Call 1(800) 604-5841',
                   textPaddingTop: 16.0,
                   textContainerAlignment: Alignment.topCenter,
                   textContainerWidth: 100,
                 ),
-                const SizedBox(
+                SizedBox(
                   width: 16,
                 ),
                 RoundedButtonImage(
                   height: 171,
                   width: 171,
-                  imageURL: 'assets/text.jpg',
+                  imageURL: 'assets/images/text.jpg',
                   text: 'Text 1(800) 604-5841',
                   textPaddingTop: 16.0,
                   textContainerAlignment: Alignment.topCenter,

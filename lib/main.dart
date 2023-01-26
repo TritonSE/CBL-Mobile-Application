@@ -56,7 +56,7 @@ class SeekHelp extends StatelessWidget {
             RoundedButtonImage(
               height: 75,
               width: double.infinity,
-              imageURL: 'assets/call.jpg',
+              imageURL: 'assets/images/call.jpg',
               text: 'Call or Text',
               onTap: () => Navigator.pushNamed(context, '/takeAction'),
             ),
@@ -66,7 +66,7 @@ class SeekHelp extends StatelessWidget {
             const RoundedButtonImage(
               height: 75,
               width: double.infinity,
-              imageURL: 'assets/form.jpg',
+              imageURL: 'assets/images/form.jpg',
               text: 'Write',
               // ignore: avoid_print
             ),

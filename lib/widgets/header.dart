@@ -31,7 +31,9 @@ class Header extends StatelessWidget implements PreferredSizeWidget {
       title: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         mainAxisSize: MainAxisSize.min,
-        children: [Image.asset('assets/call-blackline-black.png', height: 35)],
+        children: [
+          Image.asset('assets/images/call-blackline-black.png', height: 35)
+        ],
       ),
     );
   }

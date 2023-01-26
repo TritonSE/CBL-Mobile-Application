@@ -34,7 +34,7 @@ class SocialMedia extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.only(right: 14.5),
                     child: Image.asset(
-                      'assets/facebook.png',
+                      'assets/images/facebook.png',
                     ),
                   ),
                   Center(
@@ -76,7 +76,7 @@ class SocialMedia extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.only(right: 14.5),
                     child: Image.asset(
-                      'assets/google.png',
+                      'assets/images/google.png',
                     ),
                   ),
                   Center(
