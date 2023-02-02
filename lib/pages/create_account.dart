@@ -1,4 +1,3 @@
-import 'package:call_black_line/call_text_now.dart';
 import 'package:call_black_line/widgets/checkbox_text.dart';
 import 'package:call_black_line/widgets/orange_button.dart';
 import 'package:flutter/material.dart';
@@ -38,7 +37,7 @@ class _CreateAccountState extends State<CreateAccount> {
     return Scaffold(
       // resizeToAvoidBottomInset: false,
       backgroundColor: Colors.white,
-      appBar: Header(),
+      appBar: const Header(),
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.symmetric(
@@ -61,7 +60,7 @@ class _CreateAccountState extends State<CreateAccount> {
               InputField(
                   borderColor: primaryOrange,
                   textColor: lightGray,
-                  text: 'Userame',
+                  text: 'Username',
                   icon: Icons.person),
               InputField(
                   borderColor: primaryOrange,
@@ -131,8 +130,7 @@ class _CreateAccountState extends State<CreateAccount> {
               SocialMedia(fbBlue: fbBlue, googleGreen: googleGreen),
               const SizedBox(
                 height: 10,
-              ),
-              OrDivider(veryLightGray: veryLightGray)
+              )
             ],
           ),
         ),

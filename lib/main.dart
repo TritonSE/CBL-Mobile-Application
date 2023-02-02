@@ -1,9 +1,7 @@
-import 'dart:io';
-
-import 'package:call_black_line/call_text_now.dart';
-import 'package:call_black_line/create_account.dart';
+import 'package:call_black_line/pages/call_text_now.dart';
+import 'package:call_black_line/pages/create_account.dart';
 import 'package:flutter/material.dart';
-import 'package:call_black_line/take_action.dart';
+import 'package:call_black_line/pages/take_action.dart';
 import 'package:call_black_line/widgets/custom_title.dart';
 import 'package:call_black_line/widgets/header.dart';
 import 'package:call_black_line/widgets/rounded_button_image.dart';
