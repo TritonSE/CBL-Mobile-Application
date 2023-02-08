@@ -1,10 +1,31 @@
 import 'package:flutter/material.dart';
+import 'package:call_black_line/header.dart';
 import 'resources.dart';
 
 class CategoryName extends StatelessWidget {
-  const CategoryName({super.key});
-  //final List<String> titles = <String>['A', 'B', 'C'];
-  //final List<String> descriptions = <String>['a', 'b', 'c'];
+  final List<String> titles;
+  final List<String> descriptions;
+  const CategoryName(
+      {Key? key,
+      this.titles = const [
+        'Resource 1',
+        'Resource 4',
+        'Resource 3',
+        'Resource 4',
+        'Resource 5',
+        'Resource 6',
+        'Resource 7'
+      ],
+      this.descriptions = const [
+        'desc 1',
+        'desc 2',
+        'desc 3',
+        'desc 4',
+        'desc 5',
+        'desc 6',
+        'desc 7'
+      ]})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -30,78 +51,58 @@ class CategoryName extends StatelessWidget {
           child: ListView(
             //physics: BouncingScrollPhysics(),
             children: [
-              ResourceRect(
-                title: 'resource 1',
-                description: 'desc 1',
+              GestureDetector(
+                onTap: () => Navigator.pushNamed(context, '/resoureTitle'),
+                child: ResourceRect(
+                  title: titles[0],
+                  description: descriptions[0],
+                ),
               ),
-              ResourceRect(
-                title: 'resource 2',
-                description: 'desc 2',
+              GestureDetector(
+                onTap: () => Navigator.pushNamed(context, '/resoureTitle'),
+                child: ResourceRect(
+                  title: titles[1],
+                  description: descriptions[1],
+                ),
               ),
-              ResourceRect(
-                title: 'resource 3',
-                description: 'desc 3',
+              GestureDetector(
+                onTap: () => Navigator.pushNamed(context, '/resoureTitle'),
+                child: ResourceRect(
+                  title: titles[2],
+                  description: descriptions[2],
+                ),
               ),
-              ResourceRect(
-                title: 'resource 4',
-                description: 'desc 4',
+              GestureDetector(
+                onTap: () => Navigator.pushNamed(context, '/resoureTitle'),
+                child: ResourceRect(
+                  title: titles[3],
+                  description: descriptions[3],
+                ),
               ),
-              ResourceRect(
-                title: 'resource 5',
-                description: 'desc 5',
+              GestureDetector(
+                onTap: () => Navigator.pushNamed(context, '/resoureTitle'),
+                child: ResourceRect(
+                  title: titles[4],
+                  description: descriptions[4],
+                ),
               ),
-              ResourceRect(
-                title: 'resource 6',
-                description: 'desc 6',
+              GestureDetector(
+                onTap: () => Navigator.pushNamed(context, '/resoureTitle'),
+                child: ResourceRect(
+                  title: titles[5],
+                  description: descriptions[5],
+                ),
               ),
-              ResourceRect(
-                title: 'resource 7',
-                description: 'desc 7',
+              GestureDetector(
+                onTap: () => Navigator.pushNamed(context, '/resoureTitle'),
+                child: ResourceRect(
+                  title: titles[6],
+                  description: descriptions[6],
+                ),
               )
             ],
           ),
         ),
-
-        /*Row(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            SizedBox(width: 16),
-            ListView(
-                /*itemCount: titles.length,
-                            itemBuilder: (BuildContext context, int index) {
-                                return ResourceRect(
-                                    //child: Center(child: Text('${titles[index]}')),
-                                );
-                            }*/
-                children: <Widget>[
-                  Container(
-                    width: 358,
-                    height: 100,
-                    decoration: BoxDecoration(
-                      color: themeColor,
-                      borderRadius: BorderRadius.all(const Radius.circular(16)),
-                    ),
-                  ),
-                  SizedBox(
-                    height: 16,
-                  ),
-                  Container(
-                    width: 358,
-                    height: 100,
-                    decoration: BoxDecoration(
-                      color: themeColor,
-                      borderRadius: BorderRadius.all(const Radius.circular(16)),
-                    ),
-                  ),
-                  SizedBox(
-                    height: 16,
-                  )
-                ]),
-            SizedBox(width: 16)
-          ],
-        )*/
       ],
     );
   }
@@ -116,43 +117,45 @@ class ResourceRect extends StatelessWidget {
       this.description = 'description'})
       : super(key: key);
   Widget build(BuildContext context) {
-    return Padding(
-        padding: const EdgeInsets.only(
-            left: 16.0, right: 16.0, top: 0.0, bottom: 16.0),
-        child: Container(
-            width: 358,
-            height: 100,
-            decoration: BoxDecoration(
-              color: themeColor,
-              borderRadius: BorderRadius.all(const Radius.circular(16)),
-            ),
-            child: Padding(
-              padding: const EdgeInsets.all(16.0),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    title,
-                    style: const TextStyle(
-                        fontSize: 20,
-                        fontFamily: 'Inter',
-                        fontWeight: FontWeight.w500,
-                        color: Colors.black),
+    return Container(
+        child: Padding(
+            padding: const EdgeInsets.only(
+                left: 16.0, right: 16.0, top: 0.0, bottom: 16.0),
+            child: Container(
+                width: 358,
+                height: 100,
+                decoration: BoxDecoration(
+                  color: themeColor,
+                  borderRadius: BorderRadius.all(const Radius.circular(16)),
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.all(16.0),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Text(
+                        title,
+                        style: const TextStyle(
+                            fontSize: 20,
+                            fontFamily: 'Inter',
+                            fontWeight: FontWeight.w500,
+                            color: Colors.black),
+                      ),
+                      SizedBox(
+                        height: 4,
+                      ),
+                      Text(
+                        description,
+                        style: const TextStyle(
+                            fontSize: 17,
+                            fontFamily: 'Inter',
+                            fontWeight: FontWeight.w400,
+                            color: Colors.black),
+                      )
+                    ],
                   ),
-                  SizedBox(
-                    height: 4,
-                  ),
-                  Text(
-                    description,
-                    style: const TextStyle(
-                        fontSize: 17,
-                        fontFamily: 'Inter',
-                        fontWeight: FontWeight.w400,
-                        color: Colors.black),
-                  )
-                ],
-              ),
-            )));
+                ))));
   }
 }
