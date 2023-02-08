@@ -76,16 +76,26 @@ class Resources extends StatelessWidget {
                 //row 1 of two containers
                 Row(
                   children: [
-                    CategorySquare(
-                      catText: 'Medical',
-                      icon: Icons.medical_services_outlined,
+                    InkWell(
+                      child: CategorySquare(
+                              catText: 'Medical',
+                              icon: Icons.medical_services_outlined,
+                            ),
+                      onTap: () {
+                        Navigator.pushNamed(context, '/categoryName');
+                      },
                     ),
                     SizedBox(
                       width: 16,
                     ),
-                    CategorySquare(
-                      catText: 'Legal',
-                      icon: Icons.balance_outlined,
+                    InkWell(
+                      child: CategorySquare(
+                              catText: 'Legal',
+                              icon: Icons.balance_outlined,
+                            ),
+                      onTap: () {
+                        Navigator.pushNamed(context, '/categoryName');
+                      },
                     ),
                   ],
                 ),
@@ -96,16 +106,26 @@ class Resources extends StatelessWidget {
 
                 Row(
                   children: [
-                    CategorySquare(
-                      catText: 'Housing',
-                      icon: Icons.house_outlined,
+                    InkWell(
+                      child: CategorySquare(
+                              catText: 'Housing',
+                              icon: Icons.house_outlined,
+                            ),
+                      onTap: () {
+                        Navigator.pushNamed(context, '/categoryName');
+                      },
                     ),
                     SizedBox(
                       width: 16,
                     ),
-                    CategorySquare(
-                      catText: 'Domestic Violence',
-                      icon: Icons.shield_outlined,
+                    InkWell(
+                      child: CategorySquare(
+                              catText: 'Domestic Violence',
+                              icon: Icons.shield_outlined,
+                            ),
+                      onTap: () {
+                        Navigator.pushNamed(context, '/categoryName');
+                      },
                     ),
                   ],
                 ),
@@ -114,24 +134,31 @@ class Resources extends StatelessWidget {
                   height: 16,
                 ),
 
-                Container(
-                    height: 85.5,
-                    width: 358,
-                    decoration: BoxDecoration(
-                      color: themeColor,
-                      borderRadius: BorderRadius.all(const Radius.circular(16)),
+                InkWell(
+                    child: Container(
+                        height: 85.5,
+                        width: 358,
+                        decoration: BoxDecoration(
+                          color: themeColor,
+                          borderRadius: BorderRadius.all(const Radius.circular(16)),
+                        ),
+                        child: Padding(
+                          padding: const EdgeInsets.all(16.0),
+                          child: Text(
+                            'Resources',
+                            style: const TextStyle(
+                                fontSize: 20,
+                                fontFamily: 'Inter',
+                                fontWeight: FontWeight.w500,
+                                color: Colors.black),
+                          ),
+                        )
                     ),
-                    child: Padding(
-                      padding: const EdgeInsets.all(16.0),
-                      child: Text(
-                        'Resources',
-                        style: const TextStyle(
-                            fontSize: 20,
-                            fontFamily: 'Inter',
-                            fontWeight: FontWeight.w500,
-                            color: Colors.black),
-                      ),
-                    )),
+                    onTap: () {
+                      Navigator.pushNamed(context, '/categoryName');
+                    },
+                ),
+
 
                 SizedBox(
                   height: 16,

@@ -30,9 +30,11 @@ class MyApp extends StatelessWidget {
         ),
         home: const MyHomePage(title: 'Flutter Demo Home Page'),
         routes: {
+          '/resources': (context) => const Resources(),
           '/categoryName': (context) => const CategoryName(),
           '/resourceTitle': (context) => const ResourceTitle(),
-        });
+        }
+    );
   }
 }
 
@@ -89,7 +91,7 @@ class _MyHomePageState extends State<MyHomePage> {
           // axis because Columns are vertical (the cross axis would be
           // horizontal).
           mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[CategoryName()],
+          children: <Widget>[Resources()],
         ),
       ), // This trailing comma makes auto-formatting nicer for build methods.
     );
