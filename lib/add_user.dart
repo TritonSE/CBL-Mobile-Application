@@ -7,30 +7,32 @@ class User {
   final String password;
   final String password_Confirm;
 
-  User({this.username, this.phoneNumber, this.email, this.password,});
+  User(this.password_Confirm,
+      {required this.username,
+      required this.phoneNumber,
+      required this.email,
+      required this.password});
 
   Map<String, dynamic> toMap() {
     return {
       'Username': username,
       'Phone Number': phoneNumber,
       'email': email,
-      'Password' : password,
+      'Password': password,
     };
   }
 }
 
 class UserRepository {
-  final CollectionReference userCollection = 
-  FirebaseFirestore.instance.collection('users');
+  final CollectionReference userCollection =
+      FirebaseFirestore.instance.collection('users');
 
-  Future<void> addUser(User user) async {
-    try{
+  Future<Object> addUser(User user) async {
+    try {
       return await userCollection.add(user.toMap());
-      return {'status': ' ok'}
-    }catch(e){
-      return {'status':'ERROR','message':e.toString()}
+    } catch (e) {
+      return {'status': 'ERROR', 'message': e.toString()};
     }
-    
   }
 }
 
