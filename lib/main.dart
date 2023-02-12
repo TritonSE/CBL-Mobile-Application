@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'resources.dart';
-import 'categoryName.dart';
-import 'resourceTitle.dart';
+import 'package:call_black_line/pages/resources.dart';
+import 'package:call_black_line/pages/category_name.dart';
+import 'package:call_black_line/pages/resource_title.dart';
 
 void main() {
   runApp(const MyApp());
@@ -28,13 +28,13 @@ class MyApp extends StatelessWidget {
           // is not restarted.
           primarySwatch: Colors.blue,
         ),
-        home: const MyHomePage(title: 'Flutter Demo Home Page'),
+        //home: const MyHomePage(title: 'Flutter Demo Home Page'),
+        home: Resources(),
         routes: {
           '/resources': (context) => const Resources(),
-          '/categoryName': (context) => const CategoryName(),
-          '/resourceTitle': (context) => const ResourceTitle(),
-        }
-    );
+          '/category_name': (context) => const CategoryName(),
+          '/resource_title': (context) => const ResourceTitle(),
+        });
   }
 }
 
@@ -65,6 +65,7 @@ class _MyHomePageState extends State<MyHomePage> {
     // The Flutter framework has been optimized to make rerunning build methods
     // fast, so that you can just rebuild anything that needs updating rather
     // than having to individually change instances of widgets.
+    //return CategoryName();
     return Scaffold(
       appBar: AppBar(
         // Here we take the value from the MyHomePage object that was created by
@@ -91,6 +92,7 @@ class _MyHomePageState extends State<MyHomePage> {
           // axis because Columns are vertical (the cross axis would be
           // horizontal).
           mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisSize: MainAxisSize.min,
           children: <Widget>[Resources()],
         ),
       ), // This trailing comma makes auto-formatting nicer for build methods.
