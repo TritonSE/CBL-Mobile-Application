@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
+import 'add_user.dart';
+import 'package:firebase_core/firebase_core.dart';
 
-void main() {
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+
   runApp(const MyApp());
 }
 
@@ -82,11 +87,21 @@ class _MyHomePageState extends State<MyHomePage> {
           // axis because Columns are vertical (the cross axis would be
           // horizontal).
           mainAxisAlignment: MainAxisAlignment.center,
-          children: const <Widget>[
+          children: <Widget>[
             Text(
               'This is a sample home page for the Call BlackLine application',
             ),
-            ElevatedButton(onPressed: null, child: Text('Add user'))
+            ElevatedButton(
+                onPressed: () {
+                  UserRepository userRepository = UserRepository();
+                  User user = User('password',
+                      username: 'John Doe',
+                      phoneNumber: 8583165432,
+                      email: 'johndoe@example.com',
+                      password: 'password');
+                  userRepository.addUser(user);
+                },
+                child: Text('Add User')),
           ],
         ),
       ), // This trailing comma makes auto-formatting nicer for build methods.
