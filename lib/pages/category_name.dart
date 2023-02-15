@@ -32,60 +32,62 @@ class CategoryName extends StatelessWidget {
     return Scaffold(
         backgroundColor: Colors.white,
         appBar: const Header(),
-        body: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisSize: MainAxisSize.min,
-          children: <Widget>[
-            const Text(
-              'Category Name',
-              //textAlign: TextAlign.center,
-              style: const TextStyle(
-                  fontSize: 34,
-                  fontFamily: 'Inter',
-                  fontWeight: FontWeight.w700,
-                  color: Colors.black),
-            ),
-            SizedBox(
-              height: 32,
-            ),
-            SizedBox(
-              height: 580,
-              child: ListView(
-                //physics: BouncingScrollPhysics(),
-                children: [
-                  ResourceRect(
-                    title: titles[0],
-                    description: descriptions[0],
-                  ),
-                  ResourceRect(
-                    title: titles[1],
-                    description: descriptions[1],
-                  ),
-                  ResourceRect(
-                    title: titles[2],
-                    description: descriptions[2],
-                  ),
-                  ResourceRect(
-                    title: titles[3],
-                    description: descriptions[3],
-                  ),
-                  ResourceRect(
-                    title: titles[4],
-                    description: descriptions[4],
-                  ),
-                  ResourceRect(
-                    title: titles[5],
-                    description: descriptions[5],
-                  ),
-                  ResourceRect(
-                    title: titles[6],
-                    description: descriptions[6],
-                  )
-                ],
+        body: SingleChildScrollView(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisSize: MainAxisSize.min,
+            children: <Widget>[
+              const Text(
+                'Category Name',
+                //textAlign: TextAlign.center,
+                style: const TextStyle(
+                    fontSize: 34,
+                    fontFamily: 'Inter',
+                    fontWeight: FontWeight.w700,
+                    color: Colors.black),
               ),
-            ),
-          ],
-        ));
+              SizedBox(
+                height: 32,
+              ),
+              SizedBox(
+                height: 580,
+                child: ListView(
+                  children: [
+                    ResourceRect(
+                      title: titles[0],
+                      description: descriptions[0],
+                    ),
+                    ResourceRect(
+                      title: titles[1],
+                      description: descriptions[1],
+                    ),
+                    ResourceRect(
+                      title: titles[2],
+                      description: descriptions[2],
+                    ),
+                    ResourceRect(
+                      title: titles[3],
+                      description: descriptions[3],
+                    ),
+                    ResourceRect(
+                      title: titles[4],
+                      description: descriptions[4],
+                    ),
+                    ResourceRect(
+                      title: titles[5],
+                      description: descriptions[5],
+                    ),
+                    ResourceRect(
+                      title: titles[6],
+                      description: descriptions[6],
+                    )
+                  ],
+                ),
+              ),
+            ],
+          )
+        )
+    );
   }
 }
