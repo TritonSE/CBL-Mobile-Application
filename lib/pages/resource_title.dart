@@ -17,6 +17,7 @@ class ResourceTitle extends StatelessWidget {
               width: 16,
             ),
             Flexible(
+              fit: FlexFit.tight,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -28,8 +29,7 @@ class ResourceTitle extends StatelessWidget {
                   const Text('Resource Title',
                       textAlign: TextAlign.center,
                       style:
-                          TextStyle(fontWeight: FontWeight.bold, fontSize: 34)
-                  ),
+                          TextStyle(fontWeight: FontWeight.bold, fontSize: 34)),
                   const SizedBox(
                     height: 32,
                   ),
@@ -98,7 +98,6 @@ class ResourceTitle extends StatelessWidget {
               width: 16,
             )
           ],
-        )
-    );
+        ));
   }
 }

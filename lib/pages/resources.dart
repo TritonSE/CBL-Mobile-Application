@@ -23,28 +23,30 @@ class Resources extends StatelessWidget {
                 width: 16,
               ),
               Flexible(
-                child: Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.start,
+                fit: FlexFit.tight,
+                child: Column(mainAxisAlignment: MainAxisAlignment.start,
+                    //crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Row(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         mainAxisAlignment: MainAxisAlignment.center,
                         mainAxisSize: MainAxisSize.min,
                         children: [
-                          SizedBox(
+                          /*SizedBox(
                             width: 85.5,
-                          ),
-                          const Text(
-                            'Resources',
-                            textAlign: TextAlign.center,
-                            style: const TextStyle(
-                              fontSize: 34,
-                              fontFamily: 'Inter',
-                              fontWeight: FontWeight.w700,
-                              color: Colors.black,
-                            ),
-                          ),
+                          ),*/
+                          Align(
+                              alignment: Alignment.center,
+                              child: const Text(
+                                'Resources',
+                                textAlign: TextAlign.center,
+                                style: const TextStyle(
+                                  fontSize: 34,
+                                  fontFamily: 'Inter',
+                                  fontWeight: FontWeight.w700,
+                                  color: Colors.black,
+                                ),
+                              )),
                         ],
                       ),
 
@@ -57,13 +59,17 @@ class Resources extends StatelessWidget {
                       ),
 
                       //subtitle: categories
-                      const Text(
-                        'Categories',
-                        style: const TextStyle(
-                          fontSize: 22,
-                          fontFamily: 'Inter',
-                          fontWeight: FontWeight.w500,
-                          color: Color(0xFF111827),
+                      Align(
+                        alignment: Alignment.centerLeft,
+                        child: const Text(
+                          'Categories',
+                          textAlign: TextAlign.left,
+                          style: const TextStyle(
+                            fontSize: 22,
+                            fontFamily: 'Inter',
+                            fontWeight: FontWeight.w500,
+                            color: Color(0xFF111827),
+                          ),
                         ),
                       ),
 
@@ -113,25 +119,30 @@ class Resources extends StatelessWidget {
                       ),
 
                       InkWell(
-                        child: Container(
-                            height: 85.5,
-                            width: 358,
-                            decoration: BoxDecoration(
-                              color: themeColor,
-                              borderRadius:
-                                  BorderRadius.all(const Radius.circular(16)),
-                            ),
-                            child: Padding(
-                              padding: const EdgeInsets.all(16.0),
-                              child: Text(
-                                'Resources',
-                                style: const TextStyle(
-                                    fontSize: 20,
-                                    fontFamily: 'Inter',
-                                    fontWeight: FontWeight.w500,
-                                    color: Colors.black),
-                              ),
-                            )),
+                        child: Row(
+                          children: [
+                            Flexible(
+                                fit: FlexFit.tight,
+                                child: Container(
+                                    height: 85.5,
+                                    decoration: BoxDecoration(
+                                      color: themeColor,
+                                      borderRadius: BorderRadius.all(
+                                          const Radius.circular(16)),
+                                    ),
+                                    child: Padding(
+                                      padding: const EdgeInsets.all(16.0),
+                                      child: Text(
+                                        'Resources',
+                                        style: const TextStyle(
+                                            fontSize: 20,
+                                            fontFamily: 'Inter',
+                                            fontWeight: FontWeight.w500,
+                                            color: Colors.black),
+                                      ),
+                                    ))),
+                          ],
+                        ),
                         onTap: () {
                           Navigator.pushNamed(context, '/category_name');
                         },
