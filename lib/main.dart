@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'add_user.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'add_testimonial.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -141,15 +142,17 @@ class _MyHomePageState extends State<MyHomePage> {
                 child: Text('Add User')),
             ElevatedButton(
                 onPressed: () {
-                  UserRepository userRepository = UserRepository();
-                  User user = User('password',
-                      username: 'John Doe',
-                      phoneNumber: 8583165432,
-                      email: 'johndoe@example.com',
-                      password: 'password');
-                  userRepository.addUser(user);
+                  SubmitTestimonial submitTestimonial = SubmitTestimonial();
+                  Testimonial testimonial = Testimonial(
+                      eventTitle: "Test",
+                      time: 0.0,
+                      duration: 10.0,
+                      address: '1234 Test St',
+                      description: 'This is a test');
+
+                  submitTestimonial.addTestimonial(testimonial);
                 },
-                child: Text('Add User'))
+                child: Text('Add Testimonial'))
           ],
         ),
       ), // This trailing comma makes auto-formatting nicer for build methods.
