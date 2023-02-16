@@ -39,7 +39,7 @@ class UserRepository {
     try {
       return await userCollection.doc(id).delete();
     } catch (e) {
-      return;
+      rethrow;
     }
   }
 }
