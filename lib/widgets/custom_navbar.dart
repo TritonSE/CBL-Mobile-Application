@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
 class CustomNavBar extends StatelessWidget {
-  final int currentPage;
+  final String currentPage;
+
   const CustomNavBar({super.key, required this.currentPage});
 
   @override
@@ -25,7 +26,7 @@ class CustomNavBar extends StatelessWidget {
               NavItem(
                 text: "Resources",
                 icon: Icons.format_list_bulleted,
-                isCurrentPage: currentPage == 0,
+                isCurrentPage: currentPage == 'Resources',
                 onPressed: () => {
                   // Navigator.pushNamed(context, '/resources')
                 },
@@ -33,15 +34,15 @@ class CustomNavBar extends StatelessWidget {
               NavItem(
                 text: "Seek Help",
                 icon: Icons.chat_bubble,
-                isCurrentPage: currentPage == 1,
+                isCurrentPage: currentPage == 'Seek Help',
                 onPressed: () => {
-                  // Navigator.pushNamed(context, '/seekhelp')
+                  // Navigator.pushNamed(context, '/seekHelp')
                 },
               ),
               NavItem(
                 text: "Profile",
                 icon: Icons.person,
-                isCurrentPage: currentPage == 2,
+                isCurrentPage: currentPage == 'Profile',
                 onPressed: () => {
                   // Navigator.pushNamed(context, '/profile')
                 },

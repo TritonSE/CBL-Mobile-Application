@@ -33,7 +33,7 @@ class _TakeActionPageState extends State<TakeActionPage> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: const Header(),
-      bottomNavigationBar: CustomNavBar(currentPage: 2),
+      bottomNavigationBar: CustomNavBar(currentPage: 'Resources'),
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.symmetric(
@@ -41,7 +41,7 @@ class _TakeActionPageState extends State<TakeActionPage> {
           ),
           child: Column(
             children: [
-              CustomTitle(
+              const CustomTitle(
                 text: 'Take Action Now',
                 topPadding: 24.5,
                 bottomPadding: 16,

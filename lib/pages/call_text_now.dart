@@ -13,7 +13,7 @@ class CallTextNow extends StatelessWidget {
       backgroundColor: Colors.white,
       appBar: const Header(),
       bottomNavigationBar: CustomNavBar(
-        currentPage: 0,
+        currentPage: 'Profile',
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(
