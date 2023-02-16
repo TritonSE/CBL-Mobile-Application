@@ -1,5 +1,6 @@
 import 'package:call_black_line/pages/call_text_now.dart';
 import 'package:call_black_line/pages/create_account.dart';
+import 'package:call_black_line/widgets/custom_navbar.dart';
 import 'package:flutter/material.dart';
 import 'package:call_black_line/pages/take_action.dart';
 import 'package:call_black_line/widgets/custom_title.dart';
@@ -43,6 +44,9 @@ class SeekHelp extends StatelessWidget {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       backgroundColor: Colors.white,
+      bottomNavigationBar: CustomNavBar(
+        currentPage: 1,
+      ), //Available: Resources, Seek Help, Profile
       appBar: const Header(
         isHome: true,
       ),
@@ -50,7 +54,7 @@ class SeekHelp extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 16),
         child: Column(
           children: [
-            CustomTitle(text: 'Seek Help'),
+            const CustomTitle(text: 'Seek Help'),
             RoundedButtonImage(
               height: 75,
               width: double.infinity,
