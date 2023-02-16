@@ -1,4 +1,3 @@
-import 'package:call_black_line/widgets/bottom_navbar.dart';
 import 'package:call_black_line/widgets/checkbox_text.dart';
 import 'package:call_black_line/widgets/orange_button.dart';
 import 'package:flutter/material.dart';
@@ -35,7 +34,6 @@ class _TakeActionPageState extends State<TakeActionPage> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: const Header(),
-      bottomNavigationBar: const BottomNavBar(),
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.symmetric(

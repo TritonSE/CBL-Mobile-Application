@@ -1,4 +1,3 @@
-import 'package:call_black_line/widgets/bottom_navbar.dart';
 import 'package:flutter/material.dart';
 import 'package:call_black_line/widgets/custom_title.dart';
 import 'package:call_black_line/widgets/header.dart';
@@ -13,7 +12,6 @@ class CallTextNow extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: const Header(),
-      bottomNavigationBar: const BottomNavBar(),
       body: Padding(
         padding: const EdgeInsets.symmetric(
           horizontal: 16,
