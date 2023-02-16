@@ -13,6 +13,7 @@ dependencies:
     sdk: flutter
 
   cupertino_icons: ^1.0.2
+  url_launcher: ^6.1.9
 
 dev_dependencies:
   flutter_test:
@@ -30,6 +31,7 @@ flutter:
     - assets/images/facebook.png
     - assets/images/google.png
     - assets/images/text.jpg
+    - assets/images/placeholder.png
 
   fonts:
     - family: Inter
