@@ -93,6 +93,54 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             ElevatedButton(
                 onPressed: () {
+                  //test 10 times
+                  UserRepository userRepository = UserRepository();
+                  User user = User('password',
+                      username: 'John Doe',
+                      phoneNumber: 8583165432,
+                      email: 'johndoe@example.com',
+                      password: 'password');
+
+                  User userWrongPswd = User('incorrect',
+                      username: 'sdf Doe',
+                      phoneNumber: 8583165432,
+                      email: 'bobjoe@example.com',
+                      password: 'password');
+
+                  User userWrongEmail = User('password',
+                      username: 'Billy Bob',
+                      phoneNumber: 8583165432,
+                      email: 'sdlsdkjf',
+                      password: 'password');
+
+                  User userWrongPhone = User('password',
+                      username: 'Billy Joel',
+                      phoneNumber: 1,
+                      email: 'a@example.com',
+                      password: 'password');
+
+                  User user2 = User('12345',
+                      username: 'Maggie',
+                      phoneNumber: 1234567899,
+                      email: 'maggie@example.com',
+                      password: '12345');
+
+                  User userDuplicate = User('password',
+                      username: 'John Doe',
+                      phoneNumber: 8583165432,
+                      email: 'johndoe@example.com',
+                      password: 'password');
+
+                  userRepository.addUser(user);
+                  userRepository.addUser(userWrongPswd);
+                  userRepository.addUser(userWrongEmail);
+                  userRepository.addUser(userWrongPhone);
+                  userRepository.addUser(user2);
+                  userRepository.addUser(userDuplicate);
+                },
+                child: Text('Add User')),
+            ElevatedButton(
+                onPressed: () {
                   UserRepository userRepository = UserRepository();
                   User user = User('password',
                       username: 'John Doe',
@@ -101,7 +149,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       password: 'password');
                   userRepository.addUser(user);
                 },
-                child: Text('Add User')),
+                child: Text('Add User'))
           ],
         ),
       ), // This trailing comma makes auto-formatting nicer for build methods.

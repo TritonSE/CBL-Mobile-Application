@@ -34,6 +34,14 @@ class UserRepository {
       return {'status': 'ERROR', 'message': e.toString()};
     }
   }
+
+  Future<void> deleteUser(String id) async {
+    try {
+      return await userCollection.doc(id).delete();
+    } catch (e) {
+      return;
+    }
+  }
 }
 
 /**
