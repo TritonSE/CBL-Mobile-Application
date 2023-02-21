@@ -3,7 +3,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 
 class Testimonial {
   final String eventTitle;
-  final double time;
+  final String time;
   final double duration;
   final String address;
   final String description;
@@ -37,28 +37,12 @@ class SubmitTestimonial {
       return {'status': 'ERROR', 'message': e.toString()};
     }
   }
-}
 
-
-
-
-
-
-/** 
-class TestimonialSubmitter {
-  static Future<Map<String, String>> submitTestimonial(
-      Map<String, dynamic> testimonialData) async {
+  deleteTestimonial(String docID) async {
     try {
-      final CollectionReference userCollection =
-          FirebaseFirestore.instance.collection('/users');
-      Future<Object> addTestimonial(Testimonial testimonial) async {
-        return await userCollection.add(testimonial.toMap());
-      }
-
-      return {'status': 'OK'};
+      return await testimonialCollection.doc(docID).delete();
     } catch (e) {
-      return {'status': 'ERROR', 'message': e.toString()};
+      rethrow;
     }
   }
 }
-*/

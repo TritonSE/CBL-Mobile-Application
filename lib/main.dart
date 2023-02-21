@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'add_user.dart';
+import 'user.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'add_testimonial.dart';
+import 'testimonial.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -89,7 +89,7 @@ class _MyHomePageState extends State<MyHomePage> {
           // horizontal).
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Text(
+            const Text(
               'This is a sample home page for the Call BlackLine application',
             ),
             ElevatedButton(
@@ -139,20 +139,40 @@ class _MyHomePageState extends State<MyHomePage> {
                   userRepository.addUser(user2);
                   userRepository.addUser(userDuplicate);
                 },
-                child: Text('Add User')),
+                child: const Text('Add User')),
             ElevatedButton(
                 onPressed: () {
                   SubmitTestimonial submitTestimonial = SubmitTestimonial();
                   Testimonial testimonial = Testimonial(
                       eventTitle: "Test",
-                      time: 0.0,
+                      time: "12/23/12",
                       duration: 10.0,
-                      address: '1234 Test St',
+                      address: 'as',
                       description: 'This is a test');
-
+                  Testimonial testimonial2 = Testimonial(
+                      eventTitle: "Test",
+                      time: "12/23/12",
+                      duration: 10,
+                      address: 'as',
+                      description: 'This is a test');
                   submitTestimonial.addTestimonial(testimonial);
+                  submitTestimonial.addTestimonial(testimonial2);
                 },
-                child: Text('Add Testimonial'))
+                child: const Text('Add Testimonial')),
+            ElevatedButton(
+                onPressed: () {
+                  UserRepository userRepository = UserRepository();
+                  userRepository.deleteUser("FfoLFTfOcb1GjUKe02DU");
+                  userRepository.deleteUser("doesn't exist");
+                },
+                child: const Text('Delete User')),
+            ElevatedButton(
+                onPressed: () {
+                  SubmitTestimonial submitTestimonial = SubmitTestimonial();
+                  submitTestimonial.deleteTestimonial("UUzkdbXVUXmVZwAtBbEr");
+                  submitTestimonial.deleteTestimonial("doesn't exist");
+                },
+                child: const Text('Delete Testimonial'))
           ],
         ),
       ), // This trailing comma makes auto-formatting nicer for build methods.
