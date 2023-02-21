@@ -29,6 +29,8 @@ class _TakeActionPageState extends State<TakeActionPage> {
 
   @override
   Widget build(BuildContext context) {
+    var mediaWidth = MediaQuery.of(context).size.width;
+
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: const Header(),
@@ -39,7 +41,7 @@ class _TakeActionPageState extends State<TakeActionPage> {
           ),
           child: Column(
             children: [
-              CustomTitle(
+              const CustomTitle(
                 text: 'Take Action Now',
                 topPadding: 24.5,
                 bottomPadding: 16,
@@ -117,7 +119,9 @@ class _TakeActionPageState extends State<TakeActionPage> {
               Padding(
                 padding: const EdgeInsets.only(top: 24.0),
                 child: Center(
-                  child: Row(
+                  child: Flex(
+                    direction:
+                        mediaWidth < 380 ? Axis.vertical : Axis.horizontal,
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(
