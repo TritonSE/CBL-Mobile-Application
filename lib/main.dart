@@ -1,3 +1,4 @@
+import 'package:call_black_line/pages/affirmation.dart';
 import 'package:call_black_line/pages/call_text_now.dart';
 import 'package:call_black_line/pages/create_account.dart';
 import 'package:flutter/material.dart';
@@ -24,7 +25,8 @@ class MyApp extends StatelessWidget {
           ),
         ),
         routes: {
-          '/': (context) => const SeekHelp(),
+          // '/': (context) => const SeekHelp(),
+          '/': (context) => Affirmation(),
           '/callTextNow': (context) => const CallTextNow(),
           '/createAccount': (context) => const CreateAccount(),
           '/takeAction': (context) => const TakeActionPage(),
