@@ -4,7 +4,8 @@ import 'package:call_black_line/widgets/custom_title.dart';
 import 'package:call_black_line/widgets/header.dart';
 
 class Affirmation extends StatefulWidget {
-  const Affirmation({super.key});
+  final bool subscribed;
+  const Affirmation({super.key, this.subscribed = false});
 
   @override
   State<Affirmation> createState() => _AffirmationState();
@@ -15,6 +16,12 @@ int gray = int.parse('#909090'.replaceAll('#', '0xff'));
 
 class _AffirmationState extends State<Affirmation> {
   bool subscribed = false;
+
+  @override
+  void initState() {
+    super.initState();
+    subscribed = widget.subscribed;
+  }
 
   @override
   Widget build(BuildContext context) {
