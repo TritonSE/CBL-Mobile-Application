@@ -74,10 +74,10 @@ class ResourceTitle extends StatelessWidget {
                     height: 32,
                   ),
 
-                  /*Image(image: image
-                  height: 231,
-                  width: 358,
-                )*/
+                  Image(image: AssetImage('assets/placeholder.jpg'),
+                  height: 231/358 * MediaQuery.of(context).size.width,
+                  width: MediaQuery.of(context).size.width,
+                )
                   /*Image.network(
                   IMAGEPLACEHOLDER,
                   width: 358,
