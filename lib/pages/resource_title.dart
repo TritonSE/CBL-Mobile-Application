@@ -9,95 +9,99 @@ class ResourceTitle extends StatelessWidget {
     return Scaffold(
         backgroundColor: Colors.white,
         appBar: const Header(),
-        body: Row(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          mainAxisSize: MainAxisSize.max,
-          children: <Widget>[
-            const SizedBox(
-              width: 16,
-            ),
-            Flexible(
-              fit: FlexFit.tight,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                mainAxisSize: MainAxisSize.max,
-                children: [
-                  SizedBox(
-                    height: 24,
-                  ),
-                  const Text('Resource Title',
-                      textAlign: TextAlign.center,
-                      style:
-                          TextStyle(fontWeight: FontWeight.bold, fontSize: 34)),
-                  const SizedBox(
-                    height: 32,
-                  ),
-                  SizedBox(
-                    width: 357,
-                    child: Text(
-                      'Lorem ipsum dolor sit amet consectetur. Magna mattis lorem auctor tortor ut nunc lacus at in. Tellus tempor a habitasse ac augue eu.',
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                        fontWeight: FontWeight.w400,
-                        fontFamily: 'Inter',
-                        fontSize: 17,
-                        color: Colors.black,
-                      ),
+        body: SingleChildScrollView(
+            child: Column(children: [
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisSize: MainAxisSize.max,
+            children: <Widget>[
+              const SizedBox(
+                width: 16,
+              ),
+              Flexible(
+                fit: FlexFit.tight,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisSize: MainAxisSize.max,
+                  children: [
+                    SizedBox(
+                      height: 24,
                     ),
-                  ),
-                  const SizedBox(
-                    height: 32,
-                  ),
-                  Container(
-                    width: 170,
-                    height: 48,
-                    decoration: const BoxDecoration(
-                      color: buttonColor,
-                      borderRadius: BorderRadius.all(Radius.circular(16)),
-                    ),
-                    child: Padding(
-                      padding: const EdgeInsets.all(11.5),
-                      child: Text(
-                        'Visit the site',
+                    const Text('Resource Title',
                         textAlign: TextAlign.center,
                         style: TextStyle(
-                          fontWeight: FontWeight.w500,
+                            fontWeight: FontWeight.bold, fontSize: 34)),
+                    const SizedBox(
+                      height: 32,
+                    ),
+                    SizedBox(
+                      width: 357,
+                      child: Text(
+                        'Lorem ipsum dolor sit amet consectetur. Magna mattis lorem auctor tortor ut nunc lacus at in. Tellus tempor a habitasse ac augue eu.',
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          fontWeight: FontWeight.w400,
                           fontFamily: 'Inter',
-                          fontSize: 20,
-                          color: Colors.white,
+                          fontSize: 17,
+                          color: Colors.black,
                         ),
                       ),
                     ),
-                  ),
-                  const SizedBox(
-                    height: 32,
-                  ),
-
-                  Image(image: AssetImage('assets/placeholder.jpg'),
-                  height: 231/358 * MediaQuery.of(context).size.width,
-                  width: MediaQuery.of(context).size.width,
-                )
-                  /*Image.network(
-                  IMAGEPLACEHOLDER,
-                  width: 358,
-                  height: 231,
-                ),*/
-                  /* Container(
-                      height: 231,
+                    const SizedBox(
+                      height: 32,
+                    ),
+                    Container(
+                      width: 170,
+                      height: 48,
+                      decoration: const BoxDecoration(
+                        color: buttonColor,
+                        borderRadius: BorderRadius.all(Radius.circular(16)),
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.all(11.5),
+                        child: Text(
+                          'Visit the site',
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            fontWeight: FontWeight.w500,
+                            fontFamily: 'Inter',
+                            fontSize: 20,
+                            color: Colors.white,
+                          ),
+                        ),
+                      ),
+                    ),
+                    const SizedBox(
+                      height: 32,
+                    ),
+                    Image(
+                      image: AssetImage('assets/placeholder.jpg'),
+                      height: 231 / 358 * MediaQuery.of(context).size.width,
+                      width: MediaQuery.of(context).size.width,
+                    )
+                    /*Image.network(
+                      IMAGEPLACEHOLDER,
                       width: 358,
-                      decoration: BoxDecoration(
-                        image: DecorationImage(
-                            image: AssetImage('assets/placeholder.jpg'),
-                            fit: BoxFit.cover),
-                      )) */
-                ],
+                      height: 231,
+                    ),*/
+                    /* Container(
+                          height: 231,
+                          width: 358,
+                          decoration: BoxDecoration(
+                            image: DecorationImage(
+                                image: AssetImage('assets/placeholder.jpg'),
+                                fit: BoxFit.cover),
+                          )) */
+                  ],
+                ),
               ),
-            ),
-            const SizedBox(
-              width: 16,
-            )
-          ],
-        ));
+              const SizedBox(
+                width: 16,
+              )
+            ],
+          ),
+          SizedBox(height: 16),
+        ])));
   }
 }

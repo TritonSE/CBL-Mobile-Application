@@ -4,6 +4,8 @@ import 'package:call_black_line/widgets/category_square.dart';
 
 const themeColor = const Color(0xFFF7B279);
 const buttonColor = const Color(0xFFDF742C);
+const primaryVarColor = const Color(0xFFD55B26);
+const secondaryTextColor = const Color(0xFF6C6C6C);
 
 class Resources extends StatelessWidget {
   const Resources({super.key});
@@ -27,6 +29,9 @@ class Resources extends StatelessWidget {
                 child: Column(mainAxisAlignment: MainAxisAlignment.start,
                     //crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
+                      SizedBox(
+                        height: 24,
+                      ),
                       Row(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -49,13 +54,56 @@ class Resources extends StatelessWidget {
                               )),
                         ],
                       ),
+                      SizedBox(
+                        height: 40,
+                      ),
 
                       //search bar code
-                      IconButton(
-                        onPressed: () {
-                          Navigator.pushNamed(context, '/category_name');
-                        },
-                        icon: const Icon(Icons.search),
+                      Container(
+                        height: 38,
+                        decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius:
+                                BorderRadius.all(const Radius.circular(16)),
+                            border: Border.all(
+                              color: primaryVarColor,
+                              width: 1,
+                            )),
+                        child: Padding(
+                          padding: const EdgeInsets.only(
+                              left: 18.75, right: 17.33, top: 8.0, bottom: 8.0),
+                          child: Row(children: [
+                            SizedBox(
+                                width: 16.03,
+                                height: 16.03,
+                                child: const Icon(
+                                  Icons.search,
+                                  color: primaryVarColor,
+                                )),
+                            SizedBox(
+                              width: 11.22,
+                            ),
+                            const Text(
+                              'Search something',
+                              style: const TextStyle(
+                                  fontSize: 17,
+                                  fontFamily: 'Inter',
+                                  fontWeight: FontWeight.w500,
+                                  color: secondaryTextColor),
+                            ),
+                            SizedBox(
+                                width: 13.33,
+                                height: 13.33,
+                                child: const Icon(
+                                  Icons.cancel,
+                                  color: primaryVarColor,
+                                )),
+                          ]),
+                        ),
+                      ),
+
+                      SizedBox(
+                        height: 24,
                       ),
 
                       //subtitle: categories

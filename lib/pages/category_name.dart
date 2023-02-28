@@ -38,6 +38,9 @@ class CategoryName extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisSize: MainAxisSize.min,
           children: <Widget>[
+            SizedBox(
+              height: 24,
+            ),
             const Text(
               'Category Name',
               //textAlign: TextAlign.center,
