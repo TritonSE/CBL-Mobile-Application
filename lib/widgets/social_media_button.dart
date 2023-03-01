@@ -12,7 +12,9 @@ class SocialMedia extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
+    var mediaWidth = MediaQuery.of(context).size.width;
+    return Flex(
+      direction: mediaWidth < 390 ? Axis.vertical : Axis.horizontal,
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         SizedBox(

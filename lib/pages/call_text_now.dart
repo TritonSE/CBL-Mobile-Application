@@ -9,6 +9,7 @@ class CallTextNow extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var mediaWidth = MediaQuery.of(context).size.width;
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: const Header(),
@@ -52,26 +53,33 @@ class CallTextNow extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: const [
-                RoundedButtonImage(
-                  height: 171,
-                  width: 171,
-                  imageURL: 'assets/images/call.jpg',
-                  text: 'Call 1(800) 604-5841',
-                  textPaddingTop: 16.0,
-                  textContainerAlignment: Alignment.topCenter,
-                  textContainerWidth: 100,
+                Expanded(
+                  flex: 1,
+                  child: RoundedButtonImage(
+                    height: 171,
+                    width: 171,
+                    imageURL: 'assets/images/call.jpg',
+                    text: 'Call 1(800) 604-5841',
+                    textPaddingTop: 16.0,
+                    textContainerAlignment: Alignment.topCenter,
+                    textContainerWidth: 100,
+                  ),
                 ),
                 SizedBox(
                   width: 16,
+                  height: 16,
                 ),
-                RoundedButtonImage(
-                  height: 171,
-                  width: 171,
-                  imageURL: 'assets/images/text.jpg',
-                  text: 'Text 1(800) 604-5841',
-                  textPaddingTop: 16.0,
-                  textContainerAlignment: Alignment.topCenter,
-                  textContainerWidth: 100,
+                Expanded(
+                  flex: 1,
+                  child: RoundedButtonImage(
+                    height: 171,
+                    width: 171,
+                    imageURL: 'assets/images/text.jpg',
+                    text: 'Text 1(800) 604-5841',
+                    textPaddingTop: 16.0,
+                    textContainerAlignment: Alignment.topCenter,
+                    textContainerWidth: 100,
+                  ),
                 ),
               ],
             )

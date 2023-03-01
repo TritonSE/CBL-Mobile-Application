@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "17325984042",
+    "project_id": "callblackline-tse",
+    "storage_bucket": "callblackline-tse.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:17325984042:android:222a2c4cdea4d6afdb3653",
+        "android_client_info": {
+          "package_name": "com.tse.cbl.call_black_line"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "17325984042-7sir994ll9a31buvbhu3m2l2lfltq5t5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC-Y_5ZKmOETsu9TLrtRvM1EWUvzypV2Wc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "17325984042-7sir994ll9a31buvbhu3m2l2lfltq5t5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
