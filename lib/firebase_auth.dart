@@ -1,10 +1,8 @@
 import 'package:firebase_auth/firebase_auth.dart';
 
-/**
- * Help used:
- * https://www.youtube.com/watch?v=4vKiJZNPhss
- * https://youtu.be/4vKiJZNPhss
- */
+/// Help used:
+/// https://www.youtube.com/watch?v=4vKiJZNPhss
+/// https://youtu.be/4vKiJZNPhss
 
 class AuthenticationService {
   //Entry point of Firebase Authentication SDk
@@ -17,48 +15,48 @@ class AuthenticationService {
   Stream<User?> get authStateChanges => _firebaseAuth.authStateChanges();
 
   /// Signs in with email and password
-  Future<String> signIn(
+  Future<Object> signIn(
       {required String email, required String password}) async {
     try {
       await _firebaseAuth.signInWithEmailAndPassword(
         email: email,
         password: password,
       );
-      return "Signed in";
+      return 400;
     } on FirebaseAuthException catch (e) {
       return e.message!;
     }
   }
 
   /// Signs up with email and password
-  Future<String> signUp(
+  Future<Object> signUp(
       {required String email, required String password}) async {
     try {
       await _firebaseAuth.createUserWithEmailAndPassword(
         email: email,
         password: password,
       );
-      return "Signed up";
+      return 400;
     } on FirebaseAuthException catch (e) {
       return e.message!;
     }
   }
 
   /// Sends a password reset email
-  Future<String> resetPassword({required String email}) async {
+  Future<Object> resetPassword({required String email}) async {
     try {
       await _firebaseAuth.sendPasswordResetEmail(email: email);
-      return "Password reset email sent";
+      return 400;
     } on FirebaseAuthException catch (e) {
       return e.message!;
     }
   }
 
   /// Signs out
-  Future<String> signOut() async {
+  Future<Object> signOut() async {
     try {
       await _firebaseAuth.signOut();
-      return "Signed out";
+      return 400;
     } on FirebaseAuthException catch (e) {
       return e.message!;
     }
