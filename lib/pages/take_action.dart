@@ -1,4 +1,5 @@
 import 'package:call_black_line/widgets/checkbox_text.dart';
+import 'package:call_black_line/widgets/custom_navbar.dart';
 import 'package:call_black_line/widgets/orange_button.dart';
 import 'package:flutter/material.dart';
 import 'package:call_black_line/widgets/custom_title.dart';
@@ -34,6 +35,7 @@ class _TakeActionPageState extends State<TakeActionPage> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: const Header(),
+      bottomNavigationBar: CustomNavBar(currentPage: 'Resources'),
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.symmetric(
