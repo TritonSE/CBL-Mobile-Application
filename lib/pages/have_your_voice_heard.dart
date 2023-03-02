@@ -121,7 +121,10 @@ class _HaveYourVoiceHeardState extends State<HaveYourVoiceHeard> {
                 child: OrangeButton(
                     buttonText: submitted ? 'Done' : 'Submit',
                     onTap: () => setState(() => submitted = true)),
-              )
+              ),
+              const SizedBox(
+                height: 16,
+              ),
             ],
           ),
         ),
