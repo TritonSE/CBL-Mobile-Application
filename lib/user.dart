@@ -4,21 +4,16 @@ class User {
   final String username;
   final int phoneNumber;
   final String email;
-  final String password;
-  final String password_Confirm;
 
-  User(this.password_Confirm,
-      {required this.username,
+  User({required this.username,
       required this.phoneNumber,
-      required this.email,
-      required this.password});
+      required this.email});
 
   Map<String, dynamic> toMap() {
     return {
-      'Username': username,
+      'username': username,
       'phoneNumber': phoneNumber,
-      'email': email,
-      'Password': password,
+      'email': email
     };
   }
 }

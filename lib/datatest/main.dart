@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'user.dart';
+import '../user.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'testimonial.dart';
+import '../testimonial.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -96,41 +96,34 @@ class _MyHomePageState extends State<MyHomePage> {
                 onPressed: () {
                   //test 10 times
                   UserRepository userRepository = UserRepository();
-                  User user = User('password',
-                      username: 'John Doe',
+                  User user = User(username: 'John Doe',
                       phoneNumber: 8583165432,
-                      email: 'johndoe@example.com',
-                      password: 'password');
+                      email: 'johndoe@example.com');
 
-                  User userWrongPswd = User('incorrect',
+                  User userWrongPswd = User(
                       username: 'sdf Doe',
                       phoneNumber: 8583165432,
-                      email: 'bobjoe@example.com',
-                      password: 'password');
+                      email: 'bobjoe@example.com');
 
-                  User userWrongEmail = User('password',
+                  User userWrongEmail = User(
                       username: 'Billy Bob',
                       phoneNumber: 8583165432,
-                      email: 'sdlsdkjf',
-                      password: 'password');
+                      email: 'sdlsdkjf');
 
-                  User userWrongPhone = User('password',
+                  User userWrongPhone = User(
                       username: 'Billy Joel',
                       phoneNumber: 1,
-                      email: 'a@example.com',
-                      password: 'password');
+                      email: 'a@example.com');
 
-                  User user2 = User('12345',
+                  User user2 = User(
                       username: 'Maggie',
                       phoneNumber: 1234567899,
-                      email: 'maggie@example.com',
-                      password: '12345');
+                      email: 'maggie@example.com');
 
-                  User userDuplicate = User('password',
+                  User userDuplicate = User(
                       username: 'John Doe',
                       phoneNumber: 8583165432,
-                      email: 'johndoe@example.com',
-                      password: 'password');
+                      email: 'johndoe@example.com');
 
                   userRepository.addUser(user);
                   userRepository.addUser(userWrongPswd);
@@ -145,13 +138,13 @@ class _MyHomePageState extends State<MyHomePage> {
                   SubmitTestimonial submitTestimonial = SubmitTestimonial();
                   Testimonial testimonial = Testimonial(
                       eventTitle: "Test",
-                      time: "12/23/12",
+                      created: DateTime.now().millisecondsSinceEpoch,
                       duration: 10.0,
                       address: 'as',
                       description: 'This is a test');
                   Testimonial testimonial2 = Testimonial(
                       eventTitle: "Test",
-                      time: "12/23/12",
+                      created: DateTime.now().millisecondsSinceEpoch,
                       duration: 10,
                       address: 'as',
                       description: 'This is a test');
