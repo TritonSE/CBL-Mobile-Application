@@ -13,8 +13,6 @@ class CategorySquare extends StatelessWidget {
         fit: FlexFit.tight,
         child: InkWell(
           child: Container(
-            //width: 171,
-
             height: 171,
             decoration: BoxDecoration(
               color: themeColor,
@@ -30,14 +28,16 @@ class CategorySquare extends StatelessWidget {
                   SizedBox(
                     height: 6,
                   ),
-                  Text(
-                    catText,
-                    style: const TextStyle(
-                        fontSize: 20,
-                        fontFamily: 'Inter',
-                        fontWeight: FontWeight.w500,
-                        color: Colors.black),
-                  ),
+                  Expanded(
+                    child: Text(
+                      catText,
+                      style: const TextStyle(
+                          fontSize: 20,
+                          fontFamily: 'Inter',
+                          fontWeight: FontWeight.w500,
+                          color: Colors.black),
+                    ),
+                  )
                 ],
               ),
             ),
@@ -45,6 +45,7 @@ class CategorySquare extends StatelessWidget {
           onTap: () {
             Navigator.pushNamed(context, '/category_name');
           },
-        ));
+        )
+    );
   }
 }
