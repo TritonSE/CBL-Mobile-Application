@@ -4,31 +4,38 @@ class InputField extends StatelessWidget {
   final int borderColor;
   final int textColor;
   final String text;
-  final IconData icon;
+  final IconData? icon;
+  final double? paddingTop;
   const InputField(
       {super.key,
       required this.borderColor,
       required this.textColor,
       required this.text,
-      required this.icon});
+      required this.icon,
+      this.paddingTop});
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(top: 16.0),
+      padding: EdgeInsets.only(top: paddingTop ?? 16.0),
       child: TextFormField(
+        minLines: 1,
+        maxLines: 3,
         cursorColor: Color(borderColor),
         decoration: InputDecoration(
+          contentPadding: const EdgeInsets.all(16.0),
           floatingLabelStyle: TextStyle(
             fontSize: 17,
             color: Color(borderColor),
             fontWeight: FontWeight.w500,
             fontFamily: 'Inter',
           ),
-          prefixIcon: Icon(
-            icon,
-            color: Color(borderColor),
-          ),
+          prefixIcon: icon != null
+              ? Icon(
+                  icon,
+                  color: Color(borderColor),
+                )
+              : null,
           enabledBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(16),
             borderSide: BorderSide(
@@ -43,8 +50,9 @@ class InputField extends StatelessWidget {
               color: Color(borderColor),
             ),
           ),
-          labelText: text,
-          labelStyle: TextStyle(
+          alignLabelWithHint: true,
+          hintText: text,
+          hintStyle: TextStyle(
             color: Color(textColor),
           ),
         ),
@@ -53,6 +61,7 @@ class InputField extends StatelessWidget {
           color: Colors.black,
           fontWeight: FontWeight.w500,
           fontFamily: 'Inter',
+          height: 1.5,
         ),
       ),
     );
