@@ -1,6 +1,7 @@
 import 'package:call_black_line/pages/affirmation.dart';
 import 'package:call_black_line/pages/call_text_now.dart';
 import 'package:call_black_line/pages/create_account.dart';
+import 'package:call_black_line/pages/have_your_voice_heard.dart';
 import 'package:call_black_line/widgets/custom_navbar.dart';
 import 'package:call_black_line/pages/donation.dart';
 
@@ -29,7 +30,8 @@ class MyApp extends StatelessWidget {
         ),
         routes: {
           // '/': (context) => const SeekHelp(),
-          '/': (context) => const Donation(),
+          // '/': (context) => const Donation(),
+          '/': (context) => const HaveYourVoiceHeard(),
           '/callTextNow': (context) => const CallTextNow(),
           '/createAccount': (context) => const CreateAccount(),
           '/takeAction': (context) => const TakeActionPage(),
@@ -48,7 +50,7 @@ class SeekHelp extends StatelessWidget {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       backgroundColor: Colors.white,
-      bottomNavigationBar: CustomNavBar(
+      bottomNavigationBar: const CustomNavBar(
         currentPage: 'Seek Help',
       ), //Available: Resources, Seek Help, Profile
       appBar: const Header(
