@@ -9,6 +9,8 @@ import 'package:call_black_line/widgets/password_field.dart';
 import 'package:call_black_line/widgets/or_divider.dart';
 import 'package:call_black_line/widgets/social_media_button.dart';
 
+import 'package:call_black_line/auth_methods.dart';
+
 class TakeActionPage extends StatefulWidget {
   const TakeActionPage({super.key});
 

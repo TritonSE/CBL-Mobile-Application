@@ -89,9 +89,9 @@ class _MyHomePageState extends State<MyHomePage> {
     final firebaseuser = context.watch<User?>();
 
     if (firebaseuser == null) {
-      return const CreateAccount();
+      return const TakeActionPage();
     } else {
-      return const SeekHelp();
+      return const Donation();
     }
   }
 }
