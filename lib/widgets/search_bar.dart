@@ -4,8 +4,9 @@ import 'package:call_black_line/pages/resources.dart';
 class SearchBar extends StatelessWidget {
 
   Widget build(BuildContext context) {
+    final TextEditingController textarea = TextEditingController();
     return Container(
-        height: 38,
+        height: 40,
         decoration: BoxDecoration(
             color: Colors.white,
             borderRadius:
@@ -15,45 +16,29 @@ class SearchBar extends StatelessWidget {
                 width: 1,
             ),
         ),
-        child: Padding(
-            padding: const EdgeInsets.only(
-                left: 18.75, right: 17.33, top: 8.0, bottom: 8.0,
+      child: Center(
+        child: TextField(
+          controller: textarea,
+          decoration: InputDecoration(
+            prefixIcon: IconButton(
+                icon: const Icon(Icons.search),
+                onPressed: (){},
+                color: primaryVarColor,
             ),
-            child: Row(
-                children: [
-                    SizedBox(
-                        width: 16.03,
-                        height: 16.03,
-                        child: const Icon(
-                            Icons.search,
-                            color: primaryVarColor,
-                        )
-                    ),
-                    SizedBox(
-                        width: 11.22,
-                    ),
-                    Expanded(
-                        child: const Text(
-                            'Search something',
-                            style: const TextStyle(
-                                fontSize: 17,
-                                fontFamily: 'Inter',
-                                fontWeight: FontWeight.w500,
-                                color: secondaryTextColor
-                            ),
-                        ),
-                    ),
-                    SizedBox(
-                        width: 13.33,
-                        height: 13.33,
-                        child: const Icon(
-                            Icons.cancel,
-                            color: primaryVarColor,
-                        ),
-                    ),
-                ]
+            suffixIcon: IconButton(
+              icon: const Icon(Icons.cancel, size: 16.0),
+              onPressed: (){
+                textarea.clear();
+                FocusScope.of(context).requestFocus(new FocusNode());
+              },
+              color: primaryVarColor,
             ),
-        ),
+            hintText: 'Search Something',
+            border: InputBorder.none,
+
+          ),
+        )
+      )
     );
   }
 }
