@@ -26,7 +26,7 @@ class ResourceTitle extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.center,
                         mainAxisSize: MainAxisSize.max,
                         children: [
-                          SizedBox(
+                          const SizedBox(
                             height: 24,
                           ),
                           const Text('Resource Title',
@@ -37,7 +37,7 @@ class ResourceTitle extends StatelessWidget {
                           const SizedBox(
                             height: 32,
                           ),
-                          SizedBox(
+                          const SizedBox(
                             width: 357,
                             child: Text(
                               'Lorem ipsum dolor sit amet consectetur. Magna mattis lorem auctor tortor ut nunc lacus at in. Tellus tempor a habitasse ac augue eu.',
@@ -60,8 +60,8 @@ class ResourceTitle extends StatelessWidget {
                               color: buttonColor,
                               borderRadius: BorderRadius.all(Radius.circular(16)),
                             ),
-                            child: Padding(
-                              padding: const EdgeInsets.all(11.5),
+                            child: const Padding(
+                              padding: EdgeInsets.all(11.5),
                               child: Text(
                                 'Visit the site',
                                 textAlign: TextAlign.center,
@@ -78,7 +78,7 @@ class ResourceTitle extends StatelessWidget {
                             height: 32,
                           ),
                           Image(
-                            image: AssetImage('assets/placeholder.jpg'),
+                            image: const AssetImage('assets/placeholder.jpg'),
                             height: 231 / 358 * MediaQuery.of(context).size.width,
                             width: MediaQuery.of(context).size.width,
                           )
@@ -90,7 +90,7 @@ class ResourceTitle extends StatelessWidget {
                     )
                   ],
                 ),
-                SizedBox(height: 16),
+                const SizedBox(height: 16),
               ]
             )
         )

@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:call_black_line/pages/resources.dart';
 
 class SearchBar extends StatelessWidget {
+  const SearchBar({super.key});
 
+  @override
   Widget build(BuildContext context) {
     final TextEditingController textarea = TextEditingController();
     return Container(
@@ -10,7 +12,7 @@ class SearchBar extends StatelessWidget {
         decoration: BoxDecoration(
             color: Colors.white,
             borderRadius:
-                BorderRadius.all(const Radius.circular(16)),
+                const BorderRadius.all(Radius.circular(16)),
             border: Border.all(
                 color: primaryVarColor,
                 width: 1,
@@ -29,11 +31,11 @@ class SearchBar extends StatelessWidget {
               icon: const Icon(Icons.cancel, size: 16.0),
               onPressed: (){
                 textarea.clear();
-                FocusScope.of(context).requestFocus(new FocusNode());
+                FocusScope.of(context).requestFocus(FocusNode());
               },
               color: primaryVarColor,
             ),
-            hintText: 'Search Something',
+            hintText: 'Search something',
             border: InputBorder.none,
 
           ),

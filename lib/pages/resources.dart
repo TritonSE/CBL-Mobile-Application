@@ -3,10 +3,10 @@ import 'package:call_black_line/widgets/header.dart';
 import 'package:call_black_line/widgets/category_square.dart';
 import 'package:call_black_line/widgets/search_bar.dart';
 
-const themeColor = const Color(0xFFF7B279);
-const buttonColor = const Color(0xFFDF742C);
-const primaryVarColor = const Color(0xFFD55B26);
-const secondaryTextColor = const Color(0xFF6C6C6C);
+const themeColor = Color(0xFFF7B279);
+const buttonColor = Color(0xFFDF742C);
+const primaryVarColor = Color(0xFFD55B26);
+const secondaryTextColor = Color(0xFF6C6C6C);
 
 class Resources extends StatelessWidget {
   const Resources({super.key});
@@ -22,27 +22,27 @@ class Resources extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.start,
                 mainAxisSize: MainAxisSize.max,
                 children: <Widget>[
-                  SizedBox(
+                  const SizedBox(
                     width: 16,
                   ),
                   Flexible(
                     fit: FlexFit.tight,
                     child: Column(mainAxisAlignment: MainAxisAlignment.start,
                         children: [
-                          SizedBox(
+                          const SizedBox(
                             height: 24,
                           ),
                           Row(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             mainAxisAlignment: MainAxisAlignment.center,
                             mainAxisSize: MainAxisSize.min,
-                            children: [
+                            children: const [
                               Align(
                                 alignment: Alignment.center,
-                                child: const Text(
+                                child: Text(
                                   'Resources',
                                   textAlign: TextAlign.center,
-                                  style: const TextStyle(
+                                  style: TextStyle(
                                     fontSize: 34,
                                     fontFamily: 'Inter',
                                     fontWeight: FontWeight.w700,
@@ -52,24 +52,23 @@ class Resources extends StatelessWidget {
                               ),
                             ],
                           ),
-                          SizedBox(
+                          const SizedBox(
                             height: 40,
                           ),
 
-                          //search bar code
                           SearchBar(),
 
-                          SizedBox(
+                          const SizedBox(
                             height: 24,
                           ),
 
                           //subtitle: categories
-                          Align(
+                          const Align(
                             alignment: Alignment.centerLeft,
-                            child: const Text(
+                            child: Text(
                               'Categories',
                               textAlign: TextAlign.left,
-                              style: const TextStyle(
+                              style: TextStyle(
                                 fontSize: 22,
                                 fontFamily: 'Inter',
                                 fontWeight: FontWeight.w500,
@@ -78,13 +77,13 @@ class Resources extends StatelessWidget {
                             ),
                           ),
 
-                          SizedBox(
+                          const SizedBox(
                             height: 16,
                           ),
 
                           //row 1 of two containers
                           Row(
-                            children: [
+                            children: const [
                               CategorySquare(
                                 catText: 'Medical',
                                 icon: Icons.medical_services_outlined,
@@ -99,12 +98,12 @@ class Resources extends StatelessWidget {
                             ],
                           ),
 
-                          SizedBox(
+                          const SizedBox(
                             height: 16,
                           ),
 
                           Row(
-                            children: [
+                            children: const [
                               CategorySquare(
                                 catText: 'Housing',
                                 icon: Icons.house_outlined,
@@ -119,7 +118,7 @@ class Resources extends StatelessWidget {
                             ],
                           ),
 
-                          SizedBox(
+                          const SizedBox(
                             height: 16,
                           ),
 
@@ -130,16 +129,16 @@ class Resources extends StatelessWidget {
                                     fit: FlexFit.tight,
                                     child: Container(
                                         height: 85.5,
-                                        decoration: BoxDecoration(
+                                        decoration: const BoxDecoration(
                                           color: themeColor,
                                           borderRadius: BorderRadius.all(
-                                              const Radius.circular(16)),
+                                              Radius.circular(16)),
                                         ),
-                                        child: Padding(
-                                          padding: const EdgeInsets.all(16.0),
+                                        child: const Padding(
+                                          padding: EdgeInsets.all(16.0),
                                           child: Text(
-                                            'Resources',
-                                            style: const TextStyle(
+                                            'All Resources',
+                                            style: TextStyle(
                                                 fontSize: 20,
                                                 fontFamily: 'Inter',
                                                 fontWeight: FontWeight.w500,
@@ -155,12 +154,12 @@ class Resources extends StatelessWidget {
                             },
                           ),
 
-                          SizedBox(
+                          const SizedBox(
                             height: 16,
                           )
                         ]),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     width: 16,
                   )
                 ]
