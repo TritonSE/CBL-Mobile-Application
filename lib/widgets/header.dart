@@ -11,11 +11,10 @@ class Header extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     var mediaWidth = MediaQuery.of(context).size.width;
-    var mediaHeight = MediaQuery.of(context).size.height;
 
     var logoHeight = 35.0;
     if (mediaWidth < 400) {
-      logoHeight = 25.0;
+      logoHeight = mediaWidth / 15;
     }
     return AppBar(
       leading: !isHome
@@ -35,6 +34,14 @@ class Header extends StatelessWidget implements PreferredSizeWidget {
       backgroundColor: Colors.white,
       elevation: 4,
       shadowColor: Colors.black.withOpacity(0.2),
+      title: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Image.asset('assets/images/call-blackline-black.png',
+              height: logoHeight)
+        ],
+      ),
     );
   }
 }
