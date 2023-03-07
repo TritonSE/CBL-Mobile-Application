@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:call_black_line/widgets/custom_title.dart';
 import 'package:call_black_line/widgets/header.dart';
 import 'package:call_black_line/widgets/rounded_button_image.dart';
+import 'package:url_launcher/url_launcher.dart'; //ERROR with import
 
 class CallTextNow extends StatelessWidget {
   const CallTextNow({super.key});
