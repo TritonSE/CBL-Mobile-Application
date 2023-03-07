@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:call_black_line/widgets/custom_title.dart';
 import 'package:call_black_line/widgets/header.dart';
 import 'package:call_black_line/widgets/rounded_button_image.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class CallTextNow extends StatelessWidget {
   const CallTextNow({super.key});
@@ -50,20 +51,31 @@ class CallTextNow extends StatelessWidget {
             const SizedBox(
               height: 16,
             ),
+            
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: const [
                 Expanded(
                   flex: 1,
-                  child: RoundedButtonImage(
-                    height: 171,
-                    width: 171,
-                    imageURL: 'assets/images/call.jpg',
-                    text: 'Call 1(800) 604-5841',
-                    textPaddingTop: 16.0,
-                    textContainerAlignment: Alignment.topCenter,
-                    textContainerWidth: 100,
-                  ),
+                  child: TextButton(
+                    onPressed: () async {
+                      if (await canLaunch("tel:+1-800-604-5841")) {
+                        await launch("tel:+1-800-604-5841");
+                      } else {
+                        throw "Error occured trying to call that number."
+                      }
+                    },
+                    //launchUrl("tel:+1-800-604-5841"),
+                    child: RoundedButtonImage(
+                      height: 171,
+                      width: 171,
+                      imageURL: 'assets/images/call.jpg',
+                      text: 'Call 1(800) 604-5841',
+                      textPaddingTop: 16.0,
+                      textContainerAlignment: Alignment.topCenter,
+                      textContainerWidth: 100,
+                    ),
+                  )
                 ),
                 SizedBox(
                   width: 16,
@@ -71,14 +83,17 @@ class CallTextNow extends StatelessWidget {
                 ),
                 Expanded(
                   flex: 1,
-                  child: RoundedButtonImage(
-                    height: 171,
-                    width: 171,
-                    imageURL: 'assets/images/text.jpg',
-                    text: 'Text 1(800) 604-5841',
-                    textPaddingTop: 16.0,
-                    textContainerAlignment: Alignment.topCenter,
-                    textContainerWidth: 100,
+                  child: TextButton(
+                    onPressed: launchUrl("sms:$+18006045841"),
+                    child: RoundedButtonImage(
+                      height: 171,
+                      width: 171,
+                      imageURL: 'assets/images/text.jpg',
+                      text: 'Text 1(800) 604-5841',
+                      textPaddingTop: 16.0,
+                      textContainerAlignment: Alignment.topCenter,
+                      textContainerWidth: 100,
+                    ),
                   ),
                 ),
               ],

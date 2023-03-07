@@ -10,16 +10,17 @@ class RoundedButtonImage extends StatelessWidget {
   final double textContainerWidth; //Optional
   final Function()? onTap;
 
-  const RoundedButtonImage(
-      {super.key,
-      required this.height,
-      required this.width,
-      required this.imageURL,
-      required this.text,
-      this.textPaddingTop = 0.0,
-      this.textContainerAlignment = Alignment.center,
-      this.textContainerWidth = double.infinity,
-      this.onTap});
+  const RoundedButtonImage({
+    super.key,
+    required this.height,
+    required this.width,
+    required this.imageURL,
+    required this.text,
+    this.textPaddingTop = 0.0,
+    this.textContainerAlignment = Alignment.center,
+    this.textContainerWidth = double.infinity,
+    this.onTap,
+  });
 
   @override
   Widget build(BuildContext context) {
