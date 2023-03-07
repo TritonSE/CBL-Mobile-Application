@@ -122,7 +122,7 @@ class Resources extends StatelessWidget {
                             height: 16,
                           ),
 
-                          InkWell(
+                          GestureDetector(
                             child: Row(
                               children: [
                                 Flexible(
