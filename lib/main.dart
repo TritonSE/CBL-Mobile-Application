@@ -47,8 +47,7 @@ class SeekHelp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return CallTextNow();
-    /*return Scaffold(
+    return Scaffold(
       resizeToAvoidBottomInset: false,
       backgroundColor: Colors.white,
       bottomNavigationBar: const CustomNavBar(
@@ -112,6 +111,6 @@ class SeekHelp extends StatelessWidget {
           ],
         ),
       ),
-    ); */
+    );
   }
 }
