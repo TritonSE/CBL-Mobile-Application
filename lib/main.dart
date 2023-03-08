@@ -10,7 +10,7 @@ import 'package:call_black_line/widgets/custom_title.dart';
 import 'package:call_black_line/widgets/header.dart';
 import 'package:call_black_line/widgets/rounded_button_image.dart';
 
-import 'firebase_auth.dart';
+import 'auth_methods.dart';
 import 'package:provider/provider.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -52,6 +52,8 @@ class MyApp extends StatelessWidget {
             '/callTextNow': (context) => const CallTextNow(),
             '/createAccount': (context) => const CreateAccount(),
             '/takeAction': (context) => const TakeActionPage(),
+            '/donation': (context) => const Donation(),
+            '/affirmation': (context) => const Affirmation(),
           },
           home: const MyHomePage(title: 'Call Blackline'),
         ));
@@ -88,10 +90,12 @@ class _MyHomePageState extends State<MyHomePage> {
 
     final firebaseuser = context.watch<User?>();
 
+    debugPrint(firebaseuser.toString());
+
     if (firebaseuser == null) {
       return const TakeActionPage();
     } else {
-      return const Donation();
+      return const SeekHelp();
     }
   }
 }
@@ -101,6 +105,7 @@ class SeekHelp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final firebaseuser = context.watch<User?>();
     return Scaffold(
       resizeToAvoidBottomInset: false,
       backgroundColor: Colors.white,

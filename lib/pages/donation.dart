@@ -5,6 +5,10 @@ import 'package:call_black_line/widgets/custom_title.dart';
 import 'package:call_black_line/widgets/header.dart';
 import 'package:url_launcher/url_launcher.dart';
 
+import 'package:call_black_line/auth_methods.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:provider/provider.dart';
+
 class Donation extends StatelessWidget {
   const Donation({super.key});
 
@@ -12,6 +16,8 @@ class Donation extends StatelessWidget {
   Widget build(BuildContext context) {
     bool shouldRedirect = true;
     BuildContext dialogContext;
+
+    final firebaseuser = context.watch<User?>();
 
     int textGray = int.parse('#909090'.replaceAll('#', '0xff'));
     int textBlack = int.parse('#111827'.replaceAll('#', '0xff'));

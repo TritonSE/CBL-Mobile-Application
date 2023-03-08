@@ -10,6 +10,8 @@ import 'package:call_black_line/widgets/or_divider.dart';
 import 'package:call_black_line/widgets/social_media_button.dart';
 
 import 'package:call_black_line/auth_methods.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:provider/provider.dart';
 
 class TakeActionPage extends StatefulWidget {
   const TakeActionPage({super.key});
@@ -32,6 +34,8 @@ class _TakeActionPageState extends State<TakeActionPage> {
 
   @override
   Widget build(BuildContext context) {
+    final firebaseuser = context.watch<User>();
+
     var mediaWidth = MediaQuery.of(context).size.width;
 
     return Scaffold(
@@ -106,10 +110,16 @@ class _TakeActionPageState extends State<TakeActionPage> {
               const SizedBox(
                 height: 24,
               ),
-              const Align(
+              Align(
                 alignment: Alignment.centerRight,
                 child: OrangeButton(
                   buttonText: 'Sign In',
+                  onTap: () {
+                    context.read<AuthenticationService>().signIn(
+                        email: "stevendiwenshi1113@gmail.com",
+                        password: "123456");
+                    print(firebaseuser.email);
+                  },
                 ),
               ),
               const SizedBox(

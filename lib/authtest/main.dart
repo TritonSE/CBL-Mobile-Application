@@ -1,4 +1,4 @@
-import 'package:call_black_line/firebase_auth.dart';
+import 'package:call_black_line/auth_methods.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_auth/firebase_auth.dart';
