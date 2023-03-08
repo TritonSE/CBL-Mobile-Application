@@ -59,10 +59,14 @@ class CallTextNow extends StatelessWidget {
                   flex: 1,
                   child: TextButton(
                     onPressed: () async {
-                      if (await canLaunch("tel:+1-800-604-5841")) {
-                        await launch("tel:+1-800-604-5841");
+                      final Uri url = Uri(
+                        scheme: 'tel',
+                        path: "+1-800-604-5841",
+                      );
+                      if (await canLaunch(url)) {
+                        await launchUrl(url);
                       } else {
-                        throw "Error occured trying to call that number."
+                        throw Exception("Error occured trying to call that number.");
                       }
                     },
                     //launchUrl("tel:+1-800-604-5841"),
