@@ -54,23 +54,22 @@ class CallTextNow extends StatelessWidget {
             
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
-              children: const [
+              children: [
                 Expanded(
                   flex: 1,
-                  child: TextButton(
-                    onPressed: () async {
-                      final Uri url = Uri(
-                        scheme: 'tel',
-                        path: "+1-800-604-5841",
-                      );
-                      if (await canLaunch(url)) {
-                        await launchUrl(url);
-                      } else {
-                        throw Exception("Error occured trying to call that number.");
-                      }
-                    },
                     //launchUrl("tel:+1-800-604-5841"),
                     child: RoundedButtonImage(
+                      onTap: () async {
+                        final Uri url = Uri(
+                          scheme: 'tel',
+                          path: "+1-800-604-5841",
+                        );
+                        if (await canLaunchUrl(url)) {
+                          await launchUrl(url);
+                        } else {
+                          throw Exception("Error occured trying to call that number.");
+                        }
+                      },
                       height: 171,
                       width: 171,
                       imageURL: 'assets/images/call.jpg',
@@ -79,7 +78,6 @@ class CallTextNow extends StatelessWidget {
                       textContainerAlignment: Alignment.topCenter,
                       textContainerWidth: 100,
                     ),
-                  )
                 ),
                 SizedBox(
                   width: 16,
@@ -87,9 +85,8 @@ class CallTextNow extends StatelessWidget {
                 ),
                 Expanded(
                   flex: 1,
-                  child: TextButton(
-                    onPressed: launchUrl("sms:$+18006045841"),
                     child: RoundedButtonImage(
+                      onTap: () => launch("sms:1(800)604-5841"),
                       height: 171,
                       width: 171,
                       imageURL: 'assets/images/text.jpg',
@@ -98,7 +95,6 @@ class CallTextNow extends StatelessWidget {
                       textContainerAlignment: Alignment.topCenter,
                       textContainerWidth: 100,
                     ),
-                  ),
                 ),
               ],
             )
