@@ -13,6 +13,42 @@ import 'package:call_black_line/auth_methods.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:provider/provider.dart';
 
+class TakeActionWrapper extends StatefulWidget {
+  const TakeActionWrapper({super.key});
+
+  @override
+  State<TakeActionWrapper> createState() => _TakeActionWrapperState();
+}
+
+class _TakeActionWrapperState extends State<TakeActionWrapper> {
+  @override
+  Widget build(BuildContext context) {
+    final firebaseuser = context.watch<User?>();
+
+    return StreamBuilder(
+        stream: FirebaseAuth.instance.authStateChanges(),
+        builder: (context, snapshot) {
+          if (snapshot.connectionState == ConnectionState.waiting) {
+            return const Scaffold(
+              body: Center(
+                child: CircularProgressIndicator(),
+              ),
+            );
+          } else if (snapshot.hasData) {
+            return const TakeActionPage();
+          } else if (snapshot.hasError) {
+            return const Scaffold(
+              body: Center(
+                child: Text('Something went wrong'),
+              ),
+            );
+          } else {
+            return const TakeActionPage();
+          }
+        });
+  }
+}
+
 class TakeActionPage extends StatefulWidget {
   const TakeActionPage({super.key});
 
@@ -34,7 +70,7 @@ class _TakeActionPageState extends State<TakeActionPage> {
 
   @override
   Widget build(BuildContext context) {
-    final firebaseuser = context.watch<User>();
+    final firebaseuser = context.watch<User?>();
 
     var mediaWidth = MediaQuery.of(context).size.width;
 
@@ -118,7 +154,7 @@ class _TakeActionPageState extends State<TakeActionPage> {
                     context.read<AuthenticationService>().signIn(
                         email: "stevendiwenshi1113@gmail.com",
                         password: "123456");
-                    print(firebaseuser.email);
+                    print(firebaseuser!.email);
                   },
                 ),
               ),

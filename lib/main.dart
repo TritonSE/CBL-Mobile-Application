@@ -93,9 +93,9 @@ class _MyHomePageState extends State<MyHomePage> {
     debugPrint(firebaseuser.toString());
 
     if (firebaseuser == null) {
-      return const TakeActionPage();
+      return const Donation();
     } else {
-      return const SeekHelp();
+      return const TakeActionWrapper();
     }
   }
 }
