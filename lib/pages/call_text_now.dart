@@ -1,3 +1,4 @@
+import 'package:call_black_line/widgets/cbl.dart';
 import 'package:call_black_line/widgets/custom_navbar.dart';
 import 'package:flutter/material.dart';
 import 'package:call_black_line/widgets/custom_title.dart';
@@ -9,7 +10,6 @@ class CallTextNow extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var mediaWidth = MediaQuery.of(context).size.width;
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: const Header(),
@@ -17,32 +17,32 @@ class CallTextNow extends StatelessWidget {
         currentPage: 'Profile',
       ),
       body: Padding(
-        padding: const EdgeInsets.symmetric(
-          horizontal: 16,
+        padding: EdgeInsets.symmetric(
+          horizontal: CBL.padding,
         ),
         child: Column(
           children: [
-            CustomTitle(text: 'Call or Text Now'),
-            const SizedBox(
+            const CustomTitle(text: 'Call or Text Now'),
+            SizedBox(
               width: 358,
               child: Text(
                 'Have you encountered abusive, physical and disrespectful police or vigilante behavior or were you attacked because you did not belong in a store, business, certain community or neighborhood?',
                 style: TextStyle(
                     fontSize: 17,
-                    fontFamily: 'Inter',
-                    fontWeight: FontWeight.w500),
+                    fontFamily: CBL.fontFamily,
+                    fontWeight: CBL.bold),
                 textAlign: TextAlign.center,
               ),
             ),
             const SizedBox(
               height: 48,
             ),
-            const Text(
+            Text(
               'Contact BlackLine and report your incident.',
               textAlign: TextAlign.center,
               style: TextStyle(
                 fontSize: 22,
-                fontFamily: 'Inter',
+                fontFamily: CBL.fontFamily,
                 color: Colors.black,
                 fontWeight: FontWeight.w600,
               ),

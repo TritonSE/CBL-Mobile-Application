@@ -1,14 +1,9 @@
+import 'package:call_black_line/widgets/cbl.dart';
 import 'package:flutter/material.dart';
 
 class SocialMedia extends StatelessWidget {
-  final int fbBlue;
-  final int googleGreen;
-
-  const SocialMedia({
-    super.key,
-    required this.fbBlue,
-    required this.googleGreen,
-  });
+  int fbBlue = 0xff4267B2;
+  int googleGreen = 0xff0F9D58;
 
   @override
   Widget build(BuildContext context) {
@@ -45,8 +40,8 @@ class SocialMedia extends StatelessWidget {
                       'Facebook',
                       style: TextStyle(
                         fontSize: 20,
-                        fontFamily: 'Inter',
-                        fontWeight: FontWeight.w500,
+                        fontFamily: CBL.fontFamily,
+                        fontWeight: CBL.bold,
                         color: Color(fbBlue),
                       ),
                     ),
@@ -87,8 +82,8 @@ class SocialMedia extends StatelessWidget {
                       'Google',
                       style: TextStyle(
                         fontSize: 20,
-                        fontFamily: 'Inter',
-                        fontWeight: FontWeight.w500,
+                        fontFamily: CBL.fontFamily,
+                        fontWeight: CBL.bold,
                         color: Color(googleGreen),
                       ),
                     ),

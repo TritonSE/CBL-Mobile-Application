@@ -1,3 +1,4 @@
+import 'package:call_black_line/widgets/cbl.dart';
 import 'package:flutter/material.dart';
 
 class RoundedButtonImage extends StatelessWidget {
@@ -48,10 +49,10 @@ class RoundedButtonImage extends StatelessWidget {
               child: Text(
                 text,
                 textAlign: TextAlign.center,
-                style: const TextStyle(
+                style: TextStyle(
                     fontSize: 20,
-                    fontFamily: 'Inter',
-                    fontWeight: FontWeight.w500,
+                    fontFamily: CBL.fontFamily,
+                    fontWeight: CBL.bold,
                     color: Colors.white),
               ),
             ),

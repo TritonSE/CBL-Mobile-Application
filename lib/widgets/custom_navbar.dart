@@ -1,3 +1,4 @@
+import 'package:call_black_line/widgets/cbl.dart';
 import 'package:flutter/material.dart';
 
 class CustomNavBar extends StatelessWidget {
@@ -117,9 +118,9 @@ class NavItem extends StatelessWidget {
                           color: isCurrentPage
                               ? Color(primaryOrange)
                               : Colors.black,
-                          fontFamily: 'Inter',
+                          fontFamily: CBL.fontFamily,
                           fontSize: 12,
-                          fontWeight: FontWeight.w500),
+                          fontWeight: CBL.bold),
                     ),
                   ],
                 )),

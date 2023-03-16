@@ -1,12 +1,8 @@
+import 'package:call_black_line/widgets/cbl.dart';
 import 'package:flutter/material.dart';
 
 class OrDivider extends StatelessWidget {
-  const OrDivider({
-    Key? key,
-    required this.veryLightGray,
-  }) : super(key: key);
-
-  final int veryLightGray;
+  int veryLightGray = 0xffD8D8D8;
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +22,9 @@ class OrDivider extends StatelessWidget {
           child: Text(
             'or',
             style: TextStyle(
-                color: Color(veryLightGray), fontFamily: 'Inter', fontSize: 17),
+                color: Color(veryLightGray),
+                fontFamily: CBL.fontFamily,
+                fontSize: 17),
           ),
         ),
         Expanded(

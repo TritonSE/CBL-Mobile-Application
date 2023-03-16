@@ -1,3 +1,4 @@
+import 'package:call_black_line/widgets/cbl.dart';
 import 'package:flutter/material.dart';
 
 class InputField extends StatelessWidget {
@@ -27,8 +28,8 @@ class InputField extends StatelessWidget {
           floatingLabelStyle: TextStyle(
             fontSize: 17,
             color: Color(borderColor),
-            fontWeight: FontWeight.w500,
-            fontFamily: 'Inter',
+            fontWeight: CBL.bold,
+            fontFamily: CBL.fontFamily,
           ),
           prefixIcon: icon != null
               ? Icon(
@@ -51,16 +52,16 @@ class InputField extends StatelessWidget {
             ),
           ),
           alignLabelWithHint: true,
-          hintText: text,
-          hintStyle: TextStyle(
+          labelText: text,
+          labelStyle: TextStyle(
             color: Color(textColor),
           ),
         ),
-        style: const TextStyle(
+        style: TextStyle(
           fontSize: 17,
           color: Colors.black,
-          fontWeight: FontWeight.w500,
-          fontFamily: 'Inter',
+          fontWeight: CBL.bold,
+          fontFamily: CBL.fontFamily,
           height: 1.5,
         ),
       ),

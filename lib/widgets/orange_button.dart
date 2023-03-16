@@ -1,3 +1,4 @@
+import 'package:call_black_line/widgets/cbl.dart';
 import 'package:flutter/material.dart';
 
 class OrangeButton extends StatelessWidget {
@@ -32,10 +33,10 @@ class OrangeButton extends StatelessWidget {
             child: Center(
               child: Text(
                 buttonText,
-                style: const TextStyle(
+                style: TextStyle(
                     fontSize: 20,
-                    fontFamily: 'Inter',
-                    fontWeight: FontWeight.w500,
+                    fontFamily: CBL.fontFamily,
+                    fontWeight: CBL.bold,
                     color: Colors.white),
               ),
             ),

@@ -8,6 +8,7 @@ import 'package:call_black_line/widgets/input_field.dart';
 import 'package:call_black_line/widgets/password_field.dart';
 import 'package:call_black_line/widgets/or_divider.dart';
 import 'package:call_black_line/widgets/social_media_button.dart';
+import '../widgets/cbl.dart';
 
 class TakeActionPage extends StatefulWidget {
   const TakeActionPage({super.key});
@@ -18,15 +19,8 @@ class TakeActionPage extends StatefulWidget {
 
 class _TakeActionPageState extends State<TakeActionPage> {
   bool passwordCheck = true;
-  int primaryOrange = int.parse('#DF742C'.replaceAll('#', '0xff'));
-  int neutralGray = int.parse('#6C6C6C'.replaceAll('#', '0xff'));
-  int veryLightGray = int.parse('#D8D8D8'.replaceAll('#', '0xff'));
-  int fbBlue = int.parse('#4267B2'.replaceAll('#', '0xff'));
-  int googleGreen = int.parse('#0F9D58'.replaceAll('#', '0xff'));
-  int createBlue = int.parse('#428BCD'.replaceAll('#', '0xff'));
-  int haveAccountGray = int.parse('#ABA1A1'.replaceAll('#', '0xff'));
-  int blue = int.parse('#66A0F5'.replaceAll('#', '0xff'));
-  int lightGray = int.parse('#B4B4B4'.replaceAll('#', '0xff'));
+  int veryLightGray = 0xffD8D8D8;
+  int createBlue = 0xff428BCD;
 
   @override
   Widget build(BuildContext context) {
@@ -35,11 +29,11 @@ class _TakeActionPageState extends State<TakeActionPage> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: const Header(),
-      bottomNavigationBar: CustomNavBar(currentPage: 'Resources'),
+      bottomNavigationBar: const CustomNavBar(currentPage: 'Resources'),
       body: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.symmetric(
-            horizontal: 16,
+          padding: EdgeInsets.symmetric(
+            horizontal: CBL.padding,
           ),
           child: Column(
             children: [
@@ -48,25 +42,25 @@ class _TakeActionPageState extends State<TakeActionPage> {
                 topPadding: 24.5,
                 bottomPadding: 16,
               ),
-              const Text(
+              Text(
                 'Login',
                 style: TextStyle(
-                    fontWeight: FontWeight.w500,
+                    fontWeight: CBL.bold,
                     fontSize: 22,
-                    fontFamily: 'Inter'),
+                    fontFamily: CBL.fontFamily),
               ),
               const SizedBox(
                 height: 24,
               ),
               InputField(
-                  borderColor: primaryOrange,
-                  textColor: lightGray,
+                  borderColor: CBL.primaryOrange,
+                  textColor: CBL.lightGray,
                   text: 'Username',
                   icon: Icons.person),
               PasswordField(
                   text: 'Password',
-                  borderColor: primaryOrange,
-                  textColor: lightGray),
+                  borderColor: CBL.primaryOrange,
+                  textColor: CBL.lightGray),
               const SizedBox(
                 height: 8,
               ),
@@ -76,14 +70,14 @@ class _TakeActionPageState extends State<TakeActionPage> {
                   Row(
                     children: [
                       CheckBoxText(
-                        boxColor: blue,
+                        boxColor: CBL.blue,
                       ),
-                      const Text(
+                      Text(
                         'Remember me',
                         style: TextStyle(
-                          fontFamily: 'Inter',
+                          fontFamily: CBL.fontFamily,
                           fontSize: 15,
-                          fontWeight: FontWeight.w500,
+                          fontWeight: CBL.bold,
                         ),
                       ),
                     ],
@@ -93,8 +87,8 @@ class _TakeActionPageState extends State<TakeActionPage> {
                     child: Text(
                       "Forgot Password",
                       style: TextStyle(
-                        color: Color(lightGray),
-                        fontFamily: 'Inter',
+                        color: Color(CBL.lightGray),
+                        fontFamily: CBL.fontFamily,
                         fontSize: 15,
                       ),
                     ),
@@ -113,11 +107,11 @@ class _TakeActionPageState extends State<TakeActionPage> {
               const SizedBox(
                 height: 35,
               ),
-              OrDivider(veryLightGray: veryLightGray),
+              OrDivider(),
               const SizedBox(
                 height: 12,
               ),
-              SocialMedia(fbBlue: fbBlue, googleGreen: googleGreen),
+              SocialMedia(),
               Padding(
                 padding: const EdgeInsets.only(top: 24.0),
                 child: Center(
@@ -130,7 +124,7 @@ class _TakeActionPageState extends State<TakeActionPage> {
                         'Don\'t have an account? ',
                         style: TextStyle(
                           color: Color(veryLightGray),
-                          fontFamily: 'Inter',
+                          fontFamily: CBL.fontFamily,
                           fontSize: 17,
                         ),
                       ),
@@ -141,7 +135,7 @@ class _TakeActionPageState extends State<TakeActionPage> {
                           "Create new one",
                           style: TextStyle(
                             color: Color(createBlue),
-                            fontFamily: 'Inter',
+                            fontFamily: CBL.fontFamily,
                             fontSize: 17,
                             fontWeight: FontWeight.w700,
                           ),

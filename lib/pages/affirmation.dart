@@ -2,6 +2,7 @@ import 'package:call_black_line/widgets/orange_button.dart';
 import 'package:flutter/material.dart';
 import 'package:call_black_line/widgets/custom_title.dart';
 import 'package:call_black_line/widgets/header.dart';
+import 'package:call_black_line/widgets/cbl.dart';
 
 class Affirmation extends StatefulWidget {
   final bool subscribed;
@@ -29,20 +30,20 @@ class _AffirmationState extends State<Affirmation> {
       backgroundColor: Colors.white,
       appBar: const Header(),
       body: Padding(
-        padding: const EdgeInsets.symmetric(
-          horizontal: 16,
+        padding: EdgeInsets.symmetric(
+          horizontal: CBL.padding,
         ),
         child: Column(
           children: [
             const CustomTitle(text: 'Affirmation'),
-            const SizedBox(
+            SizedBox(
               width: 358,
               child: Text(
                 'Subscribe to our affirmation resources to receive daily, weekly, or monthly affirmations from members in the community.',
                 style: TextStyle(
                     fontSize: 17,
-                    fontFamily: 'Inter',
-                    fontWeight: FontWeight.w500),
+                    fontFamily: CBL.fontFamily,
+                    fontWeight: CBL.bold),
                 textAlign: TextAlign.center,
               ),
             ),
@@ -55,8 +56,8 @@ class _AffirmationState extends State<Affirmation> {
                   Text("Subscribed!",
                       style: TextStyle(
                         fontSize: 17,
-                        fontFamily: 'Inter',
-                        fontWeight: FontWeight.w500,
+                        fontFamily: CBL.fontFamily,
+                        fontWeight: CBL.bold,
                         color: Color(primaryOrange),
                       )),
                   const SizedBox(height: 16),
@@ -79,8 +80,8 @@ class _AffirmationState extends State<Affirmation> {
                   style: TextStyle(
                       decoration: TextDecoration.underline,
                       fontSize: 17,
-                      fontFamily: 'Inter',
-                      fontWeight: FontWeight.w500,
+                      fontFamily: CBL.fontFamily,
+                      fontWeight: CBL.bold,
                       color: Color(gray)),
                 ),
               ),
