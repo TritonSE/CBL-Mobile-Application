@@ -73,6 +73,7 @@ class _TakeActionPageState extends State<TakeActionPage> {
     final firebaseuser = context.watch<User?>();
 
     var mediaWidth = MediaQuery.of(context).size.width;
+    print(firebaseuser!.email);
 
     return Scaffold(
       backgroundColor: Colors.white,
