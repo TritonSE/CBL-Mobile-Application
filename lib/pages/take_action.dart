@@ -78,7 +78,6 @@ class _TakeActionPageState extends State<TakeActionPage> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: const Header(),
-      bottomNavigationBar: CustomNavBar(currentPage: 'Resources'),
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.symmetric(
