@@ -8,6 +8,10 @@ import 'package:call_black_line/widgets/or_divider.dart';
 import 'package:call_black_line/widgets/password_field.dart';
 import 'package:call_black_line/widgets/social_media_button.dart';
 
+import 'package:call_black_line/auth_methods.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:provider/provider.dart';
+
 class CreateAccount extends StatefulWidget {
   const CreateAccount({super.key});
 
@@ -34,6 +38,8 @@ class _CreateAccountState extends State<CreateAccount> {
 
   @override
   Widget build(BuildContext context) {
+    final firebaseuser = context.watch<User?>();
+
     return Scaffold(
       // resizeToAvoidBottomInset: false,
       backgroundColor: Colors.white,
@@ -116,7 +122,14 @@ class _CreateAccountState extends State<CreateAccount> {
                   padding: const EdgeInsets.only(top: 10.0),
                   child: OrangeButton(
                     buttonText: 'Sign Up',
-                    onTap: () => Navigator.pushNamed(context, '/callTextNow'),
+                    onTap: () {
+                      context.read<AuthenticationService>().signUp(
+                            email: "linguinealfredo@gmail.com",
+                            password: "crappy_password",
+                          );
+                      print('Sign Up Button Pressed');
+                      print(firebaseuser!.email);
+                    },
                   ),
                 ),
               ),
