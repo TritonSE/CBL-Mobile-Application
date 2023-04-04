@@ -151,10 +151,15 @@ class _TakeActionPageState extends State<TakeActionPage> {
                 child: OrangeButton(
                   buttonText: 'Sign In',
                   onTap: () {
+                    //once we can get input from the user, replace this with user input
                     context.read<AuthenticationService>().signIn(
                         email: "stevendiwenshi1113@gmail.com",
                         password: "123456");
                     print(firebaseuser!.email);
+
+                    if (firebaseuser != null) {
+                      Navigator.pushNamed(context, '/callTextNow');
+                    }
                   },
                 ),
               ),
