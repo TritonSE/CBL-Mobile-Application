@@ -129,6 +129,10 @@ class _CreateAccountState extends State<CreateAccount> {
                           );
                       print('Sign Up Button Pressed');
                       print(firebaseuser!.email);
+
+                      if (firebaseuser != null) {
+                        Navigator.pushNamed(context, '/callTextNow');
+                      }
                     },
                   ),
                 ),
