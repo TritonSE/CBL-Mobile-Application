@@ -51,10 +51,19 @@ class SignUpUtils {
     };
   }
 
-  Future<void> deleteAccount(String id) async {
-    try {} catch (e) {
-      rethrow;
+  Future<Object> deleteAccount(BuildContext context, String id) async {
+    try {
+      int result = context.read<AuthenticationService>().signIn(
+          email: "stevendiwenshi1113@gmail.com", password: "123456") as int;
+
+      if (result == 400) {
+        userRepository.deleteUser(id);
+        return 400;
+      }
+    } catch (e) {
+      return {'status': 'ERROR', 'message': e.toString()};
     }
+    return 400;
   }
 }
 
