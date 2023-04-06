@@ -20,6 +20,15 @@ class _PasswordFieldState extends State<PasswordField> {
     setState(() => widget.hideText = !widget.hideText);
   }
 
+  final titleController = TextEditingController();
+  String text = "No Value Entered";
+
+  void _setText() {
+    setState(() {
+      text = titleController.text;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -32,6 +41,7 @@ class _PasswordFieldState extends State<PasswordField> {
         child: TextFormField(
           cursorColor: Color(widget.borderColor),
           obscureText: widget.hideText,
+          controller: titleController,
           decoration: InputDecoration(
               floatingLabelStyle: TextStyle(
                 fontSize: 17,
