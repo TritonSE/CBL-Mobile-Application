@@ -96,31 +96,32 @@ class _MyHomePageState extends State<MyHomePage> {
                 onPressed: () {
                   //test 10 times
                   UserRepository userRepository = UserRepository();
-                  User user = User(username: 'John Doe',
+                  UserData user = UserData(
+                      username: 'John Doe',
                       phoneNumber: 8583165432,
                       email: 'johndoe@example.com');
 
-                  User userWrongPswd = User(
+                  UserData userWrongPswd = UserData(
                       username: 'sdf Doe',
                       phoneNumber: 8583165432,
                       email: 'bobjoe@example.com');
 
-                  User userWrongEmail = User(
+                  UserData userWrongEmail = UserData(
                       username: 'Billy Bob',
                       phoneNumber: 8583165432,
                       email: 'sdlsdkjf');
 
-                  User userWrongPhone = User(
+                  UserData userWrongPhone = UserData(
                       username: 'Billy Joel',
                       phoneNumber: 1,
                       email: 'a@example.com');
 
-                  User user2 = User(
+                  UserData user2 = UserData(
                       username: 'Maggie',
                       phoneNumber: 1234567899,
                       email: 'maggie@example.com');
 
-                  User userDuplicate = User(
+                  UserData userDuplicate = UserData(
                       username: 'John Doe',
                       phoneNumber: 8583165432,
                       email: 'johndoe@example.com');

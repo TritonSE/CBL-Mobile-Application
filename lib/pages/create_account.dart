@@ -11,6 +11,8 @@ import 'package:call_black_line/widgets/social_media_button.dart';
 import 'package:call_black_line/auth_methods.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:provider/provider.dart';
+import '../testimonial.dart';
+import '../user.dart';
 
 class CreateAccount extends StatefulWidget {
   const CreateAccount({super.key});
@@ -131,6 +133,12 @@ class _CreateAccountState extends State<CreateAccount> {
                       print(firebaseuser!.email);
 
                       if (firebaseuser != null) {
+                        UserRepository userRepository = UserRepository();
+                        UserData user = UserData(
+                            username: 'Madame Linguine',
+                            phoneNumber: 1234567890,
+                            email: 'madameL@example.com');
+                        userRepository.addUser(user);
                         Navigator.pushNamed(context, '/callTextNow');
                       }
                     },
