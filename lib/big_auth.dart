@@ -54,7 +54,7 @@ class SignUpUtils {
   Future<Object> deleteAccount(BuildContext context, String id) async {
     try {
       int result = context.read<AuthenticationService>().signIn(
-          email: "stevendiwenshi1113@gmail.com", password: "123456") as int;
+          email: "shreya112358@gmail.com", password: "7654321") as int;
 
       if (result == 400) {
         userRepository.deleteUser(id);
