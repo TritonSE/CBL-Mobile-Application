@@ -5,28 +5,31 @@ class PasswordField extends StatefulWidget {
   int borderColor;
   int textColor;
   bool hideText = true;
+  TextEditingController titleController;
   PasswordField(
       {super.key,
       required this.text,
       required this.borderColor,
-      required this.textColor});
+      required this.textColor,
+      required this.titleController});
 
   @override
   State<PasswordField> createState() => _PasswordFieldState();
 }
 
 class _PasswordFieldState extends State<PasswordField> {
+
   void _toggle() {
     setState(() => widget.hideText = !widget.hideText);
   }
 
-  final titleController = TextEditingController();
   String text = "No Value Entered";
 
-  void _setText() {
-    setState(() {
-      text = titleController.text;
-    });
+  @override
+  void dispose() {
+    // Clean up the controller when the widget is disposed.
+    widget.titleController.dispose();
+    super.dispose();
   }
 
   @override
@@ -41,7 +44,7 @@ class _PasswordFieldState extends State<PasswordField> {
         child: TextFormField(
           cursorColor: Color(widget.borderColor),
           obscureText: widget.hideText,
-          controller: titleController,
+          controller: widget.titleController,
           decoration: InputDecoration(
               floatingLabelStyle: TextStyle(
                 fontSize: 17,

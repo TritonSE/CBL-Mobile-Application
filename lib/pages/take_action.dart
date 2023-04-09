@@ -21,6 +21,9 @@ class TakeActionWrapper extends StatefulWidget {
 }
 
 class _TakeActionWrapperState extends State<TakeActionWrapper> {
+  
+  final titleController = TextEditingController();
+  
   @override
   Widget build(BuildContext context) {
     final firebaseuser = context.watch<User?>();
