@@ -33,6 +33,9 @@ class _CreateAccountState extends State<CreateAccount> {
   int haveAccountGray = int.parse('#ABA1A1'.replaceAll('#', '0xff'));
   int blue = int.parse('#66A0F5'.replaceAll('#', '0xff'));
   int lightGray = int.parse('#B4B4B4'.replaceAll('#', '0xff'));
+  final TextEditingController _passwordController = TextEditingController();
+  final TextEditingController _confirmPasswordController =
+      TextEditingController();
 
   Color getColor(Set<MaterialState> states) {
     return Color(blue);
@@ -83,11 +86,13 @@ class _CreateAccountState extends State<CreateAccount> {
               PasswordField(
                   text: 'Password',
                   borderColor: primaryOrange,
-                  textColor: lightGray),
+                  textColor: lightGray,
+                  titleController: _passwordController),
               PasswordField(
                   text: 'Password Confirm',
                   borderColor: primaryOrange,
-                  textColor: lightGray),
+                  textColor: lightGray,
+                  titleController: _confirmPasswordController),
               const SizedBox(
                 height: 8,
               ),
@@ -125,6 +130,18 @@ class _CreateAccountState extends State<CreateAccount> {
                   child: OrangeButton(
                     buttonText: 'Sign Up',
                     onTap: () {
+                      if (_passwordController.text !=
+                          _confirmPasswordController.text) {
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          const SnackBar(
+                            content: Text('Passwords do not match'),
+                          ),
+                        );
+                        print(_confirmPasswordController.text);
+                        print(_passwordController.text);
+                        return;
+                      }
+
                       context.read<AuthenticationService>().signUp(
                             email: "linguinealfredo@gmail.com",
                             password: "crappy_password",

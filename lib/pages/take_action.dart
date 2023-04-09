@@ -21,9 +21,6 @@ class TakeActionWrapper extends StatefulWidget {
 }
 
 class _TakeActionWrapperState extends State<TakeActionWrapper> {
-  
-  final titleController = TextEditingController();
-  
   @override
   Widget build(BuildContext context) {
     final firebaseuser = context.watch<User?>();
@@ -70,6 +67,7 @@ class _TakeActionPageState extends State<TakeActionPage> {
   int haveAccountGray = int.parse('#ABA1A1'.replaceAll('#', '0xff'));
   int blue = int.parse('#66A0F5'.replaceAll('#', '0xff'));
   int lightGray = int.parse('#B4B4B4'.replaceAll('#', '0xff'));
+  final TextEditingController _passwordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -111,7 +109,8 @@ class _TakeActionPageState extends State<TakeActionPage> {
               PasswordField(
                   text: 'Password',
                   borderColor: primaryOrange,
-                  textColor: lightGray),
+                  textColor: lightGray,
+                  titleController: _passwordController),
               const SizedBox(
                 height: 8,
               ),
@@ -157,8 +156,9 @@ class _TakeActionPageState extends State<TakeActionPage> {
                     //once we can get input from the user, replace this with user input
                     context.read<AuthenticationService>().signIn(
                         email: "stevendiwenshi1113@gmail.com",
-                        password: "123456");
-                    print(firebaseuser!.email);
+                        password: _passwordController.text);
+                    print(_passwordController.text);
+                    //print(firebaseuser!.email);
 
                     if (firebaseuser != null) {
                       Navigator.pushNamed(context, '/callTextNow');
