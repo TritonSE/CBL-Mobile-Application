@@ -138,7 +138,7 @@ class _CreateAccountState extends State<CreateAccount> {
                   padding: const EdgeInsets.only(top: 10.0),
                   child: OrangeButton(
                     buttonText: 'Sign Up',
-                    onTap: () {
+                    onTap: () async {
                       if (_passwordController.text !=
                           _confirmPasswordController.text) {
                         ScaffoldMessenger.of(context).showSnackBar(
@@ -155,19 +155,18 @@ class _CreateAccountState extends State<CreateAccount> {
                         return;
                       }
 
-                      context.read<AuthenticationService>().signUp(
-                            email: "linguinealfredo@gmail.com",
-                            password: "crappy_password",
-                          );
-                      print('Sign Up Button Pressed');
-                      print(firebaseuser!.email);
-
-                      if (firebaseuser != null) {
+                      Future<Object> status =
+                          context.read<AuthenticationService>().signUp(
+                                email: "test4@gmail.com",
+                                password: "crappy_password",
+                              );
+                      print(await status);
+                      if (firebaseuser != null && await status == 400) {
                         UserRepository userRepository = UserRepository();
                         UserData user = UserData(
-                            username: 'Madame Linguine',
-                            phoneNumber: 1234567890,
-                            email: 'madameL@example.com');
+                            username: 'Mr Linguine',
+                            phoneNumber: 1234567891,
+                            email: 'mrL@example.com');
                         userRepository.addUser(user);
                         Navigator.pushNamed(context, '/callTextNow');
                       }
