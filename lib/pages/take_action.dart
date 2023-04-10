@@ -67,7 +67,9 @@ class _TakeActionPageState extends State<TakeActionPage> {
   int haveAccountGray = int.parse('#ABA1A1'.replaceAll('#', '0xff'));
   int blue = int.parse('#66A0F5'.replaceAll('#', '0xff'));
   int lightGray = int.parse('#B4B4B4'.replaceAll('#', '0xff'));
+
   final TextEditingController _passwordController = TextEditingController();
+  final TextEditingController _usernameController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -101,10 +103,12 @@ class _TakeActionPageState extends State<TakeActionPage> {
                 height: 24,
               ),
               InputField(
-                  borderColor: primaryOrange,
-                  textColor: lightGray,
-                  text: 'Username',
-                  icon: Icons.person),
+                borderColor: primaryOrange,
+                textColor: lightGray,
+                text: 'Username',
+                icon: Icons.person,
+                titleController: _usernameController,
+              ),
               PasswordField(
                   text: 'Password',
                   borderColor: primaryOrange,
@@ -156,7 +160,10 @@ class _TakeActionPageState extends State<TakeActionPage> {
                     context.read<AuthenticationService>().signIn(
                         email: "stevendiwenshi1113@gmail.com",
                         password: _passwordController.text);
+
                     print(_passwordController.text);
+                    print(_usernameController.text);
+
                     //print(firebaseuser!.email);
 
                     if (firebaseuser != null) {

@@ -148,6 +148,10 @@ class _CreateAccountState extends State<CreateAccount> {
                         );
                         print(_confirmPasswordController.text);
                         print(_passwordController.text);
+                        print(_emailController.text);
+                        print(_usernameController.text);
+                        print(_phoneNumberController.text);
+
                         return;
                       }
 

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class InputField extends StatelessWidget {
+class InputField extends StatefulWidget {
   final int borderColor;
   final int textColor;
   final String text;
@@ -15,39 +15,52 @@ class InputField extends StatelessWidget {
       required this.titleController});
 
   @override
+  State<InputField> createState() => _InputFieldState();
+}
+
+class _InputFieldState extends State<InputField> {
+  @override
+  void dispose() {
+    // Clean up the controller when the widget is disposed.
+    widget.titleController.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.only(top: 16.0),
       child: TextFormField(
-        cursorColor: Color(borderColor),
+        controller: widget.titleController,
+        cursorColor: Color(widget.borderColor),
         decoration: InputDecoration(
           floatingLabelStyle: TextStyle(
             fontSize: 17,
-            color: Color(borderColor),
+            color: Color(widget.borderColor),
             fontWeight: FontWeight.w500,
             fontFamily: 'Inter',
           ),
           prefixIcon: Icon(
-            icon,
-            color: Color(borderColor),
+            widget.icon,
+            color: Color(widget.borderColor),
           ),
           enabledBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(16),
             borderSide: BorderSide(
               width: 1,
-              color: Color(borderColor),
+              color: Color(widget.borderColor),
             ),
           ),
           focusedBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(16),
             borderSide: BorderSide(
               width: 1,
-              color: Color(borderColor),
+              color: Color(widget.borderColor),
             ),
           ),
-          labelText: text,
+          labelText: widget.text,
           labelStyle: TextStyle(
-            color: Color(textColor),
+            color: Color(widget.textColor),
           ),
         ),
         style: const TextStyle(
