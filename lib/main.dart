@@ -54,6 +54,7 @@ class MyApp extends StatelessWidget {
             '/takeAction': (context) => const TakeActionPage(),
             '/donation': (context) => const Donation(),
             '/affirmation': (context) => const Affirmation(),
+            '/seekHelp': (context) => const SeekHelp(),
           },
           home: const MyHomePage(title: 'Call Blackline'),
         ));
