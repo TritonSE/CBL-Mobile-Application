@@ -30,16 +30,16 @@ class UserDataWPassword {
 
 class SignUpUtils {
   final UserRepository userRepository = UserRepository();
-  Future<Object> signUp(BuildContext context, UserDataWPassword user) async {
+  Future<Object> signUp(BuildContext context, var email, var password,
+      var username, var phoneNumber) async {
     try {
-      int result = context.read<AuthenticationService>().signIn(
-          email: "stevendiwenshi1113@gmail.com", password: "123456") as int;
+      int result = context
+          .read<AuthenticationService>()
+          .signIn(email: email, password: password) as int;
 
       if (result == 400) {
         UserData userData = UserData(
-            username: user.username,
-            phoneNumber: user.phoneNumber,
-            email: user.email);
+            username: username, phoneNumber: phoneNumber, email: email);
         userRepository.addUser(userData);
         return 400;
       }
@@ -53,8 +53,9 @@ class SignUpUtils {
 
   Future<Object> deleteAccount(BuildContext context, String id) async {
     try {
-      int result = context.read<AuthenticationService>().signIn(
-          email: "shreya112358@gmail.com", password: "7654321") as int;
+      int result = context
+          .read<AuthenticationService>()
+          .signIn(email: "shreya112358@gmail.com", password: "7654321") as int;
 
       if (result == 400) {
         userRepository.deleteUser(id);

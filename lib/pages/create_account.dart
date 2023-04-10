@@ -13,6 +13,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:provider/provider.dart';
 import '../testimonial.dart';
 import '../user.dart';
+import '../big_auth.dart';
 
 class CreateAccount extends StatefulWidget {
   const CreateAccount({super.key});
@@ -37,11 +38,15 @@ class _CreateAccountState extends State<CreateAccount> {
   final TextEditingController _passwordController = TextEditingController();
   final TextEditingController _confirmPasswordController =
       TextEditingController();
-
   // muliple controllers for same widget, should I use list of controllers instead?
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _usernameController = TextEditingController();
   final TextEditingController _phoneNumberController = TextEditingController();
+
+  var _email;
+  var _username;
+  var _phoneNumber;
+  var _password;
 
   Color getColor(Set<MaterialState> states) {
     return Color(blue);
@@ -154,11 +159,16 @@ class _CreateAccountState extends State<CreateAccount> {
 
                         return;
                       }
+                      setState(() {
+                        _email = _emailController.text;
+                        _username = _usernameController.text;
+                        _phoneNumber = _phoneNumberController.text;
+                        _password = _passwordController.text;
+                      });
 
-                      context.read<AuthenticationService>().signUp(
-                            email: "linguinealfredo@gmail.com",
-                            password: "crappy_password",
-                          );
+                      final SignUpUtils _utils = SignUpUtils();
+                      _utils.signUp(
+                          context, _email, _password, _username, _phoneNumber);
                       print('Sign Up Button Pressed');
                       print(firebaseuser!.email);
 
