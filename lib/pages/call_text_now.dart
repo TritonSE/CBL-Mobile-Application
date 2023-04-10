@@ -4,6 +4,10 @@ import 'package:call_black_line/widgets/custom_title.dart';
 import 'package:call_black_line/widgets/header.dart';
 import 'package:call_black_line/widgets/rounded_button_image.dart';
 
+import 'package:call_black_line/auth_methods.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:provider/provider.dart';
+
 class CallTextNow extends StatelessWidget {
   const CallTextNow({super.key});
 
@@ -82,7 +86,17 @@ class CallTextNow extends StatelessWidget {
                   ),
                 ),
               ],
-            )
+            ),
+            ElevatedButton(
+                onPressed: () {
+                  Future<Object> status =
+                      context.read<AuthenticationService>().signOut();
+
+                  if (status == 400) {
+                    Navigator.pushNamed(context, '/takeAction');
+                  }
+                },
+                child: Text('Sign out'))
           ],
         ),
       ),
