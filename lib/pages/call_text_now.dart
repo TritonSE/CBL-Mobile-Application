@@ -90,7 +90,7 @@ class CallTextNow extends StatelessWidget {
             ElevatedButton(
                 onPressed: () async {
                   context.read<AuthenticationService>().signOut();
-                  Navigator.pushNamed(context, '/takeAction');
+                  Navigator.pushNamed(context, '/seekHelp');
                 },
                 child: const Text('Sign out'))
           ],
