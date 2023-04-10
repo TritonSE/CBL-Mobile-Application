@@ -30,17 +30,16 @@ class UserDataWPassword {
 
 class SignUpUtils {
   final UserRepository userRepository = UserRepository();
-  Future<Object> signUp(BuildContext context, var email, var password,
-      var username, var phoneNumber) async {
+  Future<Object> signUp(BuildContext context, String email, String password,
+      String username, String phoneNumber) async {
     try {
-      int result = context
+      Future<Object> result = context
           .read<AuthenticationService>()
-          .signIn(email: email, password: password) as int;
-
-      if (result == 400) {
-        UserData userData = UserData(
-            username: username, phoneNumber: phoneNumber, email: email);
-        userRepository.addUser(userData);
+          .signIn(email: email, password: password);
+      if (await result == 400) {
+        // UserData userData = UserData(
+        //     username: username, phoneNumber: phoneNumber, email: email);
+        //userRepository.addUser(userData);
         return 400;
       }
     } catch (e) {

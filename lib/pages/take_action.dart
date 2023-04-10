@@ -158,7 +158,7 @@ class _TakeActionPageState extends State<TakeActionPage> {
                   onTap: () {
                     //once we can get input from the user, replace this with user input
                     context.read<AuthenticationService>().signIn(
-                        email: "stevendiwenshi1113@gmail.com",
+                        email: _usernameController.text,
                         password: _passwordController.text);
 
                     print(_passwordController.text);

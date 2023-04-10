@@ -98,32 +98,32 @@ class _MyHomePageState extends State<MyHomePage> {
                   UserRepository userRepository = UserRepository();
                   UserData user = UserData(
                       username: 'John Doe',
-                      phoneNumber: 8583165432,
+                      phoneNumber: '8583165432',
                       email: 'johndoe@example.com');
 
                   UserData userWrongPswd = UserData(
                       username: 'sdf Doe',
-                      phoneNumber: 8583165432,
+                      phoneNumber: '8583165432',
                       email: 'bobjoe@example.com');
 
                   UserData userWrongEmail = UserData(
                       username: 'Billy Bob',
-                      phoneNumber: 8583165432,
+                      phoneNumber: '8583165432',
                       email: 'sdlsdkjf');
 
                   UserData userWrongPhone = UserData(
                       username: 'Billy Joel',
-                      phoneNumber: 1,
+                      phoneNumber: '1',
                       email: 'a@example.com');
 
                   UserData user2 = UserData(
                       username: 'Maggie',
-                      phoneNumber: 1234567899,
+                      phoneNumber: '1234567899',
                       email: 'maggie@example.com');
 
                   UserData userDuplicate = UserData(
                       username: 'John Doe',
-                      phoneNumber: 8583165432,
+                      phoneNumber: '8583165432',
                       email: 'johndoe@example.com');
 
                   userRepository.addUser(user);

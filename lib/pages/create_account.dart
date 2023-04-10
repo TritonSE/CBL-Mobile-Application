@@ -159,25 +159,40 @@ class _CreateAccountState extends State<CreateAccount> {
 
                         return;
                       }
-                      setState(() {
-                        _email = _emailController.text;
-                        _username = _usernameController.text;
-                        _phoneNumber = _phoneNumberController.text;
-                        _password = _passwordController.text;
-                      });
 
-                      final SignUpUtils _utils = SignUpUtils();
-                      _utils.signUp(
-                          context, _email, _password, _username, _phoneNumber);
-                      print('Sign Up Button Pressed');
-                      print(firebaseuser!.email);
+                      //big auth call
+                      // setState(() {
+                      //   _email = _emailController.text;
+                      //   _username = _usernameController.text;
+                      //   _phoneNumber = _phoneNumberController.text;
+                      //   _password = _passwordController.text;
+                      // });
 
-                      if (firebaseuser != null) {
+                      // final SignUpUtils _utils = SignUpUtils();
+                      // Future<Object> result = _utils.signUp(
+                      //     context,
+                      //     _emailController.text,
+                      //     _passwordController.text,
+                      //     _usernameController.text,
+                      //     _phoneNumberController.text);
+                      // print('Sign Up Button Pressed');
+                      // print(result);
+
+                      ///individual calls
+                      Future<Object> result = context
+                          .read<AuthenticationService>()
+                          .signUp(
+                              email: _emailController.text,
+                              password: _passwordController.text);
+                      int returnedStatus = await result as int;
+                      print(returnedStatus);
+                      print(firebaseuser);
+                      if (firebaseuser != null && returnedStatus == 400) {
                         UserRepository userRepository = UserRepository();
                         UserData user = UserData(
-                            username: 'Mr Linguine',
-                            phoneNumber: 1234567891,
-                            email: 'mrL@example.com');
+                            username: _usernameController.text,
+                            phoneNumber: _phoneNumberController.text,
+                            email: _emailController.text);
                         userRepository.addUser(user);
                         Navigator.pushNamed(context, '/callTextNow');
                       }
