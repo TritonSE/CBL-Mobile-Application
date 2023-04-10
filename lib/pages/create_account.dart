@@ -166,7 +166,6 @@ class _CreateAccountState extends State<CreateAccount> {
                         _password = _passwordController.text;
                       });
 
-<<<<<<< HEAD
                       final SignUpUtils _utils = SignUpUtils();
                       _utils.signUp(
                           context, _email, _password, _username, _phoneNumber);
@@ -174,15 +173,6 @@ class _CreateAccountState extends State<CreateAccount> {
                       print(firebaseuser!.email);
 
                       if (firebaseuser != null) {
-=======
-                      Future<Object> status =
-                          context.read<AuthenticationService>().signUp(
-                                email: "test4@gmail.com",
-                                password: "crappy_password",
-                              );
-                      print(await status);
-                      if (firebaseuser != null && await status == 400) {
->>>>>>> c9a33890094cc4dd1f92d63776d9349f32035568
                         UserRepository userRepository = UserRepository();
                         UserData user = UserData(
                             username: 'Mr Linguine',
