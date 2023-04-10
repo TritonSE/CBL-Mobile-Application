@@ -5,12 +5,14 @@ class InputField extends StatelessWidget {
   final int textColor;
   final String text;
   final IconData icon;
+  final TextEditingController titleController;
   const InputField(
       {super.key,
       required this.borderColor,
       required this.textColor,
       required this.text,
-      required this.icon});
+      required this.icon,
+      required this.titleController});
 
   @override
   Widget build(BuildContext context) {

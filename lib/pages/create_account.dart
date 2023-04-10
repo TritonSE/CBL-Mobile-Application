@@ -33,9 +33,15 @@ class _CreateAccountState extends State<CreateAccount> {
   int haveAccountGray = int.parse('#ABA1A1'.replaceAll('#', '0xff'));
   int blue = int.parse('#66A0F5'.replaceAll('#', '0xff'));
   int lightGray = int.parse('#B4B4B4'.replaceAll('#', '0xff'));
+
   final TextEditingController _passwordController = TextEditingController();
   final TextEditingController _confirmPasswordController =
       TextEditingController();
+
+  // muliple controllers for same widget, should I use list of controllers instead?
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _usernameController = TextEditingController();
+  final TextEditingController _phoneNumberController = TextEditingController();
 
   Color getColor(Set<MaterialState> states) {
     return Color(blue);
@@ -72,17 +78,20 @@ class _CreateAccountState extends State<CreateAccount> {
                   borderColor: primaryOrange,
                   textColor: lightGray,
                   text: 'Username',
-                  icon: Icons.person),
+                  icon: Icons.person,
+                  titleController: _usernameController),
               InputField(
                   borderColor: primaryOrange,
                   textColor: lightGray,
                   text: 'Email',
-                  icon: Icons.mail),
+                  icon: Icons.mail,
+                  titleController: _emailController),
               InputField(
                   borderColor: primaryOrange,
                   textColor: lightGray,
                   text: '+1 000 000 000',
-                  icon: Icons.phone),
+                  icon: Icons.phone,
+                  titleController: _phoneNumberController),
               PasswordField(
                   text: 'Password',
                   borderColor: primaryOrange,
