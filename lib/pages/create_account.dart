@@ -159,12 +159,12 @@ class _CreateAccountState extends State<CreateAccount> {
                         _phoneNumber = _phoneNumberController.text;
                         _password = _passwordController.text;
                       });
-
-                      final SignUpUtils _utils = SignUpUtils();
-                      _utils.signUp(
-                          context, _email, _password, _username, _phoneNumber);
                       print('Sign Up Button Pressed');
-                      print(firebaseuser!.email);
+                      //take care of signup stuff here
+
+                      // final SignUpUtils _utils = SignUpUtils();
+                      // _utils.signUp(
+                      //     context, _email, _password, _username, _phoneNumber);
 
                       ///individual calls
                       Future<Object> result = context
@@ -172,10 +172,14 @@ class _CreateAccountState extends State<CreateAccount> {
                           .signUp(
                               email: _emailController.text,
                               password: _passwordController.text);
-                      int returnedStatus = await result as int;
-                      print(returnedStatus);
-                      print(firebaseuser);
-                      if (firebaseuser != null && returnedStatus == 400) {
+
+                      Object returnedObject = await result;
+                      int returnedStatus =
+                          (returnedObject.runtimeType == int) ? 400 : 0;
+
+                      //sign in after signing up
+
+                      if (returnedStatus == 400) {
                         UserRepository userRepository = UserRepository();
                         UserData user = UserData(
                             username: _usernameController.text,
