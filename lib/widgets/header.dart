@@ -27,6 +27,8 @@ class Header extends StatelessWidget implements PreferredSizeWidget {
                   size: 30,
                 ),
                 onPressed: () => Navigator.of(context).pop(),
+                //add callback instance variable, pass in behavior
+                //for mvp, we can also shoehorn 2 options for login vs not logged in
               ),
             )
           : null,
