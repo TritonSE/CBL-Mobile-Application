@@ -151,12 +151,6 @@ class _CreateAccountState extends State<CreateAccount> {
                             content: Text('Passwords do not match'),
                           ),
                         );
-                        print(_confirmPasswordController.text);
-                        print(_passwordController.text);
-                        print(_emailController.text);
-                        print(_usernameController.text);
-                        print(_phoneNumberController.text);
-
                         return;
                       }
                       setState(() {
@@ -165,12 +159,6 @@ class _CreateAccountState extends State<CreateAccount> {
                         _phoneNumber = _phoneNumberController.text;
                         _password = _passwordController.text;
                       });
-
-                      final SignUpUtils _utils = SignUpUtils();
-                      _utils.signUp(
-                          context, _email, _password, _username, _phoneNumber);
-                      print('Sign Up Button Pressed');
-                      print(firebaseuser!.email);
 
                       if (firebaseuser != null) {
                         UserRepository userRepository = UserRepository();
