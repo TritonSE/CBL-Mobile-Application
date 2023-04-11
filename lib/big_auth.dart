@@ -28,6 +28,29 @@ class UserDataWPassword {
   }
 }
 
+/*
+Future<Object> result = context
+                          .read<AuthenticationService>()
+                          .signUp(
+                              email: _emailController.text,
+                              password: _passwordController.text);
+
+                      Object returnedObject = await result;
+                      int returnedStatus =
+                          (returnedObject.runtimeType == int) ? 400 : 0;
+
+                      //sign in after signing up
+
+                      if (returnedStatus == 400) {
+                        UserRepository userRepository = UserRepository();
+                        UserData user = UserData(
+                            username: _usernameController.text,
+                            phoneNumber: _phoneNumberController.text,
+                            email: _emailController.text);
+                        userRepository.addUser(user);
+                        Navigator.pushNamed(context, '/callTextNow');
+                      }
+ */
 class SignUpUtils {
   final UserRepository userRepository = UserRepository();
   Future<Object> signUp(BuildContext context, String email, String password,
@@ -37,9 +60,8 @@ class SignUpUtils {
           .read<AuthenticationService>()
           .signUp(email: email, password: password);
 
-      int returnedStatus = await result as int;
-      print("hi");
-      print(returnedStatus);
+      Object returnedObject = await result;
+      int returnedStatus = (returnedObject.runtimeType == int) ? 400 : 0;
 
       if (returnedStatus == 400) {
         print("super hi");

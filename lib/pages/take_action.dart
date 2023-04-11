@@ -155,7 +155,7 @@ class _TakeActionPageState extends State<TakeActionPage> {
                 alignment: Alignment.centerRight,
                 child: OrangeButton(
                   buttonText: 'Sign In',
-                  onTap: () {
+                  onTap: () async {
                     //once we can get input from the user, replace this with user input
                     Future<Object> result = context
                         .read<AuthenticationService>()
@@ -163,12 +163,16 @@ class _TakeActionPageState extends State<TakeActionPage> {
                             email: _usernameController.text,
                             password: _passwordController.text);
 
+                    Object returnedObject = await result;
+                    int returnedStatus =
+                        (returnedObject.runtimeType == int) ? 400 : 0;
+
                     print(_passwordController.text);
                     print(_usernameController.text);
 
                     //print(firebaseuser!.email);
 
-                    if (firebaseuser != null) {
+                    if (returnedStatus == 400) {
                       Navigator.pushNamed(context, '/callTextNow');
                     }
                   },
