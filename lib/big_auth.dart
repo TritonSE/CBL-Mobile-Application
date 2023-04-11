@@ -8,7 +8,7 @@ import 'auth_methods.dart';
 
 class UserDataWPassword {
   final String username;
-  final int phoneNumber;
+  final String phoneNumber;
   final String email;
   final String password;
 
@@ -35,11 +35,18 @@ class SignUpUtils {
     try {
       Future<Object> result = context
           .read<AuthenticationService>()
-          .signIn(email: email, password: password);
-      if (await result == 400) {
-        // UserData userData = UserData(
-        //     username: username, phoneNumber: phoneNumber, email: email);
-        //userRepository.addUser(userData);
+          .signUp(email: email, password: password);
+
+      int returnedStatus = await result as int;
+      print("hi");
+      print(returnedStatus);
+
+      if (returnedStatus == 400) {
+        print("super hi");
+        UserRepository userRepository = UserRepository();
+        UserData user = UserData(
+            username: username, phoneNumber: phoneNumber, email: email);
+        userRepository.addUser(user);
         return 400;
       }
     } catch (e) {
