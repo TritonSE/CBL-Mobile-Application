@@ -2,7 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 
 class UserData {
   final String username;
-  final int phoneNumber;
+  final String phoneNumber;
   final String email;
 
   UserData(
