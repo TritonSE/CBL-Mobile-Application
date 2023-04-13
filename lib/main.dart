@@ -1,116 +1,101 @@
-import 'package:call_black_line/pages/affirmation.dart';
-import 'package:call_black_line/pages/call_text_now.dart';
-import 'package:call_black_line/pages/create_account.dart';
-import 'package:call_black_line/pages/have_your_voice_heard.dart';
-import 'package:call_black_line/widgets/custom_navbar.dart';
-import 'package:call_black_line/pages/donation.dart';
-
 import 'package:flutter/material.dart';
-import 'package:call_black_line/pages/take_action.dart';
-import 'package:call_black_line/widgets/custom_title.dart';
-import 'package:call_black_line/widgets/header.dart';
-import 'package:call_black_line/widgets/rounded_button_image.dart';
-// import 'package:call_black_line/take_action.dart';
+import 'package:call_black_line/pages/resources.dart';
+import 'package:call_black_line/pages/category_name.dart';
+import 'package:call_black_line/pages/resource_title.dart';
 
 void main() {
   runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
+  //final Color orange = const Color(0xDF742C00);
   const MyApp({super.key});
 
+  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        title: 'Call Blackline',
+        title: 'Flutter Demo',
         theme: ThemeData(
-          colorScheme: ColorScheme.fromSeed(
-            seedColor: Colors.white,
-          ),
+          // This is the theme of your application.
+          //
+          // Try running your application with "flutter run". You'll see the
+          // application has a blue toolbar. Then, without quitting the app, try
+          // changing the primarySwatch below to Colors.green and then invoke
+          // "hot reload" (press "r" in the console where you ran "flutter run",
+          // or simply save your changes to "hot reload" in a Flutter IDE).
+          // Notice that the counter didn't reset back to zero; the application
+          // is not restarted.
+          primarySwatch: Colors.blue,
         ),
+        //home: const MyHomePage(title: 'Flutter Demo Home Page'),
+        home: Resources(),
         routes: {
-          // '/': (context) => const SeekHelp(),
-          // '/': (context) => const Donation(),
-          '/': (context) => const HaveYourVoiceHeard(),
-          '/callTextNow': (context) => const CallTextNow(),
-          '/createAccount': (context) => const CreateAccount(),
-          '/takeAction': (context) => const TakeActionPage(),
-        }
-        // home: SeekHelp(),
-
-        );
+          '/resources': (context) => const Resources(),
+          '/category_name': (context) => const CategoryName(),
+          '/resource_title': (context) => const ResourceTitle(),
+        });
   }
 }
 
-class SeekHelp extends StatelessWidget {
-  const SeekHelp({super.key});
+class MyHomePage extends StatefulWidget {
+  const MyHomePage({super.key, required this.title});
+
+  // This widget is the home page of your application. It is stateful, meaning
+  // that it has a State object (defined below) that contains fields that affect
+  // how it looks.
+
+  // This class is the configuration for the state. It holds the values (in this
+  // case the title) provided by the parent (in this case the App widget) and
+  // used by the build method of the State. Fields in a Widget subclass are
+  // always marked "final".
+
+  final String title;
 
   @override
+  State<MyHomePage> createState() => _MyHomePageState();
+}
+
+class _MyHomePageState extends State<MyHomePage> {
+  @override
   Widget build(BuildContext context) {
+    // This method is rerun every time setState is called, for instance as done
+    // by the _incrementCounter method above.
+    //
+    // The Flutter framework has been optimized to make rerunning build methods
+    // fast, so that you can just rebuild anything that needs updating rather
+    // than having to individually change instances of widgets.
+    //return CategoryName();
     return Scaffold(
-      resizeToAvoidBottomInset: false,
-      backgroundColor: Colors.white,
-      bottomNavigationBar: const CustomNavBar(
-        currentPage: 'Seek Help',
-      ), //Available: Resources, Seek Help, Profile
-      appBar: const Header(
-        isHome: true,
+      appBar: AppBar(
+        // Here we take the value from the MyHomePage object that was created by
+        // the App.build method, and use it to set our appbar title.
+        title: Text(widget.title),
+        centerTitle: true,
       ),
-      body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 16),
+      body: Center(
+        // Center is a layout widget. It takes a single child and positions it
+        // in the middle of the parent.
         child: Column(
-          children: [
-            const CustomTitle(text: 'Seek Help'),
-            RoundedButtonImage(
-              height: 75,
-              width: double.infinity,
-              imageURL: 'assets/images/call.jpg',
-              text: 'Call or Text',
-              onTap: () => Navigator.pushNamed(context, '/takeAction'),
-            ),
-            const SizedBox(
-              height: 16,
-            ),
-            const RoundedButtonImage(
-              height: 75,
-              width: double.infinity,
-              imageURL: 'assets/images/form.jpg',
-              text: 'Write',
-              // ignore: avoid_print
-            ),
-            const SizedBox(
-              height: 24,
-            ),
-            const SizedBox(
-              width: 333,
-              child: Text(
-                'BlackLine is non-judgmental, affirming and supportive, listener-witnessing and information gathering about your experience.',
-                style: TextStyle(
-                  fontSize: 20,
-                  fontFamily: 'Inter',
-                  fontWeight: FontWeight.w500,
-                ),
-                textAlign: TextAlign.center,
-              ),
-            ),
-            const SizedBox(
-              height: 24,
-            ),
-            const SizedBox(
-              width: 358,
-              child: Text(
-                'BlackLine® provides a space for peer support, counseling, witnessing and affirming the lived experiences to folks who are most impacted by systematic oppression with an LGBTQ+ Black Femme Lens.',
-                style: TextStyle(
-                  fontSize: 17,
-                  fontFamily: 'Inter',
-                  fontWeight: FontWeight.w500,
-                ),
-                textAlign: TextAlign.center,
-              ),
-            ),
-          ],
+          // Column is also a layout widget. It takes a list of children and
+          // arranges them vertically. By default, it sizes itself to fit its
+          // children horizontally, and tries to be as tall as its parent.
+          //
+          // Invoke "debug painting" (press "p" in the console, choose the
+          // "Toggle Debug Paint" action from the Flutter Inspector in Android
+          // Studio, or the "Toggle Debug Paint" command in Visual Studio Code)
+          // to see the wireframe for each widget.
+          //
+          // Column has various properties to control how it sizes itself and
+          // how it positions its children. Here we use mainAxisAlignment to
+          // center the children vertically; the main axis here is the vertical
+          // axis because Columns are vertical (the cross axis would be
+          // horizontal).
+          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisSize: MainAxisSize.min,
+          children: <Widget>[Resources()],
         ),
-      ),
+      ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }
