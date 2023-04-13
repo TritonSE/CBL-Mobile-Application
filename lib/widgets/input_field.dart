@@ -18,13 +18,13 @@ class InputField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.only(top: paddingTop ?? 16.0),
+      padding: EdgeInsets.only(top: paddingTop ?? CBL.padding),
       child: TextFormField(
         minLines: 1,
         maxLines: 3,
         cursorColor: Color(borderColor),
         decoration: InputDecoration(
-          contentPadding: const EdgeInsets.all(16.0),
+          contentPadding: EdgeInsets.all(CBL.padding),
           floatingLabelStyle: TextStyle(
             fontSize: 17,
             color: Color(borderColor),
@@ -59,7 +59,7 @@ class InputField extends StatelessWidget {
         ),
         style: TextStyle(
           fontSize: 17,
-          color: Colors.black,
+          color: Color(CBL.black),
           fontWeight: CBL.bold,
           fontFamily: CBL.fontFamily,
           height: 1.5,

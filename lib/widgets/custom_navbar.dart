@@ -70,7 +70,6 @@ class NavItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    int primaryOrange = int.parse('#DF742C'.replaceAll('#', '0xff'));
     return Expanded(
       child: GestureDetector(
         onTap: onPressed,
@@ -86,7 +85,7 @@ class NavItem extends StatelessWidget {
                     width: 100,
                     decoration: BoxDecoration(
                       color: isCurrentPage
-                          ? Color(primaryOrange)
+                          ? Color(CBL.primaryOrange)
                           : Colors.transparent,
                       borderRadius: const BorderRadius.all(
                         Radius.circular(10),
@@ -106,7 +105,7 @@ class NavItem extends StatelessWidget {
                       height: 24,
                       child: Icon(
                         icon,
-                        color: Color(primaryOrange),
+                        color: Color(CBL.primaryOrange),
                       ),
                     ),
                     const SizedBox(
@@ -116,8 +115,8 @@ class NavItem extends StatelessWidget {
                       text,
                       style: TextStyle(
                           color: isCurrentPage
-                              ? Color(primaryOrange)
-                              : Colors.black,
+                              ? Color(CBL.primaryOrange)
+                              : Color(CBL.black),
                           fontFamily: CBL.fontFamily,
                           fontSize: 12,
                           fontWeight: CBL.bold),

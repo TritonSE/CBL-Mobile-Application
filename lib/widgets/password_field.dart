@@ -24,8 +24,8 @@ class _PasswordFieldState extends State<PasswordField> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(
-        top: 16.0,
+      padding: EdgeInsets.only(
+        top: CBL.padding,
       ),
       child: SizedBox(
         width: double.infinity,
@@ -74,7 +74,7 @@ class _PasswordFieldState extends State<PasswordField> {
               labelStyle: TextStyle(color: Color(widget.textColor))),
           style: TextStyle(
             fontSize: 17,
-            color: Colors.black,
+            color: Color(CBL.black),
             fontWeight: CBL.bold,
             fontFamily: CBL.fontFamily,
           ),

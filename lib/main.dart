@@ -31,7 +31,7 @@ class MyApp extends StatelessWidget {
           ),
         ),
         routes: {
-          '/': (context) => const SeekHelp(),
+           '/': (context) => const SeekHelp(),
           // '/': (context) => const Donation(),
           // '/': (context) => const HaveYourVoiceHeard(),
           // '/': (context) => const CallTextNow(),
@@ -70,8 +70,8 @@ class SeekHelp extends StatelessWidget {
               text: 'Call or Text',
               onTap: () => Navigator.pushNamed(context, '/takeAction'),
             ),
-            const SizedBox(
-              height: 16,
+            SizedBox(
+              height: CBL.padding,
             ),
             const RoundedButtonImage(
               height: 75,

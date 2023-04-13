@@ -12,9 +12,6 @@ class Affirmation extends StatefulWidget {
   State<Affirmation> createState() => _AffirmationState();
 }
 
-int primaryOrange = int.parse('#DF742C'.replaceAll('#', '0xff'));
-int gray = int.parse('#909090'.replaceAll('#', '0xff'));
-
 class _AffirmationState extends State<Affirmation> {
   bool subscribed = false;
 
@@ -58,9 +55,9 @@ class _AffirmationState extends State<Affirmation> {
                         fontSize: 17,
                         fontFamily: CBL.fontFamily,
                         fontWeight: CBL.bold,
-                        color: Color(primaryOrange),
+                        color: Color(CBL.primaryOrange),
                       )),
-                  const SizedBox(height: 16),
+                  SizedBox(height: CBL.padding),
                 ],
               ),
             OrangeButton(
@@ -69,8 +66,8 @@ class _AffirmationState extends State<Affirmation> {
               onTap: () => setState(() => subscribed = true),
               opacity: subscribed ? 0.45 : 1,
             ),
-            const SizedBox(
-              height: 16,
+            SizedBox(
+              height: CBL.padding,
             ),
             if (subscribed)
               GestureDetector(
@@ -82,7 +79,7 @@ class _AffirmationState extends State<Affirmation> {
                       fontSize: 17,
                       fontFamily: CBL.fontFamily,
                       fontWeight: CBL.bold,
-                      color: Color(gray)),
+                      color: Color(CBL.textGray)),
                 ),
               ),
           ],

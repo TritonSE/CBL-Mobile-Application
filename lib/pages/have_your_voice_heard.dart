@@ -43,19 +43,19 @@ class _HaveYourVoiceHeardState extends State<HaveYourVoiceHeard> {
                         const SizedBox(
                           width: 31,
                         ),
-                        const Expanded(
+                        Expanded(
                           child: CustomTitle(
                             text: 'Your Feedback is Confirmed!',
                             topPadding: 24.5,
-                            bottomPadding: 16,
+                            bottomPadding: CBL.padding,
                           ),
                         )
                       ],
                     )
-                  : const CustomTitle(
+                  : CustomTitle(
                       text: 'Have Your Voice Heard',
                       topPadding: 24.5,
-                      bottomPadding: 16,
+                      bottomPadding: CBL.padding,
                     ),
               TextInputField(
                   aboveText: 'Event Title',
@@ -63,8 +63,8 @@ class _HaveYourVoiceHeardState extends State<HaveYourVoiceHeard> {
                   inputOutlineColor: CBL.primaryOrange,
                   inputTextColor: CBL.lightGray,
                   paddingTop: 8),
-              const SizedBox(
-                height: 16,
+              SizedBox(
+                height: CBL.padding,
               ),
               Row(
                 children: [
@@ -89,8 +89,8 @@ class _HaveYourVoiceHeardState extends State<HaveYourVoiceHeard> {
                           paddingTop: 8)),
                 ],
               ),
-              const SizedBox(
-                height: 16,
+              SizedBox(
+                height: CBL.padding,
               ),
               TextInputField(
                   icon: Icons.location_pin,
@@ -99,8 +99,8 @@ class _HaveYourVoiceHeardState extends State<HaveYourVoiceHeard> {
                   inputOutlineColor: CBL.primaryOrange,
                   inputTextColor: CBL.black,
                   paddingTop: 8),
-              const SizedBox(
-                height: 16,
+              SizedBox(
+                height: CBL.padding,
               ),
               TextInputField(
                   aboveText: 'Description',
@@ -109,8 +109,8 @@ class _HaveYourVoiceHeardState extends State<HaveYourVoiceHeard> {
                   inputOutlineColor: CBL.primaryOrange,
                   inputTextColor: CBL.lightGray,
                   paddingTop: 8),
-              const SizedBox(
-                height: 16,
+              SizedBox(
+                height: CBL.padding,
               ),
               Align(
                 alignment: Alignment.centerRight,
@@ -118,8 +118,8 @@ class _HaveYourVoiceHeardState extends State<HaveYourVoiceHeard> {
                     buttonText: submitted ? 'Done' : 'Submit',
                     onTap: () => setState(() => submitted = true)),
               ),
-              const SizedBox(
-                height: 16,
+              SizedBox(
+                height: CBL.padding,
               ),
             ],
           ),

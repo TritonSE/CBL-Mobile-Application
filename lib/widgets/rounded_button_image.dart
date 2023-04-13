@@ -31,7 +31,7 @@ class RoundedButtonImage extends StatelessWidget {
         width: width,
         decoration: BoxDecoration(
           borderRadius: const BorderRadius.all(Radius.circular(20)),
-          color: Colors.black,
+          color: Color(CBL.black),
           image: DecorationImage(
               colorFilter: ColorFilter.mode(
                 const Color(0xff6C6C6C).withOpacity(0.55),

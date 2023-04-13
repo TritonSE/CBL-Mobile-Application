@@ -43,16 +43,16 @@ class CallTextNow extends StatelessWidget {
               style: TextStyle(
                 fontSize: 22,
                 fontFamily: CBL.fontFamily,
-                color: Colors.black,
+                color: Color(CBL.black),
                 fontWeight: FontWeight.w600,
               ),
             ),
-            const SizedBox(
-              height: 16,
+            SizedBox(
+              height: CBL.padding,
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
-              children: const [
+              children: [
                 Expanded(
                   flex: 1,
                   child: RoundedButtonImage(
@@ -60,14 +60,14 @@ class CallTextNow extends StatelessWidget {
                     width: 171,
                     imageURL: 'assets/images/call.jpg',
                     text: 'Call 1(800) 604-5841',
-                    textPaddingTop: 16.0,
+                    textPaddingTop: CBL.padding,
                     textContainerAlignment: Alignment.topCenter,
                     textContainerWidth: 100,
                   ),
                 ),
                 SizedBox(
-                  width: 16,
-                  height: 16,
+                  width: CBL.padding,
+                  height: CBL.padding,
                 ),
                 Expanded(
                   flex: 1,
@@ -76,7 +76,7 @@ class CallTextNow extends StatelessWidget {
                     width: 171,
                     imageURL: 'assets/images/text.jpg',
                     text: 'Text 1(800) 604-5841',
-                    textPaddingTop: 16.0,
+                    textPaddingTop: CBL.padding,
                     textContainerAlignment: Alignment.topCenter,
                     textContainerWidth: 100,
                   ),

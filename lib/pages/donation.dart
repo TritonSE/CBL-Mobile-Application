@@ -115,7 +115,7 @@ class Donation extends StatelessWidget {
                                         )
                                       ],
                                       style: TextStyle(
-                                          color: Colors.black,
+                                          color: Color(CBL.black),
                                           fontSize: 17,
                                           fontWeight: FontWeight.w400,
                                           fontFamily: CBL.fontFamily),

@@ -37,10 +37,10 @@ class _TakeActionPageState extends State<TakeActionPage> {
           ),
           child: Column(
             children: [
-              const CustomTitle(
+              CustomTitle(
                 text: 'Take Action Now',
                 topPadding: 24.5,
-                bottomPadding: 16,
+                bottomPadding: CBL.padding,
               ),
               Text(
                 'Login',

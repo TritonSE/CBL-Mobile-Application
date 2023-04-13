@@ -36,10 +36,10 @@ class _CreateAccountState extends State<CreateAccount> {
           ),
           child: Column(
             children: [
-              const CustomTitle(
+              CustomTitle(
                 text: 'Create An Account',
                 topPadding: 24,
-                bottomPadding: 16,
+                bottomPadding: CBL.padding,
               ),
               Text(
                 'Sign Up',
@@ -92,7 +92,7 @@ class _CreateAccountState extends State<CreateAccount> {
                           )
                         ],
                         style: TextStyle(
-                            color: Colors.black,
+                            color: Color(CBL.black),
                             fontSize: 15,
                             fontWeight: FontWeight.w400,
                             fontFamily: CBL.fontFamily),
