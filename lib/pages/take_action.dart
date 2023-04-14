@@ -81,6 +81,7 @@ class _TakeActionPageState extends State<TakeActionPage> {
       backgroundColor: Colors.white,
       appBar: Header(onBackButtonPressed: () {
         print("back button was pressed from take_action");
+        Navigator.pushNamed(context, '/seekHelp');
       }),
       body: SingleChildScrollView(
         child: Padding(

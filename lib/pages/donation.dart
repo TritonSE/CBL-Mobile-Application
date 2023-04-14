@@ -34,6 +34,7 @@ class Donation extends StatelessWidget {
       backgroundColor: Colors.white,
       appBar: Header(onBackButtonPressed: () {
         print("back button was pressed from donation");
+        Navigator.pushNamed(context, '/callTextNow');
       }),
       body: Padding(
         padding: const EdgeInsets.symmetric(

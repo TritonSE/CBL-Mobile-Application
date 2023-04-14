@@ -61,6 +61,7 @@ class _CreateAccountState extends State<CreateAccount> {
       backgroundColor: Colors.white,
       appBar: Header(onBackButtonPressed: () {
         print("back button was pressed from create account");
+        Navigator.pushNamed(context, '/seekHelp');
       }),
 
       body: SingleChildScrollView(

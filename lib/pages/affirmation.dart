@@ -29,6 +29,7 @@ class _AffirmationState extends State<Affirmation> {
       backgroundColor: Colors.white,
       appBar: Header(onBackButtonPressed: () {
         print("back button was pressed from affirmation");
+        Navigator.pushNamed(context, '/callTextNow');
       }),
       body: Padding(
         padding: const EdgeInsets.symmetric(
