@@ -18,7 +18,7 @@ dependencies:
   url_launcher: ^6.1.9
 
   # Firebase Database
-  cloud_firestore: ^4.3.1
+  cloud_firestore: ^4.3.2
   firebase_auth: ^4.2.5
 
   provider: ^5.0.0-nullsafety.1

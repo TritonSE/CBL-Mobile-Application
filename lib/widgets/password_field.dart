@@ -1,3 +1,4 @@
+import 'package:call_black_line/widgets/cbl.dart';
 import 'package:flutter/material.dart';
 
 class PasswordField extends StatefulWidget {
@@ -23,8 +24,8 @@ class _PasswordFieldState extends State<PasswordField> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(
-        top: 16.0,
+      padding: EdgeInsets.only(
+        top: CBL.padding,
       ),
       child: SizedBox(
         width: double.infinity,
@@ -36,8 +37,8 @@ class _PasswordFieldState extends State<PasswordField> {
               floatingLabelStyle: TextStyle(
                 fontSize: 17,
                 color: Color(widget.borderColor),
-                fontWeight: FontWeight.w500,
-                fontFamily: 'Inter',
+                fontWeight: CBL.bold,
+                fontFamily: CBL.fontFamily,
               ),
               prefixIcon: Icon(
                 Icons.lock,
@@ -71,11 +72,11 @@ class _PasswordFieldState extends State<PasswordField> {
               ),
               labelText: widget.text,
               labelStyle: TextStyle(color: Color(widget.textColor))),
-          style: const TextStyle(
+          style: TextStyle(
             fontSize: 17,
-            color: Colors.black,
-            fontWeight: FontWeight.w500,
-            fontFamily: 'Inter',
+            color: Color(CBL.black),
+            fontWeight: CBL.bold,
+            fontFamily: CBL.fontFamily,
           ),
         ),
       ),

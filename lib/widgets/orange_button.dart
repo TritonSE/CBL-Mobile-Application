@@ -1,3 +1,4 @@
+import 'package:call_black_line/widgets/cbl.dart';
 import 'package:flutter/material.dart';
 
 class OrangeButton extends StatelessWidget {
@@ -30,20 +31,19 @@ class OrangeButton extends StatelessWidget {
           onTap: onTap,
           child: Container(
             decoration: BoxDecoration(
-              border: Border.all(color: borderColor),
-              borderRadius: const BorderRadius.all(
+              borderRadius: BorderRadius.all(
                 Radius.circular(16),
               ),
-              color: buttonColor,
+              color: Color(CBL.primaryOrange),
             ),
             child: Center(
               child: Text(
                 buttonText,
                 style: TextStyle(
                     fontSize: 20,
-                    fontFamily: 'Inter',
-                    fontWeight: FontWeight.w500,
-                    color: textColor),
+                    fontFamily: CBL.fontFamily,
+                    fontWeight: CBL.bold,
+                    color: Colors.white),
               ),
             ),
           ),
