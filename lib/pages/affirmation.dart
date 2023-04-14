@@ -27,7 +27,9 @@ class _AffirmationState extends State<Affirmation> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      appBar: const Header(),
+      appBar: Header(onBackButtonPressed: () {
+        print("back button was pressed from affirmation");
+      }),
       body: Padding(
         padding: const EdgeInsets.symmetric(
           horizontal: 16,

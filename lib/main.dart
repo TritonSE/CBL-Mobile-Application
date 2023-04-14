@@ -114,8 +114,11 @@ class SeekHelp extends StatelessWidget {
       bottomNavigationBar: CustomNavBar(
         currentPage: 'Seek Help',
       ), //Available: Resources, Seek Help, Profile
-      appBar: const Header(
+      appBar: Header(
         isHome: true,
+        onBackButtonPressed: () {
+          print("back button was pressed");
+        },
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16),

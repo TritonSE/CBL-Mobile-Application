@@ -32,7 +32,9 @@ class Donation extends StatelessWidget {
 
     return Scaffold(
       backgroundColor: Colors.white,
-      appBar: const Header(),
+      appBar: Header(onBackButtonPressed: () {
+        print("back button was pressed from donation");
+      }),
       body: Padding(
         padding: const EdgeInsets.symmetric(
           horizontal: 16,

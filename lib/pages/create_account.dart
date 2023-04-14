@@ -59,7 +59,10 @@ class _CreateAccountState extends State<CreateAccount> {
     return Scaffold(
       // resizeToAvoidBottomInset: false,
       backgroundColor: Colors.white,
-      appBar: const Header(),
+      appBar: Header(onBackButtonPressed: () {
+        print("back button was pressed from create account");
+      }),
+
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.symmetric(

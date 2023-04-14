@@ -16,7 +16,9 @@ class CallTextNow extends StatelessWidget {
     var mediaWidth = MediaQuery.of(context).size.width;
     return Scaffold(
       backgroundColor: Colors.white,
-      appBar: const Header(),
+      appBar: Header(onBackButtonPressed: () {
+        print("back button was pressed from calltext");
+      }),
       bottomNavigationBar: CustomNavBar(
         currentPage: 'Profile',
       ),

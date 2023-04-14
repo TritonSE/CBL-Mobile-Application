@@ -79,7 +79,9 @@ class _TakeActionPageState extends State<TakeActionPage> {
 
     return Scaffold(
       backgroundColor: Colors.white,
-      appBar: const Header(),
+      appBar: Header(onBackButtonPressed: () {
+        print("back button was pressed from take_action");
+      }),
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.symmetric(
