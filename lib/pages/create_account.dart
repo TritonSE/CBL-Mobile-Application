@@ -1,3 +1,4 @@
+import 'package:call_black_line/widgets/cbl.dart';
 import 'package:call_black_line/widgets/checkbox_text.dart';
 import 'package:call_black_line/widgets/orange_button.dart';
 import 'package:flutter/material.dart';
@@ -47,9 +48,8 @@ class _CreateAccountState extends State<CreateAccount> {
   var _username;
   var _phoneNumber;
   var _password;
-
   Color getColor(Set<MaterialState> states) {
-    return Color(blue);
+    return Color(CBL.blue);
   }
 
   @override
@@ -66,50 +66,50 @@ class _CreateAccountState extends State<CreateAccount> {
 
       body: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.symmetric(
-            horizontal: 16,
+          padding: EdgeInsets.symmetric(
+            horizontal: CBL.padding,
           ),
           child: Column(
             children: [
-              const CustomTitle(
+              CustomTitle(
                 text: 'Create An Account',
                 topPadding: 24,
-                bottomPadding: 16,
+                bottomPadding: CBL.padding,
               ),
-              const Text(
+              Text(
                 'Sign Up',
                 style: TextStyle(
                     fontSize: 22,
-                    fontFamily: 'Inter',
-                    fontWeight: FontWeight.w500),
+                    fontFamily: CBL.fontFamily,
+                    fontWeight: CBL.bold),
               ),
               InputField(
-                  borderColor: primaryOrange,
-                  textColor: lightGray,
+                  borderColor: CBL.primaryOrange,
+                  textColor: CBL.lightGray,
                   text: 'Username',
                   icon: Icons.person,
                   titleController: _usernameController),
               InputField(
-                  borderColor: primaryOrange,
-                  textColor: lightGray,
+                  borderColor: CBL.primaryOrange,
+                  textColor: CBL.lightGray,
                   text: 'Email',
                   icon: Icons.mail,
                   titleController: _emailController),
               InputField(
-                  borderColor: primaryOrange,
-                  textColor: lightGray,
+                  borderColor: CBL.primaryOrange,
+                  textColor: CBL.lightGray,
                   text: '+1 000 000 000',
                   icon: Icons.phone,
                   titleController: _phoneNumberController),
               PasswordField(
                   text: 'Password',
-                  borderColor: primaryOrange,
-                  textColor: lightGray,
+                  borderColor: CBL.primaryOrange,
+                  textColor: CBL.lightGray,
                   titleController: _passwordController),
               PasswordField(
                   text: 'Password Confirm',
-                  borderColor: primaryOrange,
-                  textColor: lightGray,
+                  borderColor: CBL.primaryOrange,
+                  textColor: CBL.lightGray,
                   titleController: _confirmPasswordController),
               const SizedBox(
                 height: 8,
@@ -117,7 +117,7 @@ class _CreateAccountState extends State<CreateAccount> {
               Row(
                 children: [
                   CheckBoxText(
-                    boxColor: blue,
+                    boxColor: CBL.blue,
                   ),
                   Flexible(
                     child: RichText(
@@ -127,15 +127,15 @@ class _CreateAccountState extends State<CreateAccount> {
                           TextSpan(
                             text: 'Term of service and privacy policy',
                             style: TextStyle(
-                              color: Color(blue),
+                              color: Color(CBL.blue),
                             ),
                           )
                         ],
-                        style: const TextStyle(
-                            color: Colors.black,
+                        style: TextStyle(
+                            color: Color(CBL.black),
                             fontSize: 15,
                             fontWeight: FontWeight.w400,
-                            fontFamily: 'Inter'),
+                            fontFamily: CBL.fontFamily),
                       ),
                     ),
                   ),
@@ -181,11 +181,11 @@ class _CreateAccountState extends State<CreateAccount> {
               const SizedBox(
                 height: 10,
               ),
-              OrDivider(veryLightGray: veryLightGray),
+              OrDivider(),
               const SizedBox(
                 height: 10,
               ),
-              SocialMedia(fbBlue: fbBlue, googleGreen: googleGreen),
+              SocialMedia(),
               const SizedBox(
                 height: 10,
               )

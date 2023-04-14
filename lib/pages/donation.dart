@@ -1,3 +1,4 @@
+import 'package:call_black_line/widgets/cbl.dart';
 import 'package:call_black_line/widgets/orange_button.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
@@ -22,7 +23,6 @@ class Donation extends StatelessWidget {
     int textGray = int.parse('#909090'.replaceAll('#', '0xff'));
     int textBlack = int.parse('#111827'.replaceAll('#', '0xff'));
     int blue = int.parse('#66A0F5'.replaceAll('#', '0xff'));
-
     Future<void> _launchUrl(String url) async {
       final Uri uri = Uri(scheme: "https", host: url);
       if (!await launchUrl(uri, mode: LaunchMode.externalApplication)) {
@@ -37,20 +37,20 @@ class Donation extends StatelessWidget {
         Navigator.pushNamed(context, '/callTextNow');
       }),
       body: Padding(
-        padding: const EdgeInsets.symmetric(
-          horizontal: 16,
+        padding: EdgeInsets.symmetric(
+          horizontal: CBL.padding,
         ),
         child: Column(
           children: [
             const CustomTitle(text: 'Donation'),
-            const SizedBox(
+            SizedBox(
               width: 266,
               child: Text(
                 'Your support will ensure that someone hurting has someone to talk to.',
                 style: TextStyle(
                     fontSize: 17,
-                    fontFamily: 'Inter',
-                    fontWeight: FontWeight.w500),
+                    fontFamily: CBL.fontFamily,
+                    fontWeight: CBL.bold),
                 textAlign: TextAlign.center,
               ),
             ),
@@ -83,15 +83,15 @@ class Donation extends StatelessWidget {
                                   textAlign: TextAlign.center,
                                   style: TextStyle(
                                     fontSize: 22,
-                                    fontFamily: 'Inter',
+                                    fontFamily: CBL.fontFamily,
                                     fontWeight: FontWeight.w700,
-                                    color: Color(textBlack),
+                                    color: Color(CBL.black),
                                   ),
                                 ),
                                 const SizedBox(height: 32),
-                                const CircularProgressIndicator(
+                                CircularProgressIndicator(
                                   valueColor: AlwaysStoppedAnimation<Color>(
-                                      Colors.orange),
+                                      Color(CBL.primaryVariantOrange)),
                                 ),
                                 const SizedBox(height: 32),
                                 Text(
@@ -99,9 +99,9 @@ class Donation extends StatelessWidget {
                                   textAlign: TextAlign.center,
                                   style: TextStyle(
                                     fontSize: 17,
-                                    fontFamily: 'Inter',
+                                    fontFamily: CBL.fontFamily,
                                     fontWeight: FontWeight.w400,
-                                    color: Color(textBlack),
+                                    color: Color(CBL.black),
                                   ),
                                 ),
                                 const SizedBox(
@@ -122,15 +122,15 @@ class Donation extends StatelessWidget {
                                             },
                                           text: 'cancel.',
                                           style: TextStyle(
-                                            color: Color(blue),
+                                            color: Color(CBL.blue),
                                           ),
                                         )
                                       ],
-                                      style: const TextStyle(
-                                          color: Colors.black,
+                                      style: TextStyle(
+                                          color: Color(CBL.black),
                                           fontSize: 17,
                                           fontWeight: FontWeight.w400,
-                                          fontFamily: 'Inter'),
+                                          fontFamily: CBL.fontFamily),
                                     ),
                                   ),
                                 ),
@@ -158,9 +158,9 @@ class Donation extends StatelessWidget {
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   fontSize: 15,
-                  fontFamily: 'Inter',
+                  fontFamily: CBL.fontFamily,
                   fontWeight: FontWeight.w400,
-                  color: Color(textGray),
+                  color: Color(CBL.textGray),
                 ),
               ),
             ),

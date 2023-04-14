@@ -1,3 +1,4 @@
+import 'package:call_black_line/widgets/cbl.dart';
 import 'package:flutter/material.dart';
 
 class InputField extends StatefulWidget {
@@ -29,21 +30,28 @@ class _InputFieldState extends State<InputField> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(top: 16.0),
+      padding: EdgeInsets.only(top: paddingTop ?? CBL.padding),
       child: TextFormField(
         controller: widget.titleController,
         cursorColor: Color(widget.borderColor),
         decoration: InputDecoration(
+          contentPadding: EdgeInsets.all(CBL.padding),
           floatingLabelStyle: TextStyle(
             fontSize: 17,
             color: Color(widget.borderColor),
-            fontWeight: FontWeight.w500,
-            fontFamily: 'Inter',
+            fontWeight: CBL.bold,
+            fontFamily: CBL.fontFamily,
           ),
           prefixIcon: Icon(
             widget.icon,
             color: Color(widget.borderColor),
           ),
+          prefixIcon: icon != null
+              ? Icon(
+                  icon,
+                  color: Color(borderColor),
+                )
+              : null,
           enabledBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(16),
             borderSide: BorderSide(
@@ -59,15 +67,17 @@ class _InputFieldState extends State<InputField> {
             ),
           ),
           labelText: widget.text,
+          alignLabelWithHint: true,
           labelStyle: TextStyle(
             color: Color(widget.textColor),
           ),
         ),
-        style: const TextStyle(
+        style: TextStyle(
           fontSize: 17,
-          color: Colors.black,
-          fontWeight: FontWeight.w500,
-          fontFamily: 'Inter',
+          color: Color(CBL.black),
+          fontWeight: CBL.bold,
+          fontFamily: CBL.fontFamily,
+          height: 1.5,
         ),
       ),
     );
