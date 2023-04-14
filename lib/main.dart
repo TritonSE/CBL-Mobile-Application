@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:call_black_line/pages/resources.dart';
 import 'package:call_black_line/pages/category_name.dart';
-import 'package:call_black_line/pages/resource_title.dart';
+import 'package:call_black_line/widgets/resource_title.dart';
 
 void main() {
   runApp(const MyApp());

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'resources.dart';
+import '../pages/resources.dart';
 import 'package:call_black_line/widgets/header.dart';
 
 class ResourceTitle extends StatelessWidget {
