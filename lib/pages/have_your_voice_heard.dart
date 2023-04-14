@@ -1,14 +1,10 @@
+import 'package:call_black_line/widgets/cbl.dart';
 import 'package:call_black_line/widgets/custom_navbar.dart';
 import 'package:call_black_line/widgets/orange_button.dart';
 import 'package:call_black_line/widgets/text_input_field.dart';
 import 'package:flutter/material.dart';
 import 'package:call_black_line/widgets/custom_title.dart';
 import 'package:call_black_line/widgets/header.dart';
-
-int primaryOrange = int.parse('#DF742C'.replaceAll('#', '0xff'));
-int lightGray = int.parse('#B4B4B4'.replaceAll('#', '0xff'));
-int black = int.parse('#000000'.replaceAll('#', '0xff'));
-int green = int.parse('#3BB966'.replaceAll('#', '0xff'));
 
 class HaveYourVoiceHeard extends StatefulWidget {
   final bool submitted;
@@ -28,8 +24,8 @@ class _HaveYourVoiceHeardState extends State<HaveYourVoiceHeard> {
       bottomNavigationBar: const CustomNavBar(currentPage: 'Resources'),
       body: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.symmetric(
-            horizontal: 16,
+          padding: EdgeInsets.symmetric(
+            horizontal: CBL.padding,
           ),
           child: Column(
             children: [
@@ -40,35 +36,35 @@ class _HaveYourVoiceHeardState extends State<HaveYourVoiceHeard> {
                           padding: const EdgeInsets.all(5.0),
                           child: Icon(
                             Icons.check_circle_outline,
-                            color: Color(green),
+                            color: Color(CBL.success),
                             size: 50,
                           ),
                         ),
                         const SizedBox(
                           width: 31,
                         ),
-                        const Expanded(
+                        Expanded(
                           child: CustomTitle(
                             text: 'Your Feedback is Confirmed!',
                             topPadding: 24.5,
-                            bottomPadding: 16,
+                            bottomPadding: CBL.padding,
                           ),
                         )
                       ],
                     )
-                  : const CustomTitle(
+                  : CustomTitle(
                       text: 'Have Your Voice Heard',
                       topPadding: 24.5,
-                      bottomPadding: 16,
+                      bottomPadding: CBL.padding,
                     ),
               TextInputField(
                   aboveText: 'Event Title',
                   inputText: 'Event Title',
-                  inputOutlineColor: primaryOrange,
-                  inputTextColor: lightGray,
+                  inputOutlineColor: CBL.primaryOrange,
+                  inputTextColor: CBL.lightGray,
                   paddingTop: 8),
-              const SizedBox(
-                height: 16,
+              SizedBox(
+                height: CBL.padding,
               ),
               Row(
                 children: [
@@ -76,8 +72,8 @@ class _HaveYourVoiceHeardState extends State<HaveYourVoiceHeard> {
                       child: TextInputField(
                           icon: Icons.timer_outlined,
                           aboveText: 'Time',
-                          inputOutlineColor: primaryOrange,
-                          inputTextColor: black,
+                          inputOutlineColor: CBL.primaryOrange,
+                          inputTextColor: CBL.black,
                           inputText: '3:00 PM',
                           paddingTop: 8)),
                   const SizedBox(
@@ -87,34 +83,34 @@ class _HaveYourVoiceHeardState extends State<HaveYourVoiceHeard> {
                       child: TextInputField(
                           icon: Icons.hourglass_bottom,
                           aboveText: 'Duration',
-                          inputOutlineColor: primaryOrange,
-                          inputTextColor: black,
+                          inputOutlineColor: CBL.primaryOrange,
+                          inputTextColor: CBL.black,
                           inputText: '1 hr 45 mins',
                           paddingTop: 8)),
                 ],
               ),
-              const SizedBox(
-                height: 16,
+              SizedBox(
+                height: CBL.padding,
               ),
               TextInputField(
                   icon: Icons.location_pin,
                   aboveText: 'Event Location',
                   inputText: 'XXX St, CA, 94121',
-                  inputOutlineColor: primaryOrange,
-                  inputTextColor: black,
+                  inputOutlineColor: CBL.primaryOrange,
+                  inputTextColor: CBL.black,
                   paddingTop: 8),
-              const SizedBox(
-                height: 16,
+              SizedBox(
+                height: CBL.padding,
               ),
               TextInputField(
                   aboveText: 'Description',
                   inputText:
                       'Lorem ipsum dolor sit amet consectetur. Molestie neque faucibus viverra ut nisl nec eleifend.',
-                  inputOutlineColor: primaryOrange,
-                  inputTextColor: lightGray,
+                  inputOutlineColor: CBL.primaryOrange,
+                  inputTextColor: CBL.lightGray,
                   paddingTop: 8),
-              const SizedBox(
-                height: 16,
+              SizedBox(
+                height: CBL.padding,
               ),
               Align(
                 alignment: Alignment.centerRight,
@@ -122,8 +118,8 @@ class _HaveYourVoiceHeardState extends State<HaveYourVoiceHeard> {
                     buttonText: submitted ? 'Done' : 'Submit',
                     onTap: () => setState(() => submitted = true)),
               ),
-              const SizedBox(
-                height: 16,
+              SizedBox(
+                height: CBL.padding,
               ),
             ],
           ),

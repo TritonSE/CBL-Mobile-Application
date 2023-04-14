@@ -1,3 +1,4 @@
+import 'package:call_black_line/widgets/cbl.dart';
 import 'package:flutter/material.dart';
 
 class InputField extends StatelessWidget {
@@ -17,18 +18,18 @@ class InputField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.only(top: paddingTop ?? 16.0),
+      padding: EdgeInsets.only(top: paddingTop ?? CBL.padding),
       child: TextFormField(
         minLines: 1,
         maxLines: 3,
         cursorColor: Color(borderColor),
         decoration: InputDecoration(
-          contentPadding: const EdgeInsets.all(16.0),
+          contentPadding: EdgeInsets.all(CBL.padding),
           floatingLabelStyle: TextStyle(
             fontSize: 17,
             color: Color(borderColor),
-            fontWeight: FontWeight.w500,
-            fontFamily: 'Inter',
+            fontWeight: CBL.bold,
+            fontFamily: CBL.fontFamily,
           ),
           prefixIcon: icon != null
               ? Icon(
@@ -51,16 +52,16 @@ class InputField extends StatelessWidget {
             ),
           ),
           alignLabelWithHint: true,
-          hintText: text,
-          hintStyle: TextStyle(
+          labelText: text,
+          labelStyle: TextStyle(
             color: Color(textColor),
           ),
         ),
-        style: const TextStyle(
+        style: TextStyle(
           fontSize: 17,
-          color: Colors.black,
-          fontWeight: FontWeight.w500,
-          fontFamily: 'Inter',
+          color: Color(CBL.black),
+          fontWeight: CBL.bold,
+          fontFamily: CBL.fontFamily,
           height: 1.5,
         ),
       ),

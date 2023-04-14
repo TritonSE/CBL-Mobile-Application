@@ -1,3 +1,4 @@
+import 'package:call_black_line/widgets/cbl.dart';
 import 'package:flutter/material.dart';
 
 class CustomNavBar extends StatelessWidget {
@@ -69,7 +70,6 @@ class NavItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    int primaryOrange = int.parse('#DF742C'.replaceAll('#', '0xff'));
     return Expanded(
       child: GestureDetector(
         onTap: onPressed,
@@ -85,7 +85,7 @@ class NavItem extends StatelessWidget {
                     width: 100,
                     decoration: BoxDecoration(
                       color: isCurrentPage
-                          ? Color(primaryOrange)
+                          ? Color(CBL.primaryOrange)
                           : Colors.transparent,
                       borderRadius: const BorderRadius.all(
                         Radius.circular(10),
@@ -105,7 +105,7 @@ class NavItem extends StatelessWidget {
                       height: 24,
                       child: Icon(
                         icon,
-                        color: Color(primaryOrange),
+                        color: Color(CBL.primaryOrange),
                       ),
                     ),
                     const SizedBox(
@@ -115,11 +115,11 @@ class NavItem extends StatelessWidget {
                       text,
                       style: TextStyle(
                           color: isCurrentPage
-                              ? Color(primaryOrange)
-                              : Colors.black,
-                          fontFamily: 'Inter',
+                              ? Color(CBL.primaryOrange)
+                              : Color(CBL.black),
+                          fontFamily: CBL.fontFamily,
                           fontSize: 12,
-                          fontWeight: FontWeight.w500),
+                          fontWeight: CBL.bold),
                     ),
                   ],
                 )),
