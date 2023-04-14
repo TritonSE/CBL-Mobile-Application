@@ -100,16 +100,16 @@ class _TakeActionPageState extends State<TakeActionPage> {
                 height: 24,
               ),
               InputField(
-                borderColor: CBL.primaryOrange,
-                textColor: CBL.lightGray,
-                text: 'Username',
-                icon: Icons.person
-                titleController: _usernameController),
+                  borderColor: CBL.primaryOrange,
+                  textColor: CBL.lightGray,
+                  text: 'Username',
+                  icon: Icons.person,
+                  titleController: _usernameController),
               PasswordField(
-                text: 'Password',
-                borderColor: CBL.primaryOrange,
-                textColor: CBL.lightGray
-                titleController: _passwordController),
+                  text: 'Password',
+                  borderColor: CBL.primaryOrange,
+                  textColor: CBL.lightGray,
+                  titleController: _passwordController),
               const SizedBox(
                 height: 8,
               ),
