@@ -166,14 +166,26 @@ class _CreateAccountState extends State<CreateAccount> {
 
                       print('Sign Up Button Pressed');
                       final SignUpUtils signUpUtils = SignUpUtils();
-                      signUpUtils.signUp(
+                      Object result = await signUpUtils.signUp(
                           context,
                           _emailController.text,
                           _passwordController.text,
                           _usernameController.text,
                           _phoneNumberController.text);
+
+                      int intResult = (result.runtimeType == int) ? 400 : 0;
+
                       print("completed");
-                      Navigator.pushNamed(context, '/callTextNow');
+
+                      if (result == 400) {
+                        Navigator.pushNamed(context, '/callTextNow');
+                      } else {
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          const SnackBar(
+                            content: Text('Sign Up Failed'),
+                          ),
+                        );
+                      }
                     },
                   ),
                 ),

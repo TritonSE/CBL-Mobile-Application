@@ -70,6 +70,8 @@ class SignUpUtils {
             username: username, phoneNumber: phoneNumber, email: email);
         userRepository.addUser(user);
         return 400;
+      } else {
+        return 0;
       }
     } catch (e) {
       return {'status': 'ERROR', 'message': e.toString()};
