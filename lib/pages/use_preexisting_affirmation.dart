@@ -27,7 +27,9 @@ class _UsePreexistingAffirmationState extends State<UsePreexistingAffirmation> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      appBar: const Header(),
+      appBar: Header(onBackButtonPressed: () {
+        //placeholder
+      }),
       bottomNavigationBar: const CustomNavBar(
         currentPage: 'Resources',
       ),

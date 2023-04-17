@@ -13,7 +13,9 @@ class CreateNewAffirmation extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      appBar: const Header(),
+      appBar: Header(onBackButtonPressed: () {
+        //placeholder
+      }),
       bottomNavigationBar: const CustomNavBar(
         currentPage: 'Resources',
       ),
