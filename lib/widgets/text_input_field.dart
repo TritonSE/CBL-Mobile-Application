@@ -1,3 +1,4 @@
+import 'package:call_black_line/widgets/cbl.dart';
 import 'package:call_black_line/widgets/input_field.dart';
 import 'package:flutter/material.dart';
 
@@ -27,10 +28,10 @@ class TextInputField extends StatelessWidget {
           alignment: Alignment.centerLeft,
           child: Text(
             aboveText,
-            style: const TextStyle(
-              fontWeight: FontWeight.w500,
+            style: TextStyle(
+              fontWeight: CBL.bold,
               fontSize: 20,
-              fontFamily: 'Inter',
+              fontFamily: CBL.fontFamily,
             ),
           ),
         ),

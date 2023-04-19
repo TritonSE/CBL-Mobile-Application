@@ -2,6 +2,7 @@ import 'package:call_black_line/widgets/orange_button.dart';
 import 'package:flutter/material.dart';
 import 'package:call_black_line/widgets/custom_title.dart';
 import 'package:call_black_line/widgets/header.dart';
+import 'package:call_black_line/widgets/cbl.dart';
 
 class Affirmation extends StatefulWidget {
   final bool subscribed;
@@ -10,9 +11,6 @@ class Affirmation extends StatefulWidget {
   @override
   State<Affirmation> createState() => _AffirmationState();
 }
-
-int primaryOrange = int.parse('#DF742C'.replaceAll('#', '0xff'));
-int gray = int.parse('#909090'.replaceAll('#', '0xff'));
 
 class _AffirmationState extends State<Affirmation> {
   bool subscribed = false;
@@ -29,20 +27,20 @@ class _AffirmationState extends State<Affirmation> {
       backgroundColor: Colors.white,
       appBar: const Header(),
       body: Padding(
-        padding: const EdgeInsets.symmetric(
-          horizontal: 16,
+        padding: EdgeInsets.symmetric(
+          horizontal: CBL.padding,
         ),
         child: Column(
           children: [
             const CustomTitle(text: 'Affirmation'),
-            const SizedBox(
+            SizedBox(
               width: 358,
               child: Text(
                 'Subscribe to our affirmation resources to receive daily, weekly, or monthly affirmations from members in the community.',
                 style: TextStyle(
                     fontSize: 17,
-                    fontFamily: 'Inter',
-                    fontWeight: FontWeight.w500),
+                    fontFamily: CBL.fontFamily,
+                    fontWeight: CBL.bold),
                 textAlign: TextAlign.center,
               ),
             ),
@@ -55,11 +53,11 @@ class _AffirmationState extends State<Affirmation> {
                   Text("Subscribed!",
                       style: TextStyle(
                         fontSize: 17,
-                        fontFamily: 'Inter',
-                        fontWeight: FontWeight.w500,
-                        color: Color(primaryOrange),
+                        fontFamily: CBL.fontFamily,
+                        fontWeight: CBL.bold,
+                        color: Color(CBL.primaryOrange),
                       )),
-                  const SizedBox(height: 16),
+                  SizedBox(height: CBL.padding),
                 ],
               ),
             OrangeButton(
@@ -68,8 +66,8 @@ class _AffirmationState extends State<Affirmation> {
               onTap: () => setState(() => subscribed = true),
               opacity: subscribed ? 0.45 : 1,
             ),
-            const SizedBox(
-              height: 16,
+            SizedBox(
+              height: CBL.padding,
             ),
             if (subscribed)
               GestureDetector(
@@ -79,9 +77,9 @@ class _AffirmationState extends State<Affirmation> {
                   style: TextStyle(
                       decoration: TextDecoration.underline,
                       fontSize: 17,
-                      fontFamily: 'Inter',
-                      fontWeight: FontWeight.w500,
-                      color: Color(gray)),
+                      fontFamily: CBL.fontFamily,
+                      fontWeight: CBL.bold,
+                      color: Color(CBL.textGray)),
                 ),
               ),
           ],

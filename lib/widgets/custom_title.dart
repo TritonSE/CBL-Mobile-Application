@@ -1,3 +1,4 @@
+import 'package:call_black_line/widgets/cbl.dart';
 import 'package:flutter/material.dart';
 
 class CustomTitle extends StatelessWidget {
@@ -19,11 +20,11 @@ class CustomTitle extends StatelessWidget {
         child: Text(
           text,
           textAlign: TextAlign.center,
-          style: const TextStyle(
+          style: TextStyle(
               fontWeight: FontWeight.w700,
               fontSize: 34,
               letterSpacing: 0.4,
-              fontFamily: 'Inter'),
+              fontFamily: CBL.fontFamily),
         ),
       ),
     );
