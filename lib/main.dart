@@ -25,6 +25,7 @@ class MyApp extends StatelessWidget {
         routes: {
           '/': (context) => const SeekHelp(),
           // '/': (context) => const Donation(),
+          // '/': (context) => const Profile(),
           // '/': (context) => const HaveYourVoiceHeard(),
           // '/': (context) => const CreateAffirmation(),
           '/callTextNow': (context) => const CallTextNow(),
