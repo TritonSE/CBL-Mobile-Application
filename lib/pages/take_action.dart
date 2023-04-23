@@ -120,6 +120,7 @@ class _TakeActionPageState extends State<TakeActionPage> {
                     children: [
                       CheckBoxText(
                         boxColor: CBL.blue,
+                        onCheckboxChanged: (value) => {},
                       ),
                       Text(
                         'Remember me',

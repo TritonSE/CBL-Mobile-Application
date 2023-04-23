@@ -118,6 +118,11 @@ class _CreateAccountState extends State<CreateAccount> {
                 children: [
                   CheckBoxText(
                     boxColor: CBL.blue,
+                    onCheckboxChanged: (value) => {
+                      setState(() {
+                        signUpTOSCheck = value;
+                      })
+                    },
                   ),
                   Flexible(
                     child: RichText(
@@ -177,6 +182,16 @@ class _CreateAccountState extends State<CreateAccount> {
                       String stringResult = result.toString();
 
                       print("completed");
+
+                      if (signUpTOSCheck == false) {
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          SnackBar(
+                            content: Text(
+                                "Please accept the terms of service and privacy policy"),
+                          ),
+                        );
+                        return;
+                      }
 
                       if (result == 400) {
                         Navigator.pushNamed(context, '/callTextNow');

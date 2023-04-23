@@ -71,7 +71,7 @@ class SignUpUtils {
         userRepository.addUser(user);
         return 400;
       } else {
-        return 0;
+        return returnedObject.toString();
       }
     } catch (e) {
       return {'status': 'ERROR', 'message': e.toString()};
