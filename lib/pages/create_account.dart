@@ -174,6 +174,7 @@ class _CreateAccountState extends State<CreateAccount> {
                           _phoneNumberController.text);
 
                       int intResult = (result.runtimeType == int) ? 400 : 0;
+                      String stringResult = result.toString();
 
                       print("completed");
 
@@ -181,8 +182,8 @@ class _CreateAccountState extends State<CreateAccount> {
                         Navigator.pushNamed(context, '/callTextNow');
                       } else {
                         ScaffoldMessenger.of(context).showSnackBar(
-                          const SnackBar(
-                            content: Text('Sign Up Failed'),
+                          SnackBar(
+                            content: Text(stringResult),
                           ),
                         );
                       }

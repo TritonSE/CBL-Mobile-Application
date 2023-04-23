@@ -168,9 +168,10 @@ class _TakeActionPageState extends State<TakeActionPage> {
                     if (returnedStatus == 400) {
                       Navigator.pushNamed(context, '/callTextNow');
                     } else {
+                      String returnedMessage = returnedObject.toString();
                       ScaffoldMessenger.of(context).showSnackBar(
-                        const SnackBar(
-                          content: Text('Login failed'),
+                        SnackBar(
+                          content: Text(returnedMessage),
                         ),
                       );
                     }

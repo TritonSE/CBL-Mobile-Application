@@ -55,6 +55,7 @@ class MyApp extends StatelessWidget {
               '/callTextNow': (context) => const CallTextNow(),
               '/createAccount': (context) => const CreateAccount(),
               '/takeAction': (context) => const TakeActionPage(),
+              '/seekHelp': (context) => const SeekHelp(),
             }));
   }
 }
