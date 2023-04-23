@@ -18,9 +18,11 @@ class Profile extends StatelessWidget {
       bottomNavigationBar: const CustomNavBar(
         currentPage: 'Profile',
       ), //Available: Resources, Seek Help, Profile
-      appBar: const Header(
-        isHome: true,
-      ),
+      appBar: Header(
+          isHome: true,
+          onBackButtonPressed: () {
+            //placeholder
+          }),
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: CBL.padding),
         child: Column(
