@@ -155,6 +155,7 @@ class _CreateAccountState extends State<CreateAccount> {
                     onTap: () async {
                       if (_passwordController.text !=
                           _confirmPasswordController.text) {
+                        ScaffoldMessenger.of(context).hideCurrentSnackBar();
                         ScaffoldMessenger.of(context).showSnackBar(
                           const SnackBar(
                             content: Text('Passwords do not match'),
@@ -184,6 +185,7 @@ class _CreateAccountState extends State<CreateAccount> {
                       print("completed");
 
                       if (signUpTOSCheck == false) {
+                        ScaffoldMessenger.of(context).hideCurrentSnackBar();
                         ScaffoldMessenger.of(context).showSnackBar(
                           SnackBar(
                             content: Text(
@@ -196,6 +198,7 @@ class _CreateAccountState extends State<CreateAccount> {
                       if (result == 400) {
                         Navigator.pushNamed(context, '/callTextNow');
                       } else {
+                        ScaffoldMessenger.of(context).hideCurrentSnackBar();
                         ScaffoldMessenger.of(context).showSnackBar(
                           SnackBar(
                             content: Text(stringResult),

@@ -170,6 +170,7 @@ class _TakeActionPageState extends State<TakeActionPage> {
                       Navigator.pushNamed(context, '/callTextNow');
                     } else {
                       String returnedMessage = returnedObject.toString();
+                      ScaffoldMessenger.of(context).hideCurrentSnackBar();
                       ScaffoldMessenger.of(context).showSnackBar(
                         SnackBar(
                           content: Text(returnedMessage),
