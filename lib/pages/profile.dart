@@ -1,5 +1,7 @@
 import 'package:call_black_line/widgets/cbl.dart';
 import 'package:call_black_line/widgets/orange_button.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../widgets/custom_navbar.dart';
@@ -10,10 +12,30 @@ import '../auth_methods.dart';
 class Profile extends StatelessWidget {
   const Profile({super.key});
 
+  Future<String> getUsername(User? firebaseuser) async {
+    String email = firebaseuser!.email!;
+    // Get a reference to the Firestore collection
+    CollectionReference users = FirebaseFirestore.instance.collection('users');
+
+    // Create a query to search for documents where the email field matches the given email
+    QuerySnapshot querySnapshot =
+        await users.where('email', isEqualTo: email).get();
+
+    // If there is a document that matches the query, return it
+    if (querySnapshot.docs.isNotEmpty) {
+      DocumentSnapshot? data = querySnapshot.docs.first;
+      return data!['email'];
+    }
+
+    // Otherwise, return null
+    return "Not found";
+  }
+
   @override
   Widget build(BuildContext context) {
-    const username = 'John Doe';
-    const email = 'johndoe@example.com';
+    final firebaseuser = context.watch<User?>();
+    var username = "John Doe";
+    String? email = firebaseuser!.email;
     return Scaffold(
       resizeToAvoidBottomInset: false,
       backgroundColor: Colors.white,
@@ -72,7 +94,7 @@ class Profile extends StatelessWidget {
                   textAlign: TextAlign.left,
                 ),
                 Text(
-                  email,
+                  email!,
                   style: TextStyle(
                     fontSize: 20,
                     fontFamily: CBL.fontFamily,
