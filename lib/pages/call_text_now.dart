@@ -57,7 +57,6 @@ class CallTextNow extends StatelessWidget {
             SizedBox(
               height: CBL.padding,
             ),
-            
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -72,7 +71,8 @@ class CallTextNow extends StatelessWidget {
                       if (await canLaunchUrl(url)) {
                         await launchUrl(url);
                       } else {
-                        throw Exception("Error occured trying to call that number.");
+                        throw Exception(
+                            "Error occured trying to call that number.");
                       }
                     },
                     height: 171,

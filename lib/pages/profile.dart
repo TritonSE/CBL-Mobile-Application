@@ -1,9 +1,11 @@
 import 'package:call_black_line/widgets/cbl.dart';
 import 'package:call_black_line/widgets/orange_button.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import '../widgets/custom_navbar.dart';
 import '../widgets/custom_title.dart';
 import '../widgets/header.dart';
+import '../auth_methods.dart';
 
 class Profile extends StatelessWidget {
   const Profile({super.key});
@@ -79,12 +81,15 @@ class Profile extends StatelessWidget {
               ],
             ),
             const Spacer(),
-            const Padding(
+            Padding(
               padding: EdgeInsets.only(bottom: 50),
               child: OrangeButton(
                 buttonText: 'Logout',
                 width: 146,
-                // onTap: () => setState(() => subscribed = true),
+                onTap: () async {
+                  context.read<AuthenticationService>().signOut();
+                  Navigator.pushNamed(context, '/seekHelp');
+                },
               ),
             )
           ],
