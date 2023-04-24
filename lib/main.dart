@@ -10,6 +10,7 @@ import 'package:call_black_line/widgets/header.dart';
 import 'package:call_black_line/widgets/rounded_button_image.dart';
 import 'package:call_black_line/pages/call_text_now.dart';
 import 'package:call_black_line/pages/seek_help.dart';
+import 'package:call_black_line/pages/profile.dart';
 
 import 'auth_methods.dart';
 import 'package:provider/provider.dart';
@@ -56,6 +57,7 @@ class MyApp extends StatelessWidget {
               '/createAccount': (context) => const CreateAccount(),
               '/takeAction': (context) => const TakeActionPage(),
               '/seekHelp': (context) => const SeekHelp(),
+              '/profile': (context) => const Profile(),
             }));
   }
 }
