@@ -36,17 +36,13 @@ class CustomNavBar extends StatelessWidget {
                 text: "Seek Help",
                 icon: Icons.chat_bubble,
                 isCurrentPage: currentPage == 'Seek Help',
-                onPressed: () => {
-                  // Navigator.pushNamed(context, '/seekHelp')
-                },
+                onPressed: () => {Navigator.pushNamed(context, '/seekHelp')},
               ),
               NavItem(
                 text: "Profile",
                 icon: Icons.person,
                 isCurrentPage: currentPage == 'Profile',
-                onPressed: () => {
-                  // Navigator.pushNamed(context, '/profile')
-                },
+                onPressed: () => {Navigator.pushNamed(context, '/profile')},
               ),
             ],
           ),
