@@ -171,6 +171,17 @@ class _CreateAccountState extends State<CreateAccount> {
                       });
 
                       print('Sign Up Button Pressed');
+                      if (signUpTOSCheck == false) {
+                        ScaffoldMessenger.of(context).hideCurrentSnackBar();
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          SnackBar(
+                            content: Text(
+                                "Please accept the terms of service and privacy policy"),
+                          ),
+                        );
+                        return;
+                      }
+
                       final SignUpUtils signUpUtils = SignUpUtils();
                       Object result = await signUpUtils.signUp(
                           context,
@@ -183,17 +194,6 @@ class _CreateAccountState extends State<CreateAccount> {
                       String stringResult = result.toString();
 
                       print("completed");
-
-                      if (signUpTOSCheck == false) {
-                        ScaffoldMessenger.of(context).hideCurrentSnackBar();
-                        ScaffoldMessenger.of(context).showSnackBar(
-                          SnackBar(
-                            content: Text(
-                                "Please accept the terms of service and privacy policy"),
-                          ),
-                        );
-                        return;
-                      }
 
                       if (result == 400) {
                         Navigator.pushNamed(context, '/callTextNow');

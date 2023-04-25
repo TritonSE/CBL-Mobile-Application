@@ -56,19 +56,24 @@ class SignUpUtils {
   Future<Object> signUp(BuildContext context, String email, String password,
       String username, String phoneNumber) async {
     try {
+      //trying to create the account
       Future<Object> result = context
           .read<AuthenticationService>()
           .signUp(email: email, password: password);
 
+      //getting the result
       Object returnedObject = await result;
       int returnedStatus = (returnedObject.runtimeType == int) ? 400 : 0;
 
       if (returnedStatus == 400) {
         print("super hi");
+        //if successful, add the user to the database
         UserRepository userRepository = UserRepository();
+
         UserData user = UserData(
             username: username, phoneNumber: phoneNumber, email: email);
         userRepository.addUser(user);
+
         return 400;
       } else {
         return returnedObject.toString();
