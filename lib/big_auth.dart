@@ -1,6 +1,7 @@
 // This file contains the main functions for signing up and deleting the account.
 
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'user.dart';
@@ -70,9 +71,12 @@ class SignUpUtils {
         //if successful, add the user to the database
         UserRepository userRepository = UserRepository();
 
+        final User firebaseuser = FirebaseAuth.instance.currentUser!;
+        String uid = firebaseuser.uid;
+
         UserData user = UserData(
             username: username, phoneNumber: phoneNumber, email: email);
-        userRepository.addUser(user);
+        userRepository.addUser(user, uid);
 
         return 400;
       } else {
