@@ -3,8 +3,16 @@ import 'package:flutter/material.dart';
 
 class CustomNavBar extends StatelessWidget {
   final String currentPage;
+  final String resourcesRoute;
+  final String seekHelpRoute;
+  final String profileRoute;
 
-  const CustomNavBar({super.key, required this.currentPage});
+  const CustomNavBar(
+      {super.key,
+      required this.currentPage,
+      this.resourcesRoute: 'None',
+      this.seekHelpRoute: 'None',
+      this.profileRoute: 'None'});
 
   @override
   Widget build(BuildContext context) {
@@ -30,19 +38,27 @@ class CustomNavBar extends StatelessWidget {
                 isCurrentPage: currentPage == 'Resources',
                 onPressed: () => {
                   // Navigator.pushNamed(context, '/resources')
+                  if (resourcesRoute != 'None')
+                    {Navigator.pushNamed(context, resourcesRoute)}
                 },
               ),
               NavItem(
                 text: "Seek Help",
                 icon: Icons.chat_bubble,
                 isCurrentPage: currentPage == 'Seek Help',
-                onPressed: () => {Navigator.pushNamed(context, '/seekHelp')},
+                onPressed: () => {
+                  if (seekHelpRoute != 'None')
+                    {Navigator.pushNamed(context, seekHelpRoute)}
+                },
               ),
               NavItem(
                 text: "Profile",
                 icon: Icons.person,
                 isCurrentPage: currentPage == 'Profile',
-                onPressed: () => {Navigator.pushNamed(context, '/profile')},
+                onPressed: () => {
+                  if (profileRoute != 'None')
+                    {Navigator.pushNamed(context, profileRoute)}
+                },
               ),
             ],
           ),
