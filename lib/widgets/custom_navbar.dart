@@ -6,7 +6,7 @@ class CustomNavBar extends StatelessWidget {
   final String resourcesRoute;
   final String seekHelpRoute;
   final String profileRoute;
-
+  //set these route variables to correspond to the navbar button. for testing purposes, set them to 'None' to disable the button
   const CustomNavBar(
       {super.key,
       required this.currentPage,
