@@ -35,12 +35,14 @@ class Profile extends StatelessWidget {
   Widget build(BuildContext context) {
     final firebaseuser = context.watch<User?>();
     var username = "John Doe";
-    String? email = firebaseuser!.email;
+    String? email = "Temp";
     return Scaffold(
       resizeToAvoidBottomInset: false,
       backgroundColor: Colors.white,
       bottomNavigationBar: const CustomNavBar(
         currentPage: 'Profile',
+        seekHelpRoute: '/callTextNow',
+        profileRoute: '/profile',
       ), //Available: Resources, Seek Help, Profile
       appBar: Header(
           isHome: true,

@@ -126,12 +126,12 @@ class _MyHomePageState extends State<MyHomePage> {
                       phoneNumber: '8583165432',
                       email: 'johndoe@example.com');
 
-                  userRepository.addUser(user);
-                  userRepository.addUser(userWrongPswd);
-                  userRepository.addUser(userWrongEmail);
-                  userRepository.addUser(userWrongPhone);
-                  userRepository.addUser(user2);
-                  userRepository.addUser(userDuplicate);
+                  // userRepository.addUser(user);
+                  // userRepository.addUser(userWrongPswd);
+                  // userRepository.addUser(userWrongEmail);
+                  // userRepository.addUser(userWrongPhone);
+                  // userRepository.addUser(user2);
+                  // userRepository.addUser(userDuplicate);
                 },
                 child: const Text('Add User')),
             ElevatedButton(

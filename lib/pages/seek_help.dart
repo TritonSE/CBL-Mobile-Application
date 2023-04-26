@@ -16,6 +16,9 @@ class SeekHelp extends StatelessWidget {
       backgroundColor: Colors.white,
       bottomNavigationBar: const CustomNavBar(
         currentPage: 'Seek Help',
+        resourcesRoute: 'None',
+        seekHelpRoute: '/seekHelp',
+        profileRoute: 'None',
       ), //Available: Resources, Seek Help, Profile
       appBar: Header(
           isHome: true,

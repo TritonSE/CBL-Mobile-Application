@@ -21,7 +21,9 @@ class CallTextNow extends StatelessWidget {
         print("back button was pressed from calltext");
       }),
       bottomNavigationBar: CustomNavBar(
-        currentPage: 'Profile',
+        currentPage: 'Seek Help',
+        seekHelpRoute: '/callTextNow',
+        profileRoute: '/profile',
       ),
       body: Padding(
         padding: EdgeInsets.symmetric(
