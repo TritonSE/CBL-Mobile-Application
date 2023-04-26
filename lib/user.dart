@@ -17,9 +17,10 @@ class UserRepository {
   final CollectionReference userCollection =
       FirebaseFirestore.instance.collection('users');
 
-  Future<Object> addUser(UserData user) async {
+  Future<Object?> addUser(UserData user) async {
     try {
-      return await userCollection.add(user.toMap());
+      await userCollection.doc(user.email).set(user.toMap());
+      return 400;
     } catch (e) {
       return {'status': 'ERROR', 'message': e.toString()};
     }
