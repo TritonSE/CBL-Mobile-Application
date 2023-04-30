@@ -19,7 +19,7 @@ class UserRepository {
 
   Future<Object> addUser(UserData user, String userid) async {
     try {
-      await userCollection.doc(userid).set(user.toMap());
+      await userCollection.doc(user.email).set(user.toMap());
       return {'status': 'SUCCESS'};
     } catch (e) {
       return {'status': 'ERROR', 'message': e.toString()};
