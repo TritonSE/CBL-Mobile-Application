@@ -29,7 +29,8 @@ class Profile extends StatelessWidget {
     final User? user = FirebaseAuth.instance.currentUser;
     final String? userId = user?.email;
     final firebaseuser = context.watch<User?>();
-    String? email = firebaseuser!.email;
+    String? email = "";
+    email = firebaseuser?.email;
     try {
       DocumentReference<Map<String, dynamic>> docRef =
           FirebaseFirestore.instance.collection('users').doc(email);
@@ -115,7 +116,7 @@ class Profile extends StatelessWidget {
                   textAlign: TextAlign.left,
                 ),
                 Text(
-                  email!,
+                  email ?? '',
                   style: TextStyle(
                     fontSize: 20,
                     fontFamily: CBL.fontFamily,
