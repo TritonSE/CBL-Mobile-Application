@@ -1,5 +1,8 @@
 import 'package:call_black_line/widgets/cbl.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+
+final FirebaseAuth auth = FirebaseAuth.instance;
 
 class CustomNavBar extends StatelessWidget {
   final String currentPage;
@@ -45,7 +48,10 @@ class CustomNavBar extends StatelessWidget {
                 icon: Icons.person,
                 isCurrentPage: currentPage == 'Profile',
                 onPressed: () => {
-                  // Navigator.pushNamed(context, '/profile')
+                  if (auth.currentUser == null)
+                    {Navigator.pushNamed(context, '/takeAction')}
+                  else
+                    {Navigator.pushNamed(context, '/profile')}
                 },
               ),
             ],
