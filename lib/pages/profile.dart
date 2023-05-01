@@ -1,17 +1,49 @@
+//Credit for fetching async data: https://www.youtube.com/watch?v=A9IN0cpPCZE
+
 import 'package:call_black_line/widgets/cbl.dart';
 import 'package:call_black_line/widgets/orange_button.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import '../widgets/custom_navbar.dart';
 import '../widgets/custom_title.dart';
 import '../widgets/header.dart';
 
-class Profile extends StatelessWidget {
+final FirebaseAuth auth = FirebaseAuth.instance;
+final CollectionReference userCollection =
+    FirebaseFirestore.instance.collection('users');
+
+class Profile extends StatefulWidget {
   const Profile({super.key});
 
   @override
+  State<Profile> createState() => _ProfileState();
+}
+
+class _ProfileState extends State<Profile> {
+  String username = '';
+  String email = auth.currentUser?.email ?? '';
+  Future _getFireStoreUser() async {
+    userCollection
+        .doc(auth.currentUser?.uid)
+        .get()
+        .then((DocumentSnapshot snapshot) async {
+      if (snapshot.exists) {
+        setState(() {
+          username = snapshot["username"];
+        });
+      }
+    });
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    _getFireStoreUser();
+  }
+
+  @override
   Widget build(BuildContext context) {
-    const username = 'John Doe';
-    const email = 'johndoe@example.com';
     return Scaffold(
       resizeToAvoidBottomInset: false,
       backgroundColor: Colors.white,
@@ -77,14 +109,17 @@ class Profile extends StatelessWidget {
               ],
             ),
             const Spacer(),
-            const Padding(
-              padding: EdgeInsets.only(bottom: 50),
+            Padding(
+              padding: const EdgeInsets.only(bottom: 50),
               child: OrangeButton(
-                buttonText: 'Logout',
-                width: 146,
-                // onTap: () => setState(() => subscribed = true),
-              ),
-            )
+                  buttonText: 'Logout',
+                  width: 146,
+                  onTap: () async {
+                    // context.read<AuthenticationService>().signOut();
+                    await auth.signOut();
+                    Navigator.pushNamed(context, '/seekHelp');
+                  }),
+            ),
           ],
         ),
       ),
