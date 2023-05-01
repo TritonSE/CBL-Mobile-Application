@@ -2,6 +2,14 @@ import 'package:flutter/material.dart';
 import '../pages/resources.dart';
 import 'package:call_black_line/widgets/header.dart';
 
+/*
+ * This file is the front end for a generic selected resource
+ * which includes:
+ * the title of the resource,
+ * a message pertaining to the resource,
+ * a button for visiting the site of the resource,
+ * an image relating to the resource 
+ */
 class ResourceTitle extends StatelessWidget {
   const ResourceTitle({super.key});
   @override
@@ -28,6 +36,7 @@ class ResourceTitle extends StatelessWidget {
                                     const SizedBox(
                                         height: 24,
                                     ),
+                                    // Adds the title of the resource
                                     const Text('Resource Title',
                                         textAlign: TextAlign.center,
                                         style: TextStyle(
@@ -36,6 +45,7 @@ class ResourceTitle extends StatelessWidget {
                                     const SizedBox(
                                     height: 32,
                                     ),
+                                    // Adds the message/content of the resource
                                     const SizedBox(
                                         width: 357,
                                         child: Text(
@@ -59,6 +69,7 @@ class ResourceTitle extends StatelessWidget {
                                             color: buttonColor,
                                             borderRadius: BorderRadius.all(Radius.circular(16)),
                                         ),
+                                        // Adds a button to visit the site of the resource
                                         child: const Padding(
                                             padding: EdgeInsets.all(11.5),
                                             child: Text(
@@ -76,6 +87,7 @@ class ResourceTitle extends StatelessWidget {
                                     const SizedBox(
                                         height: 32,
                                     ),
+                                    // Adds an image related to the resource
                                     Image(
                                         image: const AssetImage('assets/images/placeholder.png'),
                                         height: 231 / 358 * MediaQuery.of(context).size.width,

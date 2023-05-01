@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:call_black_line/pages/resources.dart';
 
+/*
+ * This file contains the generic format for categories used in the
+ * first page of the resources flow 
+ */
 class CategorySquare extends StatelessWidget {
   final String catText;
   final IconData icon;
@@ -24,11 +28,13 @@ class CategorySquare extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
+                  // Setting icon for category box
                   Icon(icon, color: Colors.black),
                   SizedBox(
                     height: 6,
                   ),
                   Expanded(
+                    // Setting standard font, size, and color
                     child: Text(
                       catText,
                       style: const TextStyle(
@@ -42,6 +48,7 @@ class CategorySquare extends StatelessWidget {
               ),
             ),
           ),
+          // Adding routing when box is clicked
           onTap: () {
             Navigator.pushNamed(context, '/category_name');
           },

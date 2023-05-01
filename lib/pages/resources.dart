@@ -7,7 +7,10 @@ const themeColor = Color(0xFFF7B279);
 const buttonColor = Color(0xFFDF742C);
 const primaryVarColor = Color(0xFFD55B26);
 const secondaryTextColor = Color(0xFF6C6C6C);
-
+/*
+ * This file is the first page of the resources flow and contains
+ * the available categories 
+ */
 class Resources extends StatelessWidget {
   const Resources({super.key});
 
@@ -37,6 +40,7 @@ class Resources extends StatelessWidget {
                             mainAxisAlignment: MainAxisAlignment.center,
                             mainAxisSize: MainAxisSize.min,
                             children: const [
+                              // Adding title of the page
                               Align(
                                 alignment: Alignment.center,
                                 child: Text(
@@ -56,13 +60,14 @@ class Resources extends StatelessWidget {
                             height: 40,
                           ),
 
+                          // Adding the search bar
                           SearchBar(),
 
                           const SizedBox(
                             height: 24,
                           ),
 
-                          //subtitle: categories
+                          // Adding Subtitle: categories
                           const Align(
                             alignment: Alignment.centerLeft,
                             child: Text(
@@ -81,7 +86,8 @@ class Resources extends StatelessWidget {
                             height: 16,
                           ),
 
-                          //row 1 of two containers
+                          // Adding categories
+                          // row 1 of two containers
                           Row(
                             children: const [
                               CategorySquare(
@@ -102,6 +108,7 @@ class Resources extends StatelessWidget {
                             height: 16,
                           ),
 
+                          // row 2 of two containers
                           Row(
                             children: const [
                               CategorySquare(
@@ -121,7 +128,8 @@ class Resources extends StatelessWidget {
                           const SizedBox(
                             height: 16,
                           ),
-
+                          
+                          // Adding option to see all resources available
                           GestureDetector(
                             child: Row(
                               children: [

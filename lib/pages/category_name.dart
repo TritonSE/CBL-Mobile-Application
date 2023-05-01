@@ -2,9 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:call_black_line/widgets/header.dart';
 import 'package:call_black_line/widgets/resource_rect.dart';
 
+/*
+ * This file lists all the resources available for the selected category 
+ */
 class CategoryName extends StatelessWidget {
   final List<String> titles;
   final List<String> descriptions;
+  // Initializing a list of resources and their descriptions
   const CategoryName(
       {Key? key,
       this.titles = const [
@@ -41,9 +45,9 @@ class CategoryName extends StatelessWidget {
             SizedBox(
               height: 24,
             ),
+            // Adding title to the page
             const Text(
               'Category Name',
-              //textAlign: TextAlign.center,
               style: const TextStyle(
                   fontSize: 34,
                   fontFamily: 'Inter',
@@ -53,6 +57,7 @@ class CategoryName extends StatelessWidget {
             SizedBox(
               height: 32,
             ),
+            // Creating resource rectangles for each resource initialized above
             SizedBox(
               height: 580,
               child: ListView(

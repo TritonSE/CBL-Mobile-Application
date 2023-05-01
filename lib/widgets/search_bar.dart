@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:call_black_line/pages/resources.dart';
 
+/*
+ * This file contains the search bar widget for the first page 
+ * of the resources flow 
+ */
+
 class SearchBar extends StatelessWidget {
   const SearchBar({super.key});
 
@@ -19,6 +24,7 @@ class SearchBar extends StatelessWidget {
             ),
         ),
       child: Center(
+        // Adds the attribute of typing into the search bar
         child: TextField(
           controller: textarea,
           decoration: InputDecoration(

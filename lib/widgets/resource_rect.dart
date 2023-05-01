@@ -1,15 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:call_black_line/pages/resources.dart';
 
+/*
+ * This file contains the generic format for each resource that will be listed
+ * when a category is selected 
+ */
 class ResourceRect extends StatelessWidget {
   final String title;
   final String description;
+  // Defining fields in the generic format
   const ResourceRect(
       {Key? key,
       this.title = 'Resource title',
       this.description = 'description'})
       : super(key: key);
   Widget build(BuildContext context) {
+    // Adding routing when clicked on
     return GestureDetector(
         onTap: () => Navigator.pushNamed(context, '/resource_title'),
         child: Container(
