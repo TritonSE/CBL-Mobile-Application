@@ -16,7 +16,7 @@ class Affirmation {
 }
 
 class AffirmationWithUsername {
-  final String text;
+  String text;
   final String username;
   final int created;
 

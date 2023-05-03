@@ -7,7 +7,7 @@ import 'package:call_black_line/widgets/custom_title.dart';
 import 'package:call_black_line/widgets/header.dart';
 import 'package:call_black_line/widgets/custom_navbar.dart';
 import 'package:call_black_line/pages/affirmation_sent.dart';
-import 'package:drop_cap_text/drop_cap_text.dart';
+import "package:drop_cap_text/drop_cap_text.dart";
 import 'package:call_black_line/affirmation.dart';
 
 final FirebaseAuth auth = FirebaseAuth.instance;
@@ -104,8 +104,65 @@ class _UsePreexistingAffirmationState extends State<UsePreexistingAffirmation> {
                                             dropCap: DropCap(
                                                 width: 25,
                                                 height: 25,
-                                                child: Image.asset(
-                                                    'assets/images/edit.png'))),
+                                                child: IconButton(
+                                                  padding:
+                                                      const EdgeInsets.all(0),
+                                                  icon: Image.asset(
+                                                      'assets/images/edit.png'),
+                                                  onPressed: () {
+                                                    showDialog(
+                                                      context: context,
+                                                      builder: (context) {
+                                                        TextEditingController
+                                                            controller =
+                                                            TextEditingController(
+                                                                text: affirmations[
+                                                                        index]
+                                                                    .text);
+                                                        return AlertDialog(
+                                                          title: const Text(
+                                                              "Edit Affirmation"),
+                                                          content: TextField(
+                                                            controller:
+                                                                controller,
+                                                            decoration:
+                                                                const InputDecoration(
+                                                              hintText:
+                                                                  "Enter new text here",
+                                                            ),
+                                                          ),
+                                                          actions: <Widget>[
+                                                            TextButton(
+                                                              child: const Text(
+                                                                  "Cancel"),
+                                                              onPressed: () {
+                                                                Navigator.of(
+                                                                        context)
+                                                                    .pop();
+                                                              },
+                                                            ),
+                                                            TextButton(
+                                                              child: const Text(
+                                                                  "Save"),
+                                                              onPressed: () {
+                                                                setState(() {
+                                                                  affirmations[
+                                                                              index]
+                                                                          .text =
+                                                                      controller
+                                                                          .text;
+                                                                });
+                                                                Navigator.of(
+                                                                        context)
+                                                                    .pop();
+                                                              },
+                                                            ),
+                                                          ],
+                                                        );
+                                                      },
+                                                    );
+                                                  },
+                                                ))),
                                         const SizedBox(
                                           height: 12,
                                         ),
