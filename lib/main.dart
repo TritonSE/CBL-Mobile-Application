@@ -5,8 +5,11 @@ import 'package:call_black_line/pages/seek_help.dart';
 
 import 'package:flutter/material.dart';
 import 'package:call_black_line/pages/take_action.dart';
+import 'package:firebase_core/firebase_core.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   runApp(const MyApp());
 }
 
@@ -23,11 +26,11 @@ class MyApp extends StatelessWidget {
           ),
         ),
         routes: {
-          '/': (context) => const SeekHelp(),
+          // '/': (context) => const SeekHelp(),
           // '/': (context) => const Donation(),
           // '/': (context) => const Profile(),
           // '/': (context) => const HaveYourVoiceHeard(),
-          // '/': (context) => const CreateAffirmation(),
+          '/': (context) => const CreateAffirmation(),
           '/callTextNow': (context) => const CallTextNow(),
           '/createAccount': (context) => const CreateAccount(),
           '/takeAction': (context) => const TakeActionPage(),

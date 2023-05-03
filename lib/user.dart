@@ -5,16 +5,11 @@ class User {
   final int phoneNumber;
   final String email;
 
-  User({required this.username,
-      required this.phoneNumber,
-      required this.email});
+  User(
+      {required this.username, required this.phoneNumber, required this.email});
 
   Map<String, dynamic> toMap() {
-    return {
-      'username': username,
-      'phoneNumber': phoneNumber,
-      'email': email
-    };
+    return {'username': username, 'phoneNumber': phoneNumber, 'email': email};
   }
 }
 
@@ -33,6 +28,14 @@ class UserRepository {
   Future<void> deleteUser(String id) async {
     try {
       return await userCollection.doc(id).delete();
+    } catch (e) {
+      rethrow;
+    }
+  }
+
+  Future<DocumentSnapshot> getUser(String id) async {
+    try {
+      return await userCollection.doc(id).get();
     } catch (e) {
       rethrow;
     }
