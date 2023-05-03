@@ -27,7 +27,7 @@ class Profile extends StatelessWidget {
     ); 
     */
     final User? user = FirebaseAuth.instance.currentUser;
-    final String? userId = user?.email;
+    final String? userId = user?.uid;
     final firebaseuser = context.watch<User?>();
     String? email = "";
     email = firebaseuser?.email;
@@ -95,7 +95,7 @@ class Profile extends StatelessWidget {
                     ],
                   );
                 } else {
-                  return CircularProgressIndicator();
+                  return const CircularProgressIndicator();
                 }
               },
             ),
