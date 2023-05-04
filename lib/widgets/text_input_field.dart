@@ -30,7 +30,7 @@ class TextInputField extends StatelessWidget {
             aboveText,
             style: TextStyle(
               fontWeight: CBL.bold,
-              fontSize: 20,
+              fontSize: CBL.textBoxFontSize,
               fontFamily: CBL.fontFamily,
             ),
           ),

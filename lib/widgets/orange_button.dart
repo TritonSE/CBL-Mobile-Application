@@ -13,10 +13,10 @@ class OrangeButton extends StatelessWidget {
     Key? key,
     this.buttonText = "Button",
     this.onTap,
-    this.width = 121,
-    this.opacity = 1,
-    this.buttonColor = const Color(0xffdf742c),
-    this.borderColor = const Color(0xffdf742c),
+    this.width = CBL.buttonWidth,
+    this.opacity = CBL.orangeOpacity,
+    this.buttonColor = const Color(CBL.orange),
+    this.borderColor = const Color(CBL.orange),
     this.textColor = Colors.white,
   }) : super(key: key);
 
@@ -25,14 +25,14 @@ class OrangeButton extends StatelessWidget {
     return Opacity(
       opacity: opacity,
       child: SizedBox(
-        height: 48,
+        height: CBL.boxHeight,
         width: width,
         child: GestureDetector(
           onTap: onTap,
           child: Container(
             decoration: BoxDecoration(
-              borderRadius: BorderRadius.all(
-                Radius.circular(16),
+              borderRadius: const BorderRadius.all(
+                Radius.circular(CBL.borderRadiusLarge),
               ),
               color: Color(CBL.primaryOrange),
             ),
@@ -40,7 +40,7 @@ class OrangeButton extends StatelessWidget {
               child: Text(
                 buttonText,
                 style: TextStyle(
-                    fontSize: 20,
+                    fontSize: CBL.fontSize,
                     fontFamily: CBL.fontFamily,
                     fontWeight: CBL.bold,
                     color: Colors.white),

@@ -5,10 +5,12 @@ import 'package:call_black_line/pages/seek_help.dart';
 
 import 'package:flutter/material.dart';
 import 'package:call_black_line/pages/take_action.dart';
+import 'package:flutter/services.dart';
 
 void main() {
 
-  runApp(const MyApp());
+  SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp])
+      .then((value) => runApp(MyApp()));
 }
 
 class MyApp extends StatelessWidget {
@@ -24,8 +26,8 @@ class MyApp extends StatelessWidget {
           ),
         ),
         routes: {
-          '/': (context) => const SeekHelp(),
-          // '/': (context) => const Donation(),
+          // '/': (context) => const SeekHelp(),
+          '/': (context) => const Donation(),
           // '/': (context) => const Profile(),
           // '/': (context) => const HaveYourVoiceHeard(),
           // '/': (context) => const CreateAffirmation(),

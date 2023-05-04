@@ -17,7 +17,7 @@ class RoundedButtonImage extends StatelessWidget {
     required this.width,
     required this.imageURL,
     required this.text,
-    this.textPaddingTop = 0.0,
+    this.textPaddingTop = CBL.paddingTop,
     this.textContainerAlignment = Alignment.center,
     this.textContainerWidth = double.infinity,
     this.onTap,
@@ -31,11 +31,11 @@ class RoundedButtonImage extends StatelessWidget {
         height: height,
         width: width,
         decoration: BoxDecoration(
-          borderRadius: const BorderRadius.all(Radius.circular(20)),
+          borderRadius: const BorderRadius.all(Radius.circular(CBL.borderRadiusLarge)),
           color: Color(CBL.black),
           image: DecorationImage(
               colorFilter: ColorFilter.mode(
-                const Color(0xff6C6C6C).withOpacity(0.55),
+                const Color(CBL.gray).withOpacity(CBL.grayOpacity),
                 BlendMode.srcATop,
               ),
               image: AssetImage(imageURL),
@@ -51,7 +51,7 @@ class RoundedButtonImage extends StatelessWidget {
                 text,
                 textAlign: TextAlign.center,
                 style: TextStyle(
-                    fontSize: 20,
+                    fontSize: CBL.fontSize,
                     fontFamily: CBL.fontFamily,
                     fontWeight: CBL.bold,
                     color: Colors.white),

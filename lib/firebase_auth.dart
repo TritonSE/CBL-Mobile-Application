@@ -1,3 +1,5 @@
+import 'dart:html';
+
 import 'package:firebase_auth/firebase_auth.dart';
 
 /// Help used:
@@ -22,7 +24,7 @@ class AuthenticationService {
         email: email,
         password: password,
       );
-      return 400;
+      return HttpStatus.badRequest;
     } on FirebaseAuthException catch (e) {
       return e.message!;
     }
@@ -36,7 +38,7 @@ class AuthenticationService {
         email: email,
         password: password,
       );
-      return 400;
+      return HttpStatus.badRequest;
     } on FirebaseAuthException catch (e) {
       return e.message!;
     }
@@ -46,7 +48,7 @@ class AuthenticationService {
   Future<Object> resetPassword({required String email}) async {
     try {
       await _firebaseAuth.sendPasswordResetEmail(email: email);
-      return 400;
+      return HttpStatus.badRequest;
     } on FirebaseAuthException catch (e) {
       return e.message!;
     }
@@ -56,7 +58,7 @@ class AuthenticationService {
   Future<Object> signOut() async {
     try {
       await _firebaseAuth.signOut();
-      return 400;
+      return HttpStatus.badRequest;
     } on FirebaseAuthException catch (e) {
       return e.message!;
     }

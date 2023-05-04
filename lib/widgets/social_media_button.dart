@@ -2,35 +2,34 @@ import 'package:call_black_line/widgets/cbl.dart';
 import 'package:flutter/material.dart';
 
 class SocialMedia extends StatelessWidget {
-  int fbBlue = 0xff4267B2;
-  int googleGreen = 0xff0F9D58;
+
 
   @override
   Widget build(BuildContext context) {
     var mediaWidth = MediaQuery.of(context).size.width;
     return Flex(
-      direction: mediaWidth < 390 ? Axis.vertical : Axis.horizontal,
+      direction: mediaWidth < CBL.smallMediaWidth ? Axis.vertical : Axis.horizontal,
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         SizedBox(
-          width: 176,
-          height: 48,
+          width: CBL.boxWidth,
+          height: CBL.boxHeight,
           child: GestureDetector(
             child: Container(
               decoration: BoxDecoration(
                 border: Border.all(
-                  color: Color(fbBlue),
-                  width: 2,
+                  color: Color(CBL.fbBlue),
+                  width: CBL.containerWidth,
                 ),
                 borderRadius: const BorderRadius.all(
-                  Radius.circular(16),
+                  Radius.circular(CBL.borderRadiusLarge),
                 ),
               ),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Padding(
-                    padding: const EdgeInsets.only(right: 14.5),
+                    padding: const EdgeInsets.only(right: CBL.paddingRight),
                     child: Image.asset(
                       'assets/images/facebook.png',
                     ),
@@ -39,10 +38,10 @@ class SocialMedia extends StatelessWidget {
                     child: Text(
                       'Facebook',
                       style: TextStyle(
-                        fontSize: 20,
+                        fontSize: CBL.fontSize,
                         fontFamily: CBL.fontFamily,
                         fontWeight: CBL.bold,
-                        color: Color(fbBlue),
+                        color: Color(CBL.fbBlue),
                       ),
                     ),
                   ),
@@ -55,24 +54,24 @@ class SocialMedia extends StatelessWidget {
           ),
         ),
         SizedBox(
-          width: 176,
-          height: 48,
+          width: CBL.boxWidth,
+          height: CBL.boxHeight,
           child: GestureDetector(
             child: Container(
               decoration: BoxDecoration(
                 border: Border.all(
-                  color: Color(googleGreen),
+                  color: Color(CBL.googleGreen),
                   width: 2,
                 ),
                 borderRadius: const BorderRadius.all(
-                  Radius.circular(16),
+                  Radius.circular(CBL.borderRadiusLarge),
                 ),
               ),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Padding(
-                    padding: const EdgeInsets.only(right: 14.5),
+                    padding: const EdgeInsets.only(right: CBL.paddingRight),
                     child: Image.asset(
                       'assets/images/google.png',
                     ),
@@ -81,10 +80,10 @@ class SocialMedia extends StatelessWidget {
                     child: Text(
                       'Google',
                       style: TextStyle(
-                        fontSize: 20,
+                        fontSize: CBL.fontSize,
                         fontFamily: CBL.fontFamily,
                         fontWeight: CBL.bold,
-                        color: Color(googleGreen),
+                        color: Color(CBL.googleGreen),
                       ),
                     ),
                   ),

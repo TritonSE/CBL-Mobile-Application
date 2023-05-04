@@ -20,13 +20,13 @@ class InputField extends StatelessWidget {
     return Padding(
       padding: EdgeInsets.only(top: paddingTop ?? CBL.padding),
       child: TextFormField(
-        minLines: 1,
-        maxLines: 3,
+        minLines: CBL.minLines,
+        maxLines: CBL.maxLines,
         cursorColor: Color(borderColor),
         decoration: InputDecoration(
           contentPadding: EdgeInsets.all(CBL.padding),
           floatingLabelStyle: TextStyle(
-            fontSize: 17,
+            fontSize: CBL.fontSize,
             color: Color(borderColor),
             fontWeight: CBL.bold,
             fontFamily: CBL.fontFamily,
@@ -38,14 +38,14 @@ class InputField extends StatelessWidget {
                 )
               : null,
           enabledBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(16),
+            borderRadius: BorderRadius.circular(CBL.borderRadiusLarge),
             borderSide: BorderSide(
               width: 1,
               color: Color(borderColor),
             ),
           ),
           focusedBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(16),
+            borderRadius: BorderRadius.circular(CBL.borderRadiusLarge),
             borderSide: BorderSide(
               width: 1,
               color: Color(borderColor),
@@ -58,11 +58,11 @@ class InputField extends StatelessWidget {
           ),
         ),
         style: TextStyle(
-          fontSize: 17,
+          fontSize: CBL.fontSize,
           color: Color(CBL.black),
           fontWeight: CBL.bold,
           fontFamily: CBL.fontFamily,
-          height: 1.5,
+          height: CBL.textHeight,
         ),
       ),
     );
