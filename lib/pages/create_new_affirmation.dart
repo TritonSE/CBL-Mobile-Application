@@ -17,7 +17,8 @@ class CreateNewAffirmation extends StatelessWidget {
       bottomNavigationBar: const CustomNavBar(
         currentPage: 'Resources',
       ),
-      body: Padding(
+      body: SingleChildScrollView(
+          child: Padding(
         padding: const EdgeInsets.symmetric(
           horizontal: 30,
         ),
@@ -56,7 +57,7 @@ class CreateNewAffirmation extends StatelessWidget {
                 )),
           ],
         ),
-      ),
+      )),
     );
   }
 }

@@ -24,7 +24,8 @@ class Donation extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: const Header(),
-      body: Padding(
+      body: SingleChildScrollView(
+          child: Padding(
         padding: EdgeInsets.symmetric(
           horizontal: CBL.padding,
         ),
@@ -166,7 +167,7 @@ class Donation extends StatelessWidget {
             ),
           ],
         ),
-      ),
+      )),
     );
   }
 }
