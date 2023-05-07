@@ -7,6 +7,7 @@ import 'package:provider/provider.dart';
 import 'user.dart';
 import 'auth_methods.dart';
 
+//data type for user data with password
 class UserDataWPassword {
   final String username;
   final String phoneNumber;
@@ -30,7 +31,9 @@ class UserDataWPassword {
 }
 
 class SignUpUtils {
+  //utility class for database side
   final UserRepository userRepository = UserRepository();
+
   Future<Object> signUp(BuildContext context, String email, String password,
       String username, String phoneNumber) async {
     try {
@@ -43,14 +46,17 @@ class SignUpUtils {
       Object returnedObject = await result;
       int returnedStatus = (returnedObject.runtimeType == int) ? 400 : 0;
 
+      //no issues with authentication side, proceed to database side
       if (returnedStatus == 400) {
         print("super hi");
         //if successful, add the user to the database
         UserRepository userRepository = UserRepository();
 
+        //get the current user's uid
         final User firebaseuser = FirebaseAuth.instance.currentUser!;
         String uid = firebaseuser.uid;
 
+        //add the user to the database
         UserData user = UserData(
             username: username, phoneNumber: phoneNumber, email: email);
         userRepository.addUser(user, uid);

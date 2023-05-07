@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 class UserData {
+  //class for storing user data for firestore
   final String username;
   final String phoneNumber;
   final String email;
@@ -18,6 +19,7 @@ class UserRepository {
       FirebaseFirestore.instance.collection('users');
 
   Future<Object> addUser(UserData user, String userid) async {
+    //add document to firebase, currently using email as the document id
     try {
       await userCollection.doc(user.email).set(user.toMap());
       return {'status': 'SUCCESS'};
@@ -27,6 +29,7 @@ class UserRepository {
   }
 
   Future<void> deleteUser(String id) async {
+    //delete the user
     try {
       return await userCollection.doc(id).delete();
     } catch (e) {

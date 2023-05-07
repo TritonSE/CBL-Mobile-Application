@@ -26,15 +26,20 @@ class Profile extends StatelessWidget {
       onError: (e) => print("Error getting document: $e"),
     ); 
     */
+
+    //get parameters of current users
     final User? user = FirebaseAuth.instance.currentUser;
     final String? userId = user?.uid;
     final firebaseuser = context.watch<User?>();
     String? email = "";
     email = firebaseuser?.email;
     try {
+      //get username from database, currently using email as unique identifier
       DocumentReference<Map<String, dynamic>> docRef =
           FirebaseFirestore.instance.collection('users').doc(email);
       DocumentSnapshot<Map<String, dynamic>> docSnapshot = await docRef.get();
+
+      //return the username of the document gotten
       return docSnapshot['username'];
     } catch (e) {
       return " ";
@@ -65,6 +70,7 @@ class Profile extends StatelessWidget {
           children: [
             const CustomTitle(text: 'Profile'),
             const SizedBox(height: 50),
+            //using future builder to build widget once username is retrieved
             FutureBuilder<String>(
               future: getUsername(context),
               builder: (BuildContext context, AsyncSnapshot<String> snapshot) {
@@ -86,6 +92,7 @@ class Profile extends StatelessWidget {
                         textAlign: TextAlign.left,
                       ),
                       Text(
+                        //use the data gotten from snapshot
                         snapshot.data!,
                         style: TextStyle(
                           fontSize: 20,

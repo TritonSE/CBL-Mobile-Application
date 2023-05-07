@@ -19,6 +19,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:call_black_line/widgets/cbl.dart';
 
 Future main() async {
+  //setting up firebase
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
 
@@ -31,6 +32,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
+        //set up multiprovider
         providers: [
           Provider<AuthenticationService>(
             create: (_) => AuthenticationService(FirebaseAuth.instance),
@@ -90,10 +92,12 @@ class _MyHomePageState extends State<MyHomePage> {
     // fast, so that you can just rebuild anything that needs updating rather
     // than having to individually change instances of widgets.
 
+    //get an instance of the firebase user, used for determining which page to land on
     final firebaseuser = context.watch<User?>();
 
     debugPrint(firebaseuser.toString());
 
+    //go to seekHelp if no user, go to callTextNow if user exists
     if (firebaseuser == null) {
       return const SeekHelp();
     } else {
