@@ -100,16 +100,16 @@ class _TakeActionPageState extends State<TakeActionPage> {
                 height: 24,
               ),
               InputField(
-                borderColor: CBL.primaryOrange,
-                textColor: CBL.lightGray,
-                text: 'Username',
-                icon: Icons.person
-                titleController: _usernameController),
+                  borderColor: CBL.primaryOrange,
+                  textColor: CBL.lightGray,
+                  text: 'Username',
+                  icon: Icons.person,
+                  titleController: _usernameController),
               PasswordField(
-                text: 'Password',
-                borderColor: CBL.primaryOrange,
-                textColor: CBL.lightGray
-                titleController: _passwordController),
+                  text: 'Password',
+                  borderColor: CBL.primaryOrange,
+                  textColor: CBL.lightGray,
+                  titleController: _passwordController),
               const SizedBox(
                 height: 8,
               ),
@@ -120,6 +120,7 @@ class _TakeActionPageState extends State<TakeActionPage> {
                     children: [
                       CheckBoxText(
                         boxColor: CBL.blue,
+                        onCheckboxChanged: (value) => {},
                       ),
                       Text(
                         'Remember me',
@@ -163,13 +164,18 @@ class _TakeActionPageState extends State<TakeActionPage> {
                     int returnedStatus =
                         (returnedObject.runtimeType == int) ? 400 : 0;
 
-                    print(_passwordController.text);
-                    print(_usernameController.text);
-
                     //print(firebaseuser!.email);
 
                     if (returnedStatus == 400) {
                       Navigator.pushNamed(context, '/callTextNow');
+                    } else {
+                      String returnedMessage = returnedObject.toString();
+                      ScaffoldMessenger.of(context).hideCurrentSnackBar();
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(
+                          content: Text(returnedMessage),
+                        ),
+                      );
                     }
                   },
                 ),

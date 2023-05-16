@@ -36,6 +36,7 @@ class _CreateAccountState extends State<CreateAccount> {
   int blue = int.parse('#66A0F5'.replaceAll('#', '0xff'));
   int lightGray = int.parse('#B4B4B4'.replaceAll('#', '0xff'));
 
+  //controllers for all the fields necessary for account creation
   final TextEditingController _passwordController = TextEditingController();
   final TextEditingController _confirmPasswordController =
       TextEditingController();
@@ -44,6 +45,7 @@ class _CreateAccountState extends State<CreateAccount> {
   final TextEditingController _usernameController = TextEditingController();
   final TextEditingController _phoneNumberController = TextEditingController();
 
+  //variables to store the values of the fields
   var _email;
   var _username;
   var _phoneNumber;
@@ -116,8 +118,14 @@ class _CreateAccountState extends State<CreateAccount> {
               ),
               Row(
                 children: [
+                  //takes care of TOS agreeement, signUpTOSCheck stores whether or not the checkbox is checked
                   CheckBoxText(
                     boxColor: CBL.blue,
+                    onCheckboxChanged: (value) => {
+                      setState(() {
+                        signUpTOSCheck = value;
+                      })
+                    },
                   ),
                   Flexible(
                     child: RichText(
@@ -148,8 +156,10 @@ class _CreateAccountState extends State<CreateAccount> {
                   child: OrangeButton(
                     buttonText: 'Sign Up',
                     onTap: () async {
+                      //make sure passwords are the same
                       if (_passwordController.text !=
                           _confirmPasswordController.text) {
+                        ScaffoldMessenger.of(context).hideCurrentSnackBar();
                         ScaffoldMessenger.of(context).showSnackBar(
                           const SnackBar(
                             content: Text('Passwords do not match'),
@@ -165,15 +175,43 @@ class _CreateAccountState extends State<CreateAccount> {
                       });
 
                       print('Sign Up Button Pressed');
+                      //make sure terms are agreed to
+                      if (signUpTOSCheck == false) {
+                        ScaffoldMessenger.of(context).hideCurrentSnackBar();
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          SnackBar(
+                            content: Text(
+                                "Please accept the terms of service and privacy policy"),
+                          ),
+                        );
+                        return;
+                      }
+
+                      //sign up the user
                       final SignUpUtils signUpUtils = SignUpUtils();
-                      signUpUtils.signUp(
+                      Object result = await signUpUtils.signUp(
                           context,
                           _emailController.text,
                           _passwordController.text,
                           _usernameController.text,
                           _phoneNumberController.text);
+
+                      //store result as an int
+                      int intResult = (result.runtimeType == int) ? 400 : 0;
+                      String stringResult = result.toString();
+
                       print("completed");
-                      Navigator.pushNamed(context, '/callTextNow');
+                      //if success, proceed as normal, if failure, show snackbar with error message
+                      if (result == 400) {
+                        Navigator.pushNamed(context, '/callTextNow');
+                      } else {
+                        ScaffoldMessenger.of(context).hideCurrentSnackBar();
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          SnackBar(
+                            content: Text(stringResult),
+                          ),
+                        );
+                      }
                     },
                   ),
                 ),

@@ -3,8 +3,16 @@ import 'package:flutter/material.dart';
 
 class CustomNavBar extends StatelessWidget {
   final String currentPage;
-
-  const CustomNavBar({super.key, required this.currentPage});
+  final String resourcesRoute;
+  final String seekHelpRoute;
+  final String profileRoute;
+  //set these route variables to correspond to the navbar button. for testing purposes, set them to 'None' to disable the button
+  const CustomNavBar(
+      {super.key,
+      required this.currentPage,
+      this.resourcesRoute: 'None',
+      this.seekHelpRoute: 'None',
+      this.profileRoute: 'None'});
 
   @override
   Widget build(BuildContext context) {
@@ -30,6 +38,8 @@ class CustomNavBar extends StatelessWidget {
                 isCurrentPage: currentPage == 'Resources',
                 onPressed: () => {
                   // Navigator.pushNamed(context, '/resources')
+                  if (resourcesRoute != 'None')
+                    {Navigator.pushNamed(context, resourcesRoute)}
                 },
               ),
               NavItem(
@@ -37,7 +47,8 @@ class CustomNavBar extends StatelessWidget {
                 icon: Icons.chat_bubble,
                 isCurrentPage: currentPage == 'Seek Help',
                 onPressed: () => {
-                  // Navigator.pushNamed(context, '/seekHelp')
+                  if (seekHelpRoute != 'None')
+                    {Navigator.pushNamed(context, seekHelpRoute)}
                 },
               ),
               NavItem(
@@ -45,7 +56,8 @@ class CustomNavBar extends StatelessWidget {
                 icon: Icons.person,
                 isCurrentPage: currentPage == 'Profile',
                 onPressed: () => {
-                  // Navigator.pushNamed(context, '/profile')
+                  if (profileRoute != 'None')
+                    {Navigator.pushNamed(context, profileRoute)}
                 },
               ),
             ],

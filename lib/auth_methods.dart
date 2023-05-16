@@ -33,7 +33,7 @@ class AuthenticationService {
   Future<Object> signUp(
       {required String email, required String password}) async {
     try {
-      await _firebaseAuth.createUserWithEmailAndPassword(
+      UserCredential us = await _firebaseAuth.createUserWithEmailAndPassword(
         email: email,
         password: password,
       );

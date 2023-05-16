@@ -5,15 +5,19 @@ class InputField extends StatefulWidget {
   final int borderColor;
   final int textColor;
   final String text;
-  final IconData icon;
+  final IconData? icon;
   final TextEditingController titleController;
-  const InputField(
-      {super.key,
-      required this.borderColor,
-      required this.textColor,
-      required this.text,
-      required this.icon,
-      required this.titleController});
+  final double? paddingTop;
+
+  const InputField({
+    super.key,
+    required this.borderColor,
+    required this.textColor,
+    required this.text,
+    required this.icon,
+    required this.titleController,
+    this.paddingTop,
+  });
 
   @override
   State<InputField> createState() => _InputFieldState();
@@ -30,7 +34,7 @@ class _InputFieldState extends State<InputField> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.only(top: paddingTop ?? CBL.padding),
+      padding: EdgeInsets.only(top: widget.paddingTop ?? CBL.padding),
       child: TextFormField(
         controller: widget.titleController,
         cursorColor: Color(widget.borderColor),
@@ -42,14 +46,10 @@ class _InputFieldState extends State<InputField> {
             fontWeight: CBL.bold,
             fontFamily: CBL.fontFamily,
           ),
-          prefixIcon: Icon(
-            widget.icon,
-            color: Color(widget.borderColor),
-          ),
-          prefixIcon: icon != null
+          prefixIcon: widget.icon != null
               ? Icon(
-                  icon,
-                  color: Color(borderColor),
+                  widget.icon,
+                  color: Color(widget.borderColor),
                 )
               : null,
           enabledBorder: OutlineInputBorder(

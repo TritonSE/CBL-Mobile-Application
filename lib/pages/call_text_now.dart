@@ -21,7 +21,9 @@ class CallTextNow extends StatelessWidget {
         print("back button was pressed from calltext");
       }),
       bottomNavigationBar: CustomNavBar(
-        currentPage: 'Profile',
+        currentPage: 'Seek Help',
+        seekHelpRoute: '/callTextNow',
+        profileRoute: '/profile',
       ),
       body: Padding(
         padding: EdgeInsets.symmetric(
@@ -57,7 +59,6 @@ class CallTextNow extends StatelessWidget {
             SizedBox(
               height: CBL.padding,
             ),
-            
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -72,7 +73,8 @@ class CallTextNow extends StatelessWidget {
                       if (await canLaunchUrl(url)) {
                         await launchUrl(url);
                       } else {
-                        throw Exception("Error occured trying to call that number.");
+                        throw Exception(
+                            "Error occured trying to call that number.");
                       }
                     },
                     height: 171,
@@ -102,12 +104,6 @@ class CallTextNow extends StatelessWidget {
                 ),
               ],
             ),
-            ElevatedButton(
-                onPressed: () async {
-                  context.read<AuthenticationService>().signOut();
-                  Navigator.pushNamed(context, '/seekHelp');
-                },
-                child: const Text('Sign out'))
           ],
         ),
       ),

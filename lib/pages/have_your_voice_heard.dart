@@ -20,7 +20,9 @@ class _HaveYourVoiceHeardState extends State<HaveYourVoiceHeard> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      appBar: const Header(),
+      appBar: Header(
+        onBackButtonPressed: () {},
+      ),
       bottomNavigationBar: const CustomNavBar(currentPage: 'Resources'),
       body: SingleChildScrollView(
         child: Padding(
