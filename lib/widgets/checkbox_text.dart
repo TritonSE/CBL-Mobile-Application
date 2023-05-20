@@ -6,10 +6,7 @@ class CheckBoxText extends StatefulWidget {
   final Function(bool value) onCheckboxChanged;
 
   const CheckBoxText(
-      {super.key,
-      // this.text = "Text",
-      this.boxColor = 0xffffffff,
-      required this.onCheckboxChanged});
+      {super.key, this.boxColor = 0xffffffff, required this.onCheckboxChanged});
 
   @override
   State<CheckBoxText> createState() => _CheckBoxTextState();

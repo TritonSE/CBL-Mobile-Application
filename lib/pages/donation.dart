@@ -20,9 +20,6 @@ class Donation extends StatelessWidget {
 
     final firebaseuser = context.watch<User?>();
 
-    int textGray = int.parse('#909090'.replaceAll('#', '0xff'));
-    int textBlack = int.parse('#111827'.replaceAll('#', '0xff'));
-    int blue = int.parse('#66A0F5'.replaceAll('#', '0xff'));
     Future<void> _launchUrl(String url) async {
       final Uri uri = Uri(scheme: "https", host: url);
       if (!await launchUrl(uri, mode: LaunchMode.externalApplication)) {

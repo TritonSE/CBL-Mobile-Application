@@ -37,7 +37,6 @@ class CustomNavBar extends StatelessWidget {
                 icon: Icons.format_list_bulleted,
                 isCurrentPage: currentPage == 'Resources',
                 onPressed: () => {
-                  // Navigator.pushNamed(context, '/resources')
                   if (resourcesRoute != 'None')
                     {Navigator.pushNamed(context, resourcesRoute)}
                 },
