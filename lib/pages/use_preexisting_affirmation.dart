@@ -40,6 +40,7 @@ class _UsePreexistingAffirmationState extends State<UsePreexistingAffirmation> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       backgroundColor: Colors.white,
       appBar: const Header(),
       bottomNavigationBar: const CustomNavBar(
