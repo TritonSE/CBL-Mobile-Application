@@ -140,27 +140,32 @@ class _HaveYourVoiceHeardState extends State<HaveYourVoiceHeard> {
                 child: OrangeButton(
                     buttonText: submitted ? 'Done' : 'Submit',
                     onTap: () async {
-                      setState(() {
-                        _duration = _durationController.text;
-                        _time = _timeController.text;
-                        _description = _descriptionController.text;
-                        _eventTitle = _eventTitleController.text;
-                        _address = _addressController.text;
+                      if (!submitted) {
+                        setState(() {
+                          _duration = _durationController.text;
+                          _time = _timeController.text;
+                          _description = _descriptionController.text;
+                          _eventTitle = _eventTitleController.text;
+                          _address = _addressController.text;
+                          submitted = true;
+                        });
+
                         submitted = true;
-                      });
 
-                      submitted = true;
+                        Testimonial testimonial = Testimonial(
+                            duration: _duration,
+                            eventTitle: _eventTitle,
+                            address: _address,
+                            time: _time,
+                            description: _description);
 
-                      Testimonial testimonial = Testimonial(
-                          duration: _duration,
-                          eventTitle: _eventTitle,
-                          address: _address,
-                          time: _time,
-                          description: _description);
-
-                      final SubmitTestimonial subtestimonial =
-                          SubmitTestimonial();
-                      await subtestimonial.addTestimonial(testimonial);
+                        final SubmitTestimonial subtestimonial =
+                            SubmitTestimonial();
+                        await subtestimonial.addTestimonial(testimonial);
+                      } else {
+                        submitted = false;
+                        Navigator.pushNamed(context, '/seekHelp');
+                      }
                     }),
               ),
               SizedBox(
