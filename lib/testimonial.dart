@@ -7,7 +7,6 @@ class Testimonial {
   final String duration;
   final String address;
   final String description;
-  final String time;
 
   Testimonial({
     required this.eventTitle,
@@ -15,7 +14,6 @@ class Testimonial {
     required this.duration,
     required this.address,
     required this.description,
-    required this.time,
   });
   Map<String, dynamic> toMap() {
     return {

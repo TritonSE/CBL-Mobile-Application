@@ -156,7 +156,6 @@ class _HaveYourVoiceHeardState extends State<HaveYourVoiceHeard> {
                           eventTitle: _eventTitle,
                           address: _address,
                           time: _time,
-                          created: submitted,
                           description: _description);
 
                       final SubmitTestimonial subtestimonial =
