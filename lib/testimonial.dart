@@ -3,7 +3,7 @@ import 'dart:core';
 
 class Testimonial {
   final String eventTitle;
-  final int time;
+  final String time;
   final double duration;
   final String address;
   final String description;
