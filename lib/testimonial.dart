@@ -3,7 +3,7 @@ import 'dart:core';
 
 class Testimonial {
   final String eventTitle;
-  final DateTime time;
+  final int time;
   final double duration;
   final String address;
   final String description;
@@ -18,7 +18,7 @@ class Testimonial {
   Map<String, dynamic> toMap() {
     return {
       'eventTitle': eventTitle,
-      'created': time,
+      'time': time,
       'duration': duration,
       'address': address,
       'description': description,
