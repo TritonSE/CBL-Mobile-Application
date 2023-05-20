@@ -21,8 +21,7 @@ class Testimonial {
       'time': time,
       'duration': duration,
       'address': address,
-      'description': description,
-      'time': time,
+      'description': description
     };
   }
 }
