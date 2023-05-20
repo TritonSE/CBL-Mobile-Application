@@ -26,16 +26,6 @@ class CreateAccount extends StatefulWidget {
 class _CreateAccountState extends State<CreateAccount> {
   bool signUpTOSCheck = false;
 
-  int primaryOrange = int.parse('#DF742C'.replaceAll('#', '0xff'));
-  int neutralGray = int.parse('#6C6C6C'.replaceAll('#', '0xff'));
-  int veryLightGray = int.parse('#D8D8D8'.replaceAll('#', '0xff'));
-  int fbBlue = int.parse('#4267B2'.replaceAll('#', '0xff'));
-  int googleGreen = int.parse('#0F9D58'.replaceAll('#', '0xff'));
-  int createBlue = int.parse('#428BCD'.replaceAll('#', '0xff'));
-  int haveAccountGray = int.parse('#ABA1A1'.replaceAll('#', '0xff'));
-  int blue = int.parse('#66A0F5'.replaceAll('#', '0xff'));
-  int lightGray = int.parse('#B4B4B4'.replaceAll('#', '0xff'));
-
   //controllers for all the fields necessary for account creation
   final TextEditingController _passwordController = TextEditingController();
   final TextEditingController _confirmPasswordController =
