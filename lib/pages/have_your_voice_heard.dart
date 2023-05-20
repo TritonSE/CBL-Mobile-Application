@@ -19,7 +19,6 @@ class _HaveYourVoiceHeardState extends State<HaveYourVoiceHeard> {
   bool submitted = false;
 
   final TextEditingController _eventTitleController = TextEditingController();
-  // muliple controllers for same widget, should I use list of controllers instead?
   final TextEditingController _durationController = TextEditingController();
   final TextEditingController _addressController = TextEditingController();
   final TextEditingController _descriptionController = TextEditingController();
@@ -82,7 +81,7 @@ class _HaveYourVoiceHeardState extends State<HaveYourVoiceHeard> {
                   inputOutlineColor: CBL.primaryOrange,
                   inputTextColor: CBL.lightGray,
                   paddingTop: 8,
-                  titleController: _eventTitle),
+                  titleController: _eventTitleController),
               SizedBox(
                 height: CBL.padding,
               ),
@@ -95,7 +94,7 @@ class _HaveYourVoiceHeardState extends State<HaveYourVoiceHeard> {
                           inputOutlineColor: CBL.primaryOrange,
                           inputTextColor: CBL.black,
                           inputText: '3:00 PM',
-                          titleController: _time,
+                          titleController: _timeController,
                           paddingTop: 8)),
                   const SizedBox(
                     width: 11,
@@ -107,7 +106,7 @@ class _HaveYourVoiceHeardState extends State<HaveYourVoiceHeard> {
                           inputOutlineColor: CBL.primaryOrange,
                           inputTextColor: CBL.black,
                           inputText: '1 hr 45 mins',
-                          titleController: _duration,
+                          titleController: _durationController,
                           paddingTop: 8)),
                 ],
               ),
@@ -120,7 +119,7 @@ class _HaveYourVoiceHeardState extends State<HaveYourVoiceHeard> {
                   inputText: 'XXX St, CA, 94121',
                   inputOutlineColor: CBL.primaryOrange,
                   inputTextColor: CBL.black,
-                  titleController: _address,
+                  titleController: _addressController,
                   paddingTop: 8),
               SizedBox(
                 height: CBL.padding,
@@ -131,7 +130,7 @@ class _HaveYourVoiceHeardState extends State<HaveYourVoiceHeard> {
                       'Lorem ipsum dolor sit amet consectetur. Molestie neque faucibus viverra ut nisl nec eleifend.',
                   inputOutlineColor: CBL.primaryOrange,
                   inputTextColor: CBL.lightGray,
-                  titleController: _description,
+                  titleController: _descriptionController,
                   paddingTop: 8),
               SizedBox(
                 height: CBL.padding,
@@ -146,6 +145,7 @@ class _HaveYourVoiceHeardState extends State<HaveYourVoiceHeard> {
                         _time = _timeController.text;
                         _description = _descriptionController.text;
                         _eventTitle = _eventTitleController.text;
+                        _address = _addressController.text;
                         submitted = true;
                       });
 
