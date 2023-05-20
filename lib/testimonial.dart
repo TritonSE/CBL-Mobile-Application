@@ -2,10 +2,11 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 
 class Testimonial {
   final String eventTitle;
-  final int created;
+  final bool created;
   final double duration;
   final String address;
   final String description;
+  final String time;
 
   Testimonial({
     required this.eventTitle,
@@ -13,6 +14,7 @@ class Testimonial {
     required this.duration,
     required this.address,
     required this.description,
+    required this.time,
   });
   Map<String, dynamic> toMap() {
     return {
@@ -21,6 +23,7 @@ class Testimonial {
       'duration': duration,
       'address': address,
       'description': description,
+      'time': time,
     };
   }
 }

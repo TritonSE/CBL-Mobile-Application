@@ -9,6 +9,7 @@ class TextInputField extends StatelessWidget {
       required this.inputTextColor,
       required this.inputText,
       required this.aboveText,
+      required this.titleController,
       this.paddingTop,
       this.icon})
       : super(key: key);
@@ -19,7 +20,7 @@ class TextInputField extends StatelessWidget {
   final String aboveText;
   final double? paddingTop;
   final IconData? icon;
-  final TextEditingController titleController = TextEditingController();
+  final TextEditingController titleController;
 
   @override
   Widget build(BuildContext context) {
