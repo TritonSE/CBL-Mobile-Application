@@ -139,13 +139,13 @@ class _MyHomePageState extends State<MyHomePage> {
                   SubmitTestimonial submitTestimonial = SubmitTestimonial();
                   Testimonial testimonial = Testimonial(
                       eventTitle: "Test",
-                      created: DateTime.now().millisecondsSinceEpoch,
+                      time: DateTime.now().millisecondsSinceEpoch,
                       duration: 10.0,
                       address: 'as',
                       description: 'This is a test');
                   Testimonial testimonial2 = Testimonial(
                       eventTitle: "Test",
-                      created: DateTime.now().millisecondsSinceEpoch,
+                      time: DateTime.now().millisecondsSinceEpoch,
                       duration: 10,
                       address: 'as',
                       description: 'This is a test');

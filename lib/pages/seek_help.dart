@@ -40,11 +40,12 @@ class SeekHelp extends StatelessWidget {
             SizedBox(
               height: CBL.padding,
             ),
-            const RoundedButtonImage(
+            RoundedButtonImage(
               height: 75,
               width: double.infinity,
               imageURL: 'assets/images/form.jpg',
               text: 'Write',
+              onTap: () => Navigator.pushNamed(context, '/haveYourVoiceHeard'),
               // ignore: avoid_print
             ),
             const SizedBox(

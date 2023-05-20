@@ -21,7 +21,9 @@ class _HaveYourVoiceHeardState extends State<HaveYourVoiceHeard> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: Header(
-        onBackButtonPressed: () {},
+        onBackButtonPressed: () {
+          Navigator.pushNamed(context, '/seekHelp');
+        },
       ),
       bottomNavigationBar: const CustomNavBar(currentPage: 'Resources'),
       body: SingleChildScrollView(
