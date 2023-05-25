@@ -28,9 +28,8 @@ class CustomNavBar extends StatelessWidget {
                 text: "Resources",
                 icon: Icons.format_list_bulleted,
                 isCurrentPage: currentPage == 'Resources',
-                onPressed: () => {
-                  // Navigator.pushNamed(context, '/resources')
-                },
+                onPressed: () =>
+                    {Navigator.pushNamed(context, '/comingSoonResources')},
               ),
               NavItem(
                 text: "Seek Help",

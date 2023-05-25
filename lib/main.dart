@@ -1,6 +1,7 @@
 import 'package:call_black_line/pages/call_text_now.dart';
 import 'package:call_black_line/pages/create_account.dart';
 import 'package:call_black_line/pages/create_affirmation.dart';
+import 'package:call_black_line/pages/coming_soon_resources.dart';
 import 'package:call_black_line/pages/seek_help.dart';
 
 import 'package:flutter/material.dart';
@@ -31,6 +32,7 @@ class MyApp extends StatelessWidget {
           '/callTextNow': (context) => const CallTextNow(),
           '/createAccount': (context) => const CreateAccount(),
           '/takeAction': (context) => const TakeActionPage(),
+          '/comingSoonResources': (context) => const ComingSoonResources(),
         }
         // home: SeekHelp(),
 
