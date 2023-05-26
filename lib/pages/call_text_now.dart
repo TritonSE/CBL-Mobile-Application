@@ -6,6 +6,10 @@ import 'package:call_black_line/widgets/header.dart';
 import 'package:call_black_line/widgets/rounded_button_image.dart';
 import 'package:url_launcher/url_launcher.dart';
 
+import 'package:call_black_line/auth_methods.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:provider/provider.dart';
+
 class CallTextNow extends StatelessWidget {
   const CallTextNow({super.key});
 
@@ -13,9 +17,13 @@ class CallTextNow extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      appBar: const Header(),
+      appBar: Header(onBackButtonPressed: () {
+        print("back button was pressed from calltext");
+      }),
       bottomNavigationBar: CustomNavBar(
-        currentPage: 'Profile',
+        currentPage: 'Seek Help',
+        seekHelpRoute: '/callTextNow',
+        profileRoute: '/profile',
       ),
       body: Padding(
         padding: EdgeInsets.symmetric(
@@ -51,7 +59,6 @@ class CallTextNow extends StatelessWidget {
             SizedBox(
               height: CBL.padding,
             ),
-            
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -66,7 +73,8 @@ class CallTextNow extends StatelessWidget {
                       if (await canLaunchUrl(url)) {
                         await launchUrl(url);
                       } else {
-                        throw Exception("Error occured trying to call that number.");
+                        throw Exception(
+                            "Error occured trying to call that number.");
                       }
                     },
                     height: 171,
@@ -95,7 +103,7 @@ class CallTextNow extends StatelessWidget {
                   ),
                 ),
               ],
-            )
+            ),
           ],
         ),
       ),

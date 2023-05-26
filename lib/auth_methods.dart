@@ -1,4 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
+// import '/user.dart' as users;
 
 /// Help used:
 /// https://www.youtube.com/watch?v=4vKiJZNPhss
@@ -32,10 +33,12 @@ class AuthenticationService {
   Future<Object> signUp(
       {required String email, required String password}) async {
     try {
-      await _firebaseAuth.createUserWithEmailAndPassword(
+      UserCredential us = await _firebaseAuth.createUserWithEmailAndPassword(
         email: email,
         password: password,
       );
+      // users.User user = users.User(username: "", phoneNumber: 0, email: email);
+      // users.UserRepository().addUser(user);
       return 400;
     } on FirebaseAuthException catch (e) {
       return e.message!;

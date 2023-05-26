@@ -16,10 +16,15 @@ class SeekHelp extends StatelessWidget {
       backgroundColor: Colors.white,
       bottomNavigationBar: const CustomNavBar(
         currentPage: 'Seek Help',
+        resourcesRoute: 'None',
+        seekHelpRoute: '/seekHelp',
+        profileRoute: 'None',
       ), //Available: Resources, Seek Help, Profile
-      appBar: const Header(
-        isHome: true,
-      ),
+      appBar: Header(
+          isHome: true,
+          onBackButtonPressed: () {
+            //placeholder
+          }),
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: CBL.padding),
         child: Column(

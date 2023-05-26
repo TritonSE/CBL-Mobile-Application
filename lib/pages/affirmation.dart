@@ -25,7 +25,10 @@ class _AffirmationState extends State<Affirmation> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      appBar: const Header(),
+      appBar: Header(onBackButtonPressed: () {
+        print("back button was pressed from affirmation");
+        Navigator.pushNamed(context, '/callTextNow');
+      }),
       body: Padding(
         padding: EdgeInsets.symmetric(
           horizontal: CBL.padding,
