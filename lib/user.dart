@@ -36,6 +36,14 @@ class UserRepository {
       rethrow;
     }
   }
+
+  Future<DocumentSnapshot> getUser(String id) async {
+    try {
+      return await userCollection.doc(id).get();
+    } catch (e) {
+      rethrow;
+    }
+  }
 }
 
 /**

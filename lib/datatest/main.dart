@@ -1,7 +1,9 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import '../user.dart';
 import 'package:firebase_core/firebase_core.dart';
 import '../testimonial.dart';
+import '../affirmation.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -166,7 +168,34 @@ class _MyHomePageState extends State<MyHomePage> {
                   submitTestimonial.deleteTestimonial("UUzkdbXVUXmVZwAtBbEr");
                   submitTestimonial.deleteTestimonial("doesn't exist");
                 },
-                child: const Text('Delete Testimonial'))
+                child: const Text('Delete Testimonial')),
+            ElevatedButton(
+                onPressed: () async {
+                  AffirmationRepository affirmations = AffirmationRepository();
+                  Affirmation affirmationWithRealId1 = Affirmation(
+                      created: DateTime.now().millisecondsSinceEpoch,
+                      uid: "0p4AgrUHXJnLtCe4owG6",
+                      text: "Test Text 1");
+                  Affirmation affirmationWithRealId2 = Affirmation(
+                      created: DateTime.now().millisecondsSinceEpoch,
+                      uid: "B4Ww1lg1o9i5J1TYxvJ9",
+                      text: "Test Text 2");
+                  Affirmation affirmationWithEmptyId = Affirmation(
+                      created: DateTime.now().millisecondsSinceEpoch,
+                      uid: "",
+                      text: "Test Text 3");
+                  Affirmation affirmationWithFakeId = Affirmation(
+                      created: DateTime.now().millisecondsSinceEpoch,
+                      uid: "ThisIdDoesntExist",
+                      text: "Test Text 4");
+                  affirmations.addAffirmation(affirmationWithRealId1);
+                  affirmations.addAffirmation(affirmationWithRealId2);
+                  affirmations.addAffirmation(affirmationWithEmptyId);
+                  affirmations.addAffirmation(affirmationWithFakeId);
+                  var al = await affirmations.getAffirmationList();
+                  assert(al.length >= 4);
+                },
+                child: const Text('Create Affirmation')),
           ],
         ),
       ), // This trailing comma makes auto-formatting nicer for build methods.
