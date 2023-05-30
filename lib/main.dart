@@ -1,6 +1,7 @@
 import 'package:call_black_line/pages/call_text_now.dart';
 import 'package:call_black_line/pages/create_account.dart';
 import 'package:call_black_line/pages/create_affirmation.dart';
+import 'package:call_black_line/pages/have_your_voice_heard.dart';
 import 'package:call_black_line/pages/seek_help.dart';
 
 import 'package:flutter/material.dart';
@@ -53,7 +54,7 @@ class MyApp extends StatelessWidget {
             routes: {
               '/': (context) => const MyHomePage(title: 'Call BlackLine'),
               // '/': (context) => const Donation(),
-              // '/': (context) => const HaveYourVoiceHeard(),
+              '/haveYourVoiceHeard': (context) => const HaveYourVoiceHeard(),
               // '/': (context) => const CreateAffirmation(),
               '/callTextNow': (context) => const CallTextNow(),
               '/createAccount': (context) => const CreateAccount(),

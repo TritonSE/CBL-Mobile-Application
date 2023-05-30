@@ -39,6 +39,15 @@ class CustomNavBar extends StatelessWidget {
                 onPressed: () => {
                   if (resourcesRoute != 'None')
                     {Navigator.pushNamed(context, resourcesRoute)}
+                  else
+                    {
+                      ScaffoldMessenger.of(context).hideCurrentSnackBar(),
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(
+                          content: Text("Sign in to access"),
+                        ),
+                      )
+                    }
                 },
               ),
               NavItem(
@@ -48,6 +57,15 @@ class CustomNavBar extends StatelessWidget {
                 onPressed: () => {
                   if (seekHelpRoute != 'None')
                     {Navigator.pushNamed(context, seekHelpRoute)}
+                  else
+                    {
+                      ScaffoldMessenger.of(context).hideCurrentSnackBar(),
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(
+                          content: Text("Sign in to access"),
+                        ),
+                      )
+                    }
                 },
               ),
               NavItem(
@@ -57,6 +75,15 @@ class CustomNavBar extends StatelessWidget {
                 onPressed: () => {
                   if (profileRoute != 'None')
                     {Navigator.pushNamed(context, profileRoute)}
+                  else
+                    {
+                      ScaffoldMessenger.of(context).hideCurrentSnackBar(),
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(
+                          content: Text("Sign in to access"),
+                        ),
+                      )
+                    }
                 },
               ),
             ],
