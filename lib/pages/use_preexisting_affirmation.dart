@@ -42,7 +42,9 @@ class _UsePreexistingAffirmationState extends State<UsePreexistingAffirmation> {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       backgroundColor: Colors.white,
-      appBar: const Header(),
+      appBar: Header(onBackButtonPressed: () {
+        //placeholder
+      }),
       bottomNavigationBar: const CustomNavBar(
         currentPage: 'Resources',
       ),

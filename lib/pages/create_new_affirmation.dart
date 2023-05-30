@@ -31,7 +31,9 @@ class _CreateNewAffirmation extends State<CreateNewAffirmation> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      appBar: const Header(),
+      appBar: Header(onBackButtonPressed: () {
+        //placeholder
+      }),
       bottomNavigationBar: const CustomNavBar(
         currentPage: 'Resources',
       ),

@@ -1,11 +1,12 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 
-class User {
+class UserData {
+  //class for storing user data for firestore
   final String username;
-  final int phoneNumber;
+  final String phoneNumber;
   final String email;
 
-  User(
+  UserData(
       {required this.username, required this.phoneNumber, required this.email});
 
   Map<String, dynamic> toMap() {
@@ -17,15 +18,18 @@ class UserRepository {
   final CollectionReference userCollection =
       FirebaseFirestore.instance.collection('users');
 
-  Future<Object> addUser(User user) async {
+  Future<Object> addUser(UserData user, String userid) async {
+    //add document to firebase, currently using email as the document id
     try {
-      return await userCollection.add(user.toMap());
+      await userCollection.doc(user.email).set(user.toMap());
+      return {'status': 'SUCCESS'};
     } catch (e) {
       return {'status': 'ERROR', 'message': e.toString()};
     }
   }
 
   Future<void> deleteUser(String id) async {
+    //delete the user
     try {
       return await userCollection.doc(id).delete();
     } catch (e) {

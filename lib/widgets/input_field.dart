@@ -1,60 +1,75 @@
 import 'package:call_black_line/widgets/cbl.dart';
 import 'package:flutter/material.dart';
 
-class InputField extends StatelessWidget {
+class InputField extends StatefulWidget {
   final int borderColor;
   final int textColor;
   final String text;
   final IconData? icon;
+  final TextEditingController titleController;
   final double? paddingTop;
-  const InputField(
-      {super.key,
-      required this.borderColor,
-      required this.textColor,
-      required this.text,
-      required this.icon,
-      this.paddingTop});
+
+  const InputField({
+    super.key,
+    required this.borderColor,
+    required this.textColor,
+    required this.text,
+    required this.icon,
+    required this.titleController,
+    this.paddingTop,
+  });
+
+  @override
+  State<InputField> createState() => _InputFieldState();
+}
+
+class _InputFieldState extends State<InputField> {
+  @override
+  void dispose() {
+    // Clean up the controller when the widget is disposed.
+    widget.titleController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.only(top: paddingTop ?? CBL.padding),
+      padding: EdgeInsets.only(top: widget.paddingTop ?? CBL.padding),
       child: TextFormField(
-        minLines: 1,
-        maxLines: 3,
-        cursorColor: Color(borderColor),
+        controller: widget.titleController,
+        cursorColor: Color(widget.borderColor),
         decoration: InputDecoration(
           contentPadding: EdgeInsets.all(CBL.padding),
           floatingLabelStyle: TextStyle(
             fontSize: 17,
-            color: Color(borderColor),
+            color: Color(widget.borderColor),
             fontWeight: CBL.bold,
             fontFamily: CBL.fontFamily,
           ),
-          prefixIcon: icon != null
+          prefixIcon: widget.icon != null
               ? Icon(
-                  icon,
-                  color: Color(borderColor),
+                  widget.icon,
+                  color: Color(widget.borderColor),
                 )
               : null,
           enabledBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(16),
             borderSide: BorderSide(
               width: 1,
-              color: Color(borderColor),
+              color: Color(widget.borderColor),
             ),
           ),
           focusedBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(16),
             borderSide: BorderSide(
               width: 1,
-              color: Color(borderColor),
+              color: Color(widget.borderColor),
             ),
           ),
+          labelText: widget.text,
           alignLabelWithHint: true,
-          labelText: text,
           labelStyle: TextStyle(
-            color: Color(textColor),
+            color: Color(widget.textColor),
           ),
         ),
         style: TextStyle(

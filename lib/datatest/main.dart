@@ -98,42 +98,42 @@ class _MyHomePageState extends State<MyHomePage> {
                 onPressed: () {
                   //test 10 times
                   UserRepository userRepository = UserRepository();
-                  User user = User(
+                  UserData user = UserData(
                       username: 'John Doe',
-                      phoneNumber: 8583165432,
+                      phoneNumber: '8583165432',
                       email: 'johndoe@example.com');
 
-                  User userWrongPswd = User(
+                  UserData userWrongPswd = UserData(
                       username: 'sdf Doe',
-                      phoneNumber: 8583165432,
+                      phoneNumber: '8583165432',
                       email: 'bobjoe@example.com');
 
-                  User userWrongEmail = User(
+                  UserData userWrongEmail = UserData(
                       username: 'Billy Bob',
-                      phoneNumber: 8583165432,
+                      phoneNumber: '8583165432',
                       email: 'sdlsdkjf');
 
-                  User userWrongPhone = User(
+                  UserData userWrongPhone = UserData(
                       username: 'Billy Joel',
-                      phoneNumber: 1,
+                      phoneNumber: '1',
                       email: 'a@example.com');
 
-                  User user2 = User(
+                  UserData user2 = UserData(
                       username: 'Maggie',
-                      phoneNumber: 1234567899,
+                      phoneNumber: '1234567899',
                       email: 'maggie@example.com');
 
-                  User userDuplicate = User(
+                  UserData userDuplicate = UserData(
                       username: 'John Doe',
-                      phoneNumber: 8583165432,
+                      phoneNumber: '8583165432',
                       email: 'johndoe@example.com');
 
-                  userRepository.addUser(user);
-                  userRepository.addUser(userWrongPswd);
-                  userRepository.addUser(userWrongEmail);
-                  userRepository.addUser(userWrongPhone);
-                  userRepository.addUser(user2);
-                  userRepository.addUser(userDuplicate);
+                  // userRepository.addUser(user);
+                  // userRepository.addUser(userWrongPswd);
+                  // userRepository.addUser(userWrongEmail);
+                  // userRepository.addUser(userWrongPhone);
+                  // userRepository.addUser(user2);
+                  // userRepository.addUser(userDuplicate);
                 },
                 child: const Text('Add User')),
             ElevatedButton(
@@ -141,14 +141,14 @@ class _MyHomePageState extends State<MyHomePage> {
                   SubmitTestimonial submitTestimonial = SubmitTestimonial();
                   Testimonial testimonial = Testimonial(
                       eventTitle: "Test",
-                      created: DateTime.now().millisecondsSinceEpoch,
-                      duration: 10.0,
+                      time: DateTime.now().millisecondsSinceEpoch.toString(),
+                      duration: "10",
                       address: 'as',
                       description: 'This is a test');
                   Testimonial testimonial2 = Testimonial(
                       eventTitle: "Test",
-                      created: DateTime.now().millisecondsSinceEpoch,
-                      duration: 10,
+                      time: DateTime.now().millisecondsSinceEpoch.toString(),
+                      duration: "10",
                       address: 'as',
                       description: 'This is a test');
                   submitTestimonial.addTestimonial(testimonial);

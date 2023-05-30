@@ -5,6 +5,7 @@ import 'package:call_black_line/widgets/text_input_field.dart';
 import 'package:flutter/material.dart';
 import 'package:call_black_line/widgets/custom_title.dart';
 import 'package:call_black_line/widgets/header.dart';
+import '../testimonial.dart';
 
 class HaveYourVoiceHeard extends StatefulWidget {
   final bool submitted;
@@ -16,11 +17,28 @@ class HaveYourVoiceHeard extends StatefulWidget {
 
 class _HaveYourVoiceHeardState extends State<HaveYourVoiceHeard> {
   bool submitted = false;
+
+  final TextEditingController _eventTitleController = TextEditingController();
+  final TextEditingController _durationController = TextEditingController();
+  final TextEditingController _addressController = TextEditingController();
+  final TextEditingController _descriptionController = TextEditingController();
+  final TextEditingController _timeController = TextEditingController();
+
+  var _eventTitle;
+  var _duration;
+  var _address;
+  var _description;
+  var _time;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      appBar: const Header(),
+      appBar: Header(
+        onBackButtonPressed: () {
+          Navigator.pushNamed(context, '/seekHelp');
+        },
+      ),
       bottomNavigationBar: const CustomNavBar(currentPage: 'Resources'),
       body: SingleChildScrollView(
         child: Padding(
@@ -62,7 +80,8 @@ class _HaveYourVoiceHeardState extends State<HaveYourVoiceHeard> {
                   inputText: 'Event Title',
                   inputOutlineColor: CBL.primaryOrange,
                   inputTextColor: CBL.lightGray,
-                  paddingTop: 8),
+                  paddingTop: 8,
+                  titleController: _eventTitleController),
               SizedBox(
                 height: CBL.padding,
               ),
@@ -75,6 +94,7 @@ class _HaveYourVoiceHeardState extends State<HaveYourVoiceHeard> {
                           inputOutlineColor: CBL.primaryOrange,
                           inputTextColor: CBL.black,
                           inputText: '3:00 PM',
+                          titleController: _timeController,
                           paddingTop: 8)),
                   const SizedBox(
                     width: 11,
@@ -86,6 +106,7 @@ class _HaveYourVoiceHeardState extends State<HaveYourVoiceHeard> {
                           inputOutlineColor: CBL.primaryOrange,
                           inputTextColor: CBL.black,
                           inputText: '1 hr 45 mins',
+                          titleController: _durationController,
                           paddingTop: 8)),
                 ],
               ),
@@ -98,6 +119,7 @@ class _HaveYourVoiceHeardState extends State<HaveYourVoiceHeard> {
                   inputText: 'XXX St, CA, 94121',
                   inputOutlineColor: CBL.primaryOrange,
                   inputTextColor: CBL.black,
+                  titleController: _addressController,
                   paddingTop: 8),
               SizedBox(
                 height: CBL.padding,
@@ -108,6 +130,7 @@ class _HaveYourVoiceHeardState extends State<HaveYourVoiceHeard> {
                       'Lorem ipsum dolor sit amet consectetur. Molestie neque faucibus viverra ut nisl nec eleifend.',
                   inputOutlineColor: CBL.primaryOrange,
                   inputTextColor: CBL.lightGray,
+                  titleController: _descriptionController,
                   paddingTop: 8),
               SizedBox(
                 height: CBL.padding,
@@ -116,7 +139,34 @@ class _HaveYourVoiceHeardState extends State<HaveYourVoiceHeard> {
                 alignment: Alignment.centerRight,
                 child: OrangeButton(
                     buttonText: submitted ? 'Done' : 'Submit',
-                    onTap: () => setState(() => submitted = true)),
+                    onTap: () async {
+                      if (!submitted) {
+                        setState(() {
+                          _duration = _durationController.text;
+                          _time = _timeController.text;
+                          _description = _descriptionController.text;
+                          _eventTitle = _eventTitleController.text;
+                          _address = _addressController.text;
+                          submitted = true;
+                        });
+
+                        submitted = true;
+
+                        Testimonial testimonial = Testimonial(
+                            duration: _duration,
+                            eventTitle: _eventTitle,
+                            address: _address,
+                            time: _time,
+                            description: _description);
+
+                        final SubmitTestimonial subtestimonial =
+                            SubmitTestimonial();
+                        await subtestimonial.addTestimonial(testimonial);
+                      } else {
+                        submitted = false;
+                        Navigator.pushNamed(context, '/seekHelp');
+                      }
+                    }),
               ),
               SizedBox(
                 height: CBL.padding,

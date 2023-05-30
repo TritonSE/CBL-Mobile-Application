@@ -6,6 +6,10 @@ import 'package:call_black_line/widgets/custom_title.dart';
 import 'package:call_black_line/widgets/header.dart';
 import 'package:url_launcher/url_launcher.dart';
 
+import 'package:call_black_line/auth_methods.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:provider/provider.dart';
+
 class Donation extends StatelessWidget {
   const Donation({super.key});
 
@@ -13,6 +17,8 @@ class Donation extends StatelessWidget {
   Widget build(BuildContext context) {
     bool shouldRedirect = true;
     BuildContext dialogContext;
+
+    final firebaseuser = context.watch<User?>();
 
     Future<void> _launchUrl(String url) async {
       final Uri uri = Uri(scheme: "https", host: url);
@@ -23,7 +29,10 @@ class Donation extends StatelessWidget {
 
     return Scaffold(
       backgroundColor: Colors.white,
-      appBar: const Header(),
+      appBar: Header(onBackButtonPressed: () {
+        print("back button was pressed from donation");
+        Navigator.pushNamed(context, '/callTextNow');
+      }),
       body: Padding(
         padding: EdgeInsets.symmetric(
           horizontal: CBL.padding,
