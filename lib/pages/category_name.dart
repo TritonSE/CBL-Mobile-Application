@@ -35,7 +35,11 @@ class CategoryName extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         backgroundColor: Colors.white,
-        appBar: const Header(),
+        appBar: Header(
+          onBackButtonPressed: () {
+            Navigator.pop(context);
+          },
+        ),
         body: SingleChildScrollView(
             child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
@@ -97,8 +101,6 @@ class CategoryName extends StatelessWidget {
               height: 16,
             )
           ],
-        )
-      )
-    );
+        )));
   }
 }
