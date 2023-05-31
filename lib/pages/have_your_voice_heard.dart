@@ -164,7 +164,7 @@ class _HaveYourVoiceHeardState extends State<HaveYourVoiceHeard> {
                         await subtestimonial.addTestimonial(testimonial);
                       } else {
                         submitted = false;
-                        Navigator.pushNamed(context, '/seekHelp');
+                        Navigator.pop(context);
                       }
                     }),
               ),

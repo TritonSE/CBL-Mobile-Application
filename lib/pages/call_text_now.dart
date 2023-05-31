@@ -24,7 +24,7 @@ class CallTextNow extends StatelessWidget {
         currentPage: 'Seek Help',
         seekHelpRoute: '/callTextNow',
         profileRoute: '/profile',
-        resourcesRoute: '/resources',
+        resourcesRoute: '/haveYourVoiceHeard',
       ),
       body: Padding(
         padding: EdgeInsets.symmetric(
