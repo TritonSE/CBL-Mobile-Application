@@ -36,7 +36,7 @@ class _HaveYourVoiceHeardState extends State<HaveYourVoiceHeard> {
       backgroundColor: Colors.white,
       appBar: Header(
         onBackButtonPressed: () {
-          Navigator.pushNamed(context, '/seekHelp');
+          Navigator.pop(context);
         },
       ),
       bottomNavigationBar: const CustomNavBar(currentPage: 'Resources'),
