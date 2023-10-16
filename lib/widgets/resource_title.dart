@@ -16,11 +16,9 @@ class ResourceTitle extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         backgroundColor: Colors.white,
-        appBar: Header(
-          onBackButtonPressed: () {
-            Navigator.pushNamed(context, '/callTextNow');
-          },
-        ),
+        appBar: Header(isHome: true, onBackButtonPressed: () {
+            Navigator.pushNamed(context, '/');
+        }),
         body: SingleChildScrollView(
             child: Column(children: [
           Row(

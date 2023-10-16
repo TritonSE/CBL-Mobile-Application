@@ -11,10 +11,10 @@ class AffirmationSent extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      appBar: Header(
-        isHome: true,
-        onBackButtonPressed: () {},
-      ),
+
+      appBar: Header(isHome: true, onBackButtonPressed: () {
+        Navigator.pushNamed(context, '/');
+      }),
       bottomNavigationBar: const CustomNavBar(
         currentPage: 'Resources',
       ),

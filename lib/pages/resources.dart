@@ -19,11 +19,10 @@ class Resources extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         backgroundColor: Colors.white,
-        appBar: Header(
-          onBackButtonPressed: () {
-            Navigator.pop(context);
-          },
-        ),
+
+        appBar: Header(isHome: true, onBackButtonPressed: () {
+          Navigator.pushNamed(context, '/');
+        }),
         body: SingleChildScrollView(
             child: Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
