@@ -1,16 +1,16 @@
+import 'dart:developer';
+
 import 'package:call_black_line/widgets/orange_button.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:call_black_line/widgets/custom_title.dart';
 import 'package:call_black_line/widgets/header.dart';
 import 'package:call_black_line/widgets/custom_navbar.dart';
 import 'package:call_black_line/pages/affirmation_sent.dart';
-import 'package:drop_cap_text/drop_cap_text.dart';
+import "package:drop_cap_text/drop_cap_text.dart";
+import 'package:call_black_line/affirmation.dart';
 
-final List<Map<String, String>> dummyEntries = List.filled(7, {
-  'text':
-      'Lorem ipsum dolor sit amet consectetur. Molestie neque faucibus viverra ut nisl nec eleifend.',
-  'author': 'Jane Smith',
-}); // TODO: connect with backend
+final FirebaseAuth auth = FirebaseAuth.instance;
 
 class UsePreexistingAffirmation extends StatefulWidget {
   const UsePreexistingAffirmation({super.key});
@@ -21,13 +21,30 @@ class UsePreexistingAffirmation extends StatefulWidget {
 }
 
 class _UsePreexistingAffirmationState extends State<UsePreexistingAffirmation> {
+  late List<AffirmationWithUsername> affirmations = [];
   int selectedIndex = -1;
+
+  @override
+  void initState() {
+    super.initState();
+    _loadData();
+  }
+
+  Future<void> _loadData() async {
+    final affirmationRepository = AffirmationRepository();
+    affirmations = await affirmationRepository.getAffirmationList();
+    log('Loaded list of affirmations of length: ${affirmations.length}');
+    setState(() {});
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       backgroundColor: Colors.white,
-      appBar: const Header(),
+      appBar: Header(onBackButtonPressed: () {
+        //placeholder
+      }),
       bottomNavigationBar: const CustomNavBar(
         currentPage: 'Resources',
       ),
@@ -55,7 +72,7 @@ class _UsePreexistingAffirmationState extends State<UsePreexistingAffirmation> {
                     height: 380,
                     width: 400,
                     child: ListView.separated(
-                        itemCount: dummyEntries.length,
+                        itemCount: affirmations.length,
                         separatorBuilder: (context, index) {
                           return const SizedBox(height: 16);
                         },
@@ -78,8 +95,7 @@ class _UsePreexistingAffirmationState extends State<UsePreexistingAffirmation> {
                                       padding: const EdgeInsets.symmetric(
                                           horizontal: 15.0, vertical: 10.0),
                                       child: Column(children: [
-                                        DropCapText(
-                                            dummyEntries[index]['text']!,
+                                        DropCapText(affirmations[index].text,
                                             style: TextStyle(
                                                 color: selectedIndex == index
                                                     ? Colors.white
@@ -91,15 +107,72 @@ class _UsePreexistingAffirmationState extends State<UsePreexistingAffirmation> {
                                             dropCap: DropCap(
                                                 width: 25,
                                                 height: 25,
-                                                child: Image.asset(
-                                                    'assets/images/edit.png'))),
+                                                child: IconButton(
+                                                  padding:
+                                                      const EdgeInsets.all(0),
+                                                  icon: Image.asset(
+                                                      'assets/images/edit.png'),
+                                                  onPressed: () {
+                                                    showDialog(
+                                                      context: context,
+                                                      builder: (context) {
+                                                        TextEditingController
+                                                            controller =
+                                                            TextEditingController(
+                                                                text: affirmations[
+                                                                        index]
+                                                                    .text);
+                                                        return AlertDialog(
+                                                          title: const Text(
+                                                              "Edit Affirmation"),
+                                                          content: TextField(
+                                                            controller:
+                                                                controller,
+                                                            decoration:
+                                                                const InputDecoration(
+                                                              hintText:
+                                                                  "Enter new text here",
+                                                            ),
+                                                          ),
+                                                          actions: <Widget>[
+                                                            TextButton(
+                                                              child: const Text(
+                                                                  "Cancel"),
+                                                              onPressed: () {
+                                                                Navigator.of(
+                                                                        context)
+                                                                    .pop();
+                                                              },
+                                                            ),
+                                                            TextButton(
+                                                              child: const Text(
+                                                                  "Save"),
+                                                              onPressed: () {
+                                                                setState(() {
+                                                                  affirmations[
+                                                                              index]
+                                                                          .text =
+                                                                      controller
+                                                                          .text;
+                                                                });
+                                                                Navigator.of(
+                                                                        context)
+                                                                    .pop();
+                                                              },
+                                                            ),
+                                                          ],
+                                                        );
+                                                      },
+                                                    );
+                                                  },
+                                                ))),
                                         const SizedBox(
                                           height: 12,
                                         ),
                                         Align(
                                             alignment: Alignment.centerLeft,
                                             child: Text(
-                                              'By: ${dummyEntries[index]['author']}',
+                                              'By: ${affirmations[index].username}',
                                               style: TextStyle(
                                                 fontSize: 18,
                                                 color: selectedIndex == index
@@ -116,7 +189,13 @@ class _UsePreexistingAffirmationState extends State<UsePreexistingAffirmation> {
                   buttonText: 'Submit',
                   width: 110,
                   onTap: () {
-                    // TODO: Check if index is valid, and if so submit from list of Affirmationss
+                    AffirmationRepository affirmationRepository =
+                        AffirmationRepository();
+                    Affirmation affirmation = Affirmation(
+                        text: affirmations[selectedIndex].text,
+                        uid: auth.currentUser?.uid ?? '',
+                        created: DateTime.now().millisecondsSinceEpoch);
+                    affirmationRepository.addAffirmation(affirmation);
                     Navigator.push(
                         context,
                         MaterialPageRoute(
