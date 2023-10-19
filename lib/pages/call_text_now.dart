@@ -5,13 +5,39 @@ import 'package:call_black_line/widgets/custom_title.dart';
 import 'package:call_black_line/widgets/header.dart';
 import 'package:call_black_line/widgets/rounded_button_image.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
-import 'package:call_black_line/auth_methods.dart';
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:provider/provider.dart';
-
-class CallTextNow extends StatelessWidget {
+class CallTextNow extends StatefulWidget {
   const CallTextNow({super.key});
+
+  @override
+  State<CallTextNow> createState() => _CallTextNowState();
+}
+
+class _CallTextNowState extends State<CallTextNow> {
+  String phoneNumber = '';
+  String displayedPhoneNumber = '';
+  Future getPhoneNumber() async {
+    FirebaseFirestore.instance
+        .collection('config')
+        .doc("phone")
+        .get()
+        .then((DocumentSnapshot snapshot) async {
+      if (snapshot.exists) {
+        setState(() {
+          phoneNumber = snapshot['number'];
+          displayedPhoneNumber =
+              '1(${phoneNumber.substring(0, 3)}) ${phoneNumber.substring(3, 6)}-${phoneNumber.substring(6)}';
+        });
+      }
+    });
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    getPhoneNumber();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -65,27 +91,29 @@ class CallTextNow extends StatelessWidget {
               children: [
                 Expanded(
                   flex: 1,
-                  child: RoundedButtonImage(
-                    onTap: () async {
-                      final Uri url = Uri(
-                        scheme: 'tel',
-                        path: "+1-800-604-5841",
-                      );
-                      if (await canLaunchUrl(url)) {
-                        await launchUrl(url);
-                      } else {
-                        throw Exception(
-                            "Error occured trying to call that number.");
-                      }
-                    },
-                    height: 171,
-                    width: 171,
-                    imageURL: 'assets/images/call.jpg',
-                    text: 'Call 1(800) 604-5841',
-                    textPaddingTop: CBL.padding,
-                    textContainerAlignment: Alignment.topCenter,
-                    textContainerWidth: 100,
-                  ),
+                  child: phoneNumber != ''
+                      ? RoundedButtonImage(
+                          onTap: () async {
+                            final Uri url = Uri(
+                              scheme: 'tel',
+                              path: phoneNumber,
+                            );
+                            if (await canLaunchUrl(url)) {
+                              await launchUrl(url);
+                            } else {
+                              throw Exception(
+                                  "Error occured trying to call that number.");
+                            }
+                          },
+                          height: 171,
+                          width: 171,
+                          imageURL: 'assets/images/call.jpg',
+                          text: 'Call $displayedPhoneNumber',
+                          textPaddingTop: CBL.padding,
+                          textContainerAlignment: Alignment.topCenter,
+                          textContainerWidth: 100,
+                        )
+                      : const Center(child: CircularProgressIndicator()),
                 ),
                 SizedBox(
                   width: CBL.padding,
@@ -93,18 +121,32 @@ class CallTextNow extends StatelessWidget {
                 ),
                 Expanded(
                   flex: 1,
-                  child: RoundedButtonImage(
-                    height: 171,
-                    width: 171,
-                    imageURL: 'assets/images/text.jpg',
-                    text: 'Text 1(800) 604-5841',
-                    textPaddingTop: CBL.padding,
-                    textContainerAlignment: Alignment.topCenter,
-                    textContainerWidth: 100,
-                  ),
+                  child: phoneNumber != ''
+                      ? RoundedButtonImage(
+                          onTap: () async {
+                            final Uri url = Uri(
+                              scheme: 'sms',
+                              path: phoneNumber,
+                            );
+                            if (await canLaunchUrl(url)) {
+                              await launchUrl(url);
+                            } else {
+                              throw Exception(
+                                  "Error occured trying to text that number.");
+                            }
+                          },
+                          height: 171,
+                          width: 171,
+                          imageURL: 'assets/images/text.jpg',
+                          text: 'Text $displayedPhoneNumber',
+                          textPaddingTop: CBL.padding,
+                          textContainerAlignment: Alignment.topCenter,
+                          textContainerWidth: 100,
+                        )
+                      : const Center(child: CircularProgressIndicator()),
                 ),
               ],
-            ),
+            )
           ],
         ),
       ),

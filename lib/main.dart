@@ -1,6 +1,7 @@
 import 'package:call_black_line/pages/call_text_now.dart';
 import 'package:call_black_line/pages/create_account.dart';
 import 'package:call_black_line/pages/create_affirmation.dart';
+import 'package:call_black_line/pages/coming_soon_resources.dart';
 import 'package:call_black_line/pages/have_your_voice_heard.dart';
 import 'package:call_black_line/pages/resources.dart';
 import 'package:call_black_line/pages/seek_help.dart';
@@ -63,6 +64,7 @@ class MyApp extends StatelessWidget {
               '/seekHelp': (context) => const SeekHelp(),
               '/profile': (context) => const Profile(),
               '/resources': (context) => const Resources(),
+              '/comingSoonResources': (context) => const ComingSoonResources(),
             }));
   }
 }
@@ -108,3 +110,4 @@ class _MyHomePageState extends State<MyHomePage> {
     }
   }
 }
+
