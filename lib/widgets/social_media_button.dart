@@ -2,6 +2,9 @@ import 'package:call_black_line/widgets/cbl.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+import 'package:provider/provider.dart';
+
+import '../auth_methods.dart';
 
 class SocialMedia extends StatelessWidget {
   int fbBlue = 0xff4267B2;
@@ -97,39 +100,13 @@ class SocialMedia extends StatelessWidget {
               ),
             ),
             onTap: () async {
-              try {
-                // Trigger the authentication flow
-                final GoogleSignInAccount? googleSignInAccount =
-                    await googleSignIn.signIn();
+              //sign in or sign up with google
+              User? user = await context
+                  .read<AuthenticationService>()
+                  .signInWithGoogle(context: context);
 
-                if (googleSignInAccount != null) {
-                  Navigator.pushNamed(context, '/callTextNow');
-                }
-
-                // Obtain the auth details from the request
-                if (googleSignInAccount != null) {
-                  final GoogleSignInAuthentication googleSignInAuthentication =
-                      await googleSignInAccount.authentication;
-
-                  final AuthCredential credential =
-                      GoogleAuthProvider.credential(
-                    accessToken: googleSignInAuthentication.accessToken,
-                    idToken: googleSignInAuthentication.idToken,
-                  );
-
-                  final UserCredential authResult =
-                      await _auth.signInWithCredential(credential);
-                  final User? user = authResult.user;
-
-                  if (user != null &&
-                      !user.isAnonymous &&
-                      await user.getIdToken() != null) {
-                    Navigator.pushNamed(context, '/callTextNow');
-                  }
-                }
-              } catch (error) {
-                print(error);
-                return null;
+              if (user != null) {
+                Navigator.pushNamed(context, '/callTextNow');
               }
             },
           ),

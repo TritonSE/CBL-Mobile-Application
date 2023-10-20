@@ -164,8 +164,6 @@ class _TakeActionPageState extends State<TakeActionPage> {
                     int returnedStatus =
                         (returnedObject.runtimeType == int) ? 400 : 0;
 
-                    //print(firebaseuser!.email);
-
                     if (returnedStatus == 400) {
                       Navigator.pushNamed(context, '/callTextNow');
                     } else {
