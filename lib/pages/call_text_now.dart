@@ -48,6 +48,9 @@ class _CallTextNowState extends State<CallTextNow> {
       }),
       bottomNavigationBar: const CustomNavBar(
         currentPage: 'Profile',
+        seekHelpRoute: '/callTextNow',
+        profileRoute: '/profile',
+        resourcesRoute: '/haveYourVoiceHeard',
       ),
       body: Padding(
         padding: EdgeInsets.symmetric(
