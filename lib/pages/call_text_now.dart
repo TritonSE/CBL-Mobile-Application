@@ -50,7 +50,7 @@ class _CallTextNowState extends State<CallTextNow> {
         currentPage: 'Seek Help',
         seekHelpRoute: '/callTextNow',
         profileRoute: '/profile',
-        resourcesRoute: '/haveYourVoiceHeard',
+        resourcesRoute: '/comingSoonResources',
       ),
       body: Padding(
         padding: EdgeInsets.symmetric(
