@@ -63,7 +63,7 @@ class _TakeActionPageState extends State<TakeActionPage> {
   int createBlue = 0xff428BCD;
 
   final TextEditingController _passwordController = TextEditingController();
-  final TextEditingController _usernameController = TextEditingController();
+  final TextEditingController _emailController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -102,9 +102,9 @@ class _TakeActionPageState extends State<TakeActionPage> {
               InputField(
                   borderColor: CBL.primaryOrange,
                   textColor: CBL.lightGray,
-                  text: 'Username',
+                  text: 'Email',
                   icon: Icons.person,
-                  titleController: _usernameController),
+                  titleController: _emailController),
               PasswordField(
                   text: 'Password',
                   borderColor: CBL.primaryOrange,
@@ -153,11 +153,10 @@ class _TakeActionPageState extends State<TakeActionPage> {
                 child: OrangeButton(
                   buttonText: 'Sign In',
                   onTap: () async {
-                    //once we can get input from the user, replace this with user input
                     Future<Object> result = context
                         .read<AuthenticationService>()
                         .signIn(
-                            email: _usernameController.text,
+                            email: _emailController.text,
                             password: _passwordController.text);
 
                     Object returnedObject = await result;
