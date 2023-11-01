@@ -12,8 +12,6 @@ class SocialMedia extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var mediaWidth = MediaQuery.of(context).size.width;
-    final FirebaseAuth _auth = FirebaseAuth.instance;
-    final GoogleSignIn googleSignIn = GoogleSignIn();
 
     return Flex(
       direction:
@@ -157,11 +155,12 @@ class SocialMedia extends StatelessWidget {
             ),
             onTap: () async {
               //sign in or sign up with google
-              User? user = await context
+              UserCredential? userCred = await context
                   .read<AuthenticationService>()
-                  .signInWithGoogle(context: context);
+                  .altSignInWithGoogle();
+              print("In social media button, user is $userCred");
 
-              if (user != null) {
+              if (userCred != null) {
                 Navigator.pushNamed(context, '/callTextNow');
               }
             },

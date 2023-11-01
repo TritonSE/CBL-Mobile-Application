@@ -67,7 +67,7 @@ class AuthenticationService {
     }
   }
 
-  Future<User?> signInWithGoogle({required BuildContext context}) async {
+  Future<User?> signInWithGoogle() async {
     FirebaseAuth auth = FirebaseAuth.instance;
     User? user;
 
@@ -75,7 +75,7 @@ class AuthenticationService {
 
     final GoogleSignInAccount? googleSignInAccount =
         await googleSignIn.signIn();
-
+    print("Got here");
     if (googleSignInAccount != null) {
       final GoogleSignInAuthentication googleSignInAuthentication =
           await googleSignInAccount.authentication;
@@ -103,5 +103,31 @@ class AuthenticationService {
     }
 
     return user;
+  }
+
+  Future<UserCredential?> altSignInWithGoogle() async {
+    try {
+      final GoogleSignInAccount? gUser = await GoogleSignIn().signIn();
+      print(gUser);
+      print("Got here");
+      if (gUser == null) {
+        // User cancelled the sign-in
+        return null;
+      }
+
+      final GoogleSignInAuthentication gAuth = await gUser.authentication;
+
+      print(gAuth);
+      print("Got here");
+
+      final credential = GoogleAuthProvider.credential(
+          accessToken: gAuth.accessToken, idToken: gAuth.idToken);
+
+      return await FirebaseAuth.instance.signInWithCredential(credential);
+    } catch (e) {
+      // Handle the error, e.g., by showing an error message to the user
+      print('Error during Google sign-in: $e');
+      return null;
+    }
   }
 }
