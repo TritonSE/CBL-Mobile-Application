@@ -39,12 +39,12 @@ class _InputFieldState extends State<InputField> {
         controller: widget.titleController,
         minLines: CBL.minLines,
         maxLines: CBL.maxLines,
-        cursorColor: Color(borderColor),
+        cursorColor: Color(widget.borderColor),
         decoration: InputDecoration(
           contentPadding: EdgeInsets.all(CBL.padding),
           floatingLabelStyle: TextStyle(
             fontSize: CBL.fontSize,
-            color: Color(borderColor),
+            color: Color(widget.borderColor),
             fontWeight: CBL.bold,
             fontFamily: CBL.fontFamily,
           ),

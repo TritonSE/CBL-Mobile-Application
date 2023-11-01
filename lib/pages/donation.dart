@@ -177,7 +177,7 @@ class Donation extends StatelessWidget {
             ],
           ),
         ),
-      )),
+      ),
     );
   }
 }
