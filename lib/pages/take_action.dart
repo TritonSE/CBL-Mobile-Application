@@ -9,6 +9,7 @@ import 'package:call_black_line/widgets/password_field.dart';
 import 'package:call_black_line/widgets/or_divider.dart';
 import 'package:call_black_line/widgets/social_media_button.dart';
 import '../widgets/cbl.dart';
+import 'package:email_validator/email_validator.dart';
 
 import 'package:call_black_line/auth_methods.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -133,7 +134,23 @@ class _TakeActionPageState extends State<TakeActionPage> {
                     ],
                   ),
                   GestureDetector(
-                    onTap: () {},
+                    onTap: () async {
+                      String snackBarText = "";
+
+                      if (!EmailValidator.validate(_emailController.text)) {
+                        snackBarText = "Error: Please enter a valid email.";
+                      } else {
+                        snackBarText =
+                            'Password reset email sent to: ${_emailController.text}';
+                        await context
+                            .read<AuthenticationService>()
+                            .resetPassword(email: _emailController.text);
+                      }
+                      final snackBar = SnackBar(
+                        content: Text(snackBarText),
+                      );
+                      ScaffoldMessenger.of(context).showSnackBar(snackBar);
+                    },
                     child: Text(
                       "Forgot Password",
                       style: TextStyle(
