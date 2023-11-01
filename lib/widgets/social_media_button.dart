@@ -3,6 +3,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:provider/provider.dart';
+import 'package:flutter_login_facebook/flutter_login_facebook.dart';
 
 import '../auth_methods.dart';
 
@@ -12,6 +13,9 @@ class SocialMedia extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var mediaWidth = MediaQuery.of(context).size.width;
+    final FirebaseAuth _auth = FirebaseAuth.instance;
+    final GoogleSignIn googleSignIn = GoogleSignIn();
+    final FacebookLogin facebookLogin = FacebookLogin();
 
     return Flex(
       direction:
@@ -83,7 +87,15 @@ class SocialMedia extends StatelessWidget {
                 ],
               ),
             ),
-            onTap: () {},
+            onTap: () async {
+              User? user = await context
+                  .read<AuthenticationService>()
+                  .signInWithFacebook(context: context);
+
+              if (user != null) {
+                Navigator.pushNamed(context, '/callTextNow');
+              }
+            },
           ),
         ),
         SizedBox(
