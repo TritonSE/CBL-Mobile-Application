@@ -1,4 +1,4 @@
-import 'package:call_black_line/firebase_auth.dart';
+import 'package:call_black_line/auth_methods.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -20,8 +20,7 @@ class MyApp extends StatelessWidget {
     return MultiProvider(
         providers: [
           Provider<AuthenticationService>(
-            create: (_) => AuthenticationService(FirebaseAuth.instance),
-          ),
+              create: (_) => AuthenticationService(FirebaseAuth.instance)),
           StreamProvider(
             create: (context) =>
                 context.read<AuthenticationService>().authStateChanges,

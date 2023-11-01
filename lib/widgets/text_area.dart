@@ -7,18 +7,20 @@ class TextArea extends StatelessWidget {
   final String hintText;
   final Color enabledBorderColor;
   final Color focusedBorderColor;
-  const TextArea({
-    super.key,
-    this.maxLines = CBL.maxLines,
-    this.textColor = Colors.black,
-    this.hintText = "",
-    this.enabledBorderColor = Colors.grey,
-    this.focusedBorderColor = Colors.grey,
-  });
+  final TextEditingController controller;
+  const TextArea(
+      {super.key,
+      this.maxLines = CBL.maxLines,
+      this.textColor = Colors.black,
+      this.hintText = "",
+      this.enabledBorderColor = Colors.grey,
+      this.focusedBorderColor = Colors.grey,
+      required this.controller});
 
   @override
   Widget build(BuildContext context) {
     return TextField(
+        controller: controller,
         style: TextStyle(color: textColor),
         keyboardType: TextInputType.multiline,
         maxLines: maxLines,

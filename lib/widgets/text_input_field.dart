@@ -3,12 +3,13 @@ import 'package:call_black_line/widgets/input_field.dart';
 import 'package:flutter/material.dart';
 
 class TextInputField extends StatelessWidget {
-  const TextInputField(
+  TextInputField(
       {Key? key,
       required this.inputOutlineColor,
       required this.inputTextColor,
       required this.inputText,
       required this.aboveText,
+      required this.titleController,
       this.paddingTop,
       this.icon})
       : super(key: key);
@@ -19,6 +20,7 @@ class TextInputField extends StatelessWidget {
   final String aboveText;
   final double? paddingTop;
   final IconData? icon;
+  final TextEditingController titleController;
 
   @override
   Widget build(BuildContext context) {
@@ -40,6 +42,7 @@ class TextInputField extends StatelessWidget {
             borderColor: inputOutlineColor,
             textColor: inputTextColor,
             text: inputText,
+            titleController: titleController,
             icon: icon),
       ],
     );

@@ -9,6 +9,13 @@ import 'package:call_black_line/widgets/or_divider.dart';
 import 'package:call_black_line/widgets/password_field.dart';
 import 'package:call_black_line/widgets/social_media_button.dart';
 
+import 'package:call_black_line/auth_methods.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:provider/provider.dart';
+import '../testimonial.dart';
+import '../user.dart';
+import '../big_auth.dart';
+
 class CreateAccount extends StatefulWidget {
   const CreateAccount({super.key});
 
@@ -19,16 +26,35 @@ class CreateAccount extends StatefulWidget {
 class _CreateAccountState extends State<CreateAccount> {
   bool signUpTOSCheck = false;
 
+  //controllers for all the fields necessary for account creation
+  final TextEditingController _passwordController = TextEditingController();
+  final TextEditingController _confirmPasswordController =
+      TextEditingController();
+  // muliple controllers for same widget, should I use list of controllers instead?
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _usernameController = TextEditingController();
+  final TextEditingController _phoneNumberController = TextEditingController();
+
+  //variables to store the values of the fields
+  var _email;
+  var _username;
+  var _phoneNumber;
+  var _password;
   Color getColor(Set<MaterialState> states) {
     return Color(CBL.blue);
   }
 
   @override
   Widget build(BuildContext context) {
+    final firebaseuser = context.watch<User?>();
+
     return Scaffold(
       // resizeToAvoidBottomInset: false,
       backgroundColor: Colors.white,
-      appBar: const Header(),
+      appBar: Header(onBackButtonPressed: () {
+        Navigator.pushNamed(context, '/seekHelp');
+      }),
+
       body: SingleChildScrollView(
         child: Padding(
           padding: EdgeInsets.symmetric(
@@ -52,32 +78,43 @@ class _CreateAccountState extends State<CreateAccount> {
                   borderColor: CBL.primaryOrange,
                   textColor: CBL.lightGray,
                   text: 'Username',
-                  icon: Icons.person),
+                  icon: Icons.person,
+                  titleController: _usernameController),
               InputField(
                   borderColor: CBL.primaryOrange,
                   textColor: CBL.lightGray,
                   text: 'Email',
-                  icon: Icons.mail),
+                  icon: Icons.mail,
+                  titleController: _emailController),
               InputField(
                   borderColor: CBL.primaryOrange,
                   textColor: CBL.lightGray,
                   text: '+1 000 000 000',
-                  icon: Icons.phone),
+                  icon: Icons.phone,
+                  titleController: _phoneNumberController),
               PasswordField(
                   text: 'Password',
                   borderColor: CBL.primaryOrange,
-                  textColor: CBL.lightGray),
+                  textColor: CBL.lightGray,
+                  titleController: _passwordController),
               PasswordField(
                   text: 'Password Confirm',
                   borderColor: CBL.primaryOrange,
-                  textColor: CBL.lightGray),
+                  textColor: CBL.lightGray,
+                  titleController: _confirmPasswordController),
               const SizedBox(
                 height: 8,
               ),
               Row(
                 children: [
+                  //takes care of TOS agreeement, signUpTOSCheck stores whether or not the checkbox is checked
                   CheckBoxText(
                     boxColor: CBL.blue,
+                    onCheckboxChanged: (value) => {
+                      setState(() {
+                        signUpTOSCheck = value;
+                      })
+                    },
                   ),
                   Flexible(
                     child: RichText(
@@ -107,7 +144,64 @@ class _CreateAccountState extends State<CreateAccount> {
                   padding: const EdgeInsets.only(top: 10.0),
                   child: OrangeButton(
                     buttonText: 'Sign Up',
-                    onTap: () => Navigator.pushNamed(context, '/callTextNow'),
+                    onTap: () async {
+                      //make sure passwords are the same
+                      if (_passwordController.text !=
+                          _confirmPasswordController.text) {
+                        ScaffoldMessenger.of(context).hideCurrentSnackBar();
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          const SnackBar(
+                            content: Text('Passwords do not match'),
+                          ),
+                        );
+                        return;
+                      }
+                      setState(() {
+                        _email = _emailController.text;
+                        _username = _usernameController.text;
+                        _phoneNumber = _phoneNumberController.text;
+                        _password = _passwordController.text;
+                      });
+
+                      print('Sign Up Button Pressed');
+                      //make sure terms are agreed to
+                      if (signUpTOSCheck == false) {
+                        ScaffoldMessenger.of(context).hideCurrentSnackBar();
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          SnackBar(
+                            content: Text(
+                                "Please accept the terms of service and privacy policy"),
+                          ),
+                        );
+                        return;
+                      }
+
+                      //sign up the user
+                      final SignUpUtils signUpUtils = SignUpUtils();
+                      Object result = await signUpUtils.signUp(
+                          context,
+                          _emailController.text,
+                          _passwordController.text,
+                          _usernameController.text,
+                          _phoneNumberController.text);
+
+                      //store result as an int
+                      int intResult = (result.runtimeType == int) ? 400 : 0;
+                      String stringResult = result.toString();
+
+                      print("completed");
+                      //if success, proceed as normal, if failure, show snackbar with error message
+                      if (result == 400) {
+                        Navigator.pushNamed(context, '/callTextNow');
+                      } else {
+                        ScaffoldMessenger.of(context).hideCurrentSnackBar();
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          SnackBar(
+                            content: Text(stringResult),
+                          ),
+                        );
+                      }
+                    },
                   ),
                 ),
               ),

@@ -1,7 +1,9 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import '../user.dart';
 import 'package:firebase_core/firebase_core.dart';
 import '../testimonial.dart';
+import '../affirmation.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -96,41 +98,42 @@ class _MyHomePageState extends State<MyHomePage> {
                 onPressed: () {
                   //test 10 times
                   UserRepository userRepository = UserRepository();
-                  User user = User(username: 'John Doe',
-                      phoneNumber: 8583165432,
+                  UserData user = UserData(
+                      username: 'John Doe',
+                      phoneNumber: '8583165432',
                       email: 'johndoe@example.com');
 
-                  User userWrongPswd = User(
+                  UserData userWrongPswd = UserData(
                       username: 'sdf Doe',
-                      phoneNumber: 8583165432,
+                      phoneNumber: '8583165432',
                       email: 'bobjoe@example.com');
 
-                  User userWrongEmail = User(
+                  UserData userWrongEmail = UserData(
                       username: 'Billy Bob',
-                      phoneNumber: 8583165432,
+                      phoneNumber: '8583165432',
                       email: 'sdlsdkjf');
 
-                  User userWrongPhone = User(
+                  UserData userWrongPhone = UserData(
                       username: 'Billy Joel',
-                      phoneNumber: 1,
+                      phoneNumber: '1',
                       email: 'a@example.com');
 
-                  User user2 = User(
+                  UserData user2 = UserData(
                       username: 'Maggie',
-                      phoneNumber: 1234567899,
+                      phoneNumber: '1234567899',
                       email: 'maggie@example.com');
 
-                  User userDuplicate = User(
+                  UserData userDuplicate = UserData(
                       username: 'John Doe',
-                      phoneNumber: 8583165432,
+                      phoneNumber: '8583165432',
                       email: 'johndoe@example.com');
 
-                  userRepository.addUser(user);
-                  userRepository.addUser(userWrongPswd);
-                  userRepository.addUser(userWrongEmail);
-                  userRepository.addUser(userWrongPhone);
-                  userRepository.addUser(user2);
-                  userRepository.addUser(userDuplicate);
+                  // userRepository.addUser(user);
+                  // userRepository.addUser(userWrongPswd);
+                  // userRepository.addUser(userWrongEmail);
+                  // userRepository.addUser(userWrongPhone);
+                  // userRepository.addUser(user2);
+                  // userRepository.addUser(userDuplicate);
                 },
                 child: const Text('Add User')),
             ElevatedButton(
@@ -138,14 +141,14 @@ class _MyHomePageState extends State<MyHomePage> {
                   SubmitTestimonial submitTestimonial = SubmitTestimonial();
                   Testimonial testimonial = Testimonial(
                       eventTitle: "Test",
-                      created: DateTime.now().millisecondsSinceEpoch,
-                      duration: 10.0,
+                      time: DateTime.now().millisecondsSinceEpoch.toString(),
+                      duration: "10",
                       address: 'as',
                       description: 'This is a test');
                   Testimonial testimonial2 = Testimonial(
                       eventTitle: "Test",
-                      created: DateTime.now().millisecondsSinceEpoch,
-                      duration: 10,
+                      time: DateTime.now().millisecondsSinceEpoch.toString(),
+                      duration: "10",
                       address: 'as',
                       description: 'This is a test');
                   submitTestimonial.addTestimonial(testimonial);
@@ -165,7 +168,34 @@ class _MyHomePageState extends State<MyHomePage> {
                   submitTestimonial.deleteTestimonial("UUzkdbXVUXmVZwAtBbEr");
                   submitTestimonial.deleteTestimonial("doesn't exist");
                 },
-                child: const Text('Delete Testimonial'))
+                child: const Text('Delete Testimonial')),
+            ElevatedButton(
+                onPressed: () async {
+                  AffirmationRepository affirmations = AffirmationRepository();
+                  Affirmation affirmationWithRealId1 = Affirmation(
+                      created: DateTime.now().millisecondsSinceEpoch,
+                      uid: "0p4AgrUHXJnLtCe4owG6",
+                      text: "Test Text 1");
+                  Affirmation affirmationWithRealId2 = Affirmation(
+                      created: DateTime.now().millisecondsSinceEpoch,
+                      uid: "B4Ww1lg1o9i5J1TYxvJ9",
+                      text: "Test Text 2");
+                  Affirmation affirmationWithEmptyId = Affirmation(
+                      created: DateTime.now().millisecondsSinceEpoch,
+                      uid: "",
+                      text: "Test Text 3");
+                  Affirmation affirmationWithFakeId = Affirmation(
+                      created: DateTime.now().millisecondsSinceEpoch,
+                      uid: "ThisIdDoesntExist",
+                      text: "Test Text 4");
+                  affirmations.addAffirmation(affirmationWithRealId1);
+                  affirmations.addAffirmation(affirmationWithRealId2);
+                  affirmations.addAffirmation(affirmationWithEmptyId);
+                  affirmations.addAffirmation(affirmationWithFakeId);
+                  var al = await affirmations.getAffirmationList();
+                  assert(al.length >= 4);
+                },
+                child: const Text('Create Affirmation')),
           ],
         ),
       ), // This trailing comma makes auto-formatting nicer for build methods.

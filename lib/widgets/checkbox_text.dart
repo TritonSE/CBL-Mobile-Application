@@ -4,11 +4,10 @@ import 'package:call_black_line/widgets/cbl.dart';
 class CheckBoxText extends StatefulWidget {
   // final String text;
   final int boxColor;
-  const CheckBoxText({
-    super.key,
-    // this.text = "Text",
-    this.boxColor = CBL.white,
-  });
+  final Function(bool value) onCheckboxChanged;
+
+  const CheckBoxText(
+      {super.key, this.boxColor = CBL.white, required this.onCheckboxChanged});
 
   @override
   State<CheckBoxText> createState() => _CheckBoxTextState();
@@ -36,6 +35,7 @@ class _CheckBoxTextState extends State<CheckBoxText> {
             setState(() {
               passwordCheck = value!;
             });
+            widget.onCheckboxChanged(value!);
           },
         ),
       ),

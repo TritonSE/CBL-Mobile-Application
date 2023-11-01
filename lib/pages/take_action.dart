@@ -10,6 +10,46 @@ import 'package:call_black_line/widgets/or_divider.dart';
 import 'package:call_black_line/widgets/social_media_button.dart';
 import '../widgets/cbl.dart';
 
+import 'package:call_black_line/auth_methods.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:provider/provider.dart';
+
+class TakeActionWrapper extends StatefulWidget {
+  const TakeActionWrapper({super.key});
+
+  @override
+  State<TakeActionWrapper> createState() => _TakeActionWrapperState();
+}
+
+class _TakeActionWrapperState extends State<TakeActionWrapper> {
+  @override
+  Widget build(BuildContext context) {
+    final firebaseuser = context.watch<User?>();
+
+    return StreamBuilder(
+        stream: FirebaseAuth.instance.authStateChanges(),
+        builder: (context, snapshot) {
+          if (snapshot.connectionState == ConnectionState.waiting) {
+            return const Scaffold(
+              body: Center(
+                child: CircularProgressIndicator(),
+              ),
+            );
+          } else if (snapshot.hasData) {
+            return const TakeActionPage();
+          } else if (snapshot.hasError) {
+            return const Scaffold(
+              body: Center(
+                child: Text('Something went wrong'),
+              ),
+            );
+          } else {
+            return const TakeActionPage();
+          }
+        });
+  }
+}
+
 class TakeActionPage extends StatefulWidget {
   const TakeActionPage({super.key});
 
@@ -22,14 +62,21 @@ class _TakeActionPageState extends State<TakeActionPage> {
   int veryLightGray = 0xffD8D8D8;
   int createBlue = 0xff428BCD;
 
+  final TextEditingController _passwordController = TextEditingController();
+  final TextEditingController _usernameController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
+    final firebaseuser = context.watch<User?>();
+
     var mediaWidth = MediaQuery.of(context).size.width;
 
     return Scaffold(
       backgroundColor: Colors.white,
-      appBar: const Header(),
-      bottomNavigationBar: const CustomNavBar(currentPage: 'Resources'),
+      appBar: Header(onBackButtonPressed: () {
+        print("back button was pressed from take_action");
+        Navigator.pushNamed(context, '/seekHelp');
+      }),
       body: SingleChildScrollView(
         child: Padding(
           padding: EdgeInsets.symmetric(
@@ -56,11 +103,13 @@ class _TakeActionPageState extends State<TakeActionPage> {
                   borderColor: CBL.primaryOrange,
                   textColor: CBL.lightGray,
                   text: 'Username',
-                  icon: Icons.person),
+                  icon: Icons.person,
+                  titleController: _usernameController),
               PasswordField(
                   text: 'Password',
                   borderColor: CBL.primaryOrange,
-                  textColor: CBL.lightGray),
+                  textColor: CBL.lightGray,
+                  titleController: _passwordController),
               const SizedBox(
                 height: 8,
               ),
@@ -71,6 +120,7 @@ class _TakeActionPageState extends State<TakeActionPage> {
                     children: [
                       CheckBoxText(
                         boxColor: CBL.blue,
+                        onCheckboxChanged: (value) => {},
                       ),
                       Text(
                         'Remember me',
@@ -98,10 +148,36 @@ class _TakeActionPageState extends State<TakeActionPage> {
               const SizedBox(
                 height: 24,
               ),
-              const Align(
+              Align(
                 alignment: Alignment.centerRight,
                 child: OrangeButton(
                   buttonText: 'Sign In',
+                  onTap: () async {
+                    //once we can get input from the user, replace this with user input
+                    Future<Object> result = context
+                        .read<AuthenticationService>()
+                        .signIn(
+                            email: _usernameController.text,
+                            password: _passwordController.text);
+
+                    Object returnedObject = await result;
+                    int returnedStatus =
+                        (returnedObject.runtimeType == int) ? 400 : 0;
+
+                    //print(firebaseuser!.email);
+
+                    if (returnedStatus == 400) {
+                      Navigator.pushNamed(context, '/callTextNow');
+                    } else {
+                      String returnedMessage = returnedObject.toString();
+                      ScaffoldMessenger.of(context).hideCurrentSnackBar();
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(
+                          content: Text(returnedMessage),
+                        ),
+                      );
+                    }
+                  },
                 ),
               ),
               const SizedBox(

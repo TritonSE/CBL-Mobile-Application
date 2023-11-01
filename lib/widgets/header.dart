@@ -1,11 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:call_black_line/widgets/cbl.dart';
 
+import '../auth_methods.dart';
+
+typedef void BackButtonCallback();
 
 class Header extends StatelessWidget implements PreferredSizeWidget {
   final bool isHome;
+  final BackButtonCallback onBackButtonPressed;
 
-  const Header({Key? key, this.isHome = false}) : super(key: key);
+  const Header(
+      {Key? key, this.isHome = false, required this.onBackButtonPressed})
+      : super(key: key);
 
   @override
   Size get preferredSize => const Size.fromHeight(kToolbarHeight);
@@ -28,7 +34,9 @@ class Header extends StatelessWidget implements PreferredSizeWidget {
                   color: Color(CBL.orange),
                   size: CBL.iconSize,
                 ),
-                onPressed: () => Navigator.of(context).pop(),
+                onPressed: onBackButtonPressed,
+                //add callback instance variable, pass in behavior
+                //for mvp, we can also shoehorn 2 options for login vs not logged in
               ),
             )
           : null,
