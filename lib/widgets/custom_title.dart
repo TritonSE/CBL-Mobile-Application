@@ -9,8 +9,8 @@ class CustomTitle extends StatelessWidget {
   const CustomTitle(
       {super.key,
       required this.text,
-      this.topPadding = 24,
-      this.bottomPadding = 24});
+      this.topPadding = CBL.largePadding,
+      this.bottomPadding = CBL.largePadding});
 
   @override
   Widget build(BuildContext context) {
@@ -22,8 +22,8 @@ class CustomTitle extends StatelessWidget {
           textAlign: TextAlign.center,
           style: TextStyle(
               fontWeight: FontWeight.w700,
-              fontSize: 34,
-              letterSpacing: 0.4,
+              fontSize: CBL.fontSizeLarge,
+              letterSpacing: CBL.letterSpacing,
               fontFamily: CBL.fontFamily),
         ),
       ),

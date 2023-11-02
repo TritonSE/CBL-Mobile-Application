@@ -48,7 +48,8 @@ class _UsePreexistingAffirmationState extends State<UsePreexistingAffirmation> {
       bottomNavigationBar: const CustomNavBar(
         currentPage: 'Resources',
       ),
-      body: Padding(
+      body: SingleChildScrollView(
+          child: Padding(
         padding: const EdgeInsets.symmetric(
           horizontal: 30,
         ),
@@ -204,7 +205,7 @@ class _UsePreexistingAffirmationState extends State<UsePreexistingAffirmation> {
                 ))
           ],
         ),
-      ),
+      )),
     );
   }
 }

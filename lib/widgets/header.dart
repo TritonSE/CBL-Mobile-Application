@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:call_black_line/widgets/cbl.dart';
+
 import '../auth_methods.dart';
 
 typedef void BackButtonCallback();
@@ -18,19 +20,19 @@ class Header extends StatelessWidget implements PreferredSizeWidget {
   Widget build(BuildContext context) {
     var mediaWidth = MediaQuery.of(context).size.width;
 
-    var logoHeight = 35.0;
-    if (mediaWidth < 400) {
-      logoHeight = mediaWidth / 15;
+    var logoHeight = CBL.logoHeight;
+    if (mediaWidth < CBL.smallMediaWidth) {
+      logoHeight = mediaWidth / CBL.logoScalar;
     }
     return AppBar(
       leading: !isHome
           ? Padding(
-              padding: const EdgeInsets.only(left: 24.0),
+              padding: const EdgeInsets.only(left: CBL.largePadding),
               child: IconButton(
                 icon: const Icon(
                   Icons.arrow_back_ios,
-                  color: Color(0xffDF742C),
-                  size: 30,
+                  color: Color(CBL.orange),
+                  size: CBL.iconSize,
                 ),
                 onPressed: onBackButtonPressed,
                 //add callback instance variable, pass in behavior
@@ -41,7 +43,7 @@ class Header extends StatelessWidget implements PreferredSizeWidget {
       centerTitle: true,
       backgroundColor: Colors.white,
       elevation: 4,
-      shadowColor: Colors.black.withOpacity(0.2),
+      shadowColor: Colors.black.withOpacity(CBL.blackOpacity),
       title: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         mainAxisSize: MainAxisSize.min,

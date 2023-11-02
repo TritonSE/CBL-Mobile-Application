@@ -37,11 +37,13 @@ class _InputFieldState extends State<InputField> {
       padding: EdgeInsets.only(top: widget.paddingTop ?? CBL.padding),
       child: TextFormField(
         controller: widget.titleController,
+        minLines: CBL.minLines,
+        maxLines: CBL.maxLines,
         cursorColor: Color(widget.borderColor),
         decoration: InputDecoration(
           contentPadding: EdgeInsets.all(CBL.padding),
           floatingLabelStyle: TextStyle(
-            fontSize: 17,
+            fontSize: CBL.fontSize,
             color: Color(widget.borderColor),
             fontWeight: CBL.bold,
             fontFamily: CBL.fontFamily,
@@ -53,14 +55,14 @@ class _InputFieldState extends State<InputField> {
                 )
               : null,
           enabledBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(16),
+            borderRadius: BorderRadius.circular(CBL.borderRadiusLarge),
             borderSide: BorderSide(
               width: 1,
               color: Color(widget.borderColor),
             ),
           ),
           focusedBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(16),
+            borderRadius: BorderRadius.circular(CBL.borderRadiusLarge),
             borderSide: BorderSide(
               width: 1,
               color: Color(widget.borderColor),
@@ -73,11 +75,11 @@ class _InputFieldState extends State<InputField> {
           ),
         ),
         style: TextStyle(
-          fontSize: 17,
+          fontSize: CBL.fontSize,
           color: Color(CBL.black),
           fontWeight: CBL.bold,
           fontFamily: CBL.fontFamily,
-          height: 1.5,
+          height: CBL.textHeight,
         ),
       ),
     );

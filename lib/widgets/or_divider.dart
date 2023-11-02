@@ -2,7 +2,7 @@ import 'package:call_black_line/widgets/cbl.dart';
 import 'package:flutter/material.dart';
 
 class OrDivider extends StatelessWidget {
-  int veryLightGray = 0xffD8D8D8;
+
 
   @override
   Widget build(BuildContext context) {
@@ -12,27 +12,27 @@ class OrDivider extends StatelessWidget {
           child: Padding(
             padding: EdgeInsets.only(left: CBL.padding),
             child: Divider(
-              color: Color(veryLightGray),
-              thickness: 1,
+              color: Color(CBL.veryLightGray),
+              thickness: CBL.thickness,
             ),
           ),
         ),
         Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 8.0),
+          padding: const EdgeInsets.symmetric(horizontal: CBL.horizontalPadding),
           child: Text(
             'or',
             style: TextStyle(
-                color: Color(veryLightGray),
+                color: Color(CBL.veryLightGray),
                 fontFamily: CBL.fontFamily,
-                fontSize: 17),
+                fontSize: CBL.fontSize),
           ),
         ),
         Expanded(
           child: Padding(
             padding: EdgeInsets.only(right: CBL.padding),
             child: Divider(
-              color: Color(veryLightGray),
-              thickness: 1,
+              color: Color(CBL.veryLightGray),
+              thickness: CBL.thickness,
             ),
           ),
         )

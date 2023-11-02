@@ -20,14 +20,14 @@ class CustomNavBar extends StatelessWidget {
       decoration: const BoxDecoration(
         boxShadow: [
           BoxShadow(
-              color: Color.fromARGB(45, 206, 201, 201),
-              spreadRadius: 5,
-              blurRadius: 5)
+              color: Color.fromARGB(CBL.aARGB, CBL.rARGB, CBL.gARGB, CBL.bARGB),
+              spreadRadius: CBL.barRadius,
+              blurRadius: CBL.barRadius)
         ],
       ),
       child: BottomAppBar(
         child: SizedBox(
-          height: 82,
+          height: CBL.barHeight,
           // width: MediaQuery.of(context).size.width,
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -120,13 +120,13 @@ class NavItem extends StatelessWidget {
                   alignment: Alignment.topCenter,
                   child: Container(
                     height: 5,
-                    width: 100,
+                    width: CBL.navItemWidth,
                     decoration: BoxDecoration(
                       color: isCurrentPage
                           ? Color(CBL.primaryOrange)
                           : Colors.transparent,
                       borderRadius: const BorderRadius.all(
-                        Radius.circular(10),
+                        Radius.circular(CBL.borderRadiusSmall),
                       ),
                     ),
                   ),
@@ -137,17 +137,17 @@ class NavItem extends StatelessWidget {
                     child: Column(
                   children: [
                     const SizedBox(
-                      height: 15,
+                      height: CBL.itemHeight,
                     ),
                     SizedBox(
-                      height: 24,
+                      height: CBL.checkboxDimensions,
                       child: Icon(
                         icon,
                         color: Color(CBL.primaryOrange),
                       ),
                     ),
                     const SizedBox(
-                      height: 5,
+                      height: CBL.boxHeightSmall,
                     ),
                     Text(
                       text,
@@ -156,7 +156,7 @@ class NavItem extends StatelessWidget {
                               ? Color(CBL.primaryOrange)
                               : Color(CBL.black),
                           fontFamily: CBL.fontFamily,
-                          fontSize: 12,
+                          fontSize: CBL.fontSizeSmall,
                           fontWeight: CBL.bold),
                     ),
                   ],

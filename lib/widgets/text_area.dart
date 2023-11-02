@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:call_black_line/widgets/cbl.dart';
 
 class TextArea extends StatelessWidget {
   final int maxLines;
@@ -9,7 +10,7 @@ class TextArea extends StatelessWidget {
   final TextEditingController controller;
   const TextArea(
       {super.key,
-      this.maxLines = 3,
+      this.maxLines = CBL.maxLines,
       this.textColor = Colors.black,
       this.hintText = "",
       this.enabledBorderColor = Colors.grey,
@@ -25,11 +26,11 @@ class TextArea extends StatelessWidget {
         maxLines: maxLines,
         decoration: InputDecoration(
             enabledBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(15),
+                borderRadius: BorderRadius.circular(CBL.borderRadiusLarge),
                 borderSide: BorderSide(color: enabledBorderColor)),
             hintText: hintText,
             focusedBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(15),
+                borderRadius: BorderRadius.circular(CBL.borderRadiusLarge),
                 borderSide: BorderSide(color: focusedBorderColor))));
   }
 }

@@ -37,7 +37,8 @@ class _CreateNewAffirmation extends State<CreateNewAffirmation> {
       bottomNavigationBar: const CustomNavBar(
         currentPage: 'Resources',
       ),
-      body: Padding(
+      body: SingleChildScrollView(
+          child: Padding(
         padding: const EdgeInsets.symmetric(
           horizontal: 30,
         ),
@@ -84,7 +85,7 @@ class _CreateNewAffirmation extends State<CreateNewAffirmation> {
                 )),
           ],
         ),
-      ),
+      )),
     );
   }
 }
