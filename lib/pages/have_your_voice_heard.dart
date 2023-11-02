@@ -36,7 +36,7 @@ class _HaveYourVoiceHeardState extends State<HaveYourVoiceHeard> {
       backgroundColor: Colors.white,
       appBar: Header(
         onBackButtonPressed: () {
-          Navigator.pushNamed(context, '/seekHelp');
+          Navigator.pop(context);
         },
       ),
       bottomNavigationBar: const CustomNavBar(currentPage: 'Resources'),
@@ -164,7 +164,7 @@ class _HaveYourVoiceHeardState extends State<HaveYourVoiceHeard> {
                         await subtestimonial.addTestimonial(testimonial);
                       } else {
                         submitted = false;
-                        Navigator.pushNamed(context, '/seekHelp');
+                        Navigator.pop(context);
                       }
                     }),
               ),

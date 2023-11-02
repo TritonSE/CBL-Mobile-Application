@@ -3,6 +3,7 @@ import 'package:call_black_line/pages/create_account.dart';
 import 'package:call_black_line/pages/create_affirmation.dart';
 import 'package:call_black_line/pages/coming_soon_resources.dart';
 import 'package:call_black_line/pages/have_your_voice_heard.dart';
+import 'package:call_black_line/pages/resources.dart';
 import 'package:call_black_line/pages/seek_help.dart';
 
 import 'package:flutter/material.dart';
@@ -62,6 +63,7 @@ class MyApp extends StatelessWidget {
               '/takeAction': (context) => const TakeActionPage(),
               '/seekHelp': (context) => const SeekHelp(),
               '/profile': (context) => const Profile(),
+              '/resources': (context) => const Resources(),
               '/comingSoonResources': (context) => const ComingSoonResources(),
             }));
   }

@@ -99,8 +99,6 @@ class CategoryName extends StatelessWidget {
               height: 16,
             )
           ],
-        )
-      )
-    );
+        )));
   }
 }

@@ -18,7 +18,7 @@ class SeekHelp extends StatelessWidget {
         currentPage: 'Seek Help',
         resourcesRoute: 'None',
         seekHelpRoute: '/seekHelp',
-        profileRoute: 'None',
+        profileRoute: '/takeAction',
       ), //Available: Resources, Seek Help, Profile
       appBar: Header(
           isHome: true,

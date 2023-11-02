@@ -46,8 +46,11 @@ class _CallTextNowState extends State<CallTextNow> {
       appBar: Header(onBackButtonPressed: () {
         print("back button was pressed from calltext");
       }),
-      bottomNavigationBar: const CustomNavBar(
-        currentPage: 'Profile',
+      bottomNavigationBar: CustomNavBar(
+        currentPage: 'Seek Help',
+        seekHelpRoute: '/callTextNow',
+        profileRoute: '/profile',
+        resourcesRoute: '/comingSoonResources',
       ),
       body: Padding(
         padding: EdgeInsets.symmetric(
