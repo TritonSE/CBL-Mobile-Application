@@ -9,6 +9,7 @@ import 'package:call_black_line/widgets/password_field.dart';
 import 'package:call_black_line/widgets/or_divider.dart';
 import 'package:call_black_line/widgets/social_media_button.dart';
 import '../widgets/cbl.dart';
+import 'package:email_validator/email_validator.dart';
 
 import 'package:call_black_line/auth_methods.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -63,7 +64,7 @@ class _TakeActionPageState extends State<TakeActionPage> {
   int createBlue = 0xff428BCD;
 
   final TextEditingController _passwordController = TextEditingController();
-  final TextEditingController _usernameController = TextEditingController();
+  final TextEditingController _emailController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -102,9 +103,9 @@ class _TakeActionPageState extends State<TakeActionPage> {
               InputField(
                   borderColor: CBL.primaryOrange,
                   textColor: CBL.lightGray,
-                  text: 'Username',
+                  text: 'Email',
                   icon: Icons.person,
-                  titleController: _usernameController),
+                  titleController: _emailController),
               PasswordField(
                   text: 'Password',
                   borderColor: CBL.primaryOrange,
@@ -133,7 +134,23 @@ class _TakeActionPageState extends State<TakeActionPage> {
                     ],
                   ),
                   GestureDetector(
-                    onTap: () {},
+                    onTap: () async {
+                      String snackBarText = "";
+
+                      if (!EmailValidator.validate(_emailController.text)) {
+                        snackBarText = "Error: Please enter a valid email.";
+                      } else {
+                        snackBarText =
+                            'Password reset email sent to: ${_emailController.text}';
+                        await context
+                            .read<AuthenticationService>()
+                            .resetPassword(email: _emailController.text);
+                      }
+                      final snackBar = SnackBar(
+                        content: Text(snackBarText),
+                      );
+                      ScaffoldMessenger.of(context).showSnackBar(snackBar);
+                    },
                     child: Text(
                       "Forgot Password",
                       style: TextStyle(
@@ -153,11 +170,10 @@ class _TakeActionPageState extends State<TakeActionPage> {
                 child: OrangeButton(
                   buttonText: 'Sign In',
                   onTap: () async {
-                    //once we can get input from the user, replace this with user input
                     Future<Object> result = context
                         .read<AuthenticationService>()
                         .signIn(
-                            email: _usernameController.text,
+                            email: _emailController.text,
                             password: _passwordController.text);
 
                     Object returnedObject = await result;
