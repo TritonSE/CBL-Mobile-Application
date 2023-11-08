@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "17325984042-bt3eialgl0tsq99qsoj2bibsetc8gnnd.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.tse.cbl.call_black_line",
+            "certificate_hash": "b58aeccfce4b9e61526919526b113ab08e63ad0b"
+          }
+        },
+        {
           "client_id": "17325984042-d8kefcd51ctrpbh79op3d5pcf2bpjlb2.apps.googleusercontent.com",
           "client_type": 3
         }
@@ -30,6 +38,13 @@
             {
               "client_id": "17325984042-7sir994ll9a31buvbhu3m2l2lfltq5t5.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "17325984042-52pfuujjtghp663p1s7uafhqfcfaat3l.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.tse.cbl.callBlackLine"
+              }
             }
           ]
         }

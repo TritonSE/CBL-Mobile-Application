@@ -13,9 +13,7 @@ class SocialMedia extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var mediaWidth = MediaQuery.of(context).size.width;
-    final FirebaseAuth _auth = FirebaseAuth.instance;
-    final GoogleSignIn googleSignIn = GoogleSignIn();
-    final FacebookLogin facebookLogin = FacebookLogin();
+    // final FacebookLogin facebookLogin = FacebookLogin();
 
     return Flex(
       direction:
