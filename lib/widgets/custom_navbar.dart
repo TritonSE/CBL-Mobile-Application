@@ -10,9 +10,9 @@ class CustomNavBar extends StatelessWidget {
   const CustomNavBar(
       {super.key,
       required this.currentPage,
-      this.resourcesRoute: 'None',
-      this.seekHelpRoute: 'None',
-      this.profileRoute: 'None'});
+      this.resourcesRoute= 'None',
+      this.seekHelpRoute= 'None',
+      this.profileRoute= 'None'});
 
   @override
   Widget build(BuildContext context) {
