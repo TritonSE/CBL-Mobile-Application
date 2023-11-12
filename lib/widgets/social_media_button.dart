@@ -11,57 +11,17 @@ class SocialMedia extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         SizedBox(
-          width: CBL.boxWidth,
+          width: 325,
           height: CBL.boxHeight,
           child: GestureDetector(
             child: Container(
               decoration: BoxDecoration(
                 border: Border.all(
-                  color: Color(CBL.fbBlue),
-                  width: CBL.containerWidth,
+                  color: Color(CBL.black),
+                  width: CBL.thickness,
                 ),
                 borderRadius: const BorderRadius.all(
-                  Radius.circular(CBL.borderRadiusLarge),
-                ),
-              ),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.only(right: CBL.paddingRight),
-                    child: Image.asset(
-                      'assets/images/facebook.png',
-                    ),
-                  ),
-                  Center(
-                    child: Text(
-                      'Facebook',
-                      style: TextStyle(
-                        fontSize: CBL.fontSize,
-                        fontFamily: CBL.fontFamily,
-                        fontWeight: CBL.bold,
-                        color: Color(CBL.fbBlue),
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            onTap: () {},
-          ),
-        ),
-        SizedBox(
-          width: CBL.boxWidth,
-          height: CBL.boxHeight,
-          child: GestureDetector(
-            child: Container(
-              decoration: BoxDecoration(
-                border: Border.all(
-                  color: Color(CBL.googleGreen),
-                  width: 2,
-                ),
-                borderRadius: const BorderRadius.all(
-                  Radius.circular(CBL.borderRadiusLarge),
+                  Radius.circular(24),
                 ),
               ),
               child: Row(
@@ -75,12 +35,12 @@ class SocialMedia extends StatelessWidget {
                   ),
                   Center(
                     child: Text(
-                      'Google',
+                      'Continue with Google',
                       style: TextStyle(
                         fontSize: CBL.fontSize,
                         fontFamily: CBL.fontFamily,
                         fontWeight: CBL.bold,
-                        color: Color(CBL.googleGreen),
+                        color: Color(CBL.black),
                       ),
                     ),
                   ),
@@ -88,6 +48,51 @@ class SocialMedia extends StatelessWidget {
               ),
             ),
             onTap: () {},
+          ),
+        ),
+        SizedBox(
+          height: CBL.padding,
+        ),
+        SizedBox(
+          width: 325,
+          height: CBL.boxHeight,
+          child: GestureDetector(
+            child: Container(
+              decoration: BoxDecoration(
+                border: Border.all(
+                  color: Color(CBL.black),
+                  width: CBL.thickness,
+                ),
+                borderRadius: const BorderRadius.all(
+                  Radius.circular(24),
+                ),
+              ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(right: CBL.paddingRight),
+                    child: Image.asset(
+                      'assets/images/facebook.png',
+                    ),
+                  ),
+                  Center(
+                    child: Text(
+                      'Continue with Facebook',
+                      style: TextStyle(
+                        fontSize: CBL.fontSize,
+                        fontFamily: CBL.fontFamily,
+                        fontWeight: CBL.bold,
+                        color: Color(CBL.black),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            onTap: () {
+              print("you clicked me");
+            },
           ),
         ),
       ],

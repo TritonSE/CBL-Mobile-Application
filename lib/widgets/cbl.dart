@@ -44,7 +44,7 @@ class CBL {
   static const double paddingRight = 14.5;
   static const double fontSizeSmall = 12;
   static const double fontSize = 20;
-  static const double fontSizeLarge = 34;
+  static const double fontSizeLarge = 30;
   static const double letterSpacing = 0.4;
 
   static const double horizontalPadding = 8.0;

@@ -5,12 +5,14 @@ class PasswordField extends StatefulWidget {
   String text;
   int borderColor;
   int textColor;
+  double bottomPadding;
   bool hideText = true;
   TextEditingController titleController;
   PasswordField(
       {super.key,
       required this.text,
       required this.borderColor,
+      required this.bottomPadding,
       required this.textColor,
       required this.titleController});
 
@@ -37,7 +39,8 @@ class _PasswordFieldState extends State<PasswordField> {
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsets.only(
-        top: CBL.padding,
+        top: CBL.horizontalPadding,
+        bottom: widget.bottomPadding,
       ),
       child: SizedBox(
         width: double.infinity,
@@ -55,29 +58,29 @@ class _PasswordFieldState extends State<PasswordField> {
               ),
               prefixIcon: Icon(
                 Icons.lock,
-                color: Color(widget.borderColor),
+                color: Color(CBL.primaryOrange),
               ),
               suffixIcon: IconButton(
                 icon: widget.hideText
                     ? Icon(
                         Icons.visibility_off,
-                        color: Color(widget.borderColor),
+                        color: Color(CBL.primaryOrange),
                       )
                     : Icon(
                         Icons.visibility,
-                        color: Color(widget.borderColor),
+                        color: Color(CBL.primaryOrange),
                       ),
                 onPressed: _toggle,
               ),
               enabledBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(CBL.borderRadiusLarge),
+                borderRadius: BorderRadius.circular(CBL.borderRadiusSmall),
                 borderSide: BorderSide(
                   width: 1,
                   color: Color(widget.borderColor),
                 ),
               ),
               focusedBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(CBL.borderRadiusLarge),
+                borderRadius: BorderRadius.circular(CBL.borderRadiusSmall),
                 borderSide: BorderSide(
                   width: 1,
                   color: Color(widget.borderColor),

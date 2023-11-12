@@ -40,6 +40,7 @@ class TextInputField extends StatelessWidget {
         InputField(
             paddingTop: paddingTop,
             borderColor: inputOutlineColor,
+            iconColor: inputOutlineColor,
             textColor: inputTextColor,
             text: inputText,
             titleController: titleController,

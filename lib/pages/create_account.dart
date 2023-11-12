@@ -78,49 +78,92 @@ class _CreateAccountState extends State<CreateAccount> {
                 topPadding: 24,
                 bottomPadding: CBL.padding,
               ),
+              // Text(
+              //   'Sign Up',
+              //   style: TextStyle(
+              //       fontSize: 22,
+              //       fontFamily: CBL.fontFamily,
+              //       fontWeight: CBL.bold),
+              // ),
               Text(
-                'Sign Up',
+                'Name',
                 style: TextStyle(
-                    fontSize: 22,
+                  fontSize: 17,
+                  color: Color(CBL.primaryOrange),
+                  fontFamily: CBL.fontFamily,
+                  fontWeight: CBL.bold),
+              ),
+
+              InputField(
+                  borderColor: CBL.black,
+                  iconColor: CBL.primaryOrange,
+                  textColor: CBL.lightGray,
+                  text: 'Type here...',
+                  icon: Icons.person,
+                  titleController: _usernameController),
+              Text(
+                'Email',
+                style: TextStyle(
+                    fontSize: 17,
+                    color: Color(CBL.primaryVariantOrange),
                     fontFamily: CBL.fontFamily,
                     fontWeight: CBL.bold),
               ),
               InputField(
-                  borderColor: CBL.primaryOrange,
+                  borderColor: CBL.black,
+                  iconColor: CBL.primaryOrange,
                   textColor: CBL.lightGray,
-                  text: 'Username',
-                  icon: Icons.person,
-                  titleController: _usernameController),
-              InputField(
-                  borderColor: CBL.primaryOrange,
-                  textColor: CBL.lightGray,
-                  text: 'Email',
+                  text: 'Type here...',
                   icon: Icons.mail,
                   titleController: _emailController),
+              Text(
+                'Phone Number',
+                style: TextStyle(
+                    fontSize: 17,
+                    color: Color(CBL.primaryOrange),
+                    fontFamily: CBL.fontFamily,
+                    fontWeight: CBL.bold),
+              ),
               InputField(
-                  borderColor: CBL.primaryOrange,
+                  borderColor: CBL.black,
+                  iconColor: CBL.primaryOrange,
                   textColor: CBL.lightGray,
-                  text: '+1 000 000 000',
+                  text: 'Type here...',
                   icon: Icons.phone,
                   titleController: _phoneNumberController),
+              Text(
+                'Password',
+                style: TextStyle(
+                    fontSize: 17,
+                    color: Color(CBL.primaryOrange),
+                    fontFamily: CBL.fontFamily,
+                    fontWeight: CBL.bold),
+              ),
               PasswordField(
                   text: 'Password',
-                  borderColor: CBL.primaryOrange,
+                  borderColor: CBL.black,
                   textColor: CBL.lightGray,
+                  bottomPadding: 40,
                   titleController: _passwordController),
+              Text(
+                'Password Confirm',
+                style: TextStyle(
+                    fontSize: 17,
+                    color: Color(CBL.primaryOrange),
+                    fontFamily: CBL.fontFamily,
+                    fontWeight: CBL.bold),
+              ),
               PasswordField(
                   text: 'Password Confirm',
-                  borderColor: CBL.primaryOrange,
+                  borderColor: CBL.black,
                   textColor: CBL.lightGray,
+                  bottomPadding: 40,
                   titleController: _confirmPasswordController),
-              const SizedBox(
-                height: 8,
-              ),
               Row(
                 children: [
                   //takes care of TOS agreeement, signUpTOSCheck stores whether or not the checkbox is checked
                   CheckBoxText(
-                    boxColor: CBL.blue,
+                    boxColor: CBL.primaryOrange,
                     onCheckboxChanged: (value) => {
                       setState(() {
                         signUpTOSCheck = value;
@@ -137,13 +180,13 @@ class _CreateAccountState extends State<CreateAccount> {
                             recognizer: TapGestureRecognizer()
                               ..onTap = _launchTOSUrl,
                             style: TextStyle(
-                              color: Color(CBL.blue),
+                              color: Color(CBL.primaryOrange),
                             ),
                           )
                         ],
                         style: TextStyle(
                             color: Color(CBL.black),
-                            fontSize: 15,
+                            fontSize: 17,
                             fontWeight: FontWeight.w400,
                             fontFamily: CBL.fontFamily),
                       ),
@@ -219,14 +262,7 @@ class _CreateAccountState extends State<CreateAccount> {
               const SizedBox(
                 height: 10,
               ),
-              OrDivider(),
-              const SizedBox(
-                height: 10,
-              ),
-              SocialMedia(),
-              const SizedBox(
-                height: 10,
-              )
+
             ],
           ),
         ),

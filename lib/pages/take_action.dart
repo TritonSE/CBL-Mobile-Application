@@ -89,133 +89,168 @@ class _TakeActionPageState extends State<TakeActionPage> {
                 topPadding: 24.5,
                 bottomPadding: CBL.padding,
               ),
-              Text(
-                'Login',
-                style: TextStyle(
-                    fontWeight: CBL.bold,
-                    fontSize: 22,
-                    fontFamily: CBL.fontFamily),
+              // Text(
+              //   'Login',
+              //   style: TextStyle(
+              //       fontWeight: CBL.bold,
+              //       fontSize: 22,
+              //       fontFamily: CBL.fontFamily),
+              // ),
+              const SizedBox(
+                height: 40,
               ),
+              // InputField(
+              //     borderColor: CBL.primaryOrange,
+              //     iconColor: CBL.primaryOrange,
+              //     textColor: CBL.lightGray,
+              //     text: 'Email',
+              //     icon: Icons.person,
+              //     titleController: _emailController),
+              // PasswordField(
+              //     text: 'Password',
+              //     borderColor: CBL.primaryOrange,
+              //     textColor: CBL.lightGray,
+              //     titleController: _passwordController),
+              // const SizedBox(
+              //   height: 8,
+              // ),
+              // Row(
+              //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              //   children: [
+              //     Row(
+              //       children: [
+              //         CheckBoxText(
+              //           boxColor: CBL.blue,
+              //           onCheckboxChanged: (value) => {},
+              //         ),
+              //         Text(
+              //           'Remember me',
+              //           style: TextStyle(
+              //             fontFamily: CBL.fontFamily,
+              //             fontSize: 15,
+              //             fontWeight: CBL.bold,
+              //           ),
+              //         ),
+              //       ],
+              //     ),
+              //     GestureDetector(
+              //       onTap: () async {
+              //         String snackBarText = "";
+              //
+              //         if (!EmailValidator.validate(_emailController.text)) {
+              //           snackBarText = "Error: Please enter a valid email.";
+              //         } else {
+              //           snackBarText =
+              //               'Password reset email sent to: ${_emailController.text}';
+              //           await context
+              //               .read<AuthenticationService>()
+              //               .resetPassword(email: _emailController.text);
+              //         }
+              //         final snackBar = SnackBar(
+              //           content: Text(snackBarText),
+              //         );
+              //         ScaffoldMessenger.of(context).showSnackBar(snackBar);
+              //       },
+              //       child: Text(
+              //         "Forgot Password",
+              //         style: TextStyle(
+              //           color: Color(CBL.lightGray),
+              //           fontFamily: CBL.fontFamily,
+              //           fontSize: 15,
+              //         ),
+              //       ),
+              //     )
+              //   ],
+              // ),
+
+              SocialMedia(),
               const SizedBox(
                 height: 24,
               ),
-              InputField(
-                  borderColor: CBL.primaryOrange,
-                  textColor: CBL.lightGray,
-                  text: 'Email',
-                  icon: Icons.person,
-                  titleController: _emailController),
-              PasswordField(
-                  text: 'Password',
-                  borderColor: CBL.primaryOrange,
-                  textColor: CBL.lightGray,
-                  titleController: _passwordController),
-              const SizedBox(
-                height: 8,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Row(
-                    children: [
-                      CheckBoxText(
-                        boxColor: CBL.blue,
-                        onCheckboxChanged: (value) => {},
+              // Align(
+              //   alignment: Alignment.centerRight,
+              //   child: OrangeButton(
+              //     buttonText: 'Sign In',
+              //     onTap: () async {
+              //       Future<Object> result = context
+              //           .read<AuthenticationService>()
+              //           .signIn(
+              //               email: _emailController.text,
+              //               password: _passwordController.text);
+              //
+              //       Object returnedObject = await result;
+              //       int returnedStatus =
+              //           (returnedObject.runtimeType == int) ? 400 : 0;
+              //
+              //       //print(firebaseuser!.email);
+              //
+              //       if (returnedStatus == 400) {
+              //         Navigator.pushNamed(context, '/callTextNow');
+              //       } else {
+              //         String returnedMessage = returnedObject.toString();
+              //         ScaffoldMessenger.of(context).hideCurrentSnackBar();
+              //         ScaffoldMessenger.of(context).showSnackBar(
+              //           SnackBar(
+              //             content: Text(returnedMessage),
+              //           ),
+              //         );
+              //       }
+              //     },
+              //   ),
+              // ),
+              SizedBox(
+                height: CBL.boxHeight,
+                width: 325,
+                child: GestureDetector(
+                  onTap: () =>
+                      Navigator.pushNamed(context, '/logIn'),
+                  child: Container(
+                    decoration: BoxDecoration(
+                      borderRadius: const BorderRadius.all(
+                        Radius.circular(24),
                       ),
-                      Text(
-                        'Remember me',
+                      color: Color(CBL.primaryOrange),
+                    ),
+                    child: Center(
+                      child: Text(
+                        'Log In',
                         style: TextStyle(
-                          fontFamily: CBL.fontFamily,
-                          fontSize: 15,
-                          fontWeight: CBL.bold,
-                        ),
-                      ),
-                    ],
-                  ),
-                  GestureDetector(
-                    onTap: () async {
-                      String snackBarText = "";
-
-                      if (!EmailValidator.validate(_emailController.text)) {
-                        snackBarText = "Error: Please enter a valid email.";
-                      } else {
-                        snackBarText =
-                            'Password reset email sent to: ${_emailController.text}';
-                        await context
-                            .read<AuthenticationService>()
-                            .resetPassword(email: _emailController.text);
-                      }
-                      final snackBar = SnackBar(
-                        content: Text(snackBarText),
-                      );
-                      ScaffoldMessenger.of(context).showSnackBar(snackBar);
-                    },
-                    child: Text(
-                      "Forgot Password",
-                      style: TextStyle(
-                        color: Color(CBL.lightGray),
-                        fontFamily: CBL.fontFamily,
-                        fontSize: 15,
+                            fontSize: CBL.fontSize,
+                            fontFamily: CBL.fontFamily,
+                            fontWeight: CBL.bold,
+                            color: Colors.white),
                       ),
                     ),
-                  )
-                ],
-              ),
-              const SizedBox(
-                height: 24,
-              ),
-              Align(
-                alignment: Alignment.centerRight,
-                child: OrangeButton(
-                  buttonText: 'Sign In',
-                  onTap: () async {
-                    Future<Object> result = context
-                        .read<AuthenticationService>()
-                        .signIn(
-                            email: _emailController.text,
-                            password: _passwordController.text);
-
-                    Object returnedObject = await result;
-                    int returnedStatus =
-                        (returnedObject.runtimeType == int) ? 400 : 0;
-
-                    if (returnedStatus == 400) {
-                      Navigator.pushNamed(context, '/callTextNow');
-                    } else {
-                      String returnedMessage = returnedObject.toString();
-                      ScaffoldMessenger.of(context).hideCurrentSnackBar();
-                      ScaffoldMessenger.of(context).showSnackBar(
-                        SnackBar(
-                          content: Text(returnedMessage),
-                        ),
-                      );
-                    }
-                  },
+                  ),
                 ),
               ),
+
               const SizedBox(
-                height: 35,
+                height: 12,
               ),
               OrDivider(),
               const SizedBox(
                 height: 12,
               ),
-              SocialMedia(),
+
               Padding(
-                padding: const EdgeInsets.only(top: 24.0),
+                padding: EdgeInsets.only(top: CBL.padding),
                 child: Center(
-                  child: Flex(
-                    direction:
-                        mediaWidth < 380 ? Axis.vertical : Axis.horizontal,
-                    mainAxisAlignment: MainAxisAlignment.center,
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    // direction:
+                    //     mediaWidth < 380 ? Axis.vertical : Axis.horizontal,
+                    // mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(
                         'Don\'t have an account? ',
                         style: TextStyle(
-                          color: Color(veryLightGray),
+                          color: Color(CBL.textGray),
                           fontFamily: CBL.fontFamily,
                           fontSize: 17,
                         ),
+                      ),
+                      const SizedBox(
                       ),
                       GestureDetector(
                         onTap: () =>
@@ -223,7 +258,7 @@ class _TakeActionPageState extends State<TakeActionPage> {
                         child: Text(
                           "Create new one",
                           style: TextStyle(
-                            color: Color(createBlue),
+                            color: Color(CBL.primaryOrange),
                             fontFamily: CBL.fontFamily,
                             fontSize: 17,
                             fontWeight: FontWeight.w700,
