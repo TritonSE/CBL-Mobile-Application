@@ -106,27 +106,35 @@ class AuthenticationService {
     return user;
   }
 
-  Future<User?> signInWithFacebook({required BuildContext context}) async {
-    FirebaseAuth auth = FirebaseAuth.instance;
-    User? user;
+  Future<UserCredential> signInWithFacebook() async {
+    // FirebaseAuth auth = FirebaseAuth.instance;
+    // User? user;
+    // final LoginResult loginResult = await FacebookAuth.instance.login();
+
+    // if (loginResult.status == LoginStatus.success) {
+    //   final OAuthCredential facebookAuthCredential =
+    //       FacebookAuthProvider.credential(loginResult.accessToken!.token);
+
+    //   try {
+    //     final UserCredential usercredential =
+    //         await auth.signInWithCredential(facebookAuthCredential);
+
+    //     user = usercredential.user;
+    //   } on FirebaseAuthException catch (e) {
+    //     return null;
+    //   } catch (e) {
+    //     return null;
+    //   }
+
+    //   return user;
+    // }
     final LoginResult loginResult = await FacebookAuth.instance.login();
 
-    if (loginResult.status == LoginStatus.success) {
-      final OAuthCredential facebookAuthCredential =
-          FacebookAuthProvider.credential(loginResult.accessToken!.token);
+    // Create a credential from the access token
+    final OAuthCredential facebookAuthCredential =
+        FacebookAuthProvider.credential(loginResult.accessToken!.token);
 
-      try {
-        final UserCredential usercredential =
-            await auth.signInWithCredential(facebookAuthCredential);
-
-        user = usercredential.user;
-      } on FirebaseAuthException catch (e) {
-        return null;
-      } catch (e) {
-        return null;
-      }
-
-      return user;
-    }
+    // Once signed in, return the UserCredential
+    return FirebaseAuth.instance.signInWithCredential(facebookAuthCredential);
   }
 }

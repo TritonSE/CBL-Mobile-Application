@@ -58,9 +58,9 @@ class SocialMedia extends StatelessWidget {
               ),
             ),
             onTap: () async {
-              User? user = await context
+              UserCredential? user = await context
                   .read<AuthenticationService>()
-                  .signInWithFacebook(context: context);
+                  .signInWithFacebook();
 
               if (user != null) {
                 Navigator.pushNamed(context, '/callTextNow');
