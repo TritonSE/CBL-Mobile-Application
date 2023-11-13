@@ -69,6 +69,40 @@ class SignUpUtils {
     }
   }
 
+  Future<Object> signUpGoogle(BuildContext context) async {
+    try {
+      UserCredential? result =
+          await context.read<AuthenticationService>().altSignInWithGoogle();
+
+      if (result == null) {
+        return 0;
+      } else {
+        //get the current user's uid
+        final User firebaseuser = FirebaseAuth.instance.currentUser!;
+        String uid = firebaseuser.uid;
+
+        // Check if the user is new or existing
+        bool isNewUser = result.additionalUserInfo!.isNewUser;
+
+        if (isNewUser) {
+          // This means a new account was created
+          // Add the user to the database
+          UserData user = UserData(
+              username: firebaseuser.email!.split("@")[0],
+              phoneNumber: "0000000000",
+              email: firebaseuser.email!);
+          userRepository.addUser(user, uid);
+        }
+
+        return 400;
+      }
+    } catch (e) {
+      return {'status': 'ERROR', 'message': e.toString()};
+    }
+
+    return 400;
+  }
+
   Future<Object> deleteAccount(BuildContext context, String id) async {
     try {
       int result = context

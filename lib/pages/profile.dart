@@ -26,7 +26,14 @@ class Profile extends StatelessWidget {
       DocumentSnapshot<Map<String, dynamic>> docSnapshot = await docRef.get();
 
       //return the username of the document gotten
-      return docSnapshot['username'];
+      if (docSnapshot.data() == null ||
+          !docSnapshot.data()!.containsKey('username')) {
+        return "temp";
+      } else {
+        return docSnapshot.get('username');
+      }
+
+      //return docSnapshot.get('username');
     } catch (e) {
       Navigator.pushNamed(context, '/takeAction');
       return " ";
