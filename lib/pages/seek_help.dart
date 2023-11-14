@@ -70,20 +70,22 @@ class _SeekHelpState extends State<SeekHelp> {
     final firebaseuser = context.watch<User?>();
 
     return Scaffold(
-        resizeToAvoidBottomInset: false,
-        backgroundColor: Colors.white,
-        bottomNavigationBar: const CustomNavBar(
-          currentPage: 'Seek Help',
-          resourcesRoute: '/comingSoonResources',
-          seekHelpRoute: '/seekHelp',
-          profileRoute: '/profile',
-        ), //Available: Resources, Seek Help, Profile
-        appBar: Header(
-            isHome: true,
-            onBackButtonPressed: () {
-              //placeholder
-            }),
-        body: SingleChildScrollView(
+      resizeToAvoidBottomInset: false,
+      backgroundColor: Colors.white,
+      bottomNavigationBar: const CustomNavBar(
+        currentPage: 'Seek Help',
+        resourcesRoute: '/resources',
+        seekHelpRoute: '/seekHelp',
+        profileRoute: '/profile',
+      ), //Available: Resources, Seek Help, Profile
+      appBar: Header(
+          isHome: true,
+          onBackButtonPressed: () {
+            //placeholder
+          }),
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: EdgeInsets.symmetric(horizontal: CBL.padding),
           child: Column(
             children: [
               Stack(

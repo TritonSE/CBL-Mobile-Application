@@ -1,15 +1,16 @@
+import 'package:call_black_line/widgets/cbl.dart';
 import 'package:flutter/material.dart';
-import 'package:call_black_line/pages/resources.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
-/*
- * This file contains the generic format for categories used in the
- * first page of the resources flow 
- */
 class CategorySquare extends StatelessWidget {
   final String catText;
-  final IconData icon;
+  final String icon;
+  final String page;
   const CategorySquare(
-      {Key? key, this.catText = 'category_name', required this.icon})
+      {Key? key,
+      this.catText = 'category_name',
+      required this.icon,
+      required this.page})
       : super(key: key);
 
   Widget build(BuildContext context) {
@@ -19,9 +20,10 @@ class CategorySquare extends StatelessWidget {
           child: Container(
             height: 171,
             decoration: BoxDecoration(
-              color: themeColor,
-              borderRadius: BorderRadius.all(const Radius.circular(16)),
-            ),
+                color: Colors.white,
+                borderRadius: const BorderRadius.all(Radius.circular(16)),
+                border: Border.all(color: Color(CBL.lightGray), width: 1.5),
+                boxShadow: const [CBL.boxShadow]),
             child: Padding(
               padding: const EdgeInsets.all(18.0),
               child: Column(
@@ -29,8 +31,10 @@ class CategorySquare extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   // Setting icon for category box
-                  Icon(icon, color: Colors.black),
-                  SizedBox(
+                  SvgPicture.asset(
+                    "assets/icons/$icon.svg",
+                  ),
+                  const SizedBox(
                     height: 6,
                   ),
                   Expanded(
@@ -38,9 +42,9 @@ class CategorySquare extends StatelessWidget {
                     child: Text(
                       catText,
                       style: const TextStyle(
-                          fontSize: 20,
+                          fontSize: 19,
                           fontFamily: 'Inter',
-                          fontWeight: FontWeight.w500,
+                          fontWeight: FontWeight.w600,
                           color: Colors.black),
                     ),
                   )
@@ -50,9 +54,8 @@ class CategorySquare extends StatelessWidget {
           ),
           // Adding routing when box is clicked
           onTap: () {
-            Navigator.pushNamed(context, '/category_name');
+            Navigator.pushNamed(context, '/$page');
           },
-        )
-    );
+        ));
   }
 }

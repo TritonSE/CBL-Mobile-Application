@@ -12,10 +12,8 @@ class ComingSoonResources extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      appBar: Header(onBackButtonPressed: () {
-        Navigator.pushNamed(context, '/callTextNow');
-      }),
-      bottomNavigationBar: const CustomNavBar(
+      // appBar: const Header(),
+      bottomNavigationBar: CustomNavBar(
         currentPage: 'Resources',
         resourcesRoute: '/comingSoonResources',
         seekHelpRoute: '/seekHelp',

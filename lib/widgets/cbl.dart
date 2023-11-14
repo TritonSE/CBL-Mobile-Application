@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 class CBL {
+  static int backgroundColor = 0xffF9F9F9;
   static int primaryOrange = 0xffDF742C;
   static int primaryVariantOrange = 0xffD55B26;
   static int black = 0xff000000;
@@ -19,8 +20,6 @@ class CBL {
   static const int rARGB = 206;
   static const int gARGB = 201;
   static const int bARGB = 201;
-
-
 
   static double thickness = 1;
 
@@ -77,4 +76,9 @@ class CBL {
   static const double inputHeight = 54;
   static const double fieldTitleFontSize = 17;
   static const double socialMediaLogoSize = 24;
+  static const BoxShadow boxShadow = BoxShadow(
+      color: Color.fromRGBO(0, 0, 0, 0.15),
+      offset: Offset(0, 5),
+      spreadRadius: 0,
+      blurRadius: 10);
 }
