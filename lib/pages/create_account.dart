@@ -1,6 +1,7 @@
 import 'package:call_black_line/widgets/cbl.dart';
 import 'package:call_black_line/widgets/checkbox_text.dart';
 import 'package:call_black_line/widgets/orange_button.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:call_black_line/widgets/custom_title.dart';
 import 'package:call_black_line/widgets/header.dart';
@@ -8,6 +9,7 @@ import 'package:call_black_line/widgets/input_field.dart';
 import 'package:call_black_line/widgets/or_divider.dart';
 import 'package:call_black_line/widgets/password_field.dart';
 import 'package:call_black_line/widgets/social_media_button.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import 'package:call_black_line/auth_methods.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -15,6 +17,9 @@ import 'package:provider/provider.dart';
 import '../testimonial.dart';
 import '../user.dart';
 import '../big_auth.dart';
+
+final Uri _tos_url =
+    Uri.parse('https://www.callblackline.com/terms-of-service');
 
 class CreateAccount extends StatefulWidget {
   const CreateAccount({super.key});
@@ -42,6 +47,12 @@ class _CreateAccountState extends State<CreateAccount> {
   var _password;
   Color getColor(Set<MaterialState> states) {
     return Color(CBL.blue);
+  }
+
+  Future<void> _launchTOSUrl() async {
+    if (!await launchUrl(_tos_url)) {
+      throw Exception('Could not launch url');
+    }
   }
 
   @override
@@ -123,6 +134,8 @@ class _CreateAccountState extends State<CreateAccount> {
                         children: [
                           TextSpan(
                             text: 'Term of service and privacy policy',
+                            recognizer: TapGestureRecognizer()
+                              ..onTap = _launchTOSUrl,
                             style: TextStyle(
                               color: Color(CBL.blue),
                             ),
