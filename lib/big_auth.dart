@@ -71,6 +71,7 @@ class SignUpUtils {
 
   Future<Object> signUpGoogle(BuildContext context) async {
     try {
+      UserRepository userRepository = UserRepository();
       UserCredential? result =
           await context.read<AuthenticationService>().altSignInWithGoogle();
 
@@ -84,14 +85,16 @@ class SignUpUtils {
         // Check if the user is new or existing
         bool isNewUser = result.additionalUserInfo!.isNewUser;
 
-        if (isNewUser) {
+        if (true) {
           // This means a new account was created
           // Add the user to the database
           UserData user = UserData(
               username: firebaseuser.email!.split("@")[0],
               phoneNumber: "0000000000",
               email: firebaseuser.email!);
-          userRepository.addUser(user, uid);
+
+          Object obj = userRepository.addUser(user, uid);
+          print(obj);
         }
 
         return 400;

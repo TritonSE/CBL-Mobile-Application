@@ -6,6 +6,7 @@ import 'package:provider/provider.dart';
 import 'package:flutter_login_facebook/flutter_login_facebook.dart';
 
 import '../auth_methods.dart';
+import '../big_auth.dart';
 
 class SocialMedia extends StatelessWidget {
   const SocialMedia({super.key});
@@ -165,12 +166,10 @@ class SocialMedia extends StatelessWidget {
             ),
             onTap: () async {
               //sign in or sign up with google
-              UserCredential? userCred = await context
-                  .read<AuthenticationService>()
-                  .altSignInWithGoogle();
-              print("In social media button, user is $userCred");
+              final SignUpUtils signUpUtils = SignUpUtils();
+              Object result = await signUpUtils.signUpGoogle(context);
 
-              if (userCred != null) {
+              if (result == 400) {
                 Navigator.pushNamed(context, '/callTextNow');
               }
             },

@@ -74,6 +74,8 @@ dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
      // Import the Firebase BoM
   implementation platform('com.google.firebase:firebase-bom:32.5.0')
+  implementation 'com.google.firebase:firebase-firestore:24.0.1'  // Check for the latest version
+
 
 
   // TODO: Add the dependencies for Firebase products you want to use
