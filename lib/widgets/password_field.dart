@@ -95,7 +95,6 @@ class _PasswordFieldState extends State<PasswordField> {
             color: Color(CBL.black),
             fontWeight: CBL.bold,
             fontFamily: CBL.fontFamily,
-            //height: CBL.textHeight,
           ),
         ),
       ),

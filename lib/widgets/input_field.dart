@@ -86,7 +86,6 @@ class _InputFieldState extends State<InputField> {
             color: Color(CBL.black),
             fontWeight: CBL.bold,
             fontFamily: CBL.fontFamily,
-            //height: CBL.textHeight,
           ),
         ),
       ),

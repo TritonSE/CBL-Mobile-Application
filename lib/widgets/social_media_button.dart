@@ -24,8 +24,8 @@ class SocialMedia extends StatelessWidget {
                   Radius.circular(24),
                 ),
                boxShadow: [
-                BoxShadow(
-                color:  Color(0x2b000000),
+                const BoxShadow(
+                color: const Color(0x2b000000),
                   offset: const Offset(
                     0,
                     2,
@@ -33,8 +33,8 @@ class SocialMedia extends StatelessWidget {
                   blurRadius: 3,
                   spreadRadius: 0,
                 ), //BoxShadow
-                BoxShadow(
-                  color:  Colors.white,
+                const BoxShadow(
+                  color: Colors.white,
                   offset: const Offset(0.0, 0.0),
                   blurRadius: 0.0,
                   spreadRadius: 0.0,
@@ -42,8 +42,6 @@ class SocialMedia extends StatelessWidget {
                ],
               ),
               child: Stack(
-                //mainAxisAlignment: MainAxisAlignment.start,
-                //mainAxisSize: MainAxisSize.max,
                 children: [
                   Align(
                     alignment: Alignment.centerLeft,
@@ -61,7 +59,6 @@ class SocialMedia extends StatelessWidget {
                   Align(
                     alignment: Alignment.center,
                     child: SizedBox(
-                    //width: double.infinity,
                       child: Text(
                         'Continue with Google',
                         textAlign: TextAlign.center,

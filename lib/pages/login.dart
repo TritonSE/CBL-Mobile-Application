@@ -91,13 +91,6 @@ class _LogInPageState extends State<LogInPage> {
                 topPadding: 24.5,
                 bottomPadding: CBL.padding,
               ),
-              // Text(
-              //   'Login',
-              //   style: TextStyle(
-              //       fontWeight: CBL.bold,
-              //       fontSize: 22,
-              //       fontFamily: CBL.fontFamily),
-              // ),
               const SizedBox(
                 height: 40,
               ),
@@ -191,8 +184,6 @@ class _LogInPageState extends State<LogInPage> {
                   height: CBL.boxHeight,
                   //width: 325,
                   child: GestureDetector(
-                    // onTap: () =>
-                    //     Navigator.pushNamed(context, '/logIn'),
                     onTap: () async {
                       Future<Object> result = context
                           .read<AuthenticationService>()
@@ -227,7 +218,7 @@ class _LogInPageState extends State<LogInPage> {
                       ),
                       child: Center(
                         child: Text(
-                          'Sign Up',
+                          'Sign In',
                           style: TextStyle(
                               fontSize: CBL.fontSize,
                               fontFamily: CBL.fontFamily,
@@ -239,42 +230,6 @@ class _LogInPageState extends State<LogInPage> {
                   ),
                 ),
               ),
-
-              // Align(
-              //   alignment: Alignment.centerRight,
-              //   child: OrangeButton(
-              //     buttonText: 'Sign In',
-              //     onTap: () async {
-              //       Future<Object> result = context
-              //           .read<AuthenticationService>()
-              //           .signIn(
-              //           email: _emailController.text,
-              //           password: _passwordController.text);
-              //
-              //       Object returnedObject = await result;
-              //       int returnedStatus =
-              //       (returnedObject.runtimeType == int) ? 400 : 0;
-              //
-              //       //print(firebaseuser!.email);
-              //
-              //       if (returnedStatus == 400) {
-              //         Navigator.pushNamed(context, '/callTextNow');
-              //       } else {
-              //         String returnedMessage = returnedObject.toString();
-              //         ScaffoldMessenger.of(context).hideCurrentSnackBar();
-              //         ScaffoldMessenger.of(context).showSnackBar(
-              //           SnackBar(
-              //             content: Text(returnedMessage),
-              //           ),
-              //         );
-              //       }
-              //     },
-              //   ),
-              // ),
-
-
-
-
             ],
           ),
         ),

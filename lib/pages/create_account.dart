@@ -79,13 +79,6 @@ class _CreateAccountState extends State<CreateAccount> {
                 topPadding: 24,
                 bottomPadding: CBL.padding,
               ),
-              // Text(
-              //   'Sign Up',
-              //   style: TextStyle(
-              //       fontSize: 22,
-              //       fontFamily: CBL.fontFamily,
-              //       fontWeight: CBL.bold),
-              // ),
               Text(
                 'Name',
                 style: TextStyle(
@@ -208,8 +201,6 @@ class _CreateAccountState extends State<CreateAccount> {
                   height: CBL.boxHeight,
                   //width: 325,
                   child: GestureDetector(
-                    // onTap: () =>
-                    //     Navigator.pushNamed(context, '/logIn'),
                     onTap: () async {
                       //make sure passwords are the same
                       if (_passwordController.text !=
@@ -275,7 +266,7 @@ class _CreateAccountState extends State<CreateAccount> {
                       ),
                       child: Center(
                         child: Text(
-                          'Sign Up',
+                          'Create Account',
                           style: TextStyle(
                               fontSize: CBL.fontSize,
                               fontFamily: CBL.fontFamily,
@@ -287,73 +278,6 @@ class _CreateAccountState extends State<CreateAccount> {
                   ),
                 ),
               ),
-              // Align(
-              //   alignment: Alignment.centerRight,
-              //   child: Padding(
-              //     padding: const EdgeInsets.only(top: 10.0),
-              //     child: OrangeButton(
-              //       buttonText: 'Sign Up',
-              //       onTap: () async {
-              //         //make sure passwords are the same
-              //         if (_passwordController.text !=
-              //             _confirmPasswordController.text) {
-              //           ScaffoldMessenger.of(context).hideCurrentSnackBar();
-              //           ScaffoldMessenger.of(context).showSnackBar(
-              //             const SnackBar(
-              //               content: Text('Passwords do not match'),
-              //             ),
-              //           );
-              //           return;
-              //         }
-              //         setState(() {
-              //           _email = _emailController.text;
-              //           _username = _usernameController.text;
-              //           _phoneNumber = _phoneNumberController.text;
-              //           _password = _passwordController.text;
-              //         });
-              //
-              //         print('Sign Up Button Pressed');
-              //         //make sure terms are agreed to
-              //         if (signUpTOSCheck == false) {
-              //           ScaffoldMessenger.of(context).hideCurrentSnackBar();
-              //           ScaffoldMessenger.of(context).showSnackBar(
-              //             SnackBar(
-              //               content: Text(
-              //                   "Please accept the terms of service and privacy policy"),
-              //             ),
-              //           );
-              //           return;
-              //         }
-              //
-              //         //sign up the user
-              //         final SignUpUtils signUpUtils = SignUpUtils();
-              //         Object result = await signUpUtils.signUp(
-              //             context,
-              //             _emailController.text,
-              //             _passwordController.text,
-              //             _usernameController.text,
-              //             _phoneNumberController.text);
-              //
-              //         //store result as an int
-              //         int intResult = (result.runtimeType == int) ? 400 : 0;
-              //         String stringResult = result.toString();
-              //
-              //         print("completed");
-              //         //if success, proceed as normal, if failure, show snackbar with error message
-              //         if (result == 400) {
-              //           Navigator.pushNamed(context, '/callTextNow');
-              //         } else {
-              //           ScaffoldMessenger.of(context).hideCurrentSnackBar();
-              //           ScaffoldMessenger.of(context).showSnackBar(
-              //             SnackBar(
-              //               content: Text(stringResult),
-              //             ),
-              //           );
-              //         }
-              //       },
-              //     ),
-              //   ),
-              // ),
               const SizedBox(
                 height: CBL.largePadding,
               ),
