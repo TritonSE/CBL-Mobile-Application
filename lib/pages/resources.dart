@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' hide SearchBar;
 import 'package:call_black_line/widgets/header.dart';
 import 'package:call_black_line/widgets/category_square.dart';
 import 'package:call_black_line/widgets/search_bar.dart';
