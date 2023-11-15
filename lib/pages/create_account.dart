@@ -18,7 +18,7 @@ import '../testimonial.dart';
 import '../user.dart';
 import '../big_auth.dart';
 
-final Uri _tos_url =
+final Uri _tosUrl =
     Uri.parse('https://www.callblackline.com/terms-of-service');
 
 class CreateAccount extends StatefulWidget {
@@ -50,7 +50,7 @@ class _CreateAccountState extends State<CreateAccount> {
   }
 
   Future<void> _launchTOSUrl() async {
-    if (!await launchUrl(_tos_url)) {
+    if (!await launchUrl(_tosUrl)) {
       throw Exception('Could not launch url');
     }
   }
