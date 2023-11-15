@@ -129,6 +129,8 @@ class Resources extends StatelessWidget {
             const ResourceNavCard(
               title: "Donations",
               page: "donations",
+              urlHost: "www.callblackline.com",
+              urlFragment: "donate",
               prefixIcon: "donation",
             ),
 
