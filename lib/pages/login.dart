@@ -84,9 +84,10 @@ class _LogInPageState extends State<LogInPage> {
             horizontal: CBL.padding,
           ),
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               CustomTitle(
-                text: 'Take Action Now',
+                text: 'Log In',
                 topPadding: 24.5,
                 bottomPadding: CBL.padding,
               ),
@@ -103,7 +104,7 @@ class _LogInPageState extends State<LogInPage> {
               Text(
                 'Email',
                 style: TextStyle(
-                    fontSize: 17,
+                    fontSize: CBL.fieldTitleFontSize,
                     color: Color(CBL.primaryVariantOrange),
                     fontFamily: CBL.fontFamily,
                     fontWeight: CBL.bold),
@@ -111,14 +112,14 @@ class _LogInPageState extends State<LogInPage> {
               InputField(
                   borderColor: CBL.black,
                   iconColor: CBL.primaryOrange,
-                  textColor: CBL.lightGray,
+                  textColor: CBL.gray,
                   text: 'Type here...',
                   icon: Icons.person,
                   titleController: _emailController),
               Text(
                 'Password',
                 style: TextStyle(
-                    fontSize: 17,
+                    fontSize: CBL.fieldTitleFontSize,
                     color: Color(CBL.primaryVariantOrange),
                     fontFamily: CBL.fontFamily,
                     fontWeight: CBL.bold),
@@ -126,7 +127,7 @@ class _LogInPageState extends State<LogInPage> {
               PasswordField(
                   text: 'Type here...',
                   borderColor: CBL.black,
-                  textColor: CBL.lightGray,
+                  textColor: CBL.gray,
                   bottomPadding: 16,
                   titleController: _passwordController),
               const SizedBox(
@@ -181,37 +182,95 @@ class _LogInPageState extends State<LogInPage> {
                 ],
               ),
 
-              Align(
-                alignment: Alignment.centerRight,
-                child: OrangeButton(
-                  buttonText: 'Sign In',
-                  onTap: () async {
-                    Future<Object> result = context
-                        .read<AuthenticationService>()
-                        .signIn(
-                        email: _emailController.text,
-                        password: _passwordController.text);
+              const SizedBox(
+                height: CBL.largePadding,
+              ),
+              Padding(padding: const EdgeInsets.only(left: 0, right: 0),
+                child:
+                SizedBox(
+                  height: CBL.boxHeight,
+                  //width: 325,
+                  child: GestureDetector(
+                    // onTap: () =>
+                    //     Navigator.pushNamed(context, '/logIn'),
+                    onTap: () async {
+                      Future<Object> result = context
+                          .read<AuthenticationService>()
+                          .signIn(
+                          email: _emailController.text,
+                          password: _passwordController.text);
 
-                    Object returnedObject = await result;
-                    int returnedStatus =
-                    (returnedObject.runtimeType == int) ? 400 : 0;
+                      Object returnedObject = await result;
+                      int returnedStatus =
+                      (returnedObject.runtimeType == int) ? 400 : 0;
 
-                    //print(firebaseuser!.email);
+                      //print(firebaseuser!.email);
 
-                    if (returnedStatus == 400) {
-                      Navigator.pushNamed(context, '/callTextNow');
-                    } else {
-                      String returnedMessage = returnedObject.toString();
-                      ScaffoldMessenger.of(context).hideCurrentSnackBar();
-                      ScaffoldMessenger.of(context).showSnackBar(
-                        SnackBar(
-                          content: Text(returnedMessage),
+                      if (returnedStatus == 400) {
+                        Navigator.pushNamed(context, '/callTextNow');
+                      } else {
+                        String returnedMessage = returnedObject.toString();
+                        ScaffoldMessenger.of(context).hideCurrentSnackBar();
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          SnackBar(
+                            content: Text(returnedMessage),
+                          ),
+                        );
+                      }
+                    },
+                    child: Container(
+                      decoration: BoxDecoration(
+                        borderRadius: const BorderRadius.all(
+                          Radius.circular(24),
                         ),
-                      );
-                    }
-                  },
+                        color: Color(CBL.primaryOrange),
+                      ),
+                      child: Center(
+                        child: Text(
+                          'Sign Up',
+                          style: TextStyle(
+                              fontSize: CBL.fontSize,
+                              fontFamily: CBL.fontFamily,
+                              fontWeight: CBL.bold,
+                              color: Colors.white),
+                        ),
+                      ),
+                    ),
+                  ),
                 ),
               ),
+
+              // Align(
+              //   alignment: Alignment.centerRight,
+              //   child: OrangeButton(
+              //     buttonText: 'Sign In',
+              //     onTap: () async {
+              //       Future<Object> result = context
+              //           .read<AuthenticationService>()
+              //           .signIn(
+              //           email: _emailController.text,
+              //           password: _passwordController.text);
+              //
+              //       Object returnedObject = await result;
+              //       int returnedStatus =
+              //       (returnedObject.runtimeType == int) ? 400 : 0;
+              //
+              //       //print(firebaseuser!.email);
+              //
+              //       if (returnedStatus == 400) {
+              //         Navigator.pushNamed(context, '/callTextNow');
+              //       } else {
+              //         String returnedMessage = returnedObject.toString();
+              //         ScaffoldMessenger.of(context).hideCurrentSnackBar();
+              //         ScaffoldMessenger.of(context).showSnackBar(
+              //           SnackBar(
+              //             content: Text(returnedMessage),
+              //           ),
+              //         );
+              //       }
+              //     },
+              //   ),
+              // ),
 
 
 

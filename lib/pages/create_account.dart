@@ -72,6 +72,7 @@ class _CreateAccountState extends State<CreateAccount> {
             horizontal: CBL.padding,
           ),
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               CustomTitle(
                 text: 'Create An Account',
@@ -88,75 +89,78 @@ class _CreateAccountState extends State<CreateAccount> {
               Text(
                 'Name',
                 style: TextStyle(
-                  fontSize: 17,
+                  fontSize: CBL.fieldTitleFontSize,
                   color: Color(CBL.primaryOrange),
                   fontFamily: CBL.fontFamily,
                   fontWeight: CBL.bold),
+                textAlign: TextAlign.left,
               ),
 
               InputField(
                   borderColor: CBL.black,
                   iconColor: CBL.primaryOrange,
-                  textColor: CBL.lightGray,
+                  textColor: CBL.gray,
                   text: 'Type here...',
                   icon: Icons.person,
                   titleController: _usernameController),
               Text(
                 'Email',
                 style: TextStyle(
-                    fontSize: 17,
+                    fontSize: CBL.fieldTitleFontSize,
                     color: Color(CBL.primaryVariantOrange),
                     fontFamily: CBL.fontFamily,
                     fontWeight: CBL.bold),
+                textAlign: TextAlign.left,
               ),
               InputField(
                   borderColor: CBL.black,
                   iconColor: CBL.primaryOrange,
-                  textColor: CBL.lightGray,
+                  textColor: CBL.gray,
                   text: 'Type here...',
                   icon: Icons.mail,
                   titleController: _emailController),
               Text(
                 'Phone Number',
                 style: TextStyle(
-                    fontSize: 17,
+                    fontSize: CBL.fieldTitleFontSize,
                     color: Color(CBL.primaryOrange),
                     fontFamily: CBL.fontFamily,
                     fontWeight: CBL.bold),
+                textAlign: TextAlign.left,
               ),
               InputField(
                   borderColor: CBL.black,
                   iconColor: CBL.primaryOrange,
-                  textColor: CBL.lightGray,
+                  textColor: CBL.gray,
                   text: 'Type here...',
                   icon: Icons.phone,
                   titleController: _phoneNumberController),
               Text(
                 'Password',
                 style: TextStyle(
-                    fontSize: 17,
+                    fontSize: CBL.fieldTitleFontSize,
                     color: Color(CBL.primaryOrange),
                     fontFamily: CBL.fontFamily,
                     fontWeight: CBL.bold),
               ),
               PasswordField(
-                  text: 'Password',
+                  text: 'Type here...',
                   borderColor: CBL.black,
-                  textColor: CBL.lightGray,
+                  textColor: CBL.gray,
                   bottomPadding: 40,
                   titleController: _passwordController),
               Text(
                 'Password Confirm',
                 style: TextStyle(
-                    fontSize: 17,
+                    fontSize: CBL.fieldTitleFontSize,
                     color: Color(CBL.primaryOrange),
                     fontFamily: CBL.fontFamily,
                     fontWeight: CBL.bold),
               ),
               PasswordField(
-                  text: 'Password Confirm',
+                  text: 'Type here...',
                   borderColor: CBL.black,
-                  textColor: CBL.lightGray,
+                  textColor: CBL.gray,
                   bottomPadding: 40,
                   titleController: _confirmPasswordController),
               Row(
@@ -186,7 +190,7 @@ class _CreateAccountState extends State<CreateAccount> {
                         ],
                         style: TextStyle(
                             color: Color(CBL.black),
-                            fontSize: 17,
+                            fontSize: CBL.fieldTitleFontSize,
                             fontWeight: FontWeight.w400,
                             fontFamily: CBL.fontFamily),
                       ),
@@ -194,12 +198,18 @@ class _CreateAccountState extends State<CreateAccount> {
                   ),
                 ],
               ),
-              Align(
-                alignment: Alignment.centerRight,
-                child: Padding(
-                  padding: const EdgeInsets.only(top: 10.0),
-                  child: OrangeButton(
-                    buttonText: 'Sign Up',
+
+              const SizedBox(
+                height: CBL.largePadding,
+              ),
+              Padding(padding: const EdgeInsets.only(left: 0, right: 0),
+              child:
+                SizedBox(
+                  height: CBL.boxHeight,
+                  //width: 325,
+                  child: GestureDetector(
+                    // onTap: () =>
+                    //     Navigator.pushNamed(context, '/logIn'),
                     onTap: () async {
                       //make sure passwords are the same
                       if (_passwordController.text !=
@@ -256,11 +266,96 @@ class _CreateAccountState extends State<CreateAccount> {
                         );
                       }
                     },
+                    child: Container(
+                      decoration: BoxDecoration(
+                        borderRadius: const BorderRadius.all(
+                          Radius.circular(24),
+                        ),
+                        color: Color(CBL.primaryOrange),
+                      ),
+                      child: Center(
+                        child: Text(
+                          'Sign Up',
+                          style: TextStyle(
+                              fontSize: CBL.fontSize,
+                              fontFamily: CBL.fontFamily,
+                              fontWeight: CBL.bold,
+                              color: Colors.white),
+                        ),
+                      ),
+                    ),
                   ),
                 ),
               ),
+              // Align(
+              //   alignment: Alignment.centerRight,
+              //   child: Padding(
+              //     padding: const EdgeInsets.only(top: 10.0),
+              //     child: OrangeButton(
+              //       buttonText: 'Sign Up',
+              //       onTap: () async {
+              //         //make sure passwords are the same
+              //         if (_passwordController.text !=
+              //             _confirmPasswordController.text) {
+              //           ScaffoldMessenger.of(context).hideCurrentSnackBar();
+              //           ScaffoldMessenger.of(context).showSnackBar(
+              //             const SnackBar(
+              //               content: Text('Passwords do not match'),
+              //             ),
+              //           );
+              //           return;
+              //         }
+              //         setState(() {
+              //           _email = _emailController.text;
+              //           _username = _usernameController.text;
+              //           _phoneNumber = _phoneNumberController.text;
+              //           _password = _passwordController.text;
+              //         });
+              //
+              //         print('Sign Up Button Pressed');
+              //         //make sure terms are agreed to
+              //         if (signUpTOSCheck == false) {
+              //           ScaffoldMessenger.of(context).hideCurrentSnackBar();
+              //           ScaffoldMessenger.of(context).showSnackBar(
+              //             SnackBar(
+              //               content: Text(
+              //                   "Please accept the terms of service and privacy policy"),
+              //             ),
+              //           );
+              //           return;
+              //         }
+              //
+              //         //sign up the user
+              //         final SignUpUtils signUpUtils = SignUpUtils();
+              //         Object result = await signUpUtils.signUp(
+              //             context,
+              //             _emailController.text,
+              //             _passwordController.text,
+              //             _usernameController.text,
+              //             _phoneNumberController.text);
+              //
+              //         //store result as an int
+              //         int intResult = (result.runtimeType == int) ? 400 : 0;
+              //         String stringResult = result.toString();
+              //
+              //         print("completed");
+              //         //if success, proceed as normal, if failure, show snackbar with error message
+              //         if (result == 400) {
+              //           Navigator.pushNamed(context, '/callTextNow');
+              //         } else {
+              //           ScaffoldMessenger.of(context).hideCurrentSnackBar();
+              //           ScaffoldMessenger.of(context).showSnackBar(
+              //             SnackBar(
+              //               content: Text(stringResult),
+              //             ),
+              //           );
+              //         }
+              //       },
+              //     ),
+              //   ),
+              // ),
               const SizedBox(
-                height: 10,
+                height: CBL.largePadding,
               ),
 
             ],

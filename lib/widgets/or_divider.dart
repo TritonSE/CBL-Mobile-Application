@@ -9,13 +9,11 @@ class OrDivider extends StatelessWidget {
     return Row(
       children: [
         Expanded(
-          child: Padding(
-            padding: EdgeInsets.only(left: CBL.padding),
-            child: Divider(
-              color: Color(CBL.textGray),
-              thickness: CBL.thickness,
-            ),
+          child:  Divider(
+            color: Color(CBL.textGray),
+            thickness: CBL.thickness,
           ),
+
         ),
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 50),
@@ -28,12 +26,9 @@ class OrDivider extends StatelessWidget {
           ),
         ),
         Expanded(
-          child: Padding(
-            padding: EdgeInsets.only(right: CBL.padding),
-            child: Divider(
-              color: Color(CBL.textGray),
-              thickness: CBL.thickness,
-            ),
+          child: Divider(
+            color: Color(CBL.textGray),
+            thickness: CBL.thickness,
           ),
         )
       ],

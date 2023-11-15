@@ -83,6 +83,7 @@ class _TakeActionPageState extends State<TakeActionPage> {
             horizontal: CBL.padding,
           ),
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               CustomTitle(
                 text: 'Take Action Now',
@@ -199,8 +200,9 @@ class _TakeActionPageState extends State<TakeActionPage> {
               //   ),
               // ),
               SizedBox(
+
                 height: CBL.boxHeight,
-                width: 325,
+                //width: 325,
                 child: GestureDetector(
                   onTap: () =>
                       Navigator.pushNamed(context, '/logIn'),

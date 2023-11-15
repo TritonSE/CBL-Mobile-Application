@@ -11,36 +11,66 @@ class SocialMedia extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         SizedBox(
-          width: 325,
-          height: CBL.boxHeight,
+          //width: 325,
+          height: 57,
           child: GestureDetector(
             child: Container(
               decoration: BoxDecoration(
                 border: Border.all(
-                  color: Color(CBL.black),
-                  width: CBL.thickness,
+                  color: const Color(CBL.gray),
+                  width: 1.5,
                 ),
                 borderRadius: const BorderRadius.all(
                   Radius.circular(24),
                 ),
+               boxShadow: [
+                BoxShadow(
+                color:  Color(0x2b000000),
+                  offset: const Offset(
+                    0,
+                    2,
+                  ),
+                  blurRadius: 3,
+                  spreadRadius: 0,
+                ), //BoxShadow
+                BoxShadow(
+                  color:  Colors.white,
+                  offset: const Offset(0.0, 0.0),
+                  blurRadius: 0.0,
+                  spreadRadius: 0.0,
+                ),
+               ],
               ),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
+              child: Stack(
+                //mainAxisAlignment: MainAxisAlignment.start,
+                //mainAxisSize: MainAxisSize.max,
                 children: [
-                  Padding(
-                    padding: const EdgeInsets.only(right: CBL.paddingRight),
-                    child: Image.asset(
-                      'assets/images/google.png',
+                  Align(
+                    alignment: Alignment.centerLeft,
+                    child: Padding(
+                      padding: EdgeInsets.only(left: CBL.padding, right: CBL.paddingRight),
+                      child: SizedBox(
+                        height: CBL.socialMediaLogoSize,
+                        width: CBL.socialMediaLogoSize,
+                        child: Image.asset(
+                          'assets/images/google.png',
+                        ),
+                      ),
                     ),
                   ),
-                  Center(
-                    child: Text(
-                      'Continue with Google',
-                      style: TextStyle(
-                        fontSize: CBL.fontSize,
-                        fontFamily: CBL.fontFamily,
-                        fontWeight: CBL.bold,
-                        color: Color(CBL.black),
+                  Align(
+                    alignment: Alignment.center,
+                    child: SizedBox(
+                    //width: double.infinity,
+                      child: Text(
+                        'Continue with Google',
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          fontSize: CBL.fontSize,
+                          fontFamily: CBL.fontFamily,
+                          fontWeight: FontWeight.w600,
+                          color: Color(CBL.gray),
+                        ),
                       ),
                     ),
                   ),
@@ -54,36 +84,63 @@ class SocialMedia extends StatelessWidget {
           height: CBL.padding,
         ),
         SizedBox(
-          width: 325,
-          height: CBL.boxHeight,
+          //width: 325,
+          height: 57,
           child: GestureDetector(
             child: Container(
               decoration: BoxDecoration(
                 border: Border.all(
-                  color: Color(CBL.black),
-                  width: CBL.thickness,
+                  color: const Color(CBL.gray),
+                  width: 1.5,
                 ),
                 borderRadius: const BorderRadius.all(
                   Radius.circular(24),
                 ),
+                boxShadow: [
+                  BoxShadow(
+                    color:  Color(0x2b000000),
+                    offset: const Offset(
+                      0,
+                      2,
+                    ),
+                    blurRadius: 3,
+                    spreadRadius: 0,
+                  ), //BoxShadow
+                  BoxShadow(
+                    color:  Colors.white,
+                    offset: const Offset(0.0, 0.0),
+                    blurRadius: 0.0,
+                    spreadRadius: 0.0,
+                  ),
+                ],
+
               ),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
+              child: Stack(
                 children: [
-                  Padding(
-                    padding: const EdgeInsets.only(right: CBL.paddingRight),
-                    child: Image.asset(
-                      'assets/images/facebook.png',
+                  Align (
+                    alignment: Alignment.centerLeft,
+                    child: Padding(
+                      padding: EdgeInsets.only(left: CBL.padding, right: CBL.paddingRight),
+                      child: SizedBox(
+                        height: CBL.socialMediaLogoSize,
+                        width: CBL.socialMediaLogoSize,
+                        child: Image.asset(
+                          'assets/images/facebook.png',
+                        ),
+                      ),
                     ),
                   ),
-                  Center(
+                  Align(
+                    alignment: Alignment.center,
+                    //crossAxisAlignment: CrossAxisAlignment.stretch,
                     child: Text(
                       'Continue with Facebook',
+                      textAlign: TextAlign.center,
                       style: TextStyle(
                         fontSize: CBL.fontSize,
                         fontFamily: CBL.fontFamily,
-                        fontWeight: CBL.bold,
-                        color: Color(CBL.black),
+                        fontWeight: FontWeight.w600,
+                        color: Color(CBL.gray),
                       ),
                     ),
                   ),

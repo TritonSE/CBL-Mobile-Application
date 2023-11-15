@@ -44,12 +44,13 @@ class _PasswordFieldState extends State<PasswordField> {
       ),
       child: SizedBox(
         width: double.infinity,
-        height: CBL.boxHeight,
+        height: CBL.inputHeight,
         child: TextFormField(
           cursorColor: Color(widget.borderColor),
           obscureText: widget.hideText,
           controller: widget.titleController,
           decoration: InputDecoration(
+              contentPadding: EdgeInsets.all(CBL.padding),
               floatingLabelStyle: TextStyle(
                 fontSize: CBL.fontSize,
                 color: Color(widget.borderColor),
@@ -72,27 +73,29 @@ class _PasswordFieldState extends State<PasswordField> {
                       ),
                 onPressed: _toggle,
               ),
+
               enabledBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(CBL.borderRadiusSmall),
                 borderSide: BorderSide(
-                  width: 1,
+                  width: 1.5,
                   color: Color(widget.borderColor),
                 ),
               ),
               focusedBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(CBL.borderRadiusSmall),
                 borderSide: BorderSide(
-                  width: 1,
+                  width: 1.5,
                   color: Color(widget.borderColor),
                 ),
               ),
               labelText: widget.text,
               labelStyle: TextStyle(color: Color(widget.textColor))),
           style: TextStyle(
-            fontSize: CBL.fontSize,
+            fontSize: CBL.fieldTitleFontSize,
             color: Color(CBL.black),
             fontWeight: CBL.bold,
             fontFamily: CBL.fontFamily,
+            //height: CBL.textHeight,
           ),
         ),
       ),

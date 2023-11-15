@@ -73,4 +73,8 @@ class CBL {
   static const double boxHeightSmall = 5;
 
   static const double barHeight = 82;
+
+  static const double inputHeight = 54;
+  static const double fieldTitleFontSize = 17;
+  static const double socialMediaLogoSize = 24;
 }
