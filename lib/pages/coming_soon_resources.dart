@@ -20,9 +20,10 @@ class ComingSoonResources extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      appBar: Header(
-        onBackButtonPressed: () {},
-      ),
+      appBar: Header(onBackButtonPressed: () {
+        print("back button was pressed from affirmation");
+        Navigator.pushNamed(context, '/callTextNow');
+      }),
       bottomNavigationBar: CustomNavBar(
         currentPage: 'Resources',
       ),
