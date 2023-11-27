@@ -13,22 +13,6 @@ class Profile extends StatelessWidget {
   const Profile({super.key});
 
   Future<String> getUsername(BuildContext context) async {
-    /*
-    final User? user = FirebaseAuth.instance.currentUser;
-    final String? userId = user?.email;
-    final docRef = db.collection("users").doc("e@gmail.com");
-    docRef.get().then(
-      (DocumentSnapshot doc) {
-        final data = doc.data() as Map<String, dynamic>;
-        return data['username'];
-        
-      },
-      onError: (e) => print("Error getting document: $e"),
-    ); 
-    */
-
-    //test change
-
     //get parameters of current users
     final User? user = FirebaseAuth.instance.currentUser;
     final String? userId = user?.uid;
@@ -44,6 +28,7 @@ class Profile extends StatelessWidget {
       //return the username of the document gotten
       return docSnapshot['username'];
     } catch (e) {
+      Navigator.pushNamed(context, '/takeAction');
       return " ";
     }
   }
@@ -58,6 +43,7 @@ class Profile extends StatelessWidget {
       backgroundColor: Colors.white,
       bottomNavigationBar: const CustomNavBar(
         currentPage: 'Profile',
+        resourcesRoute: '/comingSoonResources',
         seekHelpRoute: '/callTextNow',
         profileRoute: '/profile',
       ), //Available: Resources, Seek Help, Profile

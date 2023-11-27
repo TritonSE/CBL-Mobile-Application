@@ -2,13 +2,12 @@ import 'package:call_black_line/widgets/cbl.dart';
 import 'package:flutter/material.dart';
 
 class SocialMedia extends StatelessWidget {
-
-
   @override
   Widget build(BuildContext context) {
     var mediaWidth = MediaQuery.of(context).size.width;
     return Flex(
-      direction: mediaWidth < CBL.smallMediaWidth ? Axis.vertical : Axis.horizontal,
+      direction:
+          mediaWidth < CBL.smallMediaWidth ? Axis.vertical : Axis.horizontal,
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         SizedBox(
@@ -48,9 +47,7 @@ class SocialMedia extends StatelessWidget {
                 ],
               ),
             ),
-            onTap: () {
-              print("you clicked me");
-            },
+            onTap: () {},
           ),
         ),
         SizedBox(
@@ -90,9 +87,7 @@ class SocialMedia extends StatelessWidget {
                 ],
               ),
             ),
-            onTap: () {
-              print("you clicked me");
-            },
+            onTap: () {},
           ),
         ),
       ],

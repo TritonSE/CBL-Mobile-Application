@@ -48,7 +48,6 @@ class SignUpUtils {
 
       //no issues with authentication side, proceed to database side
       if (returnedStatus == 400) {
-        print("super hi");
         //if successful, add the user to the database
         UserRepository userRepository = UserRepository();
 

@@ -1,6 +1,4 @@
-import 'package:call_black_line/pages/call_text_now.dart';
 import 'package:call_black_line/pages/create_account.dart';
-import 'package:call_black_line/pages/create_affirmation.dart';
 import 'package:call_black_line/pages/coming_soon_resources.dart';
 import 'package:call_black_line/pages/have_your_voice_heard.dart';
 import 'package:call_black_line/pages/resources.dart';
@@ -8,18 +6,12 @@ import 'package:call_black_line/pages/seek_help.dart';
 
 import 'package:flutter/material.dart';
 import 'package:call_black_line/pages/take_action.dart';
-import 'package:call_black_line/widgets/custom_title.dart';
-import 'package:call_black_line/widgets/header.dart';
-import 'package:call_black_line/widgets/rounded_button_image.dart';
-import 'package:call_black_line/pages/call_text_now.dart';
-import 'package:call_black_line/pages/seek_help.dart';
 import 'package:call_black_line/pages/profile.dart';
 
 import 'auth_methods.dart';
 import 'package:provider/provider.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:call_black_line/widgets/cbl.dart';
 
 Future main() async {
   //setting up firebase
@@ -54,11 +46,11 @@ class MyApp extends StatelessWidget {
               ),
             ),
             routes: {
-              '/': (context) => const MyHomePage(title: 'Call BlackLine'),
+              '/': (context) => const SeekHelp(),
               // '/': (context) => const Donation(),
               '/haveYourVoiceHeard': (context) => const HaveYourVoiceHeard(),
               // '/': (context) => const CreateAffirmation(),
-              '/callTextNow': (context) => const CallTextNow(),
+              '/callTextNow': (context) => const SeekHelp(),
               '/createAccount': (context) => const CreateAccount(),
               '/takeAction': (context) => const TakeActionPage(),
               '/seekHelp': (context) => const SeekHelp(),
@@ -66,47 +58,5 @@ class MyApp extends StatelessWidget {
               '/resources': (context) => const Resources(),
               '/comingSoonResources': (context) => const ComingSoonResources(),
             }));
-  }
-}
-
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
-
-  // This widget is the home page of your application. It is stateful, meaning
-  // that it has a State object (defined below) that contains fields that affect
-  // how it looks.
-
-  // This class is the configuration for the state. It holds the values (in this
-  // case the title) provided by the parent (in this case the App widget) and
-  // used by the build method of the State. Fields in a Widget subclass are
-  // always marked "final".
-
-  final String title;
-
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  @override
-  Widget build(BuildContext context) {
-    // This method is rerun every time setState is called, for instance as done
-    // by the _incrementCounter method above.
-    //
-    // The Flutter framework has been optimized to make rerunning build methods
-    // fast, so that you can just rebuild anything that needs updating rather
-    // than having to individually change instances of widgets.
-
-    //get an instance of the firebase user, used for determining which page to land on
-    final firebaseuser = context.watch<User?>();
-
-    debugPrint(firebaseuser.toString());
-
-    //go to seekHelp if no user, go to callTextNow if user exists
-    if (firebaseuser == null) {
-      return const SeekHelp();
-    } else {
-      return const CallTextNow();
-    }
   }
 }
