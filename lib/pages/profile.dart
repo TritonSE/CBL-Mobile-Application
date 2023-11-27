@@ -44,6 +44,7 @@ class Profile extends StatelessWidget {
       //return the username of the document gotten
       return docSnapshot['username'];
     } catch (e) {
+      Navigator.pushNamed(context, '/takeAction');
       return " ";
     }
   }

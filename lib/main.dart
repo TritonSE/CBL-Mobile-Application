@@ -58,7 +58,7 @@ class MyApp extends StatelessWidget {
               // '/': (context) => const Donation(),
               '/haveYourVoiceHeard': (context) => const HaveYourVoiceHeard(),
               // '/': (context) => const CreateAffirmation(),
-              '/callTextNow': (context) => const CallTextNow(),
+              '/callTextNow': (context) => const SeekHelp(),
               '/createAccount': (context) => const CreateAccount(),
               '/takeAction': (context) => const TakeActionPage(),
               '/seekHelp': (context) => const SeekHelp(),

@@ -24,8 +24,11 @@ class ComingSoonResources extends StatelessWidget {
         print("back button was pressed from affirmation");
         Navigator.pushNamed(context, '/callTextNow');
       }),
-      bottomNavigationBar: CustomNavBar(
+      bottomNavigationBar: const CustomNavBar(
         currentPage: 'Resources',
+        resourcesRoute: '/comingSoonResources',
+        seekHelpRoute: '/seekHelp',
+        profileRoute: '/profile',
       ),
       body: Padding(
         padding: EdgeInsets.symmetric(
