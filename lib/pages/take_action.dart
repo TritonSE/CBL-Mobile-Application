@@ -75,7 +75,6 @@ class _TakeActionPageState extends State<TakeActionPage> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: Header(onBackButtonPressed: () {
-        print("back button was pressed from take_action");
         Navigator.pushNamed(context, '/seekHelp');
       }),
       body: SingleChildScrollView(
@@ -179,8 +178,6 @@ class _TakeActionPageState extends State<TakeActionPage> {
                     Object returnedObject = await result;
                     int returnedStatus =
                         (returnedObject.runtimeType == int) ? 400 : 0;
-
-                    //print(firebaseuser!.email);
 
                     if (returnedStatus == 400) {
                       Navigator.pushNamed(context, '/callTextNow');

@@ -176,7 +176,6 @@ class _CreateAccountState extends State<CreateAccount> {
                         _password = _passwordController.text;
                       });
 
-                      print('Sign Up Button Pressed');
                       //make sure terms are agreed to
                       if (signUpTOSCheck == false) {
                         ScaffoldMessenger.of(context).hideCurrentSnackBar();
@@ -202,7 +201,6 @@ class _CreateAccountState extends State<CreateAccount> {
                       int intResult = (result.runtimeType == int) ? 400 : 0;
                       String stringResult = result.toString();
 
-                      print("completed");
                       //if success, proceed as normal, if failure, show snackbar with error message
                       if (result == 400) {
                         Navigator.pushNamed(context, '/callTextNow');
