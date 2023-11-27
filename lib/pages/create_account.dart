@@ -18,8 +18,7 @@ import '../testimonial.dart';
 import '../user.dart';
 import '../big_auth.dart';
 
-final Uri _tosUrl =
-    Uri.parse('https://www.callblackline.com/terms-of-service');
+final Uri _tosUrl = Uri.parse('https://www.callblackline.com/terms-of-service');
 
 class CreateAccount extends StatefulWidget {
   const CreateAccount({super.key});
@@ -82,13 +81,12 @@ class _CreateAccountState extends State<CreateAccount> {
               Text(
                 'Name',
                 style: TextStyle(
-                  fontSize: CBL.fieldTitleFontSize,
-                  color: Color(CBL.primaryOrange),
-                  fontFamily: CBL.fontFamily,
-                  fontWeight: CBL.bold),
+                    fontSize: CBL.fieldTitleFontSize,
+                    color: Color(CBL.primaryOrange),
+                    fontFamily: CBL.fontFamily,
+                    fontWeight: CBL.bold),
                 textAlign: TextAlign.left,
               ),
-
               InputField(
                   borderColor: CBL.black,
                   iconColor: CBL.primaryOrange,
@@ -191,13 +189,12 @@ class _CreateAccountState extends State<CreateAccount> {
                   ),
                 ],
               ),
-
               const SizedBox(
                 height: CBL.largePadding,
               ),
-              Padding(padding: const EdgeInsets.only(left: 0, right: 0),
-              child:
-                SizedBox(
+              Padding(
+                padding: const EdgeInsets.only(left: 0, right: 0),
+                child: SizedBox(
                   height: CBL.boxHeight,
                   //width: 325,
                   child: GestureDetector(
@@ -213,6 +210,27 @@ class _CreateAccountState extends State<CreateAccount> {
                         );
                         return;
                       }
+
+                      List<String> inputs = [
+                        _emailController.text,
+                        _usernameController.text,
+                        _phoneNumberController.text,
+                        _passwordController.text
+                      ];
+
+                      bool anyInputsEmpty =
+                          inputs.any((element) => element.isEmpty);
+
+                      if (anyInputsEmpty) {
+                        ScaffoldMessenger.of(context).hideCurrentSnackBar();
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          const SnackBar(
+                            content: Text('Please fill out all fields'),
+                          ),
+                        );
+                        return;
+                      }
+
                       setState(() {
                         _email = _emailController.text;
                         _username = _usernameController.text;
@@ -281,7 +299,6 @@ class _CreateAccountState extends State<CreateAccount> {
               const SizedBox(
                 height: CBL.largePadding,
               ),
-
             ],
           ),
         ),
