@@ -1,25 +1,16 @@
 import 'package:call_black_line/widgets/cbl.dart';
 import 'package:call_black_line/widgets/checkbox_text.dart';
-import 'package:call_black_line/widgets/orange_button.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:call_black_line/widgets/custom_title.dart';
 import 'package:call_black_line/widgets/header.dart';
 import 'package:call_black_line/widgets/input_field.dart';
-import 'package:call_black_line/widgets/or_divider.dart';
 import 'package:call_black_line/widgets/password_field.dart';
-import 'package:call_black_line/widgets/social_media_button.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-import 'package:call_black_line/auth_methods.dart';
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:provider/provider.dart';
-import '../testimonial.dart';
-import '../user.dart';
 import '../big_auth.dart';
 
-final Uri _tosUrl =
-    Uri.parse('https://www.callblackline.com/terms-of-service');
+final Uri _tosUrl = Uri.parse('https://www.callblackline.com/terms-of-service');
 
 class CreateAccount extends StatefulWidget {
   const CreateAccount({super.key});
@@ -41,10 +32,6 @@ class _CreateAccountState extends State<CreateAccount> {
   final TextEditingController _phoneNumberController = TextEditingController();
 
   //variables to store the values of the fields
-  var _email;
-  var _username;
-  var _phoneNumber;
-  var _password;
   Color getColor(Set<MaterialState> states) {
     return Color(CBL.blue);
   }
@@ -57,8 +44,6 @@ class _CreateAccountState extends State<CreateAccount> {
 
   @override
   Widget build(BuildContext context) {
-    final firebaseuser = context.watch<User?>();
-
     return Scaffold(
       // resizeToAvoidBottomInset: false,
       backgroundColor: Colors.white,
@@ -72,6 +57,7 @@ class _CreateAccountState extends State<CreateAccount> {
             horizontal: CBL.padding,
           ),
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               CustomTitle(
                 text: 'Create An Account',
@@ -79,48 +65,86 @@ class _CreateAccountState extends State<CreateAccount> {
                 bottomPadding: CBL.padding,
               ),
               Text(
-                'Sign Up',
+                'Name',
                 style: TextStyle(
-                    fontSize: 22,
+                    fontSize: CBL.fieldTitleFontSize,
+                    color: Color(CBL.primaryOrange),
+                    fontFamily: CBL.fontFamily,
+                    fontWeight: CBL.bold),
+                textAlign: TextAlign.left,
+              ),
+              InputField(
+                  borderColor: CBL.black,
+                  iconColor: CBL.primaryOrange,
+                  textColor: CBL.gray,
+                  text: 'Type here...',
+                  icon: Icons.person,
+                  titleController: _usernameController),
+              Text(
+                'Email',
+                style: TextStyle(
+                    fontSize: CBL.fieldTitleFontSize,
+                    color: Color(CBL.primaryVariantOrange),
+                    fontFamily: CBL.fontFamily,
+                    fontWeight: CBL.bold),
+                textAlign: TextAlign.left,
+              ),
+              InputField(
+                  borderColor: CBL.black,
+                  iconColor: CBL.primaryOrange,
+                  textColor: CBL.gray,
+                  text: 'Type here...',
+                  icon: Icons.mail,
+                  titleController: _emailController),
+              Text(
+                'Phone Number',
+                style: TextStyle(
+                    fontSize: CBL.fieldTitleFontSize,
+                    color: Color(CBL.primaryOrange),
+                    fontFamily: CBL.fontFamily,
+                    fontWeight: CBL.bold),
+                textAlign: TextAlign.left,
+              ),
+              InputField(
+                  borderColor: CBL.black,
+                  iconColor: CBL.primaryOrange,
+                  textColor: CBL.gray,
+                  text: 'Type here...',
+                  icon: Icons.phone,
+                  titleController: _phoneNumberController),
+              Text(
+                'Password',
+                style: TextStyle(
+                    fontSize: CBL.fieldTitleFontSize,
+                    color: Color(CBL.primaryOrange),
                     fontFamily: CBL.fontFamily,
                     fontWeight: CBL.bold),
               ),
-              InputField(
-                  borderColor: CBL.primaryOrange,
-                  textColor: CBL.lightGray,
-                  text: 'Username',
-                  icon: Icons.person,
-                  titleController: _usernameController),
-              InputField(
-                  borderColor: CBL.primaryOrange,
-                  textColor: CBL.lightGray,
-                  text: 'Email',
-                  icon: Icons.mail,
-                  titleController: _emailController),
-              InputField(
-                  borderColor: CBL.primaryOrange,
-                  textColor: CBL.lightGray,
-                  text: '+1 000 000 000',
-                  icon: Icons.phone,
-                  titleController: _phoneNumberController),
               PasswordField(
-                  text: 'Password',
-                  borderColor: CBL.primaryOrange,
-                  textColor: CBL.lightGray,
+                  text: 'Type here...',
+                  borderColor: CBL.black,
+                  textColor: CBL.gray,
+                  bottomPadding: 40,
                   titleController: _passwordController),
-              PasswordField(
-                  text: 'Password Confirm',
-                  borderColor: CBL.primaryOrange,
-                  textColor: CBL.lightGray,
-                  titleController: _confirmPasswordController),
-              const SizedBox(
-                height: 8,
+              Text(
+                'Password Confirm',
+                style: TextStyle(
+                    fontSize: CBL.fieldTitleFontSize,
+                    color: Color(CBL.primaryOrange),
+                    fontFamily: CBL.fontFamily,
+                    fontWeight: CBL.bold),
               ),
+              PasswordField(
+                  text: 'Type here...',
+                  borderColor: CBL.black,
+                  textColor: CBL.gray,
+                  bottomPadding: 40,
+                  titleController: _confirmPasswordController),
               Row(
                 children: [
                   //takes care of TOS agreeement, signUpTOSCheck stores whether or not the checkbox is checked
                   CheckBoxText(
-                    boxColor: CBL.blue,
+                    boxColor: CBL.primaryOrange,
                     onCheckboxChanged: (value) => {
                       setState(() {
                         signUpTOSCheck = value;
@@ -137,13 +161,13 @@ class _CreateAccountState extends State<CreateAccount> {
                             recognizer: TapGestureRecognizer()
                               ..onTap = _launchTOSUrl,
                             style: TextStyle(
-                              color: Color(CBL.blue),
+                              color: Color(CBL.primaryOrange),
                             ),
                           )
                         ],
                         style: TextStyle(
                             color: Color(CBL.black),
-                            fontSize: 15,
+                            fontSize: CBL.fieldTitleFontSize,
                             fontWeight: FontWeight.w400,
                             fontFamily: CBL.fontFamily),
                       ),
@@ -151,12 +175,15 @@ class _CreateAccountState extends State<CreateAccount> {
                   ),
                 ],
               ),
-              Align(
-                alignment: Alignment.centerRight,
-                child: Padding(
-                  padding: const EdgeInsets.only(top: 10.0),
-                  child: OrangeButton(
-                    buttonText: 'Sign Up',
+              const SizedBox(
+                height: CBL.largePadding,
+              ),
+              Padding(
+                padding: const EdgeInsets.only(left: 0, right: 0),
+                child: SizedBox(
+                  height: CBL.boxHeight,
+                  //width: 325,
+                  child: GestureDetector(
                     onTap: () async {
                       //make sure passwords are the same
                       if (_passwordController.text !=
@@ -169,18 +196,32 @@ class _CreateAccountState extends State<CreateAccount> {
                         );
                         return;
                       }
-                      setState(() {
-                        _email = _emailController.text;
-                        _username = _usernameController.text;
-                        _phoneNumber = _phoneNumberController.text;
-                        _password = _passwordController.text;
-                      });
+
+                      List<String> inputs = [
+                        _emailController.text,
+                        _usernameController.text,
+                        _phoneNumberController.text,
+                        _passwordController.text
+                      ];
+
+                      bool anyInputsEmpty =
+                          inputs.any((element) => element.isEmpty);
+
+                      if (anyInputsEmpty) {
+                        ScaffoldMessenger.of(context).hideCurrentSnackBar();
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          const SnackBar(
+                            content: Text('Please fill out all fields'),
+                          ),
+                        );
+                        return;
+                      }
 
                       //make sure terms are agreed to
                       if (signUpTOSCheck == false) {
                         ScaffoldMessenger.of(context).hideCurrentSnackBar();
                         ScaffoldMessenger.of(context).showSnackBar(
-                          SnackBar(
+                          const SnackBar(
                             content: Text(
                                 "Please accept the terms of service and privacy policy"),
                           ),
@@ -198,7 +239,6 @@ class _CreateAccountState extends State<CreateAccount> {
                           _phoneNumberController.text);
 
                       //store result as an int
-                      int intResult = (result.runtimeType == int) ? 400 : 0;
                       String stringResult = result.toString();
 
                       //if success, proceed as normal, if failure, show snackbar with error message
@@ -213,20 +253,30 @@ class _CreateAccountState extends State<CreateAccount> {
                         );
                       }
                     },
+                    child: Container(
+                      decoration: BoxDecoration(
+                        borderRadius: const BorderRadius.all(
+                          Radius.circular(24),
+                        ),
+                        color: Color(CBL.primaryOrange),
+                      ),
+                      child: Center(
+                        child: Text(
+                          'Create Account',
+                          style: TextStyle(
+                              fontSize: CBL.fontSize,
+                              fontFamily: CBL.fontFamily,
+                              fontWeight: CBL.bold,
+                              color: Colors.white),
+                        ),
+                      ),
+                    ),
                   ),
                 ),
               ),
               const SizedBox(
-                height: 10,
+                height: CBL.largePadding,
               ),
-              OrDivider(),
-              const SizedBox(
-                height: 10,
-              ),
-              SocialMedia(),
-              const SizedBox(
-                height: 10,
-              )
             ],
           ),
         ),

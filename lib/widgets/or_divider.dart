@@ -9,31 +9,26 @@ class OrDivider extends StatelessWidget {
     return Row(
       children: [
         Expanded(
-          child: Padding(
-            padding: EdgeInsets.only(left: CBL.padding),
-            child: Divider(
-              color: Color(CBL.veryLightGray),
-              thickness: CBL.thickness,
-            ),
+          child:  Divider(
+            color: Color(CBL.textGray),
+            thickness: CBL.thickness,
           ),
+
         ),
         Padding(
-          padding: const EdgeInsets.symmetric(horizontal: CBL.horizontalPadding),
+          padding: const EdgeInsets.symmetric(horizontal: 50),
           child: Text(
-            'or',
+            'OR',
             style: TextStyle(
-                color: Color(CBL.veryLightGray),
+                color: Color(CBL.textGray),
                 fontFamily: CBL.fontFamily,
                 fontSize: CBL.fontSize),
           ),
         ),
         Expanded(
-          child: Padding(
-            padding: EdgeInsets.only(right: CBL.padding),
-            child: Divider(
-              color: Color(CBL.veryLightGray),
-              thickness: CBL.thickness,
-            ),
+          child: Divider(
+            color: Color(CBL.textGray),
+            thickness: CBL.thickness,
           ),
         )
       ],

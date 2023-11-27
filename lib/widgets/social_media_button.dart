@@ -2,6 +2,8 @@ import 'package:call_black_line/widgets/cbl.dart';
 import 'package:flutter/material.dart';
 
 class SocialMedia extends StatelessWidget {
+  const SocialMedia({super.key});
+
   @override
   Widget build(BuildContext context) {
     var mediaWidth = MediaQuery.of(context).size.width;
@@ -11,36 +13,64 @@ class SocialMedia extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         SizedBox(
-          width: CBL.boxWidth,
-          height: CBL.boxHeight,
+          //width: 325,
+          height: 57,
           child: GestureDetector(
             child: Container(
               decoration: BoxDecoration(
                 border: Border.all(
-                  color: Color(CBL.fbBlue),
-                  width: CBL.containerWidth,
+                  color: const Color(CBL.gray),
+                  width: 1.5,
                 ),
                 borderRadius: const BorderRadius.all(
-                  Radius.circular(CBL.borderRadiusLarge),
+                  Radius.circular(24),
                 ),
+                boxShadow: const [
+                  BoxShadow(
+                    color: Color(0x2b000000),
+                    offset: Offset(
+                      0,
+                      2,
+                    ),
+                    blurRadius: 3,
+                    spreadRadius: 0,
+                  ), //BoxShadow
+                  BoxShadow(
+                    color: Colors.white,
+                    offset: Offset(0.0, 0.0),
+                    blurRadius: 0.0,
+                    spreadRadius: 0.0,
+                  ),
+                ],
               ),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
+              child: Stack(
                 children: [
-                  Padding(
-                    padding: const EdgeInsets.only(right: CBL.paddingRight),
-                    child: Image.asset(
-                      'assets/images/facebook.png',
+                  Align(
+                    alignment: Alignment.centerLeft,
+                    child: Padding(
+                      padding: EdgeInsets.only(
+                          left: CBL.padding, right: CBL.paddingRight),
+                      child: SizedBox(
+                        height: CBL.socialMediaLogoSize,
+                        width: CBL.socialMediaLogoSize,
+                        child: Image.asset(
+                          'assets/images/google.png',
+                        ),
+                      ),
                     ),
                   ),
-                  Center(
-                    child: Text(
-                      'Facebook',
-                      style: TextStyle(
-                        fontSize: CBL.fontSize,
-                        fontFamily: CBL.fontFamily,
-                        fontWeight: CBL.bold,
-                        color: Color(CBL.fbBlue),
+                  Align(
+                    alignment: Alignment.center,
+                    child: SizedBox(
+                      child: Text(
+                        'Continue with Google',
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          fontSize: CBL.fontSize,
+                          fontFamily: CBL.fontFamily,
+                          fontWeight: FontWeight.w600,
+                          color: const Color(CBL.gray),
+                        ),
                       ),
                     ),
                   ),
@@ -51,36 +81,66 @@ class SocialMedia extends StatelessWidget {
           ),
         ),
         SizedBox(
-          width: CBL.boxWidth,
-          height: CBL.boxHeight,
+          height: CBL.padding,
+        ),
+        SizedBox(
+          //width: 325,
+          height: 57,
           child: GestureDetector(
             child: Container(
               decoration: BoxDecoration(
                 border: Border.all(
-                  color: Color(CBL.googleGreen),
-                  width: 2,
+                  color: const Color(CBL.gray),
+                  width: 1.5,
                 ),
                 borderRadius: const BorderRadius.all(
-                  Radius.circular(CBL.borderRadiusLarge),
+                  Radius.circular(24),
                 ),
+                boxShadow: const [
+                  BoxShadow(
+                    color: Color(0x2b000000),
+                    offset: Offset(
+                      0,
+                      2,
+                    ),
+                    blurRadius: 3,
+                    spreadRadius: 0,
+                  ), //BoxShadow
+                  BoxShadow(
+                    color: Colors.white,
+                    offset: Offset(0.0, 0.0),
+                    blurRadius: 0.0,
+                    spreadRadius: 0.0,
+                  ),
+                ],
               ),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
+              child: Stack(
                 children: [
-                  Padding(
-                    padding: const EdgeInsets.only(right: CBL.paddingRight),
-                    child: Image.asset(
-                      'assets/images/google.png',
+                  Align(
+                    alignment: Alignment.centerLeft,
+                    child: Padding(
+                      padding: EdgeInsets.only(
+                          left: CBL.padding, right: CBL.paddingRight),
+                      child: SizedBox(
+                        height: CBL.socialMediaLogoSize,
+                        width: CBL.socialMediaLogoSize,
+                        child: Image.asset(
+                          'assets/images/facebook.png',
+                        ),
+                      ),
                     ),
                   ),
-                  Center(
+                  Align(
+                    alignment: Alignment.center,
+                    //crossAxisAlignment: CrossAxisAlignment.stretch,
                     child: Text(
-                      'Google',
+                      'Continue with Facebook',
+                      textAlign: TextAlign.center,
                       style: TextStyle(
                         fontSize: CBL.fontSize,
                         fontFamily: CBL.fontFamily,
-                        fontWeight: CBL.bold,
-                        color: Color(CBL.googleGreen),
+                        fontWeight: FontWeight.w600,
+                        color: const Color(CBL.gray),
                       ),
                     ),
                   ),

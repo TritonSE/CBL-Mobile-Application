@@ -5,12 +5,14 @@ class PasswordField extends StatefulWidget {
   String text;
   int borderColor;
   int textColor;
+  double bottomPadding;
   bool hideText = true;
   TextEditingController titleController;
   PasswordField(
       {super.key,
       required this.text,
       required this.borderColor,
+      required this.bottomPadding,
       required this.textColor,
       required this.titleController});
 
@@ -19,7 +21,6 @@ class PasswordField extends StatefulWidget {
 }
 
 class _PasswordFieldState extends State<PasswordField> {
-
   void _toggle() {
     setState(() => widget.hideText = !widget.hideText);
   }
@@ -37,56 +38,53 @@ class _PasswordFieldState extends State<PasswordField> {
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsets.only(
-        top: CBL.padding,
+        top: CBL.horizontalPadding,
+        bottom: widget.bottomPadding,
       ),
       child: SizedBox(
         width: double.infinity,
-        height: CBL.boxHeight,
+        height: CBL.inputHeight,
         child: TextFormField(
           cursorColor: Color(widget.borderColor),
           obscureText: widget.hideText,
           controller: widget.titleController,
           decoration: InputDecoration(
-              floatingLabelStyle: TextStyle(
-                fontSize: CBL.fontSize,
-                color: Color(widget.borderColor),
-                fontWeight: CBL.bold,
-                fontFamily: CBL.fontFamily,
-              ),
+              contentPadding: EdgeInsets.all(CBL.padding),
+              floatingLabelBehavior: FloatingLabelBehavior.never,
               prefixIcon: Icon(
                 Icons.lock,
-                color: Color(widget.borderColor),
+                color: Color(CBL.primaryOrange),
               ),
               suffixIcon: IconButton(
                 icon: widget.hideText
                     ? Icon(
                         Icons.visibility_off,
-                        color: Color(widget.borderColor),
+                        color: Color(CBL.primaryOrange),
                       )
                     : Icon(
                         Icons.visibility,
-                        color: Color(widget.borderColor),
+                        color: Color(CBL.primaryOrange),
                       ),
                 onPressed: _toggle,
               ),
               enabledBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(CBL.borderRadiusLarge),
+                borderRadius: BorderRadius.circular(CBL.borderRadiusSmall),
                 borderSide: BorderSide(
-                  width: 1,
+                  width: 1.5,
                   color: Color(widget.borderColor),
                 ),
               ),
               focusedBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(CBL.borderRadiusLarge),
+                borderRadius: BorderRadius.circular(CBL.borderRadiusSmall),
                 borderSide: BorderSide(
-                  width: 1,
+                  width: 1.5,
                   color: Color(widget.borderColor),
                 ),
               ),
               labelText: widget.text,
               labelStyle: TextStyle(color: Color(widget.textColor))),
           style: TextStyle(
-            fontSize: CBL.fontSize,
+            fontSize: CBL.fieldTitleFontSize,
             color: Color(CBL.black),
             fontWeight: CBL.bold,
             fontFamily: CBL.fontFamily,

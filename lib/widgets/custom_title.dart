@@ -14,19 +14,18 @@ class CustomTitle extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Padding(
+    return Padding(
         padding: EdgeInsets.only(top: topPadding, bottom: bottomPadding),
         child: Text(
           text,
-          textAlign: TextAlign.center,
+          textAlign: TextAlign.left,
           style: TextStyle(
               fontWeight: FontWeight.w700,
               fontSize: CBL.fontSizeLarge,
               letterSpacing: CBL.letterSpacing,
               fontFamily: CBL.fontFamily),
         ),
-      ),
+
     );
   }
 }
