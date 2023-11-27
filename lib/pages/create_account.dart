@@ -1,21 +1,13 @@
 import 'package:call_black_line/widgets/cbl.dart';
 import 'package:call_black_line/widgets/checkbox_text.dart';
-import 'package:call_black_line/widgets/orange_button.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:call_black_line/widgets/custom_title.dart';
 import 'package:call_black_line/widgets/header.dart';
 import 'package:call_black_line/widgets/input_field.dart';
-import 'package:call_black_line/widgets/or_divider.dart';
 import 'package:call_black_line/widgets/password_field.dart';
-import 'package:call_black_line/widgets/social_media_button.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-import 'package:call_black_line/auth_methods.dart';
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:provider/provider.dart';
-import '../testimonial.dart';
-import '../user.dart';
 import '../big_auth.dart';
 
 final Uri _tosUrl = Uri.parse('https://www.callblackline.com/terms-of-service');
@@ -40,10 +32,6 @@ class _CreateAccountState extends State<CreateAccount> {
   final TextEditingController _phoneNumberController = TextEditingController();
 
   //variables to store the values of the fields
-  var _email;
-  var _username;
-  var _phoneNumber;
-  var _password;
   Color getColor(Set<MaterialState> states) {
     return Color(CBL.blue);
   }
@@ -56,8 +44,6 @@ class _CreateAccountState extends State<CreateAccount> {
 
   @override
   Widget build(BuildContext context) {
-    final firebaseuser = context.watch<User?>();
-
     return Scaffold(
       // resizeToAvoidBottomInset: false,
       backgroundColor: Colors.white,
@@ -231,18 +217,11 @@ class _CreateAccountState extends State<CreateAccount> {
                         return;
                       }
 
-                      setState(() {
-                        _email = _emailController.text;
-                        _username = _usernameController.text;
-                        _phoneNumber = _phoneNumberController.text;
-                        _password = _passwordController.text;
-                      });
-
                       //make sure terms are agreed to
                       if (signUpTOSCheck == false) {
                         ScaffoldMessenger.of(context).hideCurrentSnackBar();
                         ScaffoldMessenger.of(context).showSnackBar(
-                          SnackBar(
+                          const SnackBar(
                             content: Text(
                                 "Please accept the terms of service and privacy policy"),
                           ),
@@ -260,7 +239,6 @@ class _CreateAccountState extends State<CreateAccount> {
                           _phoneNumberController.text);
 
                       //store result as an int
-                      int intResult = (result.runtimeType == int) ? 400 : 0;
                       String stringResult = result.toString();
 
                       //if success, proceed as normal, if failure, show snackbar with error message

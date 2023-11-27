@@ -1,19 +1,11 @@
-import 'package:call_black_line/widgets/checkbox_text.dart';
-import 'package:call_black_line/widgets/custom_navbar.dart';
-import 'package:call_black_line/widgets/orange_button.dart';
 import 'package:flutter/material.dart';
 import 'package:call_black_line/widgets/custom_title.dart';
 import 'package:call_black_line/widgets/header.dart';
-import 'package:call_black_line/widgets/input_field.dart';
-import 'package:call_black_line/widgets/password_field.dart';
 import 'package:call_black_line/widgets/or_divider.dart';
 import 'package:call_black_line/widgets/social_media_button.dart';
 import '../widgets/cbl.dart';
-import 'package:email_validator/email_validator.dart';
 
-import 'package:call_black_line/auth_methods.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:provider/provider.dart';
 
 class TakeActionWrapper extends StatefulWidget {
   const TakeActionWrapper({super.key});
@@ -25,8 +17,6 @@ class TakeActionWrapper extends StatefulWidget {
 class _TakeActionWrapperState extends State<TakeActionWrapper> {
   @override
   Widget build(BuildContext context) {
-    final firebaseuser = context.watch<User?>();
-
     return StreamBuilder(
         stream: FirebaseAuth.instance.authStateChanges(),
         builder: (context, snapshot) {
@@ -63,15 +53,8 @@ class _TakeActionPageState extends State<TakeActionPage> {
   int veryLightGray = 0xffD8D8D8;
   int createBlue = 0xff428BCD;
 
-  final TextEditingController _passwordController = TextEditingController();
-  final TextEditingController _emailController = TextEditingController();
-
   @override
   Widget build(BuildContext context) {
-    final firebaseuser = context.watch<User?>();
-
-    var mediaWidth = MediaQuery.of(context).size.width;
-
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: Header(onBackButtonPressed: () {
@@ -93,17 +76,15 @@ class _TakeActionPageState extends State<TakeActionPage> {
               const SizedBox(
                 height: 40,
               ),
-              SocialMedia(),
+              const SocialMedia(),
               const SizedBox(
                 height: 24,
               ),
               SizedBox(
-
                 height: CBL.boxHeight,
                 //width: 325,
                 child: GestureDetector(
-                  onTap: () =>
-                      Navigator.pushNamed(context, '/logIn'),
+                  onTap: () => Navigator.pushNamed(context, '/logIn'),
                   child: Container(
                     decoration: BoxDecoration(
                       borderRadius: const BorderRadius.all(
@@ -124,7 +105,6 @@ class _TakeActionPageState extends State<TakeActionPage> {
                   ),
                 ),
               ),
-
               const SizedBox(
                 height: 12,
               ),
@@ -132,7 +112,6 @@ class _TakeActionPageState extends State<TakeActionPage> {
               const SizedBox(
                 height: 12,
               ),
-
               Padding(
                 padding: EdgeInsets.only(top: CBL.padding),
                 child: Center(
@@ -147,8 +126,7 @@ class _TakeActionPageState extends State<TakeActionPage> {
                           fontSize: 17,
                         ),
                       ),
-                      const SizedBox(
-                      ),
+                      const SizedBox(),
                       GestureDetector(
                         onTap: () =>
                             Navigator.pushNamed(context, '/createAccount'),

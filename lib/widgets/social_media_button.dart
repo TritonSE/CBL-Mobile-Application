@@ -2,6 +2,8 @@ import 'package:call_black_line/widgets/cbl.dart';
 import 'package:flutter/material.dart';
 
 class SocialMedia extends StatelessWidget {
+  const SocialMedia({super.key});
+
   @override
   Widget build(BuildContext context) {
     var mediaWidth = MediaQuery.of(context).size.width;
@@ -23,30 +25,31 @@ class SocialMedia extends StatelessWidget {
                 borderRadius: const BorderRadius.all(
                   Radius.circular(24),
                 ),
-               boxShadow: [
-                const BoxShadow(
-                color: const Color(0x2b000000),
-                  offset: const Offset(
-                    0,
-                    2,
+                boxShadow: const [
+                  BoxShadow(
+                    color: Color(0x2b000000),
+                    offset: Offset(
+                      0,
+                      2,
+                    ),
+                    blurRadius: 3,
+                    spreadRadius: 0,
+                  ), //BoxShadow
+                  BoxShadow(
+                    color: Colors.white,
+                    offset: Offset(0.0, 0.0),
+                    blurRadius: 0.0,
+                    spreadRadius: 0.0,
                   ),
-                  blurRadius: 3,
-                  spreadRadius: 0,
-                ), //BoxShadow
-                const BoxShadow(
-                  color: Colors.white,
-                  offset: const Offset(0.0, 0.0),
-                  blurRadius: 0.0,
-                  spreadRadius: 0.0,
-                ),
-               ],
+                ],
               ),
               child: Stack(
                 children: [
                   Align(
                     alignment: Alignment.centerLeft,
                     child: Padding(
-                      padding: EdgeInsets.only(left: CBL.padding, right: CBL.paddingRight),
+                      padding: EdgeInsets.only(
+                          left: CBL.padding, right: CBL.paddingRight),
                       child: SizedBox(
                         height: CBL.socialMediaLogoSize,
                         width: CBL.socialMediaLogoSize,
@@ -66,7 +69,7 @@ class SocialMedia extends StatelessWidget {
                           fontSize: CBL.fontSize,
                           fontFamily: CBL.fontFamily,
                           fontWeight: FontWeight.w600,
-                          color: Color(CBL.gray),
+                          color: const Color(CBL.gray),
                         ),
                       ),
                     ),
@@ -93,10 +96,10 @@ class SocialMedia extends StatelessWidget {
                 borderRadius: const BorderRadius.all(
                   Radius.circular(24),
                 ),
-                boxShadow: [
+                boxShadow: const [
                   BoxShadow(
-                    color:  Color(0x2b000000),
-                    offset: const Offset(
+                    color: Color(0x2b000000),
+                    offset: Offset(
                       0,
                       2,
                     ),
@@ -104,20 +107,20 @@ class SocialMedia extends StatelessWidget {
                     spreadRadius: 0,
                   ), //BoxShadow
                   BoxShadow(
-                    color:  Colors.white,
-                    offset: const Offset(0.0, 0.0),
+                    color: Colors.white,
+                    offset: Offset(0.0, 0.0),
                     blurRadius: 0.0,
                     spreadRadius: 0.0,
                   ),
                 ],
-
               ),
               child: Stack(
                 children: [
-                  Align (
+                  Align(
                     alignment: Alignment.centerLeft,
                     child: Padding(
-                      padding: EdgeInsets.only(left: CBL.padding, right: CBL.paddingRight),
+                      padding: EdgeInsets.only(
+                          left: CBL.padding, right: CBL.paddingRight),
                       child: SizedBox(
                         height: CBL.socialMediaLogoSize,
                         width: CBL.socialMediaLogoSize,
@@ -137,16 +140,14 @@ class SocialMedia extends StatelessWidget {
                         fontSize: CBL.fontSize,
                         fontFamily: CBL.fontFamily,
                         fontWeight: FontWeight.w600,
-                        color: Color(CBL.gray),
+                        color: const Color(CBL.gray),
                       ),
                     ),
                   ),
                 ],
               ),
             ),
-            onTap: () {
-              print("you clicked me");
-            },
+            onTap: () {},
           ),
         ),
       ],

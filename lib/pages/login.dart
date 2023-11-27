@@ -1,13 +1,9 @@
 import 'package:call_black_line/widgets/checkbox_text.dart';
-import 'package:call_black_line/widgets/custom_navbar.dart';
-import 'package:call_black_line/widgets/orange_button.dart';
 import 'package:flutter/material.dart';
 import 'package:call_black_line/widgets/custom_title.dart';
 import 'package:call_black_line/widgets/header.dart';
 import 'package:call_black_line/widgets/input_field.dart';
 import 'package:call_black_line/widgets/password_field.dart';
-import 'package:call_black_line/widgets/or_divider.dart';
-import 'package:call_black_line/widgets/social_media_button.dart';
 import '../widgets/cbl.dart';
 import 'package:email_validator/email_validator.dart';
 
@@ -25,8 +21,6 @@ class LogIn extends StatefulWidget {
 class _LogInState extends State<LogIn> {
   @override
   Widget build(BuildContext context) {
-    final firebaseuser = context.watch<User?>();
-
     return StreamBuilder(
         stream: FirebaseAuth.instance.authStateChanges(),
         builder: (context, snapshot) {
@@ -68,14 +62,9 @@ class _LogInPageState extends State<LogInPage> {
 
   @override
   Widget build(BuildContext context) {
-    final firebaseuser = context.watch<User?>();
-
-    var mediaWidth = MediaQuery.of(context).size.width;
-
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: Header(onBackButtonPressed: () {
-        print("back button was pressed from take_action");
         Navigator.pushNamed(context, '/seekHelp');
       }),
       body: SingleChildScrollView(
@@ -194,8 +183,6 @@ class _LogInPageState extends State<LogInPage> {
                       Object returnedObject = await result;
                       int returnedStatus =
                       (returnedObject.runtimeType == int) ? 400 : 0;
-
-                      //print(firebaseuser!.email);
 
                       if (returnedStatus == 400) {
                         Navigator.pushNamed(context, '/callTextNow');
