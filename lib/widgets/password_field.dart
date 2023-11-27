@@ -21,7 +21,6 @@ class PasswordField extends StatefulWidget {
 }
 
 class _PasswordFieldState extends State<PasswordField> {
-
   void _toggle() {
     setState(() => widget.hideText = !widget.hideText);
   }
@@ -51,12 +50,7 @@ class _PasswordFieldState extends State<PasswordField> {
           controller: widget.titleController,
           decoration: InputDecoration(
               contentPadding: EdgeInsets.all(CBL.padding),
-              floatingLabelStyle: TextStyle(
-                fontSize: CBL.fontSize,
-                color: Color(widget.borderColor),
-                fontWeight: CBL.bold,
-                fontFamily: CBL.fontFamily,
-              ),
+              floatingLabelBehavior: FloatingLabelBehavior.never,
               prefixIcon: Icon(
                 Icons.lock,
                 color: Color(CBL.primaryOrange),
@@ -73,7 +67,6 @@ class _PasswordFieldState extends State<PasswordField> {
                       ),
                 onPressed: _toggle,
               ),
-
               enabledBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(CBL.borderRadiusSmall),
                 borderSide: BorderSide(

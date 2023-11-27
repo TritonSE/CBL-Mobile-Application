@@ -39,22 +39,16 @@ class _InputFieldState extends State<InputField> {
       //padding: EdgeInsets.only(top: widget.paddingTop ?? CBL.padding),
       padding: const EdgeInsets.only(top: CBL.horizontalPadding, bottom: 40),
       child: SizedBox(
-      width: double.infinity,
-      height: CBL.inputHeight,
-      child:
-        TextFormField(
+        width: double.infinity,
+        height: CBL.inputHeight,
+        child: TextFormField(
           controller: widget.titleController,
           minLines: CBL.minLines,
           maxLines: CBL.maxLines,
           cursorColor: Color(widget.borderColor),
           decoration: InputDecoration(
             contentPadding: EdgeInsets.all(CBL.padding),
-            floatingLabelStyle: TextStyle(
-              fontSize: 0,
-              color: Color(widget.borderColor),
-              fontWeight: CBL.bold,
-              fontFamily: CBL.fontFamily,
-            ),
+            floatingLabelBehavior: FloatingLabelBehavior.never,
             prefixIcon: widget.icon != null
                 ? Icon(
                     widget.icon,
