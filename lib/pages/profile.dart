@@ -14,8 +14,6 @@ class Profile extends StatelessWidget {
 
   Future<String> getUsername(BuildContext context) async {
     //get parameters of current users
-    final User? user = FirebaseAuth.instance.currentUser;
-    final String? userId = user?.uid;
     final firebaseuser = context.watch<User?>();
     String? email = "";
     email = firebaseuser?.email;
@@ -121,7 +119,7 @@ class Profile extends StatelessWidget {
             ),
             const Spacer(),
             Padding(
-              padding: EdgeInsets.only(bottom: 50),
+              padding: const EdgeInsets.only(bottom: 50),
               child: OrangeButton(
                 buttonText: 'Logout',
                 width: 146,

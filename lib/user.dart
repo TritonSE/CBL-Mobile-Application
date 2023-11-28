@@ -21,7 +21,7 @@ class UserRepository {
   Future<Object> addUser(UserData user, String userid) async {
     //add document to firebase, currently using email as the document id
     try {
-      await userCollection.doc(user.email).set(user.toMap());
+      await userCollection.doc(userid).set(user.toMap());
       return {'status': 'SUCCESS'};
     } catch (e) {
       return {'status': 'ERROR', 'message': e.toString()};

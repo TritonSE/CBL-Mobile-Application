@@ -1,3 +1,4 @@
+
 buildscript {
     ext.kotlin_version = '1.8.21'
     repositories {
@@ -19,6 +20,7 @@ allprojects {
     }
 }
 
+
 rootProject.buildDir = '../build'
 subprojects {
     project.buildDir = "${rootProject.buildDir}/${project.name}"
@@ -30,3 +32,6 @@ subprojects {
 tasks.register("clean", Delete) {
     delete rootProject.buildDir
 }
+//apply plugin: 'com.google.gms.google-services'
+
+
