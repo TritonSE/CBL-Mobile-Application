@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:call_black_line/widgets/cbl.dart';
 
-import '../auth_methods.dart';
-
 typedef void BackButtonCallback();
 
 class Header extends StatelessWidget implements PreferredSizeWidget {

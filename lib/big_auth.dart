@@ -1,6 +1,5 @@
 // This file contains the main functions for signing up and deleting the account.
 
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -53,7 +52,7 @@ class SignUpUtils {
 
         //get the current user's uid
         final User firebaseuser = FirebaseAuth.instance.currentUser!;
-        String uid = firebaseuser.uid;
+        String uid = firebaseuser.email!;
 
         //add the user to the database
         UserData user = UserData(
@@ -73,19 +72,19 @@ class SignUpUtils {
     try {
       UserRepository userRepository = UserRepository();
       UserCredential? result =
-          await context.read<AuthenticationService>().altSignInWithGoogle();
+          await context.read<AuthenticationService>().signInWithGoogle();
 
       if (result == null) {
         return 0;
       } else {
         //get the current user's uid
         final User firebaseuser = FirebaseAuth.instance.currentUser!;
-        String uid = firebaseuser.uid;
+        String uid = firebaseuser.email!;
 
         // Check if the user is new or existing
         bool isNewUser = result.additionalUserInfo!.isNewUser;
 
-        if (true) {
+        if (isNewUser) {
           // This means a new account was created
           // Add the user to the database
           UserData user = UserData(
@@ -93,8 +92,7 @@ class SignUpUtils {
               phoneNumber: "0000000000",
               email: firebaseuser.email!);
 
-          Object obj = userRepository.addUser(user, uid);
-          print(obj);
+          userRepository.addUser(user, uid);
         }
 
         return 400;
@@ -102,8 +100,6 @@ class SignUpUtils {
     } catch (e) {
       return {'status': 'ERROR', 'message': e.toString()};
     }
-
-    return 400;
   }
 
   Future<Object> deleteAccount(BuildContext context, String id) async {

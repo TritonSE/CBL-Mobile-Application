@@ -1,10 +1,6 @@
 import 'package:call_black_line/widgets/cbl.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:google_sign_in/google_sign_in.dart';
-import 'package:provider/provider.dart';
 
-import '../auth_methods.dart';
 import '../big_auth.dart';
 
 class SocialMedia extends StatelessWidget {
