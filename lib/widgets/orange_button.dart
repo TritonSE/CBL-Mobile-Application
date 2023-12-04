@@ -9,16 +9,18 @@ class OrangeButton extends StatelessWidget {
   final Color buttonColor;
   final Color borderColor;
   final Color textColor;
-  const OrangeButton({
-    Key? key,
-    this.buttonText = "Button",
-    this.onTap,
-    this.width = CBL.buttonWidth,
-    this.opacity = CBL.orangeOpacity,
-    this.buttonColor = const Color(CBL.orange),
-    this.borderColor = const Color(CBL.orange),
-    this.textColor = Colors.white,
-  }) : super(key: key);
+  final double fontSize;
+  const OrangeButton(
+      {Key? key,
+      this.buttonText = "Button",
+      this.onTap,
+      this.width = CBL.buttonWidth,
+      this.opacity = CBL.orangeOpacity,
+      this.buttonColor = const Color(CBL.orange),
+      this.borderColor = const Color(CBL.orange),
+      this.textColor = Colors.white,
+      this.fontSize = CBL.fontSize})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -40,7 +42,7 @@ class OrangeButton extends StatelessWidget {
               child: Text(
                 buttonText,
                 style: TextStyle(
-                    fontSize: CBL.fontSize,
+                    fontSize: fontSize,
                     fontFamily: CBL.fontFamily,
                     fontWeight: CBL.bold,
                     color: Colors.white),

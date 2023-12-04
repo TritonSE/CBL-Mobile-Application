@@ -51,11 +51,14 @@ flutter:
     - assets/images/placeholder.png
     - assets/images/seekhelp.png
     - assets/icons/right_arrow.svg
+    - assets/icons/expand_arrow.svg
+    - assets/icons/collapse_arrow.svg
     - assets/icons/medical.svg
     - assets/icons/scales.svg
     - assets/icons/house.svg
     - assets/icons/shield.svg
     - assets/icons/donation.svg
+    - assets/data/resources.json
 
   fonts:
     - family: Inter

@@ -1,0 +1,59 @@
+{
+  "resources": [
+    {
+      "title": "Glimmer",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ut sem ac odio scelerisque sodales ac eget massa. Aliquam consectetur lacus vitae nisl pretium, eget maximus ante malesuada. Donec vel imperdiet purus, eu malesuada lacus. Mauris gravida tellus massa, at aliquam enim molestie ac. ",
+      "category": "Mental Health",
+      "link": "www.google.com"
+    },
+    {
+      "title": "Inclusive Therapist",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ut sem ac odio scelerisque sodales ac eget massa. Aliquam consectetur lacus vitae nisl pretium.",
+      "category": "Mental Health",
+      "link": "www.google.com"
+    },
+    {
+      "title": "Therapy for Black Girls",
+      "description": "Description for Resource 3",
+      "category": "Mental Health",
+      "link": "www.google.com"
+    },
+    {
+      "title": "Prisoner Activist Resource Directory (PARC)",
+      "description": "Description for Resource 3",
+      "category": "Prisoner Advocacy",
+      "link": "www.google.com"
+    },
+    {
+      "title": "Herbert Cook Paralegal in Florida",
+      "description": "Description for Resource 3",
+      "category": "Prisoner Advocacy",
+      "link": "www.google.com"
+    },
+    {
+      "title": "Public Defender Ulster County",
+      "description": "Description for Resource 3",
+      "category": "Prisoner Advocacy",
+      "link": "www.google.com"
+    },
+    {
+      "title": "Plume",
+      "description": "Description for Resource 3",
+      "category": "Mutual Aid",
+      "link": "www.google.com"
+    },
+    {
+      "title": "Don't Call the Police",
+      "description": "Description for Resource 3",
+      "category": "Mutual Aid",
+      "link": "www.google.com"
+    },
+    {
+      "title": "Woman Organized Against Rape Philadelphia (WOAR)",
+      "description": "Description for Resource 3",
+      "category": "Domestic Violence & Sexual Assault",
+      "link": "www.google.com"
+    }
+    
+  ]
+}

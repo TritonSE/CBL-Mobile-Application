@@ -52,7 +52,37 @@ class Resources extends StatelessWidget {
             ),
 
             // Adding the search bar
-            SearchBar(),
+            GestureDetector(
+                onTap: () {
+                  Navigator.pushNamed(context, '/searchResources');
+                },
+                child: Container(
+                  decoration: BoxDecoration(
+                    borderRadius: const BorderRadius.all(Radius.circular(10)),
+                    border: Border.all(
+                      color: primaryVarColor,
+                      width: 1,
+                    ),
+                  ),
+                  child: Center(
+                    // Adds the attribute of typing into the search bar
+                    child: IgnorePointer(
+                      child: TextField(
+                        decoration: InputDecoration(
+                          contentPadding: EdgeInsets.symmetric(vertical: 16),
+                          prefixIcon: IconButton(
+                            icon: const Icon(Icons.search),
+                            onPressed: () {},
+                            color: primaryVarColor,
+                          ),
+                          hintText: 'Search resources...',
+                          hintStyle: TextStyle(fontSize: 17),
+                          border: InputBorder.none,
+                        ),
+                      ),
+                    ),
+                  ),
+                )),
 
             const SizedBox(
               height: 24,
@@ -83,14 +113,14 @@ class Resources extends StatelessWidget {
                 CategorySquare(
                     catText: 'Mental Health',
                     icon: 'medical',
-                    page: "resources"),
+                    page: "mentalHealthResources"),
                 SizedBox(
                   width: 16,
                 ),
                 CategorySquare(
                     catText: 'Prisoner Advocacy',
                     icon: 'scales',
-                    page: "resources"),
+                    page: "prisonerAdvocacyResources"),
               ],
             ),
 
@@ -109,7 +139,7 @@ class Resources extends StatelessWidget {
                 CategorySquare(
                     catText: 'Domestic Violence & Sexual Assault',
                     icon: 'shield',
-                    page: "resources"),
+                    page: "domesticResources"),
               ],
             ),
 
@@ -119,7 +149,7 @@ class Resources extends StatelessWidget {
 
             const ResourceNavCard(
               title: "All Resources",
-              page: "resources",
+              page: "allResources",
             ),
 
             const SizedBox(

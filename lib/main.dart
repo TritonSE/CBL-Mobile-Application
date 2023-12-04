@@ -1,3 +1,4 @@
+import 'package:call_black_line/pages/all_resources.dart';
 import 'package:call_black_line/pages/create_account.dart';
 import 'package:call_black_line/pages/login.dart';
 
@@ -5,6 +6,7 @@ import 'package:call_black_line/pages/coming_soon_resources.dart';
 import 'package:call_black_line/pages/donation.dart';
 import 'package:call_black_line/pages/have_your_voice_heard.dart';
 import 'package:call_black_line/pages/resources.dart';
+import 'package:call_black_line/pages/search_resources.dart';
 import 'package:call_black_line/pages/seek_help.dart';
 import 'package:call_black_line/pages/use_preexisting_affirmation.dart';
 
@@ -61,6 +63,19 @@ class MyApp extends StatelessWidget {
               '/seekHelp': (context) => const SeekHelp(),
               '/profile': (context) => const Profile(),
               '/resources': (context) => const Resources(),
+              '/allResources': (context) =>
+                  const AllResources(title: "All Resources"),
+              '/searchResources': (context) => const SearchResources(),
+              '/mentalHealthResources': (context) =>
+                  const AllResources(title: "Mental Health"),
+              '/prisonerAdvocacyResources': (context) =>
+                  const AllResources(title: "Prisoner Advocacy"),
+              '/mutualAidResources': (context) =>
+                  const AllResources(title: "Mutual Aid"),
+              '/domesticResources': (context) => const AllResources(
+                  title: "Domestic Violence & Sexual Assault"),
+              // '/allResources': (context) => const AllResources(),
+              // '/allResources': (context) => const AllResources(),
               '/allAffirmations': (context) =>
                   const UsePreexistingAffirmation(),
             }));

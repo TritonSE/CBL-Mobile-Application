@@ -35,7 +35,7 @@ class CBL {
   static double checkboxDimensions = 24;
   static double textBoxFontSize = 24;
   static const double borderRadiusSmall = 10;
-  static const double borderRadiusLarge = 15;
+  static const double borderRadiusLarge = 24;
 
   static const int minLines = 1;
   static const int maxLines = 3;
