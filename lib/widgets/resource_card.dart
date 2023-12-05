@@ -42,7 +42,7 @@ class _ResourceCardState extends State<ResourceCard>
   }
 
   Future<void> _launchUrl(String url) async {
-    final Uri uri = Uri(scheme: "https", host: url);
+    final Uri uri = Uri.parse("$url");
     if (!await launchUrl(uri, mode: LaunchMode.externalApplication)) {
       throw Exception('Could not launch url');
     }

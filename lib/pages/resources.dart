@@ -132,7 +132,9 @@ class Resources extends StatelessWidget {
             Row(
               children: const [
                 CategorySquare(
-                    catText: 'Housing', icon: 'house', page: "resources"),
+                    catText: 'Mutual Aid',
+                    icon: 'house',
+                    page: "mutualAidResources"),
                 SizedBox(
                   width: 16,
                 ),

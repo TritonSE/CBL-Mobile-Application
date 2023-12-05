@@ -78,58 +78,67 @@ class _SearchResourcesState extends State<SearchResources> {
         seekHelpRoute: '/seekHelp',
         profileRoute: '/takeAction',
       ), //Available: Resources, Seek Help, Profile
-      appBar: Header(onBackButtonPressed: () {
-        Navigator.pushNamed(context, '/resources');
-      }),
+      appBar: AppBar(
+        shadowColor: Colors.black.withOpacity(0.4),
+        automaticallyImplyLeading: false, //Remove default back arrow
+        backgroundColor: Colors.white,
+        title: Row(
+          children: [
+            Expanded(
+              child: Container(
+                decoration: BoxDecoration(
+                  borderRadius: const BorderRadius.all(Radius.circular(10)),
+                  border: Border.all(
+                    color: Color(CBL.primaryOrange),
+                    width: 1,
+                  ),
+                ),
+                child: Center(
+                  // Adds the attribute of typing into the search bar
+                  child: TextField(
+                    controller: searchController,
+                    autofocus: true,
+                    decoration: InputDecoration(
+                      isDense: true,
+                      contentPadding: EdgeInsets.symmetric(vertical: 10),
+                      prefixIconConstraints:
+                          BoxConstraints(maxHeight: 40, maxWidth: 35),
+                      prefixIcon: IconButton(
+                        padding: EdgeInsets.only(left: 5),
+                        iconSize: 25,
+                        icon: const Icon(Icons.search),
+                        onPressed: () {},
+                        color: Color(CBL.primaryOrange),
+                      ),
+                      hintText: 'Search resources...',
+                      hintStyle: TextStyle(fontSize: 17),
+                      border: InputBorder.none,
+                    ),
+                  ),
+                ),
+              ),
+            ),
+            const SizedBox(
+              width: 8,
+            ),
+            GestureDetector(
+              onTap: () => Navigator.pushNamed(context, '/resources'),
+              child: Text(
+                "Cancel",
+                style: TextStyle(
+                    color: Color(CBL.primaryOrange),
+                    fontSize: 17,
+                    fontWeight: FontWeight.w500),
+              ),
+            )
+          ],
+        ),
+      ),
       body: SingleChildScrollView(
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: CBL.padding),
           child: Column(
             children: [
-              Row(
-                children: [
-                  Expanded(
-                    child: Container(
-                      decoration: BoxDecoration(
-                        borderRadius:
-                            const BorderRadius.all(Radius.circular(10)),
-                        border: Border.all(
-                          color: Color(CBL.primaryOrange),
-                          width: 1,
-                        ),
-                      ),
-                      child: Center(
-                        // Adds the attribute of typing into the search bar
-                        child: TextField(
-                          controller: searchController,
-                          autofocus: true,
-                          decoration: InputDecoration(
-                            contentPadding: EdgeInsets.symmetric(vertical: 16),
-                            prefixIcon: IconButton(
-                              icon: const Icon(Icons.search),
-                              onPressed: () {},
-                              color: Color(CBL.primaryOrange),
-                            ),
-                            hintText: 'Search resources...',
-                            hintStyle: TextStyle(fontSize: 17),
-                            border: InputBorder.none,
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
-                  const SizedBox(
-                    width: 8,
-                  ),
-                  Text(
-                    "Cancel",
-                    style: TextStyle(
-                        color: Color(CBL.primaryOrange),
-                        fontSize: 17,
-                        fontWeight: FontWeight.w500),
-                  )
-                ],
-              ),
               const SizedBox(
                 height: 24,
               ),

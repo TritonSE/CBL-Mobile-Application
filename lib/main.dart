@@ -68,14 +68,12 @@ class MyApp extends StatelessWidget {
               '/searchResources': (context) => const SearchResources(),
               '/mentalHealthResources': (context) =>
                   const AllResources(title: "Mental Health"),
-              '/prisonerAdvocacyResources': (context) =>
-                  const AllResources(title: "Prisoner Advocacy"),
               '/mutualAidResources': (context) =>
                   const AllResources(title: "Mutual Aid"),
+              '/prisonerAdvocacyResources': (context) =>
+                  const AllResources(title: "Prisoner Advocacy"),
               '/domesticResources': (context) => const AllResources(
                   title: "Domestic Violence & Sexual Assault"),
-              // '/allResources': (context) => const AllResources(),
-              // '/allResources': (context) => const AllResources(),
               '/allAffirmations': (context) =>
                   const UsePreexistingAffirmation(),
             }));
