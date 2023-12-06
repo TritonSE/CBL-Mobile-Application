@@ -2,7 +2,6 @@ import 'package:call_black_line/pages/all_resources.dart';
 import 'package:call_black_line/pages/create_account.dart';
 import 'package:call_black_line/pages/login.dart';
 
-import 'package:call_black_line/pages/coming_soon_resources.dart';
 import 'package:call_black_line/pages/donation.dart';
 import 'package:call_black_line/pages/have_your_voice_heard.dart';
 import 'package:call_black_line/pages/resources.dart';

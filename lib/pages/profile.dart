@@ -41,7 +41,7 @@ class Profile extends StatelessWidget {
       backgroundColor: Colors.white,
       bottomNavigationBar: const CustomNavBar(
         currentPage: 'Profile',
-        resourcesRoute: '/comingSoonResources',
+        resourcesRoute: '/resources',
         seekHelpRoute: '/callTextNow',
         profileRoute: '/profile',
       ), //Available: Resources, Seek Help, Profile
