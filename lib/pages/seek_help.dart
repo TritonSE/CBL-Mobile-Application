@@ -84,98 +84,97 @@ class _SeekHelpState extends State<SeekHelp> {
             //placeholder
           }),
       body: SingleChildScrollView(
-        child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: CBL.padding),
-          child: Column(
-            children: [
-              Stack(
-                children: [
-                  Image.asset('assets/images/seekhelp.png',
-                      width: MediaQuery.of(context).size.width,
-                      fit: BoxFit.cover),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.only(
-                            top: 30, left: 15, right: 15, bottom: 15),
-                        child: Text(
-                          "Seek Help",
-                          textAlign: TextAlign.left,
-                          style: TextStyle(
-                              fontWeight: FontWeight.w700,
-                              fontSize: 30,
-                              letterSpacing: 0.4,
-                              fontFamily: CBL.fontFamily,
-                              color: Colors.white),
-                        ),
+        child: Column(
+          children: [
+            Stack(
+              children: [
+                Image.asset('assets/images/seekhelp.png',
+                    width: MediaQuery.of(context).size.width,
+                    fit: BoxFit.cover),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(
+                          top: 30, left: 15, right: 15, bottom: 15),
+                      child: Text(
+                        "Seek Help",
+                        textAlign: TextAlign.left,
+                        style: TextStyle(
+                            fontWeight: FontWeight.w700,
+                            fontSize: 30,
+                            letterSpacing: 0.4,
+                            fontFamily: CBL.fontFamily,
+                            color: Colors.white),
                       ),
-                      const SizedBox(height: 10),
-                      const SupportCard(),
-                    ],
+                    ),
+                    const SizedBox(height: 10),
+                    const SupportCard(),
+                  ],
+                )
+              ],
+            ),
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: CBL.padding),
+              child: Column(
+                children: [
+                  const SizedBox(
+                    height: 24,
+                  ),
+                  roundButton(
+                    label: 'Call',
+                    subtitle:
+                        'Talk with someone in real time${firebaseuser == null ? '\nProfile required*' : ''}',
+                    icon: Icons.phone,
+                    iconColor: Colors.blue,
+                    onPressed: () {
+                      if (firebaseuser == null) {
+                        // send user to sign in page
+                        Navigator.pushNamed(context, '/takeAction');
+                      } else {
+                        launchCall();
+                      }
+                    },
+                  ),
+                  const SizedBox(
+                    height: 24,
+                  ),
+                  roundButton(
+                    label: 'Text',
+                    subtitle:
+                        'Chat with someone in real time${firebaseuser == null ? '\nProfile required*' : ''}',
+                    icon: Icons.chat,
+                    iconColor: Colors.green,
+                    onPressed: () {
+                      if (firebaseuser == null) {
+                        // send user to sign in page
+                        Navigator.pushNamed(context, '/takeAction');
+                      } else {
+                        launchText();
+                      }
+                    },
+                  ),
+                  const SizedBox(
+                    height: 24,
+                  ),
+                  roundButton(
+                    label: 'Write',
+                    subtitle: 'Write about your mistreatment',
+                    icon: Icons.edit,
+                    iconColor: Colors.orange,
+                    onPressed: () {
+                      Navigator.pushNamed(context, '/haveYourVoiceHeard');
+                    },
+                  ),
+                  const SizedBox(
+                    height: 30,
                   )
                 ],
               ),
-              Padding(
-                padding: EdgeInsets.symmetric(horizontal: CBL.padding),
-                child: Column(
-                  children: [
-                    const SizedBox(
-                      height: 24,
-                    ),
-                    roundButton(
-                      label: 'Call',
-                      subtitle:
-                          'Talk with someone in real time${firebaseuser == null ? '\nProfile required*' : ''}',
-                      icon: Icons.phone,
-                      iconColor: Colors.blue,
-                      onPressed: () {
-                        if (firebaseuser == null) {
-                          // send user to sign in page
-                          Navigator.pushNamed(context, '/takeAction');
-                        } else {
-                          launchCall();
-                        }
-                      },
-                    ),
-                    const SizedBox(
-                      height: 24,
-                    ),
-                    roundButton(
-                      label: 'Text',
-                      subtitle:
-                          'Chat with someone in real time${firebaseuser == null ? '\nProfile required*' : ''}',
-                      icon: Icons.chat,
-                      iconColor: Colors.green,
-                      onPressed: () {
-                        if (firebaseuser == null) {
-                          // send user to sign in page
-                          Navigator.pushNamed(context, '/takeAction');
-                        } else {
-                          launchText();
-                        }
-                      },
-                    ),
-                    const SizedBox(
-                      height: 24,
-                    ),
-                    roundButton(
-                      label: 'Write',
-                      subtitle: 'Write about your mistreatment',
-                      icon: Icons.edit,
-                      iconColor: Colors.orange,
-                      onPressed: () {
-                        Navigator.pushNamed(context, '/haveYourVoiceHeard');
-                      },
-                    ),
-                    const SizedBox(
-                      height: 30,
-                    )
-                  ],
-                ),
-              )
-            ],
-          ),
-        ));
+            )
+          ],
+        ),
+      ),
+    );
   }
 }
