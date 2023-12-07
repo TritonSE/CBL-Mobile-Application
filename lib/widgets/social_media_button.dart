@@ -8,171 +8,80 @@ class SocialMedia extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var mediaWidth = MediaQuery.of(context).size.width;
-    // final FacebookLogin facebookLogin = FacebookLogin();
-
-    return Flex(
-      direction:
-          mediaWidth < CBL.smallMediaWidth ? Axis.vertical : Axis.horizontal,
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        SizedBox(
-          //width: 325,
-          height: 57,
-          child: GestureDetector(
-            child: Container(
-              decoration: BoxDecoration(
-                border: Border.all(
-                  color: const Color(CBL.gray),
-                  width: 1.5,
-                ),
-                borderRadius: const BorderRadius.all(
-                  Radius.circular(24),
-                ),
-                boxShadow: const [
-                  BoxShadow(
-                    color: Color(0x2b000000),
-                    offset: Offset(
-                      0,
-                      2,
-                    ),
-                    blurRadius: 3,
-                    spreadRadius: 0,
-                  ), //BoxShadow
-                  BoxShadow(
-                    color: Colors.white,
-                    offset: Offset(0.0, 0.0),
-                    blurRadius: 0.0,
-                    spreadRadius: 0.0,
-                  ),
-                ],
-              ),
-              child: Stack(
-                children: [
-                  Align(
-                    alignment: Alignment.centerLeft,
-                    child: Padding(
-                      padding: EdgeInsets.only(
-                          left: CBL.padding, right: CBL.paddingRight),
-                      child: SizedBox(
-                        height: CBL.socialMediaLogoSize,
-                        width: CBL.socialMediaLogoSize,
-                        child: Image.asset(
-                          'assets/images/google.png',
-                        ),
-                      ),
-                    ),
-                  ),
-                  Align(
-                    alignment: Alignment.center,
-                    child: SizedBox(
-                      child: Text(
-                        'Continue with Google',
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          fontSize: CBL.fontSize,
-                          fontFamily: CBL.fontFamily,
-                          fontWeight: FontWeight.w600,
-                          color: const Color(CBL.gray),
-                        ),
-                      ),
-                    ),
-                  ),
-                ],
-              ),
+    return GestureDetector(
+      child: SizedBox(
+        height: 57,
+        child: Container(
+          decoration: BoxDecoration(
+            border: Border.all(
+              color: const Color(CBL.gray),
+              width: 1.5,
             ),
-            onTap: () async {
-              //sign in or sign up with google
-              final SignUpUtils signUpUtils = SignUpUtils();
-              Object result = await signUpUtils.signUpGoogle(context);
-
-              if (result == 400) {
-                Navigator.pushNamed(context, '/callTextNow');
-              }
-            },
+            borderRadius: const BorderRadius.all(
+              Radius.circular(24),
+            ),
+            boxShadow: const [
+              BoxShadow(
+                color: Color(0x2b000000),
+                offset: Offset(
+                  0,
+                  2,
+                ),
+                blurRadius: 3,
+                spreadRadius: 0,
+              ), //BoxShadow
+              BoxShadow(
+                color: Colors.white,
+                offset: Offset(0.0, 0.0),
+                blurRadius: 0.0,
+                spreadRadius: 0.0,
+              ),
+            ],
+          ),
+          child: Stack(
+            children: [
+              Align(
+                alignment: Alignment.centerLeft,
+                child: Padding(
+                  padding: EdgeInsets.only(
+                      left: CBL.padding, right: CBL.paddingRight),
+                  child: SizedBox(
+                    height: CBL.socialMediaLogoSize,
+                    width: CBL.socialMediaLogoSize,
+                    child: Image.asset(
+                      'assets/images/google.png',
+                    ),
+                  ),
+                ),
+              ),
+              Align(
+                alignment: Alignment.center,
+                child: SizedBox(
+                  child: Text(
+                    'Continue with Google',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontSize: CBL.fontSize,
+                      fontFamily: CBL.fontFamily,
+                      fontWeight: FontWeight.w600,
+                      color: const Color(CBL.gray),
+                    ),
+                  ),
+                ),
+              ),
+            ],
           ),
         ),
-        // TBD: Facebook login
+      ),
+      onTap: () async {
+        //sign in or sign up with google
+        final SignUpUtils signUpUtils = SignUpUtils();
+        Object result = await signUpUtils.signUpGoogle(context);
 
-        // SizedBox(
-        //   height: CBL.padding,
-        // ),
-        // SizedBox(
-        //   //width: 325,
-        //   height: 57,
-        //   child: GestureDetector(
-        //     child: Container(
-        //       decoration: BoxDecoration(
-        //         border: Border.all(
-        //           color: const Color(CBL.gray),
-        //           width: 1.5,
-        //         ),
-        //         borderRadius: const BorderRadius.all(
-        //           Radius.circular(24),
-        //         ),
-        //         boxShadow: const [
-        //           BoxShadow(
-        //             color: Color(0x2b000000),
-        //             offset: Offset(
-        //               0,
-        //               2,
-        //             ),
-        //             blurRadius: 3,
-        //             spreadRadius: 0,
-        //           ), //BoxShadow
-        //           BoxShadow(
-        //             color: Colors.white,
-        //             offset: Offset(0.0, 0.0),
-        //             blurRadius: 0.0,
-        //             spreadRadius: 0.0,
-        //           ),
-        //         ],
-        //       ),
-        //       child: Stack(
-        //         children: [
-        //           Align(
-        //             alignment: Alignment.centerLeft,
-        //             child: Padding(
-        //               padding: EdgeInsets.only(
-        //                   left: CBL.padding, right: CBL.paddingRight),
-        //               child: SizedBox(
-        //                 height: CBL.socialMediaLogoSize,
-        //                 width: CBL.socialMediaLogoSize,
-        //                 child: Image.asset(
-        //                   'assets/images/facebook.png',
-        //                 ),
-        //               ),
-        //             ),
-        //           ),
-        //           Align(
-        //             alignment: Alignment.center,
-        //             //crossAxisAlignment: CrossAxisAlignment.stretch,
-        //             child: Text(
-        //               'Continue with Facebook',
-        //               textAlign: TextAlign.center,
-        //               style: TextStyle(
-        //                 fontSize: CBL.fontSize,
-        //                 fontFamily: CBL.fontFamily,
-        //                 fontWeight: FontWeight.w600,
-        //                 color: const Color(CBL.gray),
-        //               ),
-        //             ),
-        //           ),
-        //         ],
-        //       ),
-        //     ),
-        //     onTap: () async {
-        //       User? user = await context
-        //           .read<AuthenticationService>()
-        //           .signInWithFacebook(context: context);
-
-        //       if (user != null) {
-        //         Navigator.pushNamed(context, '/callTextNow');
-        //       }
-        //     },
-        //   ),
-        // ),
-      ],
+        if (result == 400) {
+          Navigator.pushNamed(context, '/callTextNow');
+        }
+      },
     );
   }
 }
