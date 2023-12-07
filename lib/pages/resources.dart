@@ -5,8 +5,6 @@ import 'package:call_black_line/widgets/custom_title.dart';
 import 'package:call_black_line/widgets/resource_nav_card.dart';
 import 'package:call_black_line/widgets/header.dart';
 import 'package:call_black_line/widgets/category_square.dart';
-import 'package:call_black_line/widgets/search_bar.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 
 const themeColor = Color(0xFFF7B279);
 const buttonColor = Color(0xFFDF742C);
@@ -28,7 +26,7 @@ class Resources extends StatelessWidget {
           currentPage: 'Resources',
           resourcesRoute: '/resources',
           seekHelpRoute: '/seekHelp',
-          profileRoute: '/takeAction',
+          profileRoute: '/profile',
         ), //Available: Resources, Seek Help, Profile
         appBar: Header(
             isHome: true,
@@ -69,14 +67,14 @@ class Resources extends StatelessWidget {
                     child: IgnorePointer(
                       child: TextField(
                         decoration: InputDecoration(
-                          contentPadding: EdgeInsets.symmetric(vertical: 16),
+                          contentPadding: const EdgeInsets.symmetric(vertical: 16),
                           prefixIcon: IconButton(
                             icon: const Icon(Icons.search),
                             onPressed: () {},
                             color: primaryVarColor,
                           ),
                           hintText: 'Search resources...',
-                          hintStyle: TextStyle(fontSize: 17),
+                          hintStyle: const TextStyle(fontSize: 17),
                           border: InputBorder.none,
                         ),
                       ),
@@ -108,8 +106,8 @@ class Resources extends StatelessWidget {
 
             // Adding categories
             // row 1 of two containers
-            Row(
-              children: const [
+            const Row(
+              children: [
                 CategorySquare(
                     catText: 'Mental Health',
                     icon: 'medical',
@@ -129,8 +127,8 @@ class Resources extends StatelessWidget {
             ),
 
             // row 2 of two containers
-            Row(
-              children: const [
+            const Row(
+              children: [
                 CategorySquare(
                     catText: 'Mutual Aid',
                     icon: 'house',

@@ -1,11 +1,8 @@
 import 'package:call_black_line/widgets/resource_card.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 
 import '../widgets/cbl.dart';
 import '../widgets/custom_navbar.dart';
-import '../widgets/custom_title.dart';
-import '../widgets/header.dart';
 import 'dart:convert';
 import 'package:flutter/services.dart' show rootBundle;
 
@@ -38,7 +35,6 @@ class _SearchResourcesState extends State<SearchResources> {
   void filterResources() {
     String currentQuery = searchController.text.toLowerCase();
     setState(() {
-      print(currentQuery);
       if (currentQuery == "") {
         filteredResources = allResources;
       } else {
@@ -76,7 +72,7 @@ class _SearchResourcesState extends State<SearchResources> {
         currentPage: 'Resources',
         resourcesRoute: '/resources',
         seekHelpRoute: '/seekHelp',
-        profileRoute: '/takeAction',
+        profileRoute: '/profile',
       ), //Available: Resources, Seek Help, Profile
       appBar: AppBar(
         shadowColor: Colors.black.withOpacity(0.4),
@@ -100,18 +96,18 @@ class _SearchResourcesState extends State<SearchResources> {
                     autofocus: true,
                     decoration: InputDecoration(
                       isDense: true,
-                      contentPadding: EdgeInsets.symmetric(vertical: 10),
+                      contentPadding: const EdgeInsets.symmetric(vertical: 10),
                       prefixIconConstraints:
-                          BoxConstraints(maxHeight: 40, maxWidth: 35),
+                          const BoxConstraints(maxHeight: 40, maxWidth: 35),
                       prefixIcon: IconButton(
-                        padding: EdgeInsets.only(left: 5),
+                        padding: const EdgeInsets.only(left: 5),
                         iconSize: 25,
                         icon: const Icon(Icons.search),
                         onPressed: () {},
                         color: Color(CBL.primaryOrange),
                       ),
                       hintText: 'Search resources...',
-                      hintStyle: TextStyle(fontSize: 17),
+                      hintStyle: const TextStyle(fontSize: 17),
                       border: InputBorder.none,
                     ),
                   ),

@@ -1,6 +1,5 @@
 import 'package:call_black_line/widgets/resource_card.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 
 import '../widgets/cbl.dart';
 import '../widgets/custom_navbar.dart';
@@ -61,7 +60,7 @@ class _AllResourcesState extends State<AllResources> {
         currentPage: 'Resources',
         resourcesRoute: '/resources',
         seekHelpRoute: '/seekHelp',
-        profileRoute: '/takeAction',
+        profileRoute: '/profile',
       ), //Available: Resources, Seek Help, Profile
       appBar: Header(onBackButtonPressed: () {
         Navigator.pushNamed(context, '/resources');

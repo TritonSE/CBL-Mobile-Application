@@ -1,6 +1,5 @@
 import 'package:call_black_line/widgets/cbl.dart';
 import 'package:call_black_line/widgets/orange_button.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -42,7 +41,7 @@ class _ResourceCardState extends State<ResourceCard>
   }
 
   Future<void> _launchUrl(String url) async {
-    final Uri uri = Uri.parse("$url");
+    final Uri uri = Uri.parse(url);
     if (!await launchUrl(uri, mode: LaunchMode.externalApplication)) {
       throw Exception('Could not launch url');
     }
@@ -77,7 +76,7 @@ class _ResourceCardState extends State<ResourceCard>
                       final textPainter = TextPainter(
                         text: TextSpan(
                             text: widget.title,
-                            style: TextStyle(
+                            style: const TextStyle(
                                 fontSize: 20, fontWeight: FontWeight.w600)),
                         maxLines: 1,
                         textDirection: TextDirection.ltr,
