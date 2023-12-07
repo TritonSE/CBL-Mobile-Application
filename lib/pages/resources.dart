@@ -39,15 +39,15 @@ class Resources extends StatelessWidget {
           child: Column(children: [
             const CustomTitle(text: 'Resources'),
 
-            const ResourceNavCard(
-              title: "View Affirmations",
-              page: "allAffirmations",
-              suffixIcon: "right_arrow",
-            ),
-
-            const SizedBox(
-              height: 16,
-            ),
+            // Affirmations implementation is not ready yet
+            // const ResourceNavCard(
+            //   title: "View Affirmations",
+            //   page: "allAffirmations",
+            //   suffixIcon: "right_arrow",
+            // ),
+            // const SizedBox(
+            //   height: 16,
+            // ),
 
             // Adding the search bar
             GestureDetector(
@@ -67,7 +67,8 @@ class Resources extends StatelessWidget {
                     child: IgnorePointer(
                       child: TextField(
                         decoration: InputDecoration(
-                          contentPadding: const EdgeInsets.symmetric(vertical: 16),
+                          contentPadding:
+                              const EdgeInsets.symmetric(vertical: 16),
                           prefixIcon: IconButton(
                             icon: const Icon(Icons.search),
                             onPressed: () {},
