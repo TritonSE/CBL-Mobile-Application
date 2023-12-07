@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart' hide SearchBar;
+import 'package:call_black_line/widgets/cbl.dart';
+import 'package:call_black_line/widgets/custom_navbar.dart';
+import 'package:call_black_line/widgets/custom_title.dart';
+import 'package:call_black_line/widgets/resource_nav_card.dart';
 import 'package:call_black_line/widgets/header.dart';
 import 'package:call_black_line/widgets/category_square.dart';
-import 'package:call_black_line/widgets/search_bar.dart';
 
 const themeColor = Color(0xFFF7B279);
 const buttonColor = Color(0xFFDF742C);
@@ -18,160 +21,154 @@ class Resources extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Colors.white,
-
-        appBar: Header(isHome: true, onBackButtonPressed: () {
-          Navigator.pushNamed(context, '/');
-        }),
+        backgroundColor: Color(CBL.backgroundColor),
+        bottomNavigationBar: const CustomNavBar(
+          currentPage: 'Resources',
+          resourcesRoute: '/resources',
+          seekHelpRoute: '/seekHelp',
+          profileRoute: '/profile',
+        ), //Available: Resources, Seek Help, Profile
+        appBar: Header(
+            isHome: true,
+            onBackButtonPressed: () {
+              Navigator.pushNamed(context, '/');
+            }),
         body: SingleChildScrollView(
-            child: Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisAlignment: MainAxisAlignment.start,
-                mainAxisSize: MainAxisSize.max,
-                children: <Widget>[
-              const SizedBox(
-                width: 16,
-              ),
-              Flexible(
-                fit: FlexFit.tight,
-                child: Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      const SizedBox(
-                        height: 24,
-                      ),
-                      Row(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        mainAxisSize: MainAxisSize.min,
-                        children: const [
-                          // Adding title of the page
-                          Align(
-                              alignment: Alignment.center,
-                              child: Text(
-                                'Resources',
-                                textAlign: TextAlign.center,
-                                style: TextStyle(
-                                  fontSize: 34,
-                                  fontFamily: 'Inter',
-                                  fontWeight: FontWeight.w700,
-                                  color: Colors.black,
-                                ),
-                              )),
-                        ],
-                      ),
-                      const SizedBox(
-                        height: 40,
-                      ),
+            child: Padding(
+          padding: EdgeInsets.symmetric(horizontal: CBL.padding),
+          child: Column(children: [
+            const CustomTitle(text: 'Resources'),
 
-                      // Adding the search bar
-                      SearchBar(),
+            // Affirmations implementation is not ready yet
+            // const ResourceNavCard(
+            //   title: "View Affirmations",
+            //   page: "allAffirmations",
+            //   suffixIcon: "right_arrow",
+            // ),
+            // const SizedBox(
+            //   height: 16,
+            // ),
 
-                      const SizedBox(
-                        height: 24,
-                      ),
-
-                      // Adding Subtitle: categories
-                      const Align(
-                        alignment: Alignment.centerLeft,
-                        child: Text(
-                          'Categories',
-                          textAlign: TextAlign.left,
-                          style: TextStyle(
-                            fontSize: 22,
-                            fontFamily: 'Inter',
-                            fontWeight: FontWeight.w500,
-                            color: Color(0xFF111827),
+            // Adding the search bar
+            GestureDetector(
+                onTap: () {
+                  Navigator.pushNamed(context, '/searchResources');
+                },
+                child: Container(
+                  decoration: BoxDecoration(
+                    borderRadius: const BorderRadius.all(Radius.circular(10)),
+                    border: Border.all(
+                      color: primaryVarColor,
+                      width: 1,
+                    ),
+                  ),
+                  child: Center(
+                    // Adds the attribute of typing into the search bar
+                    child: IgnorePointer(
+                      child: TextField(
+                        decoration: InputDecoration(
+                          contentPadding:
+                              const EdgeInsets.symmetric(vertical: 16),
+                          prefixIcon: IconButton(
+                            icon: const Icon(Icons.search),
+                            onPressed: () {},
+                            color: primaryVarColor,
                           ),
+                          hintText: 'Search resources...',
+                          hintStyle: const TextStyle(fontSize: 17),
+                          border: InputBorder.none,
                         ),
                       ),
+                    ),
+                  ),
+                )),
 
-                      const SizedBox(
-                        height: 16,
-                      ),
+            const SizedBox(
+              height: 24,
+            ),
 
-                      // Adding categories
-                      // row 1 of two containers
-                      Row(
-                        children: const [
-                          CategorySquare(
-                            catText: 'Medical',
-                            icon: Icons.medical_services_outlined,
-                          ),
-                          SizedBox(
-                            width: 16,
-                          ),
-                          CategorySquare(
-                            catText: 'Legal',
-                            icon: Icons.balance_outlined,
-                          ),
-                        ],
-                      ),
-
-                      const SizedBox(
-                        height: 16,
-                      ),
-
-                      // row 2 of two containers
-                      Row(
-                        children: const [
-                          CategorySquare(
-                            catText: 'Housing',
-                            icon: Icons.house_outlined,
-                          ),
-                          SizedBox(
-                            width: 16,
-                          ),
-                          CategorySquare(
-                            catText: 'Domestic Violence',
-                            icon: Icons.shield_outlined,
-                          ),
-                        ],
-                      ),
-
-                      const SizedBox(
-                        height: 16,
-                      ),
-
-                      // Adding option to see all resources available
-                      GestureDetector(
-                        child: Row(
-                          children: [
-                            Flexible(
-                                fit: FlexFit.tight,
-                                child: Container(
-                                    height: 85.5,
-                                    decoration: const BoxDecoration(
-                                      color: themeColor,
-                                      borderRadius:
-                                          BorderRadius.all(Radius.circular(16)),
-                                    ),
-                                    child: const Padding(
-                                      padding: EdgeInsets.all(16.0),
-                                      child: Text(
-                                        'All Resources',
-                                        style: TextStyle(
-                                            fontSize: 20,
-                                            fontFamily: 'Inter',
-                                            fontWeight: FontWeight.w500,
-                                            color: Colors.black),
-                                      ),
-                                    ))),
-                          ],
-                        ),
-                        onTap: () {
-                          Navigator.pushNamed(context, '/category_name');
-                        },
-                      ),
-
-                      const SizedBox(
-                        height: 16,
-                      )
-                    ]),
+            const Align(
+              alignment: Alignment.centerLeft,
+              child: Text(
+                'Categories',
+                textAlign: TextAlign.left,
+                style: TextStyle(
+                  fontSize: 22,
+                  fontFamily: 'Inter',
+                  fontWeight: FontWeight.w600,
+                  color: Color(0xFF111827),
+                ),
               ),
-              const SizedBox(
-                width: 16,
-              )
-            ])));
+            ),
+
+            const SizedBox(
+              height: 16,
+            ),
+
+            // Adding categories
+            // row 1 of two containers
+            const Row(
+              children: [
+                CategorySquare(
+                    catText: 'Mental Health',
+                    icon: 'medical',
+                    page: "mentalHealthResources"),
+                SizedBox(
+                  width: 16,
+                ),
+                CategorySquare(
+                    catText: 'Prisoner Advocacy',
+                    icon: 'scales',
+                    page: "prisonerAdvocacyResources"),
+              ],
+            ),
+
+            const SizedBox(
+              height: 16,
+            ),
+
+            // row 2 of two containers
+            const Row(
+              children: [
+                CategorySquare(
+                    catText: 'Mutual Aid',
+                    icon: 'house',
+                    page: "mutualAidResources"),
+                SizedBox(
+                  width: 16,
+                ),
+                CategorySquare(
+                    catText: 'Domestic Violence & Sexual Assault',
+                    icon: 'shield',
+                    page: "domesticResources"),
+              ],
+            ),
+
+            const SizedBox(
+              height: 16,
+            ),
+
+            const ResourceNavCard(
+              title: "All Resources",
+              page: "allResources",
+            ),
+
+            const SizedBox(
+              height: 16,
+            ),
+            // Adding option to see all resources available
+            const ResourceNavCard(
+              title: "Donations",
+              page: "donations",
+              urlHost: "www.callblackline.com",
+              urlFragment: "donate",
+              prefixIcon: "donation",
+            ),
+
+            const SizedBox(
+              height: 32,
+            ),
+          ]),
+        )));
   }
 }

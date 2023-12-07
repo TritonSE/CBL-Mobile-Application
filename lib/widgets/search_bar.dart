@@ -13,39 +13,30 @@ class SearchBar extends StatelessWidget {
   Widget build(BuildContext context) {
     final TextEditingController textarea = TextEditingController();
     return Container(
-        height: 40,
-        decoration: BoxDecoration(
-            color: Colors.white,
-            borderRadius:
-                const BorderRadius.all(Radius.circular(16)),
-            border: Border.all(
-                color: primaryVarColor,
-                width: 1,
-            ),
+      decoration: BoxDecoration(
+        borderRadius: const BorderRadius.all(Radius.circular(10)),
+        border: Border.all(
+          color: primaryVarColor,
+          width: 1,
         ),
+      ),
       child: Center(
         // Adds the attribute of typing into the search bar
         child: TextField(
           controller: textarea,
           decoration: InputDecoration(
+            contentPadding: EdgeInsets.symmetric(vertical: 16),
             prefixIcon: IconButton(
-                icon: const Icon(Icons.search),
-                onPressed: (){},
-                color: primaryVarColor,
-            ),
-            suffixIcon: IconButton(
-              icon: const Icon(Icons.cancel, size: 16.0),
-              onPressed: (){
-                textarea.clear();
-                FocusScope.of(context).requestFocus(FocusNode());
-              },
+              icon: const Icon(Icons.search),
+              onPressed: () {},
               color: primaryVarColor,
             ),
-            hintText: 'Search something',
+            hintText: 'Search resources...',
+            hintStyle: TextStyle(fontSize: 17),
             border: InputBorder.none,
           ),
-        )
-      )
+        ),
+      ),
     );
   }
 }

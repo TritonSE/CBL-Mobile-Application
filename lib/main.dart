@@ -1,10 +1,13 @@
+import 'package:call_black_line/pages/all_resources.dart';
 import 'package:call_black_line/pages/create_account.dart';
 import 'package:call_black_line/pages/login.dart';
 
-import 'package:call_black_line/pages/coming_soon_resources.dart';
+import 'package:call_black_line/pages/donation.dart';
 import 'package:call_black_line/pages/have_your_voice_heard.dart';
 import 'package:call_black_line/pages/resources.dart';
+import 'package:call_black_line/pages/search_resources.dart';
 import 'package:call_black_line/pages/seek_help.dart';
+import 'package:call_black_line/pages/use_preexisting_affirmation.dart';
 
 import 'package:flutter/material.dart';
 import 'package:call_black_line/pages/take_action.dart';
@@ -49,9 +52,8 @@ class MyApp extends StatelessWidget {
             ),
             routes: {
               '/': (context) => const SeekHelp(),
-              // '/': (context) => const Donation(),
+              '/donations': (context) => const Donation(),
               '/haveYourVoiceHeard': (context) => const HaveYourVoiceHeard(),
-              // '/': (context) => const CreateAffirmation(),
               '/callTextNow': (context) => const SeekHelp(),
               '/createAccount': (context) => const CreateAccount(),
               '/logIn': (context) => const LogIn(),
@@ -59,7 +61,19 @@ class MyApp extends StatelessWidget {
               '/seekHelp': (context) => const SeekHelp(),
               '/profile': (context) => const Profile(),
               '/resources': (context) => const Resources(),
-              '/comingSoonResources': (context) => const ComingSoonResources(),
+              '/allResources': (context) =>
+                  const AllResources(title: "All Resources"),
+              '/searchResources': (context) => const SearchResources(),
+              '/mentalHealthResources': (context) =>
+                  const AllResources(title: "Mental Health"),
+              '/mutualAidResources': (context) =>
+                  const AllResources(title: "Mutual Aid"),
+              '/prisonerAdvocacyResources': (context) =>
+                  const AllResources(title: "Prisoner Advocacy"),
+              '/domesticResources': (context) => const AllResources(
+                  title: "Domestic Violence & Sexual Assault"),
+              '/allAffirmations': (context) =>
+                  const UsePreexistingAffirmation(),
             }));
   }
 }

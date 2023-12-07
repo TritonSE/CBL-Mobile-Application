@@ -1,0 +1,77 @@
+{
+  "resources": [
+    {
+      "title": "Glimmer",
+      "description": "A digital mental health + wellness space ⏤ for queer + trans folks",
+      "category": "Mental Health",
+      "link": "https://www.weglimmer.com"
+    },
+    {
+      "title": "Alcohol Rehab Guide: African Americans and Alcohol",
+      "description": "Provides information and support tailored to African Americans dealing with alcohol-related issues.",
+      "category": "Mental Health",
+      "link": "https://www.alcoholrehabguide.org/resources/african-americans-alcohol/"
+    },
+    {
+      "title": "Ayana Therapy",
+      "description": "Mental healthcare for marginalized and intersectional communities.",
+      "category": "Mental Health",
+      "link": "https://www.instagram.com/ayana_therapy"
+    },
+    {
+      "title": "Inclusive Therapist",
+      "description": "A safer, simpler way to find care",
+      "category": "Mental Health",
+      "link": "https://www.inclusivetherapists.com/"
+    },
+    {
+      "title": "Therapy for Black Girls",
+      "description": "Therapy for Black Girls is an online space dedicated to encouraging the mental wellness of Black women and girls.",
+      "category": "Mental Health",
+      "link": "https://providers.therapyforblackgirls.com/"
+    },
+    {
+      "title": "National Queer & Trans Therapists of Color Network",
+      "description": "Advancing healing justice by transforming mental health for queer and trans Black, Indigenous and People of Color",
+      "category": "Mental Health",
+      "link": "https://nqttcn.com/en/"
+    },
+    {
+      "title": "Melanin & Mental Health",
+      "description": "Making mental health more accessible and understood to Black & LatinX/Hispanic communities.",
+      "category": "Mental Health",
+      "link": "www.google.com"
+    },
+    {
+      "title": "Prisoner Activist Resource Center (PARC)",
+      "description": "PARC corresponds with and mails a directory of prison advocacy resources to prisoners, their friends and family members",
+      "category": "Prisoner Advocacy",
+      "link": "https://www.prisonactivist.org/resources/regional-advocacy-organizations"
+    },
+    {
+      "title": "Public Defender Ulster County",
+      "description": "The Public Defender's Office provides legal representation to indigent clients in the criminal courts and Family Court in Ulster County",
+      "category": "Prisoner Advocacy",
+      "link": "https://ulstercountyny.gov/public-defender/ulster-county-public-defender"
+    },
+    {
+      "title": "Plume",
+      "description": "Gender-affirming care from home by the largest healthcare provider to the trans and nonbinary community",
+      "category": "Mutual Aid",
+      "link": "https://getplume.co/"
+    },
+    {
+      "title": "Don't Call the Police",
+      "description": "Community-based alternatives to police in your city",
+      "category": "Mutual Aid",
+      "link": "https://dontcallthepolice.com/national/"
+    },
+    {
+      "title": "Woman Organized Against Rape Philadelphia (WOAR)",
+      "description": "WOAR’s Hotline Crisis Counselors provide support, information, referral guidance, and coordinate counseling services.",
+      "category": "Domestic Violence & Sexual Assault",
+      "link": "https://www.woar.org/"
+    }
+    
+  ]
+}
