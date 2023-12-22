@@ -45,25 +45,25 @@
     {
       "title": "Prisoner Activist Resource Center (PARC)",
       "description": "PARC corresponds with and mails a directory of prison advocacy resources to prisoners, their friends and family members",
-      "category": "Prisoner Advocacy",
+      "category": "Legal Advocacy & Advocacy",
       "link": "https://www.prisonactivist.org/resources/regional-advocacy-organizations"
     },
     {
       "title": "Public Defender Ulster County",
       "description": "The Public Defender's Office provides legal representation to indigent clients in the criminal courts and Family Court in Ulster County",
-      "category": "Prisoner Advocacy",
+      "category": "Legal Advocacy & Advocacy",
       "link": "https://ulstercountyny.gov/public-defender/ulster-county-public-defender"
     },
     {
       "title": "Plume",
       "description": "Gender-affirming care from home by the largest healthcare provider to the trans and nonbinary community",
-      "category": "Mutual Aid",
+      "category": "Mutual Aid & Medical Support",
       "link": "https://getplume.co/"
     },
     {
       "title": "Don't Call the Police",
       "description": "Community-based alternatives to police in your city",
-      "category": "Mutual Aid",
+      "category": "Mental Health",
       "link": "https://dontcallthepolice.com/national/"
     },
     {
@@ -72,6 +72,5 @@
       "category": "Domestic Violence & Sexual Assault",
       "link": "https://www.woar.org/"
     }
-    
   ]
 }
