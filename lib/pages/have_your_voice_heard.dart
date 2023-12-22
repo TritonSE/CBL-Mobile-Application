@@ -39,7 +39,12 @@ class _HaveYourVoiceHeardState extends State<HaveYourVoiceHeard> {
           Navigator.pop(context);
         },
       ),
-      bottomNavigationBar: const CustomNavBar(currentPage: 'Resources'),
+      bottomNavigationBar: const CustomNavBar(
+        currentPage: 'Seek Help',
+        resourcesRoute: '/resources',
+        seekHelpRoute: '/seekHelp',
+        profileRoute: '/profile',
+      ),
       body: SingleChildScrollView(
         child: Padding(
           padding: EdgeInsets.symmetric(
