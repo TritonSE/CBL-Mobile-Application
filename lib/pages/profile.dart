@@ -31,6 +31,49 @@ class Profile extends StatelessWidget {
     }
   }
 
+  deleteUser(BuildContext context) async {
+    final User firebaseuser = FirebaseAuth.instance.currentUser!;
+    // Delete Firebase user
+    await firebaseuser.delete();
+    DocumentReference<Map<String, dynamic>> userDoc =
+        FirebaseFirestore.instance.collection('users').doc(firebaseuser.email);
+    // Delete Firestore user document
+    await userDoc.delete();
+  }
+
+  showDeleteAccountDialog(BuildContext context) {
+    Widget cancelButton = TextButton(
+      child: const Text("Cancel"),
+      onPressed: () {
+        Navigator.of(context).pop();
+      },
+    );
+    Widget yesButton = TextButton(
+      child: const Text("Yes"),
+      onPressed: () async {
+        await deleteUser(context);
+        Navigator.of(context).pop();
+      },
+    );
+
+    AlertDialog alert = AlertDialog(
+      title: const Text("Delete account?"),
+      content: const Text(
+          "Are you sure you would like to delete your account? This action cannot be undone."),
+      actions: [
+        cancelButton,
+        yesButton,
+      ],
+    );
+
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return alert;
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     final firebaseuser = context.watch<User?>();
@@ -116,6 +159,30 @@ class Profile extends StatelessWidget {
                   ),
                 )
               ],
+            ),
+            const SizedBox(height: 40),
+            GestureDetector(
+              onTap: () {
+                showDeleteAccountDialog(context);
+              },
+              child: Row(
+                children: [
+                  const Padding(
+                    padding: EdgeInsets.only(right: 8.0),
+                    child:
+                        Icon(Icons.delete_forever, color: Color(CBL.alertRed)),
+                  ),
+                  Text(
+                    'Delete account',
+                    style: TextStyle(
+                        fontSize: 20,
+                        fontFamily: CBL.fontFamily,
+                        fontWeight: CBL.bold,
+                        color: const Color(CBL.alertRed)),
+                    textAlign: TextAlign.left,
+                  ),
+                ],
+              ),
             ),
             const Spacer(),
             Padding(

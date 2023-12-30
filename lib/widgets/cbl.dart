@@ -15,6 +15,7 @@ class CBL {
   static const double orangeOpacity = 1;
   static const int gray = 0xff6C6C6C;
   static const double grayOpacity = 0.55;
+  static const int alertRed = 0xffff4545;
 
   static const int aARGB = 45;
   static const int rARGB = 206;
