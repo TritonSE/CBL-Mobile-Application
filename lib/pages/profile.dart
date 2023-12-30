@@ -151,11 +151,13 @@ class Profile extends StatelessWidget {
                   ),
                   textAlign: TextAlign.left,
                 ),
-                Text(
-                  email ?? '',
-                  style: TextStyle(
-                    fontSize: 20,
-                    fontFamily: CBL.fontFamily,
+                Flexible(
+                  child: Text(
+                    email ?? '',
+                    style: TextStyle(
+                      fontSize: 20,
+                      fontFamily: CBL.fontFamily,
+                    ),
                   ),
                 )
               ],

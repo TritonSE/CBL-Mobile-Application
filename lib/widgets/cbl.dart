@@ -10,7 +10,7 @@ class CBL {
   static int blue = 0xff66A0F5;
   static int textGray = 0xff909090;
   static int veryLightGray = 0xffD8D8D8;
-  static const int white = 0xfffffff;
+  static const int white = 0xffffffff;
   static const int orange = 0xffDF742C;
   static const double orangeOpacity = 1;
   static const int gray = 0xff6C6C6C;

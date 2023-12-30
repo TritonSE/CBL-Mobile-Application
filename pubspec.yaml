@@ -47,6 +47,7 @@ flutter:
     - assets/images/form.jpg
     - assets/images/facebook.png
     - assets/images/google.png
+    - assets/images/apple.png
     - assets/images/text.jpg
     - assets/images/placeholder.png
     - assets/images/seekhelp.png
