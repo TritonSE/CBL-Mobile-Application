@@ -132,7 +132,7 @@ class _HaveYourVoiceHeardState extends State<HaveYourVoiceHeard> {
               TextInputField(
                   aboveText: 'Description',
                   inputText:
-                      'Lorem ipsum dolor sit amet consectetur. Molestie neque faucibus viverra ut nisl nec eleifend.',
+                      'Enter text here...',
                   inputOutlineColor: CBL.primaryOrange,
                   inputTextColor: CBL.lightGray,
                   titleController: _descriptionController,
