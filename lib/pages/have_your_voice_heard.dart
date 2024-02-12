@@ -39,7 +39,12 @@ class _HaveYourVoiceHeardState extends State<HaveYourVoiceHeard> {
           Navigator.pop(context);
         },
       ),
-      bottomNavigationBar: const CustomNavBar(currentPage: 'Resources'),
+      bottomNavigationBar: const CustomNavBar(
+        currentPage: 'Seek Help',
+        resourcesRoute: '/resources',
+        seekHelpRoute: '/seekHelp',
+        profileRoute: '/profile',
+      ),
       body: SingleChildScrollView(
         child: Padding(
           padding: EdgeInsets.symmetric(
@@ -127,7 +132,7 @@ class _HaveYourVoiceHeardState extends State<HaveYourVoiceHeard> {
               TextInputField(
                   aboveText: 'Description',
                   inputText:
-                      'Lorem ipsum dolor sit amet consectetur. Molestie neque faucibus viverra ut nisl nec eleifend.',
+                      'Enter text here...',
                   inputOutlineColor: CBL.primaryOrange,
                   inputTextColor: CBL.lightGray,
                   titleController: _descriptionController,

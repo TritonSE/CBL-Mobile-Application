@@ -83,4 +83,16 @@ class AuthenticationService {
       return null;
     }
   }
+
+  Future<UserCredential?> signInWithApple() async {
+    try {
+      final appleProvider = AppleAuthProvider()
+        ..addScope('email')
+        ..addScope('name');
+      return await FirebaseAuth.instance.signInWithProvider(appleProvider);
+    } catch (e) {
+      // Handle the error, e.g., by showing an error message to the user
+      return null;
+    }
+  }
 }

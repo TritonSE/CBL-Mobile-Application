@@ -70,9 +70,9 @@ class MyApp extends StatelessWidget {
               '/mentalHealthResources': (context) =>
                   const AllResources(title: "Mental Health"),
               '/mutualAidResources': (context) =>
-                  const AllResources(title: "Mutual Aid"),
+                  const AllResources(title: "Mutual Aid & Medical Support"),
               '/prisonerAdvocacyResources': (context) =>
-                  const AllResources(title: "Prisoner Advocacy"),
+                  const AllResources(title: "Legal Advocacy & Advocacy"),
               '/domesticResources': (context) => const AllResources(
                   title: "Domestic Violence & Sexual Assault"),
               '/allAffirmations': (context) =>

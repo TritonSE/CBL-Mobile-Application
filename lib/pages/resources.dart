@@ -117,7 +117,7 @@ class Resources extends StatelessWidget {
                   width: 16,
                 ),
                 CategorySquare(
-                    catText: 'Prisoner Advocacy',
+                    catText: 'Legal Advocacy & Advocacy',
                     icon: 'scales',
                     page: "prisonerAdvocacyResources"),
               ],
@@ -131,7 +131,7 @@ class Resources extends StatelessWidget {
             const Row(
               children: [
                 CategorySquare(
-                    catText: 'Mutual Aid',
+                    catText: 'Mutual Aid & Medical Support',
                     icon: 'house',
                     page: "mutualAidResources"),
                 SizedBox(

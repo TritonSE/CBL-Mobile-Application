@@ -7,7 +7,7 @@ import '../widgets/cbl.dart';
 import '../widgets/custom_navbar.dart';
 import '../widgets/header.dart';
 import '../widgets/round_button.dart';
-import '../widgets/supportCard.dart';
+import '../widgets/support_card.dart';
 
 class SeekHelp extends StatefulWidget {
   const SeekHelp({super.key});

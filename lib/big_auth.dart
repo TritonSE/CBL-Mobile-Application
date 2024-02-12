@@ -102,20 +102,38 @@ class SignUpUtils {
     }
   }
 
-  Future<Object> deleteAccount(BuildContext context, String id) async {
+  Future<Object> signUpApple(BuildContext context) async {
     try {
-      int result = context
-          .read<AuthenticationService>()
-          .signIn(email: "shreya112358@gmail.com", password: "7654321") as int;
+      UserRepository userRepository = UserRepository();
+      UserCredential? result =
+          await context.read<AuthenticationService>().signInWithApple();
 
-      if (result == 400) {
-        userRepository.deleteUser(id);
+      if (result == null) {
+        return 0;
+      } else {
+        //get the current user's uid
+        final User firebaseuser = FirebaseAuth.instance.currentUser!;
+        String uid = firebaseuser.email!;
+
+        // Check if the user is new or existing
+        bool isNewUser = result.additionalUserInfo!.isNewUser;
+
+        if (isNewUser) {
+          // This means a new account was created
+          // Add the user to the database
+          UserData user = UserData(
+              username: firebaseuser.email!.split("@")[0],
+              phoneNumber: "0000000000",
+              email: firebaseuser.email!);
+
+          userRepository.addUser(user, uid);
+        }
+
         return 400;
       }
     } catch (e) {
       return {'status': 'ERROR', 'message': e.toString()};
     }
-    return 400;
   }
 }
 
